@@ -1,6 +1,6 @@
 [package]
 name = "html-tags"
-version = "0.0.2"
+version = "0.0.3"
 edition = "2021"
 repository = "https://github.com/TheBotlyNoob/html-tags"
 description = "An automated list of HTML tags with their attributes and values"

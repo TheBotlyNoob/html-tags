@@ -6,6 +6,7 @@ extern crate alloc;
 /// The <strong><code>&lt;html&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents the root (top-level element) of an HTML document, so it is also referred to as the <em>root element</em>. All other elements must be descendants of this element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Html<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -108,6 +109,7 @@ pub struct Html<'life> {
 /// A document's used base URL can be accessed by scripts with <a href="/en-US/docs/Web/API/Node/baseURI"><code>Node.baseURI</code></a>. If the document has no <code>&lt;base&gt;</code> elements, then <code>baseURI</code> defaults to <a href="/en-US/docs/Web/API/Location/href"><code>location.href</code></a>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Base<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -210,6 +212,7 @@ pub struct Base<'life> {
 /// The <strong><code>&lt;head&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element contains machine-readable information (<a href="/en-US/docs/Glossary/Metadata">metadata</a>) about the document, like its <a href="/en-US/docs/Web/HTML/Element/title">title</a>, <a href="/en-US/docs/Web/HTML/Element/script">scripts</a>, and <a href="/en-US/docs/Web/HTML/Element/style">style sheets</a>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Head<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -305,6 +308,7 @@ pub struct Head<'life> {
 ///
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Link<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -340,7 +344,7 @@ pub struct Link<'life> {
     ///           <td>fetch</td>
     ///           <td>
     ///             <p>fetch, XHR</p>
-    ///             <div class="notecard note" id="sect1">
+    ///             <div id="sect1" class="notecard note">
     ///               <p>
     ///                 <strong>Note:</strong> This value also requires
     ///                 <code>&lt;link&gt;</code> to contain the crossorigin attribute.
@@ -525,7 +529,7 @@ pub struct Link<'life> {
     ///     <p>
     ///       This attribute indicates the language of the linked resource.
     ///       It is purely advisory.
-    ///       Allowed values are specified by <a href="https://datatracker.ietf.org/doc/html/rfc5646" class="external" target="_blank">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Allowed values are specified by <a target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5646" class="external">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -539,7 +543,7 @@ pub struct Link<'life> {
     ///   
     pub imagesizes: core::option::Option<&'life str>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesrcset: core::option::Option<&'life str>,
     ///
@@ -567,7 +571,7 @@ pub struct Link<'life> {
     ///       This attribute specifies the media that the linked resource applies to. Its value must be a media type / <a href="/en-US/docs/Web/CSS/Media_Queries">media query</a>.
     ///       This attribute is mainly useful when linking to external stylesheets — it allows the user agent to pick the best adapted one for the device it runs on.
     ///     </p>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>
@@ -617,7 +621,7 @@ pub struct Link<'life> {
     ///       <li><code>any</code>, meaning that the icon can be scaled to any size as it is in a vector format, like <code>image/svg+xml</code>.</li>
     ///       <li>a white-space separated list of sizes, each in the format <code>&lt;width in pixels&gt;x&lt;height in pixels&gt;</code> or <code>&lt;width in pixels&gt;X&lt;height in pixels&gt;</code>. Each of these sizes must be contained in the resource.</li>
     ///     </ul>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p>
     ///         <strong>Note:</strong> Most icon formats are only able to store one single icon; therefore, most of the time, the <a href="#sizes"><code>sizes</code></a> attribute contains only one entry.
     ///         MS's ICO format does, as well as Apple's ICNS. ICO is more ubiquitous, so you should use this format if cross-browser support is a concern (especially for old IE versions).
@@ -647,6 +651,7 @@ pub struct Link<'life> {
 /// The type of metadata provided by the <code>&lt;meta&gt;</code> element can be one of the following:
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Meta<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -753,9 +758,9 @@ pub struct Meta<'life> {
     ///           <ul>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.2_%E2%80%94_enough_time_provide_users_enough_time_to_read_and_use_content">MDN Understanding WCAG, Guideline 2.1 explanations</a></li>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.2_%E2%80%94_predictable_make_web_pages_appear_and_operate_in_predictable_ways">MDN Understanding WCAG, Guideline 3.1 explanations</a></li>
-    ///             <li><a target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html" class="external">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html" class="external" target="_blank">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html" class="external">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html" class="external" target="_blank">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html" target="_blank">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html" target="_blank">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
     ///           </ul>
     ///         </div>
     ///       </li>
@@ -787,6 +792,7 @@ pub struct Meta<'life> {
 /// The <strong><code>&lt;style&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element contains style information for a document, or part of a document. It contains CSS, which is applied to the contents of the document containing the <code>&lt;style&gt;</code> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Style<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -894,6 +900,7 @@ pub struct Style<'life> {
 /// The <strong><code>&lt;title&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines the document's title that is shown in a <a href="/en-US/docs/Glossary/Browser">browser</a>'s title bar or a page's tab. It only contains text; tags within the element are ignored.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Title<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -982,6 +989,7 @@ pub struct Title<'life> {
 /// The <strong><code>&lt;body&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents the content of an HTML document. There can be only one <code>&lt;body&gt;</code> element in a document.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Body<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -1212,6 +1220,7 @@ pub struct Body<'life> {
 /// The <strong><code>&lt;address&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Address<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -1300,6 +1309,7 @@ pub struct Address<'life> {
 /// The <strong><code>&lt;article&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Article<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -1388,6 +1398,7 @@ pub struct Article<'life> {
 /// The <strong><code>&lt;aside&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Aside<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -1476,6 +1487,7 @@ pub struct Aside<'life> {
 /// The <strong><code>&lt;footer&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a footer for its nearest ancestor <a href="/en-US/docs/Web/HTML/Content_categories#sectioning_content">sectioning content</a> or <a href="/en-US/docs/Web/HTML/Element/Heading_Elements#sectioning_root">sectioning root</a> element. A <code>&lt;footer&gt;</code> typically contains information about the author of the section, copyright data or links to related documents.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Footer<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -1564,6 +1576,7 @@ pub struct Footer<'life> {
 /// The <strong><code>&lt;header&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Header<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -1652,6 +1665,7 @@ pub struct Header<'life> {
 /// The <strong><code>&lt;hgroup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a heading and related content. It groups a single <a href="/en-US/docs/Web/HTML/Element/Heading_Elements"><code>&lt;h1&gt;–&lt;h6&gt;</code></a> element with one or more <a href="/en-US/docs/Web/HTML/Element/p"><code>&lt;p&gt;</code></a>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Hgroup<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -1740,6 +1754,7 @@ pub struct Hgroup<'life> {
 /// The <strong><code>&lt;main&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents the dominant content of the <a href="/en-US/docs/Web/HTML/Element/body"><code>&lt;body&gt;</code></a> of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Main<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -1828,6 +1843,7 @@ pub struct Main<'life> {
 /// The <strong><code>&lt;nav&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Nav<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -1916,6 +1932,7 @@ pub struct Nav<'life> {
 /// The <strong><code>&lt;section&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Section<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -2004,6 +2021,7 @@ pub struct Section<'life> {
 /// The <strong><code>&lt;blockquote&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation (see <a href="#usage_notes">Notes</a> for how to change it). A URL for the source of the quotation may be given using the <code>cite</code> attribute, while a text representation of the source can be given using the <a href="/en-US/docs/Web/HTML/Element/cite"><code>&lt;cite&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Blockquote<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -2096,6 +2114,7 @@ pub struct Blockquote<'life> {
 /// The <strong><code>&lt;dd&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element provides the description, definition, or value for the preceding term (<a href="/en-US/docs/Web/HTML/Element/dt"><code>&lt;dt&gt;</code></a>) in a description list (<a href="/en-US/docs/Web/HTML/Element/dl"><code>&lt;dl&gt;</code></a>).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Dd<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -2188,6 +2207,7 @@ pub struct Dd<'life> {
 /// The <strong><code>&lt;div&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is the generic container for flow content. It has no effect on the content or layout until styled in some way using <a href="/en-US/docs/Glossary/CSS">CSS</a> (e.g. styling is directly applied to it, or some kind of layout model like <a href="/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout">Flexbox</a> is applied to its parent element).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Div<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -2276,6 +2296,7 @@ pub struct Div<'life> {
 /// The <strong><code>&lt;dl&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a description list. The element encloses a list of groups of terms (specified using the <a href="/en-US/docs/Web/HTML/Element/dt"><code>&lt;dt&gt;</code></a> element) and descriptions (provided by <a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Dl<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -2366,6 +2387,7 @@ pub struct Dl<'life> {
 /// The subsequent <a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> (<strong>Description Details</strong>) element provides the definition or other related text associated with the term specified using <code>&lt;dt&gt;</code>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Dt<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -2454,6 +2476,7 @@ pub struct Dt<'life> {
 /// The <strong><code>&lt;figcaption&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a caption or legend describing the rest of the contents of its parent <a href="/en-US/docs/Web/HTML/Element/figure"><code>&lt;figure&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Figcaption<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -2542,6 +2565,7 @@ pub struct Figcaption<'life> {
 /// The <strong><code>&lt;figure&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents self-contained content, potentially with an optional caption, which is specified using the <a href="/en-US/docs/Web/HTML/Element/figcaption"><code>&lt;figcaption&gt;</code></a> element. The figure, its caption, and its contents are referenced as a single unit.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Figure<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -2630,6 +2654,7 @@ pub struct Figure<'life> {
 /// The <strong><code>&lt;hr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Hr<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -2738,6 +2763,7 @@ pub struct Hr<'life> {
 /// The <strong><code>&lt;li&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to represent an item in a list. It must be contained in a parent element: an ordered list (<a href="/en-US/docs/Web/HTML/Element/ol"><code>&lt;ol&gt;</code></a>), an unordered list (<a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>), or a menu (<a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a>). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Li<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -2832,7 +2858,7 @@ pub struct Li<'life> {
     ///       <li><code>1</code>: numbers</li>
     ///     </ul>
     ///     <p>This type overrides the one used by its parent <a href="/en-US/docs/Web/HTML/Element/ol"><code>&lt;ol&gt;</code></a> element, if any.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> This attribute has been deprecated; use the CSS <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
@@ -2845,6 +2871,7 @@ pub struct Li<'life> {
 /// The <strong><code>&lt;menu&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is described in the HTML specification as a semantic alternative to <a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>, but treated by browsers (and exposed through the accessibility tree) as no different than <a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>. It represents an unordered list of items (which are represented by <a href="/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a> elements).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Menu<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -2933,6 +2960,7 @@ pub struct Menu<'life> {
 /// The <strong><code>&lt;ol&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents an ordered list of items — typically rendered as a numbered list.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Ol<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -3046,6 +3074,7 @@ pub struct Ol<'life> {
 /// Paragraphs are <a href="/en-US/docs/Web/HTML/Block-level_elements">block-level elements</a>, and notably will automatically close if another block-level element is parsed before the closing <code>&lt;/p&gt;</code> tag. See "Tag omission" below.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct P<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -3131,9 +3160,10 @@ pub struct P<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
 }
-/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a href="https://en.wikipedia.org/wiki/Monospaced_font" target="_blank" class="external">monospaced</a>, font. Whitespace inside this element is displayed as written.
+/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a target="_blank" class="external" href="https://en.wikipedia.org/wiki/Monospaced_font">monospaced</a>, font. Whitespace inside this element is displayed as written.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Pre<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -3234,6 +3264,7 @@ pub struct Pre<'life> {
 /// The <strong><code>&lt;ul&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents an unordered list of items, typically rendered as a bulleted list.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Ul<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -3258,7 +3289,7 @@ pub struct Ul<'life> {
     pub class: core::option::Option<&'life str>,
     ///
     ///     <p>This Boolean attribute hints that the list should be rendered in a compact style. The interpretation of this attribute depends on the <a href="/en-US/docs/Glossary/User_agent">user agent</a>, and it doesn't work in all browsers.</p>
-    ///     <div id="sect1" class="notecard warning">
+    ///     <div class="notecard warning" id="sect1">
     ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated: use <a href="/en-US/docs/Web/CSS">CSS</a> instead. To give a similar effect as the <code>compact</code> attribute, the CSS property <a href="/en-US/docs/Web/CSS/line-height"><code>line-height</code></a> can be used with a value of <code>80%</code>.</p>
     ///     </div>
     ///   
@@ -3334,7 +3365,7 @@ pub struct Ul<'life> {
     ///     </ul>
     ///     <p>A fourth bullet type has been defined in the WebTV interface, but not all browsers support it: <code>triangle</code>.</p>
     ///     <p>If not present and if no <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property applies to the element, the user agent selects a bullet type depending on the nesting level of the list.</p>
-    ///     <div id="sect2" class="notecard warning">
+    ///     <div class="notecard warning" id="sect2">
     ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated; use the <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
@@ -3345,6 +3376,7 @@ pub struct Ul<'life> {
 /// Content within each <code>&lt;a&gt;</code> <em>should</em> indicate the link's destination. If the <code>href</code> attribute is present, pressing the enter key while focused on the <code>&lt;a&gt;</code> element will activate it.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct A<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -3405,7 +3437,7 @@ pub struct A<'life> {
     ///       </li>
     ///       <li><code>filename</code>: defining a value suggests it as the filename. <code>/</code> and <code>\</code> characters are converted to underscores (<code>_</code>). Filesystems may forbid other characters in filenames, so browsers will adjust the suggested name if necessary.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li><code>download</code> only works for <a href="/en-US/docs/Web/Security/Same-origin_policy">same-origin URLs</a>, or the <code>blob:</code> and <code>data:</code> schemes.</li>
@@ -3519,6 +3551,7 @@ pub struct A<'life> {
 /// The optional <a href="/en-US/docs/Web/HTML/Global_attributes#title"><code>title</code></a> attribute can provide an expansion for the abbreviation or acronym when a full expansion is not present. This provides a hint to user agents on how to announce/display the content while informing all users what the abbreviation means. If present, <code>title</code> must contain this full description and nothing else.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Abbr<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -3607,6 +3640,7 @@ pub struct Abbr<'life> {
 /// The <strong><code>&lt;b&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use <code>&lt;b&gt;</code> for styling text or granting importance. If you wish to create boldface text, you should use the CSS <a href="/en-US/docs/Web/CSS/font-weight"><code>font-weight</code></a> property. If you wish to indicate an element is of special importance, you should use the <a href="/en-US/docs/Web/HTML/Element/strong"><code>&lt;strong&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct B<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -3695,6 +3729,7 @@ pub struct B<'life> {
 /// The <strong><code>&lt;bdi&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text. It's particularly useful when a website dynamically inserts some text and doesn't know the directionality of the text being inserted.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Bdi<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -3783,6 +3818,7 @@ pub struct Bdi<'life> {
 /// The <strong><code>&lt;bdo&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element overrides the current directionality of text, so that the text within is rendered in a different direction.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Bdo<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -3870,6 +3906,7 @@ pub struct Bdo<'life> {
 /// The <strong><code>&lt;br&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Br<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -3962,6 +3999,7 @@ pub struct Br<'life> {
 /// The <strong><code>&lt;cite&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to mark up the title of a cited creative work. The reference may be in an abbreviated form according to context-appropriate conventions related to citation metadata.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Cite<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -4050,6 +4088,7 @@ pub struct Cite<'life> {
 /// The <strong><code>&lt;code&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element displays its contents styled in a fashion intended to indicate that the text is a short fragment of computer code. By default, the content text is displayed using the <a href="/en-US/docs/Glossary/User_agent">user agent's</a> default monospace font.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Code<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -4138,6 +4177,7 @@ pub struct Code<'life> {
 /// The <strong><code>&lt;data&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element links a given piece of content with a machine-readable translation. If the content is time- or date-related, the <a href="/en-US/docs/Web/HTML/Element/time"><code>&lt;time&gt;</code></a> element must be used.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Data<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -4230,6 +4270,7 @@ pub struct Data<'life> {
 /// The <strong><code>&lt;dfn&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor <a href="/en-US/docs/Web/HTML/Element/p"><code>&lt;p&gt;</code></a> element, the <a href="/en-US/docs/Web/HTML/Element/dt"><code>&lt;dt&gt;</code></a>/<a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> pairing, or the nearest <a href="/en-US/docs/Web/HTML/Element/section"><code>&lt;section&gt;</code></a> ancestor of the <code>&lt;dfn&gt;</code> element, is considered to be the definition of the term.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Dfn<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -4318,6 +4359,7 @@ pub struct Dfn<'life> {
 /// The <strong><code>&lt;em&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element marks text that has stress emphasis. The <code>&lt;em&gt;</code> element can be nested, with each level of nesting indicating a greater degree of emphasis.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Em<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -4406,6 +4448,7 @@ pub struct Em<'life> {
 /// The <strong><code>&lt;i&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a range of text that is set off from the normal text for some reason, such as idiomatic text, technical terms, taxonomical designations, among others. Historically, these have been presented using italicized type, which is the original source of the <code>&lt;i&gt;</code> naming of this element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct I<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -4494,6 +4537,7 @@ pub struct I<'life> {
 /// The <strong><code>&lt;kbd&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device. By convention, the <a href="/en-US/docs/Glossary/User_agent">user agent</a> defaults to rendering the contents of a <code>&lt;kbd&gt;</code> element using its default monospace font, although this is not mandated by the HTML standard.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Kbd<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -4582,6 +4626,7 @@ pub struct Kbd<'life> {
 /// The <strong><code>&lt;mark&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents text which is <strong>marked</strong> or <strong>highlighted</strong> for reference or notation purposes due to the marked passage's relevance in the enclosing context.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Mark<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -4670,6 +4715,7 @@ pub struct Mark<'life> {
 /// The <strong><code>&lt;q&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the <a href="/en-US/docs/Web/HTML/Element/blockquote"><code>&lt;blockquote&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Q<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -4762,6 +4808,7 @@ pub struct Q<'life> {
 /// The <strong><code>&lt;rp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to provide fall-back parentheses for browsers that do not support display of ruby annotations using the <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. One <code>&lt;rp&gt;</code> element should enclose each of the opening and closing parentheses that wrap the <a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a> element that contains the annotation's text.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Rp<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -4850,6 +4897,7 @@ pub struct Rp<'life> {
 /// The <strong><code>&lt;rt&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The <code>&lt;rt&gt;</code> element must always be contained within a <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Rt<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -4937,9 +4985,10 @@ pub struct Rt<'life> {
 }
 /// The <strong><code>&lt;ruby&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
 ///
-/// The term <em>ruby</em> originated as <a target="_blank" class="external" href="https://en.wikipedia.org/wiki/Agate_(typography)">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
+/// The term <em>ruby</em> originated as <a target="_blank" href="https://en.wikipedia.org/wiki/Agate_(typography)" class="external">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Ruby<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -5028,6 +5077,7 @@ pub struct Ruby<'life> {
 /// The <strong><code>&lt;s&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element renders text with a strikethrough, or a line through it. Use the <code>&lt;s&gt;</code> element to represent things that are no longer relevant or no longer accurate. However, <code>&lt;s&gt;</code> is not appropriate when indicating document edits; for that, use the <a href="/en-US/docs/Web/HTML/Element/del"><code>&lt;del&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/ins"><code>&lt;ins&gt;</code></a> elements, as appropriate.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct S<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -5113,9 +5163,10 @@ pub struct S<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
 }
-/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Courier_(typeface)">Courier</a> or Lucida Console).
+/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a href="https://en.wikipedia.org/wiki/Courier_(typeface)" class="external" target="_blank">Courier</a> or Lucida Console).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Samp<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -5204,6 +5255,7 @@ pub struct Samp<'life> {
 /// The <strong><code>&lt;small&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents side-comments and small print, like copyright and legal text, independent of its styled presentation. By default, it renders text within it one font-size smaller, such as from <code>small</code> to <code>x-small</code>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Small<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -5292,6 +5344,7 @@ pub struct Small<'life> {
 /// The <strong><code>&lt;span&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the <a href="/en-US/docs/Web/HTML/Global_attributes#class"><code>class</code></a> or <a href="/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a> attributes), or because they share attribute values, such as <a href="/en-US/docs/Web/HTML/Global_attributes#lang"><code>lang</code></a>. It should be used only when no other semantic element is appropriate. <code>&lt;span&gt;</code> is very much like a <a href="/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> element, but <a href="/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> is a <a href="/en-US/docs/Web/HTML/Block-level_elements">block-level element</a> whereas a <code>&lt;span&gt;</code> is an <a href="/en-US/docs/Web/HTML/Inline_elements">inline element</a>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Span<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -5380,6 +5433,7 @@ pub struct Span<'life> {
 /// The <strong><code>&lt;strong&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Strong<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -5468,6 +5522,7 @@ pub struct Strong<'life> {
 /// The <strong><code>&lt;sub&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies inline text which should be displayed as subscript for solely typographical reasons. Subscripts are typically rendered with a lowered baseline using smaller text.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Sub<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -5556,6 +5611,7 @@ pub struct Sub<'life> {
 /// The <strong><code>&lt;sup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies inline text which is to be displayed as superscript for solely typographical reasons. Superscripts are usually rendered with a raised baseline using smaller text.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Sup<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -5646,6 +5702,7 @@ pub struct Sup<'life> {
 /// It may represent one of the following:
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Time<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -5738,6 +5795,7 @@ pub struct Time<'life> {
 /// The <strong><code>&lt;u&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a simple solid underline, but may be altered using CSS.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct U<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -5826,6 +5884,7 @@ pub struct U<'life> {
 /// The <strong><code>&lt;var&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents the name of a variable in a mathematical expression or a programming context. It's typically presented using an italicized version of the current typeface, although that behavior is browser-dependent.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Var<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -5914,6 +5973,7 @@ pub struct Var<'life> {
 /// The <strong><code>&lt;wbr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a word break opportunity—a position within text where the browser may optionally break a line, though its line-breaking rules would not otherwise create a break at that location.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Wbr<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -6004,6 +6064,7 @@ pub struct Wbr<'life> {
 /// This element is used only within a <a href="/en-US/docs/Web/HTML/Element/map"><code>&lt;map&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Area<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -6196,7 +6257,7 @@ pub struct Area<'life> {
     ///       </li>
     ///     </ul>
     ///     <p>Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Setting <code>target="_blank"</code> on <code>&lt;area&gt;</code> elements implicitly provides the same <code>rel</code> behavior as setting <a href="/en-US/docs/Web/HTML/Attributes/rel/noopener"><code>rel="noopener"</code></a> which does not set <code>window.opener</code>. See <a href="#browser_compatibility">browser compatibility</a> for support status.</p>
     ///     </div>
     ///   
@@ -6205,6 +6266,7 @@ pub struct Area<'life> {
 /// The <strong><code>&lt;audio&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to embed sound content in documents. It may contain one or more audio sources, represented using the <code>src</code> attribute or the <a href="/en-US/docs/Web/HTML/Element/source"><code>&lt;source&gt;</code></a> element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a <a href="/en-US/docs/Web/API/MediaStream"><code>MediaStream</code></a>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Audio<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -6251,7 +6313,7 @@ pub struct Audio<'life> {
     ///   
     pub controls: core::option::Option<&'life str>,
     ///
-    ///     <p>The <a href="https://wicg.github.io/controls-list/explainer.html" target="_blank" class="external"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
+    ///     <p>The <a class="external" target="_blank" href="https://wicg.github.io/controls-list/explainer.html"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
     ///     <p>The allowed values are <code>nodownload</code>, <code>nofullscreen</code> and <code>noremoteplayback</code>.</p>
     ///   
     pub controlslist: core::option::Option<&'life str>,
@@ -6285,9 +6347,9 @@ pub struct Audio<'life> {
     ///   
     pub dir: core::option::Option<&'life str>,
     ///
-    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a class="external" href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute" target="_blank">this proposed specification</a> for more information.</p>
+    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute" class="external" target="_blank">this proposed specification</a> for more information.</p>
     ///     <div class="notecard note" id="sect2">
-    ///       <p><strong>Note:</strong> In Safari, you can use <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" class="external" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///       <p><strong>Note:</strong> In Safari, you can use <a target="_blank" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" class="external"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///     </div>
     ///   
     pub disableremoteplayback: core::option::Option<&'life str>,
@@ -6361,13 +6423,14 @@ pub struct Audio<'life> {
 /// The <strong><code>&lt;img&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embeds an image into the document.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Img<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
     pub accesskey: core::option::Option<&'life str>,
     ///
     ///     <p>Defines an alternative text description of the image.</p>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong> Browsers do not always display images. There are a number of situations in which a browser might not display images, such as:</p>
     ///       <ul>
     ///         <li>Non-visual browsers (such as those used by people with visual impairments)</li>
@@ -6418,7 +6481,7 @@ pub struct Img<'life> {
     ///     <dl>
     ///       <dt id="anonymous"><code>anonymous</code></dt>
     ///       <dd>
-    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a href="https://datatracker.ietf.org/doc/html/rfc5280" class="external" target="_blank">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
+    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a href="https://datatracker.ietf.org/doc/html/rfc5280" target="_blank" class="external">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
     ///       </dd>
     ///       <dt id="use-credentials"><code>use-credentials</code></dt>
     ///       <dd>
@@ -6526,7 +6589,7 @@ pub struct Img<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
     ///
-    ///     <p>This Boolean attribute indicates that the image is part of a <a class="external" href="https://en.wikipedia.org/wiki/Image_map#Server-side" target="_blank">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
+    ///     <p>This Boolean attribute indicates that the image is part of a <a href="https://en.wikipedia.org/wiki/Image_map#Server-side" class="external" target="_blank">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
     ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is allowed only if the <code>&lt;img&gt;</code> element is a descendant of an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> element with a valid <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute. This gives users without pointing devices a fallback destination.</p>
     ///     </div>
@@ -6596,7 +6659,7 @@ pub struct Img<'life> {
     pub srcset: core::option::Option<&'life str>,
     ///
     ///     <p>The partial <a href="/en-US/docs/Glossary/URL">URL</a> (starting with <code>#</code>) of an <a href="/en-US/docs/Web/HTML/Element/map">image map</a> associated with the element.</p>
-    ///     <div class="notecard note" id="sect6">
+    ///     <div id="sect6" class="notecard note">
     ///       <p><strong>Note:</strong> You cannot use this attribute if the <code>&lt;img&gt;</code> element is inside an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> element.</p>
     ///     </div>
     ///   
@@ -6609,6 +6672,7 @@ pub struct Img<'life> {
 /// The <strong><code>&lt;map&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used with <a href="/en-US/docs/Web/HTML/Element/area"><code>&lt;area&gt;</code></a> elements to define an image map (a clickable link area).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Map<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -6701,6 +6765,7 @@ pub struct Map<'life> {
 /// The <strong><code>&lt;track&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used as a child of the media elements, <a href="/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a>. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in <a href="/en-US/docs/Web/API/WebVTT_API">WebVTT format</a> (<code>.vtt</code> files) — Web Video Text Tracks.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Track<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -6840,6 +6905,7 @@ pub struct Track<'life> {
 /// The <strong><code>&lt;video&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embeds a media player which supports video playback into the document. You can use <code>&lt;video&gt;</code> for audio content as well, but the <a href="/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> element may provide a more appropriate user experience.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Video<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -6864,7 +6930,7 @@ pub struct Video<'life> {
     pub autopictureinpicture: core::option::Option<&'life str>,
     ///
     ///     <p>A Boolean attribute; if specified, the video automatically begins to play back as soon as it can do so without stopping to finish loading the data.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Sites that automatically play audio (or videos with an audio track) can be an unpleasant experience for users, so should be avoided when possible. If you must offer autoplay functionality, you should make it opt-in (requiring a user to specifically enable it). However, this can be useful when creating media elements whose source will be set at a later time, under user control. See our <a href="/en-US/docs/Web/Media/Autoplay_guide">autoplay guide</a> for additional information about how to properly use autoplay.</p>
     ///     </div>
     ///     <p>To disable video autoplay, <code>autoplay="false"</code> will not work; the video will autoplay if the attribute is there in the <code>&lt;video&gt;</code> tag at all. To remove autoplay, the attribute needs to be removed altogether.</p>
@@ -6892,7 +6958,7 @@ pub struct Video<'life> {
     ///   
     pub controls: core::option::Option<&'life str>,
     ///
-    ///     <p>The <a href="https://wicg.github.io/controls-list/explainer.html" class="external" target="_blank"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>video</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
+    ///     <p>The <a target="_blank" href="https://wicg.github.io/controls-list/explainer.html" class="external"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>video</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
     ///     <p>The allowed values are <code>nodownload</code>, <code>nofullscreen</code> and <code>noremoteplayback</code>.</p>
     ///     <p>Use the <a href="#disablepictureinpicture"><code>disablepictureinpicture</code></a> attribute if you want to disable the Picture-In-Picture mode (and the control).</p>
     ///   
@@ -6932,7 +6998,7 @@ pub struct Video<'life> {
     pub disablepictureinpicture: core::option::Option<&'life str>,
     ///
     ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.).</p>
-    ///     <p>In Safari, you can use <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" class="external" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <p>In Safari, you can use <a class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///   
     pub disableremoteplayback: core::option::Option<&'life str>,
     ///
@@ -6952,7 +7018,7 @@ pub struct Video<'life> {
     ///   
     pub exportparts: core::option::Option<&'life str>,
     ///
-    ///     <p>The height of the video's display area, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a> (absolute values only; <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">no percentages</a>).</p>
+    ///     <p>The height of the video's display area, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
     ///   
     pub height: core::option::Option<&'life str>,
     ///
@@ -7014,13 +7080,14 @@ pub struct Video<'life> {
     ///   
     pub src: core::option::Option<&'life str>,
     ///
-    ///     <p>The width of the video's display area, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
+    ///     <p>The width of the video's display area, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a> (absolute values only; <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">no percentages</a>).</p>
     ///   
     pub width: core::option::Option<&'life str>,
 }
 /// The <strong><code>&lt;embed&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Embed<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -7086,7 +7153,7 @@ pub struct Embed<'life> {
     ///   
     pub exportparts: core::option::Option<&'life str>,
     ///
-    ///     <p>The displayed height of the resource, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed height of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub height: core::option::Option<&'life str>,
     ///
@@ -7118,13 +7185,14 @@ pub struct Embed<'life> {
     ///   
     pub type_: core::option::Option<&'life str>,
     ///
-    ///     <p>The displayed width of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed width of the resource, in <a target="_blank" href="https://drafts.csswg.org/css-values/#px" class="external">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub width: core::option::Option<&'life str>,
 }
 /// The <strong><code>&lt;iframe&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a nested <a href="/en-US/docs/Glossary/Browsing_context">browsing context</a>, embedding another HTML page into the current one.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Iframe<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -7137,15 +7205,15 @@ pub struct Iframe<'life> {
     ///   
     pub allow: core::option::Option<&'life str>,
     ///
-    ///     <p>Set to <code>true</code> if the <code>&lt;iframe&gt;</code> can activate fullscreen mode by calling the <a href="/en-US/docs/Web/API/Element/requestFullscreen" title="requestFullscreen()"><code>requestFullscreen()</code></a> method.</p>
-    ///     <div class="notecard note" id="sect3">
+    ///     <p>Set to <code>true</code> if the <code>&lt;iframe&gt;</code> can activate fullscreen mode by calling the <a title="requestFullscreen()" href="/en-US/docs/Web/API/Element/requestFullscreen"><code>requestFullscreen()</code></a> method.</p>
+    ///     <div id="sect3" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute is considered a legacy attribute and redefined as <code>allow="fullscreen"</code>.</p>
     ///     </div>
     ///   
     pub allowfullscreen: core::option::Option<&'life str>,
     ///
     ///     <p>Set to <code>true</code> if a cross-origin <code>&lt;iframe&gt;</code> should be allowed to invoke the <a href="/en-US/docs/Web/API/Payment_Request_API">Payment Request API</a>.</p>
-    ///     <div class="notecard note" id="sect4">
+    ///     <div id="sect4" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute is considered a legacy attribute and redefined as <code>allow="payment"</code>.</p>
     ///     </div>
     ///   
@@ -7251,7 +7319,7 @@ pub struct Iframe<'life> {
     ///   
     pub loading: core::option::Option<&'life str>,
     ///
-    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a title="window.open()" href="/en-US/docs/Web/API/Window/open"><code>window.open()</code></a> method.</p>
+    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a href="/en-US/docs/Web/API/Window/open" title="window.open()"><code>window.open()</code></a> method.</p>
     ///   
     pub name: core::option::Option<&'life str>,
     ///
@@ -7272,7 +7340,7 @@ pub struct Iframe<'life> {
     ///     <p>Applies extra restrictions to the content in the frame. The value of the attribute can either be empty to apply all restrictions, or space-separated tokens to lift particular restrictions:</p>
     ///     <ul>
     ///       <li><code>allow-downloads</code>: Allows downloading files through an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/area"><code>&lt;area&gt;</code></a> element with the <a href="/en-US/docs/Web/HTML/Element/a#download">download</a> attribute, as well as through the navigation that leads to a download of a file. This works regardless of whether the user clicked on the link, or JS code initiated it without user interaction.</li>
-    ///       <li><code>allow-downloads-without-user-activation</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
+    ///       <li><code>allow-downloads-without-user-activation</code> <abbr title="Experimental. Expect behavior to change in the future." class="icon icon-experimental">
     ///     <span class="visually-hidden">Experimental</span>
     /// </abbr>: Allows for downloads to occur without a gesture from the user.</li>
     ///       <li><code>allow-forms</code>: Allows the page to submit forms. If this keyword is not used, form will be displayed as normal, but submitting it will not trigger input validation, sending data to a web server or closing a dialog.</li>
@@ -7316,6 +7384,7 @@ pub struct Iframe<'life> {
 /// The <strong><code>&lt;object&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Object<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -7409,7 +7478,7 @@ pub struct Object<'life> {
     ///   
     pub form: core::option::Option<&'life str>,
     ///
-    ///     <p>The height of the displayed resource, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a>. — (Absolute values only. <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" target="_blank" class="external">NO percentages</a>)</p>
+    ///     <p>The height of the displayed resource, in <a target="_blank" href="https://drafts.csswg.org/css-values/#px" class="external">CSS pixels</a>. — (Absolute values only. <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">NO percentages</a>)</p>
     ///   
     pub height: core::option::Option<&'life str>,
     ///
@@ -7449,7 +7518,7 @@ pub struct Object<'life> {
     ///   
     pub usemap: core::option::Option<&'life str>,
     ///
-    ///     <p>The width of the display resource, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a>. — (Absolute values only. <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">NO percentages</a>)</p>
+    ///     <p>The width of the display resource, in <a href="https://drafts.csswg.org/css-values/#px" target="_blank" class="external">CSS pixels</a>. — (Absolute values only. <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">NO percentages</a>)</p>
     ///   
     pub width: core::option::Option<&'life str>,
 }
@@ -7458,6 +7527,7 @@ pub struct Object<'life> {
 /// The browser will consider each child <code>&lt;source&gt;</code> element and choose the best match among them. If no matches are found—or the browser doesn't support the <code>&lt;picture&gt;</code> element—the URL of the <code>&lt;img&gt;</code> element's <a href="/en-US/docs/Web/HTML/Element/img#src"><code>src</code></a> attribute is selected. The selected image is then presented in the space occupied by the <code>&lt;img&gt;</code> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Picture<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -7548,6 +7618,7 @@ pub struct Picture<'life> {
 /// A <code>&lt;portal&gt;</code> is similar to an <code>&lt;iframe&gt;</code>. An <code>&lt;iframe&gt;</code> allows a separate <a href="/en-US/docs/Glossary/Browsing_context">browsing context</a> to be embedded. However, the embedded content of a <code>&lt;portal&gt;</code> is more limited than that of an <code>&lt;iframe&gt;</code>. It cannot be interacted with, and therefore is not suitable for embedding widgets into a document. Instead, the <code>&lt;portal&gt;</code> acts as a preview of the content of another page. It can be navigated into therefore allowing for seamless transition to the embedded content.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/portal>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Portal<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -7644,6 +7715,7 @@ pub struct Portal<'life> {
 /// The <strong><code>&lt;source&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies multiple media resources for the <a href="/en-US/docs/Web/HTML/Element/picture"><code>&lt;picture&gt;</code></a>, the <a href="/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> element, or the <a href="/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a> element. It is a <a href="/en-US/docs/Glossary/Void_element">void element</a>, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for <a href="/en-US/docs/Web/Media/Formats/Image_types">image file formats</a> and <a href="/en-US/docs/Web/Media/Formats">media file formats</a>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Source<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -7772,6 +7844,7 @@ pub struct Source<'life> {
 /// Use the <strong>HTML <code>&lt;canvas&gt;</code> element</strong> with either the <a href="/en-US/docs/Web/API/Canvas_API">canvas scripting API</a> or the <a href="/en-US/docs/Web/API/WebGL_API">WebGL API</a> to draw graphics and animations.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Canvas<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -7872,6 +7945,7 @@ pub struct Canvas<'life> {
 /// The <strong><code>&lt;noscript&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Noscript<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -7960,6 +8034,7 @@ pub struct Noscript<'life> {
 /// The <strong><code>&lt;script&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The <code>&lt;script&gt;</code> element can also be used with other languages, such as <a href="/en-US/docs/Web/API/WebGL_API">WebGL</a>'s GLSL shader programming language and <a href="/en-US/docs/Glossary/JSON">JSON</a>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Script<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -8010,7 +8085,7 @@ pub struct Script<'life> {
     ///   
     pub contextmenu: core::option::Option<&'life str>,
     ///
-    ///     <p>Normal <code>script</code> elements pass minimal information to the <a href="/en-US/docs/Web/API/Window/error_event" title="window.onerror"><code>window.onerror</code></a> for scripts which do not pass the standard <a href="/en-US/docs/Glossary/CORS">CORS</a> checks. To allow error logging for sites which use a separate domain for static media, use this attribute. See <a href="/en-US/docs/Web/HTML/Attributes/crossorigin">CORS settings attributes</a> for a more descriptive explanation of its valid arguments.</p>
+    ///     <p>Normal <code>script</code> elements pass minimal information to the <a title="window.onerror" href="/en-US/docs/Web/API/Window/error_event"><code>window.onerror</code></a> for scripts which do not pass the standard <a href="/en-US/docs/Glossary/CORS">CORS</a> checks. To allow error logging for sites which use a separate domain for static media, use this attribute. See <a href="/en-US/docs/Web/HTML/Attributes/crossorigin">CORS settings attributes</a> for a more descriptive explanation of its valid arguments.</p>
     ///   
     pub crossorigin: core::option::Option<&'life str>,
     ///
@@ -8019,7 +8094,7 @@ pub struct Script<'life> {
     #[cfg(feature = "alloc")]
     pub data: core::option::Option<alloc::collections::BTreeMap<&'life str, &'life str>>,
     ///
-    ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a title="DOMContentLoaded" href="/en-US/docs/Web/API/Document/DOMContentLoaded_event"><code>DOMContentLoaded</code></a>.</p>
+    ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a href="/en-US/docs/Web/API/Document/DOMContentLoaded_event" title="DOMContentLoaded"><code>DOMContentLoaded</code></a>.</p>
     ///     <p>Scripts with the <code>defer</code> attribute will prevent the <code>DOMContentLoaded</code> event from firing until the script has loaded and finished evaluating.</p>
     ///     <div id="sect1" class="notecard warning">
     ///       <p><strong>Warning:</strong> This attribute must not be used if the <code>src</code> attribute is absent (i.e. for inline scripts), in this case it would have no effect.</p>
@@ -8116,7 +8191,7 @@ pub struct Script<'life> {
     ///       <li><code>strict-origin-when-cross-origin</code> (default): Send a full URL when performing a same-origin request, only send the origin when the protocol security level stays the same (HTTPS→HTTPS), and send no header to a less secure destination (HTTPS→HTTP).</li>
     ///       <li><code>unsafe-url</code>: The referrer will include the origin <em>and</em> the path (but not the <a href="/en-US/docs/Web/API/HTMLAnchorElement/hash">fragment</a>, <a href="/en-US/docs/Web/API/HTMLAnchorElement/password">password</a>, or <a href="/en-US/docs/Web/API/HTMLAnchorElement/username">username</a>). <strong>This value is unsafe</strong>, because it leaks origins and paths from TLS-protected resources to insecure origins.</li>
     ///     </ul>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> An empty string value (<code>""</code>) is both the default value, and a fallback value if <code>referrerpolicy</code> is not supported. If <code>referrerpolicy</code> is not explicitly specified on the <code>&lt;script&gt;</code> element, it will adopt a higher-level referrer policy, i.e. one set on the whole document or domain. If a higher-level policy is not available, the empty string is treated as being equivalent to <code>strict-origin-when-cross-origin</code>.</p>
     ///     </div>
     ///   
@@ -8171,6 +8246,7 @@ pub struct Script<'life> {
 /// The <strong><code>&lt;del&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a range of text that has been deleted from a document. This can be used when rendering "track changes" or source code diff information, for example. The <a href="/en-US/docs/Web/HTML/Element/ins"><code>&lt;ins&gt;</code></a> element can be used for the opposite purpose: to indicate text that has been added to the document.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Del<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -8267,6 +8343,7 @@ pub struct Del<'life> {
 /// The <strong><code>&lt;ins&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a range of text that has been added to a document. You can use the <a href="/en-US/docs/Web/HTML/Element/del"><code>&lt;del&gt;</code></a> element to similarly represent a range of text that has been deleted from the document.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Ins<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -8363,6 +8440,7 @@ pub struct Ins<'life> {
 /// The <strong><code>&lt;caption&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies the caption (or title) of a table.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Caption<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -8388,7 +8466,7 @@ pub struct Caption<'life> {
     ///       </dd>
     ///     </dl>
     ///     <div class="notecard warning" id="sect1">
-    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a aria-current="page" href="/en-US/docs/Web/HTML/Element/caption"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
+    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a href="/en-US/docs/Web/HTML/Element/caption" aria-current="page"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
     ///     </div>
     ///   
     pub align: core::option::Option<&'life str>,
@@ -8476,6 +8554,7 @@ pub struct Caption<'life> {
 /// The <strong><code>&lt;col&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <a href="/en-US/docs/Web/HTML/Element/colgroup"><code>&lt;colgroup&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Col<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -8568,6 +8647,7 @@ pub struct Col<'life> {
 /// The <strong><code>&lt;colgroup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a group of columns within a table.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Colgroup<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -8661,6 +8741,7 @@ pub struct Colgroup<'life> {
 /// The <strong><code>&lt;table&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Table<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -8804,6 +8885,7 @@ pub struct Table<'life> {
 /// The <strong><code>&lt;tbody&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element encapsulates a set of table rows (<a href="/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a> elements), indicating that they comprise the body of the table (<a href="/en-US/docs/Web/HTML/Element/table"><code>&lt;table&gt;</code></a>).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Tbody<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -8819,7 +8901,7 @@ pub struct Tbody<'life> {
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
     ///     <p>As this attribute is deprecated, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> The equivalent <code>text-align</code> property for the <code>align="char"</code> is not implemented in any browsers yet. See the <a href="/en-US/docs/Web/CSS/text-align#browser_compatibility"><code>text-align</code>'s browser compatibility section</a> for the <code>&lt;string&gt;</code> value.</p>
     ///     </div>
     ///   
@@ -8932,6 +9014,7 @@ pub struct Tbody<'life> {
 /// The <strong><code>&lt;td&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a cell of a table that contains data. It participates in the <em>table model</em>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Td<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -9032,6 +9115,7 @@ pub struct Td<'life> {
 /// The <strong><code>&lt;tfoot&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a set of rows summarizing the columns of the table.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Tfoot<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -9046,7 +9130,7 @@ pub struct Tfoot<'life> {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>To achieve the same effect as the <code>left</code>, <code>center</code>, <code>right</code> or <code>justify</code> values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property on it.</li>
@@ -9151,12 +9235,12 @@ pub struct Tfoot<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table footer. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank" class="external">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property on it.</p>
     ///     </div>
     ///   
@@ -9165,6 +9249,7 @@ pub struct Tfoot<'life> {
 /// The <strong><code>&lt;th&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a cell as the header of a group of table cells. The exact nature of this group is defined by the <a href="#scope"><code>scope</code></a> and <a href="#headers"><code>headers</code></a> attributes.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Th<'life> {
     ///     <p>This attribute contains a short abbreviated description of the cell's content. Some user-agents, such as speech readers, may present this description before the content itself.</p>
     ///   
@@ -9266,7 +9351,7 @@ pub struct Th<'life> {
     ///   
     pub rowspan: core::option::Option<&'life str>,
     ///
-    ///     <p>This <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute defines the cells that the header (defined in the <a href="/en-US/docs/Web/HTML/Element/th" aria-current="page"><code>&lt;th&gt;</code></a>) element relates to. It may have the following values:</p>
+    ///     <p>This <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute defines the cells that the header (defined in the <a aria-current="page" href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a>) element relates to. It may have the following values:</p>
     ///     <ul>
     ///       <li><code>row</code>: The header relates to all cells of the row it belongs to.</li>
     ///       <li><code>col</code>: The header relates to all cells of the column it belongs to.</li>
@@ -9280,6 +9365,7 @@ pub struct Th<'life> {
 /// The <strong><code>&lt;thead&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a set of rows defining the head of the columns of the table.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Thead<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -9318,21 +9404,21 @@ pub struct Thead<'life> {
     pub autofocus: core::option::Option<bool>,
     ///
     ///     <p>This attribute defines the background color of each column cell. It accepts a 6-digit hexadecimal color or a named color. Alpha transparency is not supported.</p>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> Do not use this attribute, as it is non-standard. The <code>thead</code> element should be styled using the CSS <a href="/en-US/docs/Web/CSS/background-color"><code>background-color</code></a> property, which can be applied to any element, including the <code>thead</code>, <a href="/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/td"><code>&lt;td&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a> elements.</p>
     ///     </div>
     ///   
     pub bgcolor: core::option::Option<&'life str>,
     ///
     ///     <p>This attribute is used to set the character to align the cells in a column on. Typical values for this include a period (.) when attempting to align numbers or monetary values. If <a href="#align"><code>align</code></a> is not set to <code>char</code>, this attribute is ignored.</p>
-    ///     <div class="notecard note" id="sect3">
+    ///     <div id="sect3" class="notecard note">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
     pub char: core::option::Option<&'life str>,
     ///
     ///     <p>This attribute is used to indicate the number of characters to offset the column data from the alignment characters specified by the <strong>char</strong> attribute.</p>
-    ///     <div id="sect4" class="notecard note">
+    ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
@@ -9406,12 +9492,12 @@ pub struct Thead<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li><code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect5">
+    ///     <div id="sect5" class="notecard note">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property on it.</p>
     ///     </div>
     ///   
@@ -9420,6 +9506,7 @@ pub struct Thead<'life> {
 /// The <strong><code>&lt;tr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a row of cells in a table. The row's cells can then be established using a mix of <a href="/en-US/docs/Web/HTML/Element/td"><code>&lt;td&gt;</code></a> (data cell) and <a href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a> (header cell) elements.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Tr<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -9470,8 +9557,8 @@ pub struct Tr<'life> {
     pub autofocus: core::option::Option<bool>,
     ///
     ///     <p>A string specifying a color to apply to the backgrounds of each of the row's cells. This can be either a <a href="/en-US/docs/Web/CSS/color_value/rgb">hexadecimal <code>#RRGGBB</code> or <code>#RGB</code> value</a> or a <a href="/en-US/docs/Web/CSS/named-color">color keyword</a>. Omitting the attribute or setting it to <code>null</code> in JavaScript causes the row's cells to inherit the row's parent element's background color.</p>
-    ///     <div class="notecard note" id="sect2">
-    ///       <p><strong>Note:</strong> The <a aria-current="page" href="/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a> element should be styled using <a href="/en-US/docs/Web/CSS">CSS</a>. To give a similar effect as the <code>bgcolor</code> attribute, use the CSS property <a href="/en-US/docs/Web/CSS/background-color"><code>background-color</code></a>.</p>
+    ///     <div id="sect2" class="notecard note">
+    ///       <p><strong>Note:</strong> The <a href="/en-US/docs/Web/HTML/Element/tr" aria-current="page"><code>&lt;tr&gt;</code></a> element should be styled using <a href="/en-US/docs/Web/CSS">CSS</a>. To give a similar effect as the <code>bgcolor</code> attribute, use the CSS property <a href="/en-US/docs/Web/CSS/background-color"><code>background-color</code></a>.</p>
     ///     </div>
     ///   
     pub bgcolor: core::option::Option<&'life str>,
@@ -9484,7 +9571,7 @@ pub struct Tr<'life> {
     pub char: core::option::Option<&'life str>,
     ///
     ///     <p>A string indicating the number of characters on the tail end of the column's data should be displayed after the alignment character specified by the <code>char</code> attribute. For example, when displaying money values for currencies that use hundredths of a unit (such as the dollar, which is divided into 100 cents), you would typically specify a value of 2, so that in tandem with <code>char</code> being set to <code>"."</code>, the values in a column would be cleanly aligned on the decimal points, with the number of cents properly displayed to the right of the decimal point.</p>
-    ///     <div id="sect4" class="notecard note">
+    ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is obsolete, and was never widely supported anyway.</p>
     ///     </div>
     ///   
@@ -9560,7 +9647,7 @@ pub struct Tr<'life> {
     ///     <dl>
     ///       <dt id="baseline"><code>baseline</code></dt>
     ///       <dd>
-    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a class="external" href="https://en.wikipedia.org/wiki/Baseline" target="_blank">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
+    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Baseline">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
     ///       </dd>
     ///       <dt id="bottom"><code>bottom</code>,</dt>
     ///       <dd>
@@ -9586,6 +9673,7 @@ pub struct Tr<'life> {
 /// By default, HTML buttons are presented in a style resembling the platform the <a href="/en-US/docs/Glossary/User_agent">user agent</a> runs on, but you can change buttons' appearance with <a href="/en-US/docs/Web/CSS">CSS</a>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Button<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -9601,7 +9689,7 @@ pub struct Button<'life> {
     ///   
     pub autocapitalize: core::option::Option<&'life str>,
     ///
-    ///     <p>This attribute on a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external" target="_blank">Firefox persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a target="_blank" class="external" href="https://bugzil.la/654072">Firefox bug 654072</a>.</p>
+    ///     <p>This attribute on a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external" target="_blank">Firefox persists the dynamic disabled state</a> of a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a target="_blank" class="external" href="https://bugzil.la/654072">Firefox bug 654072</a>.</p>
     ///   
     pub autocomplete: core::option::Option<&'life str>,
     ///
@@ -9743,6 +9831,7 @@ pub struct Button<'life> {
 /// The <strong><code>&lt;datalist&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element contains a set of <a href="/en-US/docs/Web/HTML/Element/option"><code>&lt;option&gt;</code></a> elements that represent the permissible or recommended options available to choose from within other controls.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Datalist<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -9831,6 +9920,7 @@ pub struct Datalist<'life> {
 /// The <strong><code>&lt;fieldset&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to group several controls as well as labels (<a href="/en-US/docs/Web/HTML/Element/label"><code>&lt;label&gt;</code></a>) within a web form.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Fieldset<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -9925,7 +10015,7 @@ pub struct Fieldset<'life> {
     pub is: core::option::Option<&'life str>,
     ///
     ///     <p>The name associated with the group.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> The caption for the fieldset is given by the first <a href="/en-US/docs/Web/HTML/Element/legend"><code>&lt;legend&gt;</code></a> element nested inside it.</p>
     ///     </div>
     ///   
@@ -9934,9 +10024,10 @@ pub struct Fieldset<'life> {
 /// The <strong><code>&lt;form&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a document section containing interactive controls for submitting information.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Form<'life> {
     ///     <p>Comma-separated <a href="/en-US/docs/Web/SVG/Content_type">content types</a> the server accepts.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> <strong>This attribute has been deprecated and should not be used.</strong> Instead, use the <a href="/en-US/docs/Web/HTML/Element/input#accept"><code>accept</code></a> attribute on <code>&lt;input type=file&gt;</code> elements.</p>
     ///     </div>
     ///   
@@ -10052,6 +10143,7 @@ pub struct Form<'life> {
 /// The <strong><code>&lt;input&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and <a href="/en-US/docs/Glossary/User_agent">user agent</a>. The <code>&lt;input&gt;</code> element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Input<'life> {
     ///     <p>Valid for the <code>file</code> input type only, the <code>accept</code> attribute defines which file types are selectable in a <code>file</code> upload control. See the <a href="/en-US/docs/Web/HTML/Element/input/file">file</a> input type.</p>
     ///   
@@ -10082,7 +10174,7 @@ pub struct Input<'life> {
     pub autocomplete: core::option::Option<&'life str>,
     ///
     ///     <p>A Boolean attribute which, if present, indicates that the input should automatically have focus when the page has finished loading (or when the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> containing the element has been displayed).</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> An element with the <code>autofocus</code> attribute may gain focus before the <a href="/en-US/docs/Web/API/Window/DOMContentLoaded_event" title="DOMContentLoaded"><code>DOMContentLoaded</code></a> event is fired.</p>
     ///     </div>
     ///     <p>No more than one element in the document may have the <code>autofocus</code> attribute. If put on more than one element, the first one with the attribute receives focus.</p>
@@ -10151,9 +10243,9 @@ pub struct Input<'life> {
     pub dirname: core::option::Option<&'life str>,
     ///
     ///     <p>A Boolean attribute which, if present, indicates that the user should not be able to interact with the input. Disabled inputs are typically rendered with a dimmer color or using some other form of indication that the field is not available for use.</p>
-    ///     <p>Specifically, disabled inputs do not receive the <a title="click" href="/en-US/docs/Web/API/Element/click_event"><code>click</code></a> event, and disabled inputs are not submitted with the form.</p>
-    ///     <div class="notecard note" id="sect4">
-    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external" target="_blank">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
+    ///     <p>Specifically, disabled inputs do not receive the <a href="/en-US/docs/Web/API/Element/click_event" title="click"><code>click</code></a> event, and disabled inputs are not submitted with the form.</p>
+    ///     <div id="sect4" class="notecard note">
+    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
     ///     </div>
     ///   
     pub disabled: core::option::Option<bool>,
@@ -10176,7 +10268,7 @@ pub struct Input<'life> {
     ///
     ///     <p>A string specifying the <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a> element with which the input is associated (that is, its <strong>form owner</strong>). This string's value, if present, must match the <a href="#id"><code>id</code></a> of a <code>&lt;form&gt;</code> element in the same document. If this attribute isn't specified, the <code>&lt;input&gt;</code> element is associated with the nearest containing form, if any.</p>
     ///     <p>The <code>form</code> attribute lets you place an input anywhere in the document but have it included with a form elsewhere in the document.</p>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> An input can only be associated with one form.</p>
     ///     </div>
     ///   
@@ -10226,7 +10318,7 @@ pub struct Input<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
     ///
-    ///     <p>The value given to the <code>list</code> attribute should be the <a href="/en-US/docs/Web/API/Element/id" title="id"><code>id</code></a> of a <a href="/en-US/docs/Web/HTML/Element/datalist"><code>&lt;datalist&gt;</code></a> element located in the same document. The <code>&lt;datalist&gt;</code> provides a list of predefined values to suggest to the user for this input. Any values in the list that are not compatible with the <a href="#type"><code>type</code></a> are not included in the suggested options. The values provided are suggestions, not requirements: users can select from this predefined list or provide a different value.</p>
+    ///     <p>The value given to the <code>list</code> attribute should be the <a title="id" href="/en-US/docs/Web/API/Element/id"><code>id</code></a> of a <a href="/en-US/docs/Web/HTML/Element/datalist"><code>&lt;datalist&gt;</code></a> element located in the same document. The <code>&lt;datalist&gt;</code> provides a list of predefined values to suggest to the user for this input. Any values in the list that are not compatible with the <a href="#type"><code>type</code></a> are not included in the suggested options. The values provided are suggestions, not requirements: users can select from this predefined list or provide a different value.</p>
     ///     <p>It is valid on <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, <code>date</code>, <code>month</code>, <code>week</code>, <code>time</code>, <code>datetime-local</code>, <code>number</code>, <code>range</code>, and <code>color</code>.</p>
     ///     <p>Per the specifications, the <code>list</code> attribute is not supported by the <code>hidden</code>, <code>password</code>, <code>checkbox</code>, <code>radio</code>, <code>file</code>, or any of the button types.</p>
     ///     <p>Depending on the browser, the user may see a custom color palette suggested, tic marks along a range, or even an input that opens like a <a href="/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a> but allows for non-listed values. Check out the <a href="/en-US/docs/Web/HTML/Element/datalist#browser_compatibility">browser compatibility table</a> for the other input types.</p>
@@ -10264,7 +10356,7 @@ pub struct Input<'life> {
     ///     <p>There are two special cases:</p>
     ///     <ol>
     ///       <li><code>_charset_</code> : If used as the name of an <code>&lt;input&gt;</code> element of type <a href="/en-US/docs/Web/HTML/Element/input/hidden">hidden</a>, the input's <code>value</code> is automatically set by the <a href="/en-US/docs/Glossary/User_agent">user agent</a> to the character encoding being used to submit the form.</li>
-    ///       <li><code>isindex</code>: For historical reasons, the name <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name"><code>isindex</code></a> is not allowed.</li>
+    ///       <li><code>isindex</code>: For historical reasons, the name <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name"><code>isindex</code></a> is not allowed.</li>
     ///     </ol>
     ///     <p>The <a href="#name"><code>name</code></a> attribute creates a unique behavior for radio buttons.</p>
     ///     <p>Only one radio button in a same-named group of radio buttons can be checked at a time. Selecting any radio button in that group automatically deselects any currently-selected radio button in the same group. The value of that one checked radio button is sent along with the name if the form is submitted,</p>
@@ -10285,7 +10377,7 @@ pub struct Input<'life> {
     ///
     ///     <p>Valid for <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, and <code>password</code>, the <code>pattern</code> attribute defines a regular expression that the input's <a href="#value"><code>value</code></a> must match in order for the value to pass <a href="/en-US/docs/Web/HTML/Constraint_validation">constraint validation</a>. It must be a valid JavaScript regular expression, as used by the <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp"><code>RegExp</code></a> type, and as documented in our <a href="/en-US/docs/Web/JavaScript/Guide/Regular_expressions">guide on regular expressions</a>; the <code>'u'</code> flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.</p>
     ///     <p>If the <code>pattern</code> attribute is present but is not specified or is invalid, no regular expression is applied and this attribute is ignored completely. If the pattern attribute is valid and a non-empty value does not match the pattern, constraint validation will prevent form submission.</p>
-    ///     <div id="sect7" class="notecard note">
+    ///     <div class="notecard note" id="sect7">
     ///       <p><strong>Note:</strong> If using the <code>pattern</code> attribute, inform the user about the expected format by including explanatory text nearby. You can also include a <a href="#title"><code>title</code></a> attribute to explain what the requirements are to match the pattern; most browsers will display this title as a tooltip. The visible explanation is required for accessibility. The tooltip is an enhancement.</p>
     ///     </div>
     ///     <p>See <a href="#client-side_validation">Client-side validation</a> for more information.</p>
@@ -10326,7 +10418,7 @@ pub struct Input<'life> {
     ///     <p>The value must be a positive number—integer or float—or the special value <code>any</code>, which means no stepping is implied, and any value is allowed (barring other constraints, such as <a href="#min"><code>min</code></a> and <a href="#max"><code>max</code></a>).</p>
     ///     <p>If <code>any</code> is not explicitly set, valid values for the <code>number</code>, date/time input types, and <code>range</code> input types are equal to the basis for stepping — the <a href="#min"><code>min</code></a> value and increments of the step value, up to the <a href="#max"><code>max</code></a> value, if specified.</p>
     ///     <p>For example, if you have <code>&lt;input type="number" min="10" step="2"&gt;</code>, then any even integer, <code>10</code> or greater, is valid. If omitted, <code>&lt;input type="number"&gt;</code>, any integer is valid, but floats (like <code>4.2</code>) are not valid, because <code>step</code> defaults to <code>1</code>. For <code>4.2</code> to be valid, <code>step</code> would have had to be set to <code>any</code>, 0.1, 0.2, or any the <code>min</code> value would have had to be a number ending in <code>.2</code>, such as <code>&lt;input type="number" min="-5.2"&gt;</code></p>
-    ///     <div class="notecard note" id="sect9">
+    ///     <div id="sect9" class="notecard note">
     ///       <p><strong>Note:</strong> When the data entered by the user doesn't adhere to the stepping configuration, the value is considered invalid in constraint validation and will match the <code>:invalid</code> pseudoclass.</p>
     ///     </div>
     ///     <p>See <a href="#client-side_validation">Client-side validation</a> for more information.</p>
@@ -10357,6 +10449,7 @@ pub struct Input<'life> {
 /// The <strong><code>&lt;label&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a caption for an item in a user interface.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Label<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -10426,9 +10519,9 @@ pub struct Label<'life> {
     ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> To programmatically set the <code>for</code> attribute, use <a href="/en-US/docs/Web/API/HTMLLabelElement/htmlFor"><code>htmlFor</code></a>.</p>
     ///     </div>
-    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a target="_blank" href="https://html.spec.whatwg.org/multipage/forms.html#category-label" class="external">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
+    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/forms.html#category-label">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
     ///     <p>Multiple <code>label</code> elements can be given the same value for their <code>for</code> attribute; doing so causes the associated form control (the form control that <code>for</code> value references) to have multiple labels.</p>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong> A <code>&lt;label&gt;</code> element can have both a <code>for</code> attribute and a contained control element, as long as the <code>for</code> attribute points to the contained control element.</p>
     ///     </div>
     ///   
@@ -10457,6 +10550,7 @@ pub struct Label<'life> {
 /// The <strong><code>&lt;legend&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a caption for the content of its parent <a href="/en-US/docs/Web/HTML/Element/fieldset"><code>&lt;fieldset&gt;</code></a>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Legend<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -10545,6 +10639,7 @@ pub struct Legend<'life> {
 /// The <strong><code>&lt;meter&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents either a scalar value within a known range or a fractional value.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Meter<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -10651,7 +10746,7 @@ pub struct Meter<'life> {
     pub optimum: core::option::Option<&'life str>,
     ///
     ///     <p>The current numeric value. This must be between the minimum and maximum values (<code>min</code> attribute and <code>max</code> attribute) if they are specified. If unspecified or malformed, the value is <code>0</code>. If specified, but not within the range given by the <code>min</code> attribute and <code>max</code> attribute, the value is equal to the nearest end of the range.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> Unless the <code>value</code> attribute is between <code>0</code> and <code>1</code> (inclusive), the <code>min</code> and <code>max</code> attributes should define the range so that the <code>value</code> attribute's value is within it.</p>
     ///     </div>
     ///   
@@ -10660,6 +10755,7 @@ pub struct Meter<'life> {
 /// The <strong><code>&lt;optgroup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element creates a grouping of options within a <a href="/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Optgroup<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -10756,6 +10852,7 @@ pub struct Optgroup<'life> {
 /// The <strong><code>&lt;option&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to define an item contained in a <a href="/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a>, an <a href="/en-US/docs/Web/HTML/Element/optgroup"><code>&lt;optgroup&gt;</code></a>, or a <a href="/en-US/docs/Web/HTML/Element/datalist"><code>&lt;datalist&gt;</code></a> element. As such, <code>&lt;option&gt;</code> can represent menu items in popups and other lists of items in an HTML document.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Option<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -10860,6 +10957,7 @@ pub struct Option<'life> {
 /// The <strong><code>&lt;output&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a container element into which a site or app can inject the results of a calculation or the outcome of a user action.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Output<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -10961,6 +11059,7 @@ pub struct Output<'life> {
 /// The <strong><code>&lt;progress&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Progress<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -11057,6 +11156,7 @@ pub struct Progress<'life> {
 /// The <strong><code>&lt;select&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a control that provides a menu of options.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Select<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -11168,7 +11268,7 @@ pub struct Select<'life> {
     pub required: core::option::Option<bool>,
     ///
     ///     <p>If the control is presented as a scrolling list box (e.g. when <code>multiple</code> is specified), this attribute represents the number of rows in the list that should be visible at one time. Browsers are not required to present a select element as a scrolled list box. The default value is <code>0</code>.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> According to the HTML specification, the default value for size should be <code>1</code>; however, in practice, this has been found to break some websites, and no other browser currently does that, so Mozilla has opted to continue to return <code>0</code> for the time being with Firefox.</p>
     ///     </div>
     ///   
@@ -11177,6 +11277,7 @@ pub struct Select<'life> {
 /// The <strong><code>&lt;textarea&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Textarea<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -11341,7 +11442,7 @@ pub struct Textarea<'life> {
     ///     <ul>
     ///       <li><code>hard</code>: The browser automatically inserts line breaks (CR+LF) so that each line is no longer than the width of the control; the <a href="#cols"><code>cols</code></a> attribute must be specified for this to take effect</li>
     ///       <li><code>soft</code>: The browser ensures that all line breaks in the entered value are a <code>CR+LF</code> pair, but no additional line breaks are added to the value.</li>
-    ///       <li><code>off</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using.">
+    ///       <li><code>off</code> <abbr title="Non-standard. Check cross-browser support before using." class="icon icon-nonstandard">
     ///     <span class="visually-hidden">Non-standard</span>
     /// </abbr>: Like <code>soft</code> but changes appearance to <code>white-space: pre</code> so line segments exceeding <code>cols</code> are not wrapped and the <code>&lt;textarea&gt;</code> becomes horizontally scrollable.</li>
     ///     </ul>
@@ -11354,6 +11455,7 @@ pub struct Textarea<'life> {
 /// A disclosure widget is typically presented onscreen using a small triangle which rotates (or twists) to indicate open/closed status, with a label next to the triangle. The contents of the <code>&lt;summary&gt;</code> element are used as the label for the disclosure widget.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Details<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -11449,6 +11551,7 @@ pub struct Details<'life> {
 /// The <strong><code>&lt;dialog&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Dialog<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -11544,6 +11647,7 @@ pub struct Dialog<'life> {
 /// The <strong><code>&lt;summary&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies a summary, caption, or legend for a <a href="/en-US/docs/Web/HTML/Element/details"><code>&lt;details&gt;</code></a> element's disclosure box. Clicking the <code>&lt;summary&gt;</code> element toggles the state of the parent <code>&lt;details&gt;</code> element open and closed.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Summary<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -11632,6 +11736,7 @@ pub struct Summary<'life> {
 /// The <strong><code>&lt;slot&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element—part of the <a href="/en-US/docs/Web/API/Web_components">Web Components</a> technology suite—is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Slot<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -11727,6 +11832,7 @@ pub struct Slot<'life> {
 /// Think of a template as a content fragment that is being stored for subsequent use in the document. While the parser does process the contents of the <strong><code>&lt;template&gt;</code></strong> element while loading the page, it does so only to ensure that those contents are valid; the element's contents are not rendered, however.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Template<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -11819,6 +11925,7 @@ pub struct Template<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/acronym>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Acronym<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -11910,6 +12017,7 @@ pub struct Acronym<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/applet>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Applet<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -12059,6 +12167,7 @@ pub struct Applet<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bgsound>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Bgsound<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -12164,6 +12273,7 @@ pub struct Bgsound<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/big>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Big<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -12253,6 +12363,7 @@ pub struct Big<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blink>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Blink<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -12344,6 +12455,7 @@ pub struct Blink<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/center>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Center<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -12432,6 +12544,7 @@ pub struct Center<'life> {
 /// The <strong><code>&lt;slot&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element—part of the <a href="/en-US/docs/Web/API/Web_components">Web Components</a> technology suite—is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot>
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Content<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -12526,6 +12639,7 @@ pub struct Content<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dir>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Dir<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -12619,6 +12733,7 @@ pub struct Dir<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/font>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Font<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -12722,6 +12837,7 @@ pub struct Font<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/frame>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Frame<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -12839,6 +12955,7 @@ pub struct Frame<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/frameset>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Frameset<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -12941,6 +13058,7 @@ pub struct Frameset<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/image>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Image<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -13030,6 +13148,7 @@ pub struct Image<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/keygen>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Keygen<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -13139,6 +13258,7 @@ pub struct Keygen<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Marquee<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -13274,6 +13394,7 @@ pub struct Marquee<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menuitem>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Menuitem<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -13400,6 +13521,7 @@ pub struct Menuitem<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nobr>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Nobr<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -13489,6 +13611,7 @@ pub struct Nobr<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noembed>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Noembed<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -13582,6 +13705,7 @@ pub struct Noembed<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noframes>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Noframes<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -13671,6 +13795,7 @@ pub struct Noframes<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/param>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Param<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -13781,6 +13906,7 @@ pub struct Param<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/plaintext>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Plaintext<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -13870,6 +13996,7 @@ pub struct Plaintext<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rb>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Rb<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -13955,10 +14082,11 @@ pub struct Rb<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
 }
-/// The <strong><code>&lt;rtc&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>) and semantic (<a href="/en-US/docs/Web/HTML/Element/rtc" aria-current="page"><code>&lt;rtc&gt;</code></a>) annotations.
+/// The <strong><code>&lt;rtc&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>) and semantic (<a aria-current="page" href="/en-US/docs/Web/HTML/Element/rtc"><code>&lt;rtc&gt;</code></a>) annotations.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rtc>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Rtc<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -14050,6 +14178,7 @@ pub struct Rtc<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/spacer>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Spacer<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -14159,6 +14288,7 @@ pub struct Spacer<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strike>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Strike<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -14252,6 +14382,7 @@ pub struct Strike<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tt>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Tt<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -14338,7 +14469,7 @@ pub struct Tt<'life> {
     pub is: core::option::Option<&'life str>,
 }
 /// <p>The <strong><code>&lt;xmp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element renders text between the start and end tags without interpreting the HTML in between and using a monospaced font. The HTML2 specification recommended that it should be rendered wide enough to allow 80 characters per line.</p>
-/// <div id="sect2" class="notecard note">
+/// <div class="notecard note" id="sect2">
 ///   <p><strong>Note:</strong> Do not use this element.</p>
 ///   <ul>
 ///     <li>It has been deprecated since HTML3.2 and was not implemented in a consistent way. It was completely removed from current HTML.</li>
@@ -14349,6 +14480,7 @@ pub struct Tt<'life> {
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/xmp>
 #[deprecated]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Xmp<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -14433,4 +14565,2412 @@ pub struct Xmp<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+pub enum Element<'life> {
+    Html(Html<'life>),
+    Base(Base<'life>),
+    Head(Head<'life>),
+    Link(Link<'life>),
+    Meta(Meta<'life>),
+    Style(Style<'life>),
+    Title(Title<'life>),
+    Body(Body<'life>),
+    Address(Address<'life>),
+    Article(Article<'life>),
+    Aside(Aside<'life>),
+    Footer(Footer<'life>),
+    Header(Header<'life>),
+    Hgroup(Hgroup<'life>),
+    Main(Main<'life>),
+    Nav(Nav<'life>),
+    Section(Section<'life>),
+    Blockquote(Blockquote<'life>),
+    Dd(Dd<'life>),
+    Div(Div<'life>),
+    Dl(Dl<'life>),
+    Dt(Dt<'life>),
+    Figcaption(Figcaption<'life>),
+    Figure(Figure<'life>),
+    Hr(Hr<'life>),
+    Li(Li<'life>),
+    Menu(Menu<'life>),
+    Ol(Ol<'life>),
+    P(P<'life>),
+    Pre(Pre<'life>),
+    Ul(Ul<'life>),
+    A(A<'life>),
+    Abbr(Abbr<'life>),
+    B(B<'life>),
+    Bdi(Bdi<'life>),
+    Bdo(Bdo<'life>),
+    Br(Br<'life>),
+    Cite(Cite<'life>),
+    Code(Code<'life>),
+    Data(Data<'life>),
+    Dfn(Dfn<'life>),
+    Em(Em<'life>),
+    I(I<'life>),
+    Kbd(Kbd<'life>),
+    Mark(Mark<'life>),
+    Q(Q<'life>),
+    Rp(Rp<'life>),
+    Rt(Rt<'life>),
+    Ruby(Ruby<'life>),
+    S(S<'life>),
+    Samp(Samp<'life>),
+    Small(Small<'life>),
+    Span(Span<'life>),
+    Strong(Strong<'life>),
+    Sub(Sub<'life>),
+    Sup(Sup<'life>),
+    Time(Time<'life>),
+    U(U<'life>),
+    Var(Var<'life>),
+    Wbr(Wbr<'life>),
+    Area(Area<'life>),
+    Audio(Audio<'life>),
+    Img(Img<'life>),
+    Map(Map<'life>),
+    Track(Track<'life>),
+    Video(Video<'life>),
+    Embed(Embed<'life>),
+    Iframe(Iframe<'life>),
+    Object(Object<'life>),
+    Picture(Picture<'life>),
+    Portal(Portal<'life>),
+    Source(Source<'life>),
+    Canvas(Canvas<'life>),
+    Noscript(Noscript<'life>),
+    Script(Script<'life>),
+    Del(Del<'life>),
+    Ins(Ins<'life>),
+    Caption(Caption<'life>),
+    Col(Col<'life>),
+    Colgroup(Colgroup<'life>),
+    Table(Table<'life>),
+    Tbody(Tbody<'life>),
+    Td(Td<'life>),
+    Tfoot(Tfoot<'life>),
+    Th(Th<'life>),
+    Thead(Thead<'life>),
+    Tr(Tr<'life>),
+    Button(Button<'life>),
+    Datalist(Datalist<'life>),
+    Fieldset(Fieldset<'life>),
+    Form(Form<'life>),
+    Input(Input<'life>),
+    Label(Label<'life>),
+    Legend(Legend<'life>),
+    Meter(Meter<'life>),
+    Optgroup(Optgroup<'life>),
+    Option(Option<'life>),
+    Output(Output<'life>),
+    Progress(Progress<'life>),
+    Select(Select<'life>),
+    Textarea(Textarea<'life>),
+    Details(Details<'life>),
+    Dialog(Dialog<'life>),
+    Summary(Summary<'life>),
+    Slot(Slot<'life>),
+    Template(Template<'life>),
+    #[deprecated]
+    Acronym(Acronym<'life>),
+    #[deprecated]
+    Applet(Applet<'life>),
+    #[deprecated]
+    Bgsound(Bgsound<'life>),
+    #[deprecated]
+    Big(Big<'life>),
+    #[deprecated]
+    Blink(Blink<'life>),
+    #[deprecated]
+    Center(Center<'life>),
+    Content(Content<'life>),
+    #[deprecated]
+    Dir(Dir<'life>),
+    #[deprecated]
+    Font(Font<'life>),
+    #[deprecated]
+    Frame(Frame<'life>),
+    #[deprecated]
+    Frameset(Frameset<'life>),
+    #[deprecated]
+    Image(Image<'life>),
+    #[deprecated]
+    Keygen(Keygen<'life>),
+    #[deprecated]
+    Marquee(Marquee<'life>),
+    #[deprecated]
+    Menuitem(Menuitem<'life>),
+    #[deprecated]
+    Nobr(Nobr<'life>),
+    #[deprecated]
+    Noembed(Noembed<'life>),
+    #[deprecated]
+    Noframes(Noframes<'life>),
+    #[deprecated]
+    Param(Param<'life>),
+    #[deprecated]
+    Plaintext(Plaintext<'life>),
+    #[deprecated]
+    Rb(Rb<'life>),
+    #[deprecated]
+    Rtc(Rtc<'life>),
+    #[deprecated]
+    Spacer(Spacer<'life>),
+    #[deprecated]
+    Strike(Strike<'life>),
+    #[deprecated]
+    Tt(Tt<'life>),
+    #[deprecated]
+    Xmp(Xmp<'life>),
+}
+#[allow(deprecated)]
+impl<'life> Element<'life> {
+    ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
+    ///   
+    pub fn accesskey(&self) -> core::option::Option<&'life str> {
+        match self {
+            Self::Html(e) => e.accesskey,
+            Self::Base(e) => e.accesskey,
+            Self::Head(e) => e.accesskey,
+            Self::Link(e) => e.accesskey,
+            Self::Meta(e) => e.accesskey,
+            Self::Style(e) => e.accesskey,
+            Self::Title(e) => e.accesskey,
+            Self::Body(e) => e.accesskey,
+            Self::Address(e) => e.accesskey,
+            Self::Article(e) => e.accesskey,
+            Self::Aside(e) => e.accesskey,
+            Self::Footer(e) => e.accesskey,
+            Self::Header(e) => e.accesskey,
+            Self::Hgroup(e) => e.accesskey,
+            Self::Main(e) => e.accesskey,
+            Self::Nav(e) => e.accesskey,
+            Self::Section(e) => e.accesskey,
+            Self::Blockquote(e) => e.accesskey,
+            Self::Dd(e) => e.accesskey,
+            Self::Div(e) => e.accesskey,
+            Self::Dl(e) => e.accesskey,
+            Self::Dt(e) => e.accesskey,
+            Self::Figcaption(e) => e.accesskey,
+            Self::Figure(e) => e.accesskey,
+            Self::Hr(e) => e.accesskey,
+            Self::Li(e) => e.accesskey,
+            Self::Menu(e) => e.accesskey,
+            Self::Ol(e) => e.accesskey,
+            Self::P(e) => e.accesskey,
+            Self::Pre(e) => e.accesskey,
+            Self::Ul(e) => e.accesskey,
+            Self::A(e) => e.accesskey,
+            Self::Abbr(e) => e.accesskey,
+            Self::B(e) => e.accesskey,
+            Self::Bdi(e) => e.accesskey,
+            Self::Bdo(e) => e.accesskey,
+            Self::Br(e) => e.accesskey,
+            Self::Cite(e) => e.accesskey,
+            Self::Code(e) => e.accesskey,
+            Self::Data(e) => e.accesskey,
+            Self::Dfn(e) => e.accesskey,
+            Self::Em(e) => e.accesskey,
+            Self::I(e) => e.accesskey,
+            Self::Kbd(e) => e.accesskey,
+            Self::Mark(e) => e.accesskey,
+            Self::Q(e) => e.accesskey,
+            Self::Rp(e) => e.accesskey,
+            Self::Rt(e) => e.accesskey,
+            Self::Ruby(e) => e.accesskey,
+            Self::S(e) => e.accesskey,
+            Self::Samp(e) => e.accesskey,
+            Self::Small(e) => e.accesskey,
+            Self::Span(e) => e.accesskey,
+            Self::Strong(e) => e.accesskey,
+            Self::Sub(e) => e.accesskey,
+            Self::Sup(e) => e.accesskey,
+            Self::Time(e) => e.accesskey,
+            Self::U(e) => e.accesskey,
+            Self::Var(e) => e.accesskey,
+            Self::Wbr(e) => e.accesskey,
+            Self::Area(e) => e.accesskey,
+            Self::Audio(e) => e.accesskey,
+            Self::Img(e) => e.accesskey,
+            Self::Map(e) => e.accesskey,
+            Self::Track(e) => e.accesskey,
+            Self::Video(e) => e.accesskey,
+            Self::Embed(e) => e.accesskey,
+            Self::Iframe(e) => e.accesskey,
+            Self::Object(e) => e.accesskey,
+            Self::Picture(e) => e.accesskey,
+            Self::Portal(e) => e.accesskey,
+            Self::Source(e) => e.accesskey,
+            Self::Canvas(e) => e.accesskey,
+            Self::Noscript(e) => e.accesskey,
+            Self::Script(e) => e.accesskey,
+            Self::Del(e) => e.accesskey,
+            Self::Ins(e) => e.accesskey,
+            Self::Caption(e) => e.accesskey,
+            Self::Col(e) => e.accesskey,
+            Self::Colgroup(e) => e.accesskey,
+            Self::Table(e) => e.accesskey,
+            Self::Tbody(e) => e.accesskey,
+            Self::Td(e) => e.accesskey,
+            Self::Tfoot(e) => e.accesskey,
+            Self::Th(e) => e.accesskey,
+            Self::Thead(e) => e.accesskey,
+            Self::Tr(e) => e.accesskey,
+            Self::Button(e) => e.accesskey,
+            Self::Datalist(e) => e.accesskey,
+            Self::Fieldset(e) => e.accesskey,
+            Self::Form(e) => e.accesskey,
+            Self::Input(e) => e.accesskey,
+            Self::Label(e) => e.accesskey,
+            Self::Legend(e) => e.accesskey,
+            Self::Meter(e) => e.accesskey,
+            Self::Optgroup(e) => e.accesskey,
+            Self::Option(e) => e.accesskey,
+            Self::Output(e) => e.accesskey,
+            Self::Progress(e) => e.accesskey,
+            Self::Select(e) => e.accesskey,
+            Self::Textarea(e) => e.accesskey,
+            Self::Details(e) => e.accesskey,
+            Self::Dialog(e) => e.accesskey,
+            Self::Summary(e) => e.accesskey,
+            Self::Slot(e) => e.accesskey,
+            Self::Template(e) => e.accesskey,
+            Self::Acronym(e) => e.accesskey,
+            Self::Applet(e) => e.accesskey,
+            Self::Bgsound(e) => e.accesskey,
+            Self::Big(e) => e.accesskey,
+            Self::Blink(e) => e.accesskey,
+            Self::Center(e) => e.accesskey,
+            Self::Content(e) => e.accesskey,
+            Self::Dir(e) => e.accesskey,
+            Self::Font(e) => e.accesskey,
+            Self::Frame(e) => e.accesskey,
+            Self::Frameset(e) => e.accesskey,
+            Self::Image(e) => e.accesskey,
+            Self::Keygen(e) => e.accesskey,
+            Self::Marquee(e) => e.accesskey,
+            Self::Menuitem(e) => e.accesskey,
+            Self::Nobr(e) => e.accesskey,
+            Self::Noembed(e) => e.accesskey,
+            Self::Noframes(e) => e.accesskey,
+            Self::Param(e) => e.accesskey,
+            Self::Plaintext(e) => e.accesskey,
+            Self::Rb(e) => e.accesskey,
+            Self::Rtc(e) => e.accesskey,
+            Self::Spacer(e) => e.accesskey,
+            Self::Strike(e) => e.accesskey,
+            Self::Tt(e) => e.accesskey,
+            Self::Xmp(e) => e.accesskey,
+        }
+    }
+
+    ///     <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>off</code> or <code>none</code>, no autocapitalization is applied (all letters default to lowercase)</li>
+    ///       <li><code>on</code> or <code>sentences</code>, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>words</code>, the first letter of each word defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>characters</code>, all letters should default to uppercase</li>
+    ///     </ul>
+    ///   
+    pub fn autocapitalize(&self) -> core::option::Option<&'life str> {
+        match self {
+            Self::Html(e) => e.autocapitalize,
+            Self::Base(e) => e.autocapitalize,
+            Self::Head(e) => e.autocapitalize,
+            Self::Link(e) => e.autocapitalize,
+            Self::Meta(e) => e.autocapitalize,
+            Self::Style(e) => e.autocapitalize,
+            Self::Title(e) => e.autocapitalize,
+            Self::Body(e) => e.autocapitalize,
+            Self::Address(e) => e.autocapitalize,
+            Self::Article(e) => e.autocapitalize,
+            Self::Aside(e) => e.autocapitalize,
+            Self::Footer(e) => e.autocapitalize,
+            Self::Header(e) => e.autocapitalize,
+            Self::Hgroup(e) => e.autocapitalize,
+            Self::Main(e) => e.autocapitalize,
+            Self::Nav(e) => e.autocapitalize,
+            Self::Section(e) => e.autocapitalize,
+            Self::Blockquote(e) => e.autocapitalize,
+            Self::Dd(e) => e.autocapitalize,
+            Self::Div(e) => e.autocapitalize,
+            Self::Dl(e) => e.autocapitalize,
+            Self::Dt(e) => e.autocapitalize,
+            Self::Figcaption(e) => e.autocapitalize,
+            Self::Figure(e) => e.autocapitalize,
+            Self::Hr(e) => e.autocapitalize,
+            Self::Li(e) => e.autocapitalize,
+            Self::Menu(e) => e.autocapitalize,
+            Self::Ol(e) => e.autocapitalize,
+            Self::P(e) => e.autocapitalize,
+            Self::Pre(e) => e.autocapitalize,
+            Self::Ul(e) => e.autocapitalize,
+            Self::A(e) => e.autocapitalize,
+            Self::Abbr(e) => e.autocapitalize,
+            Self::B(e) => e.autocapitalize,
+            Self::Bdi(e) => e.autocapitalize,
+            Self::Bdo(e) => e.autocapitalize,
+            Self::Br(e) => e.autocapitalize,
+            Self::Cite(e) => e.autocapitalize,
+            Self::Code(e) => e.autocapitalize,
+            Self::Data(e) => e.autocapitalize,
+            Self::Dfn(e) => e.autocapitalize,
+            Self::Em(e) => e.autocapitalize,
+            Self::I(e) => e.autocapitalize,
+            Self::Kbd(e) => e.autocapitalize,
+            Self::Mark(e) => e.autocapitalize,
+            Self::Q(e) => e.autocapitalize,
+            Self::Rp(e) => e.autocapitalize,
+            Self::Rt(e) => e.autocapitalize,
+            Self::Ruby(e) => e.autocapitalize,
+            Self::S(e) => e.autocapitalize,
+            Self::Samp(e) => e.autocapitalize,
+            Self::Small(e) => e.autocapitalize,
+            Self::Span(e) => e.autocapitalize,
+            Self::Strong(e) => e.autocapitalize,
+            Self::Sub(e) => e.autocapitalize,
+            Self::Sup(e) => e.autocapitalize,
+            Self::Time(e) => e.autocapitalize,
+            Self::U(e) => e.autocapitalize,
+            Self::Var(e) => e.autocapitalize,
+            Self::Wbr(e) => e.autocapitalize,
+            Self::Area(e) => e.autocapitalize,
+            Self::Audio(e) => e.autocapitalize,
+            Self::Img(e) => e.autocapitalize,
+            Self::Map(e) => e.autocapitalize,
+            Self::Track(e) => e.autocapitalize,
+            Self::Video(e) => e.autocapitalize,
+            Self::Embed(e) => e.autocapitalize,
+            Self::Iframe(e) => e.autocapitalize,
+            Self::Object(e) => e.autocapitalize,
+            Self::Picture(e) => e.autocapitalize,
+            Self::Portal(e) => e.autocapitalize,
+            Self::Source(e) => e.autocapitalize,
+            Self::Canvas(e) => e.autocapitalize,
+            Self::Noscript(e) => e.autocapitalize,
+            Self::Script(e) => e.autocapitalize,
+            Self::Del(e) => e.autocapitalize,
+            Self::Ins(e) => e.autocapitalize,
+            Self::Caption(e) => e.autocapitalize,
+            Self::Col(e) => e.autocapitalize,
+            Self::Colgroup(e) => e.autocapitalize,
+            Self::Table(e) => e.autocapitalize,
+            Self::Tbody(e) => e.autocapitalize,
+            Self::Td(e) => e.autocapitalize,
+            Self::Tfoot(e) => e.autocapitalize,
+            Self::Th(e) => e.autocapitalize,
+            Self::Thead(e) => e.autocapitalize,
+            Self::Tr(e) => e.autocapitalize,
+            Self::Button(e) => e.autocapitalize,
+            Self::Datalist(e) => e.autocapitalize,
+            Self::Fieldset(e) => e.autocapitalize,
+            Self::Form(e) => e.autocapitalize,
+            Self::Input(e) => e.autocapitalize,
+            Self::Label(e) => e.autocapitalize,
+            Self::Legend(e) => e.autocapitalize,
+            Self::Meter(e) => e.autocapitalize,
+            Self::Optgroup(e) => e.autocapitalize,
+            Self::Option(e) => e.autocapitalize,
+            Self::Output(e) => e.autocapitalize,
+            Self::Progress(e) => e.autocapitalize,
+            Self::Select(e) => e.autocapitalize,
+            Self::Textarea(e) => e.autocapitalize,
+            Self::Details(e) => e.autocapitalize,
+            Self::Dialog(e) => e.autocapitalize,
+            Self::Summary(e) => e.autocapitalize,
+            Self::Slot(e) => e.autocapitalize,
+            Self::Template(e) => e.autocapitalize,
+            Self::Acronym(e) => e.autocapitalize,
+            Self::Applet(e) => e.autocapitalize,
+            Self::Bgsound(e) => e.autocapitalize,
+            Self::Big(e) => e.autocapitalize,
+            Self::Blink(e) => e.autocapitalize,
+            Self::Center(e) => e.autocapitalize,
+            Self::Content(e) => e.autocapitalize,
+            Self::Dir(e) => e.autocapitalize,
+            Self::Font(e) => e.autocapitalize,
+            Self::Frame(e) => e.autocapitalize,
+            Self::Frameset(e) => e.autocapitalize,
+            Self::Image(e) => e.autocapitalize,
+            Self::Keygen(e) => e.autocapitalize,
+            Self::Marquee(e) => e.autocapitalize,
+            Self::Menuitem(e) => e.autocapitalize,
+            Self::Nobr(e) => e.autocapitalize,
+            Self::Noembed(e) => e.autocapitalize,
+            Self::Noframes(e) => e.autocapitalize,
+            Self::Param(e) => e.autocapitalize,
+            Self::Plaintext(e) => e.autocapitalize,
+            Self::Rb(e) => e.autocapitalize,
+            Self::Rtc(e) => e.autocapitalize,
+            Self::Spacer(e) => e.autocapitalize,
+            Self::Strike(e) => e.autocapitalize,
+            Self::Tt(e) => e.autocapitalize,
+            Self::Xmp(e) => e.autocapitalize,
+        }
+    }
+
+    ///     <p>Indicates that an element is to be focused on page load, or as soon as the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> it is part of is displayed. This attribute is a boolean, initially false.</p>
+    ///   
+    pub fn autofocus(&self) -> core::option::Option<bool> {
+        match self {
+            Self::Html(e) => e.autofocus,
+            Self::Base(e) => e.autofocus,
+            Self::Head(e) => e.autofocus,
+            Self::Link(e) => e.autofocus,
+            Self::Meta(e) => e.autofocus,
+            Self::Style(e) => e.autofocus,
+            Self::Title(e) => e.autofocus,
+            Self::Body(e) => e.autofocus,
+            Self::Address(e) => e.autofocus,
+            Self::Article(e) => e.autofocus,
+            Self::Aside(e) => e.autofocus,
+            Self::Footer(e) => e.autofocus,
+            Self::Header(e) => e.autofocus,
+            Self::Hgroup(e) => e.autofocus,
+            Self::Main(e) => e.autofocus,
+            Self::Nav(e) => e.autofocus,
+            Self::Section(e) => e.autofocus,
+            Self::Blockquote(e) => e.autofocus,
+            Self::Dd(e) => e.autofocus,
+            Self::Div(e) => e.autofocus,
+            Self::Dl(e) => e.autofocus,
+            Self::Dt(e) => e.autofocus,
+            Self::Figcaption(e) => e.autofocus,
+            Self::Figure(e) => e.autofocus,
+            Self::Hr(e) => e.autofocus,
+            Self::Li(e) => e.autofocus,
+            Self::Menu(e) => e.autofocus,
+            Self::Ol(e) => e.autofocus,
+            Self::P(e) => e.autofocus,
+            Self::Pre(e) => e.autofocus,
+            Self::Ul(e) => e.autofocus,
+            Self::A(e) => e.autofocus,
+            Self::Abbr(e) => e.autofocus,
+            Self::B(e) => e.autofocus,
+            Self::Bdi(e) => e.autofocus,
+            Self::Bdo(e) => e.autofocus,
+            Self::Br(e) => e.autofocus,
+            Self::Cite(e) => e.autofocus,
+            Self::Code(e) => e.autofocus,
+            Self::Data(e) => e.autofocus,
+            Self::Dfn(e) => e.autofocus,
+            Self::Em(e) => e.autofocus,
+            Self::I(e) => e.autofocus,
+            Self::Kbd(e) => e.autofocus,
+            Self::Mark(e) => e.autofocus,
+            Self::Q(e) => e.autofocus,
+            Self::Rp(e) => e.autofocus,
+            Self::Rt(e) => e.autofocus,
+            Self::Ruby(e) => e.autofocus,
+            Self::S(e) => e.autofocus,
+            Self::Samp(e) => e.autofocus,
+            Self::Small(e) => e.autofocus,
+            Self::Span(e) => e.autofocus,
+            Self::Strong(e) => e.autofocus,
+            Self::Sub(e) => e.autofocus,
+            Self::Sup(e) => e.autofocus,
+            Self::Time(e) => e.autofocus,
+            Self::U(e) => e.autofocus,
+            Self::Var(e) => e.autofocus,
+            Self::Wbr(e) => e.autofocus,
+            Self::Area(e) => e.autofocus,
+            Self::Audio(e) => e.autofocus,
+            Self::Img(e) => e.autofocus,
+            Self::Map(e) => e.autofocus,
+            Self::Track(e) => e.autofocus,
+            Self::Video(e) => e.autofocus,
+            Self::Embed(e) => e.autofocus,
+            Self::Iframe(e) => e.autofocus,
+            Self::Object(e) => e.autofocus,
+            Self::Picture(e) => e.autofocus,
+            Self::Portal(e) => e.autofocus,
+            Self::Source(e) => e.autofocus,
+            Self::Canvas(e) => e.autofocus,
+            Self::Noscript(e) => e.autofocus,
+            Self::Script(e) => e.autofocus,
+            Self::Del(e) => e.autofocus,
+            Self::Ins(e) => e.autofocus,
+            Self::Caption(e) => e.autofocus,
+            Self::Col(e) => e.autofocus,
+            Self::Colgroup(e) => e.autofocus,
+            Self::Table(e) => e.autofocus,
+            Self::Tbody(e) => e.autofocus,
+            Self::Td(e) => e.autofocus,
+            Self::Tfoot(e) => e.autofocus,
+            Self::Th(e) => e.autofocus,
+            Self::Thead(e) => e.autofocus,
+            Self::Tr(e) => e.autofocus,
+            Self::Button(e) => e.autofocus,
+            Self::Datalist(e) => e.autofocus,
+            Self::Fieldset(e) => e.autofocus,
+            Self::Form(e) => e.autofocus,
+            Self::Input(e) => e.autofocus,
+            Self::Label(e) => e.autofocus,
+            Self::Legend(e) => e.autofocus,
+            Self::Meter(e) => e.autofocus,
+            Self::Optgroup(e) => e.autofocus,
+            Self::Option(e) => e.autofocus,
+            Self::Output(e) => e.autofocus,
+            Self::Progress(e) => e.autofocus,
+            Self::Select(e) => e.autofocus,
+            Self::Textarea(e) => e.autofocus,
+            Self::Details(e) => e.autofocus,
+            Self::Dialog(e) => e.autofocus,
+            Self::Summary(e) => e.autofocus,
+            Self::Slot(e) => e.autofocus,
+            Self::Template(e) => e.autofocus,
+            Self::Acronym(e) => e.autofocus,
+            Self::Applet(e) => e.autofocus,
+            Self::Bgsound(e) => e.autofocus,
+            Self::Big(e) => e.autofocus,
+            Self::Blink(e) => e.autofocus,
+            Self::Center(e) => e.autofocus,
+            Self::Content(e) => e.autofocus,
+            Self::Dir(e) => e.autofocus,
+            Self::Font(e) => e.autofocus,
+            Self::Frame(e) => e.autofocus,
+            Self::Frameset(e) => e.autofocus,
+            Self::Image(e) => e.autofocus,
+            Self::Keygen(e) => e.autofocus,
+            Self::Marquee(e) => e.autofocus,
+            Self::Menuitem(e) => e.autofocus,
+            Self::Nobr(e) => e.autofocus,
+            Self::Noembed(e) => e.autofocus,
+            Self::Noframes(e) => e.autofocus,
+            Self::Param(e) => e.autofocus,
+            Self::Plaintext(e) => e.autofocus,
+            Self::Rb(e) => e.autofocus,
+            Self::Rtc(e) => e.autofocus,
+            Self::Spacer(e) => e.autofocus,
+            Self::Strike(e) => e.autofocus,
+            Self::Tt(e) => e.autofocus,
+            Self::Xmp(e) => e.autofocus,
+        }
+    }
+
+    ///     <p>A space-separated list of the classes of the element. Classes allow CSS and JavaScript to select and access specific elements via the <a href="/en-US/docs/Web/CSS/Class_selectors">class selectors</a> or functions like the method <a href="/en-US/docs/Web/API/Document/getElementsByClassName"><code>Document.getElementsByClassName()</code></a>.</p>
+    ///   
+    pub fn class(&self) -> core::option::Option<&'life str> {
+        match self {
+            Self::Html(e) => e.class,
+            Self::Base(e) => e.class,
+            Self::Head(e) => e.class,
+            Self::Link(e) => e.class,
+            Self::Meta(e) => e.class,
+            Self::Style(e) => e.class,
+            Self::Title(e) => e.class,
+            Self::Body(e) => e.class,
+            Self::Address(e) => e.class,
+            Self::Article(e) => e.class,
+            Self::Aside(e) => e.class,
+            Self::Footer(e) => e.class,
+            Self::Header(e) => e.class,
+            Self::Hgroup(e) => e.class,
+            Self::Main(e) => e.class,
+            Self::Nav(e) => e.class,
+            Self::Section(e) => e.class,
+            Self::Blockquote(e) => e.class,
+            Self::Dd(e) => e.class,
+            Self::Div(e) => e.class,
+            Self::Dl(e) => e.class,
+            Self::Dt(e) => e.class,
+            Self::Figcaption(e) => e.class,
+            Self::Figure(e) => e.class,
+            Self::Hr(e) => e.class,
+            Self::Li(e) => e.class,
+            Self::Menu(e) => e.class,
+            Self::Ol(e) => e.class,
+            Self::P(e) => e.class,
+            Self::Pre(e) => e.class,
+            Self::Ul(e) => e.class,
+            Self::A(e) => e.class,
+            Self::Abbr(e) => e.class,
+            Self::B(e) => e.class,
+            Self::Bdi(e) => e.class,
+            Self::Bdo(e) => e.class,
+            Self::Br(e) => e.class,
+            Self::Cite(e) => e.class,
+            Self::Code(e) => e.class,
+            Self::Data(e) => e.class,
+            Self::Dfn(e) => e.class,
+            Self::Em(e) => e.class,
+            Self::I(e) => e.class,
+            Self::Kbd(e) => e.class,
+            Self::Mark(e) => e.class,
+            Self::Q(e) => e.class,
+            Self::Rp(e) => e.class,
+            Self::Rt(e) => e.class,
+            Self::Ruby(e) => e.class,
+            Self::S(e) => e.class,
+            Self::Samp(e) => e.class,
+            Self::Small(e) => e.class,
+            Self::Span(e) => e.class,
+            Self::Strong(e) => e.class,
+            Self::Sub(e) => e.class,
+            Self::Sup(e) => e.class,
+            Self::Time(e) => e.class,
+            Self::U(e) => e.class,
+            Self::Var(e) => e.class,
+            Self::Wbr(e) => e.class,
+            Self::Area(e) => e.class,
+            Self::Audio(e) => e.class,
+            Self::Img(e) => e.class,
+            Self::Map(e) => e.class,
+            Self::Track(e) => e.class,
+            Self::Video(e) => e.class,
+            Self::Embed(e) => e.class,
+            Self::Iframe(e) => e.class,
+            Self::Object(e) => e.class,
+            Self::Picture(e) => e.class,
+            Self::Portal(e) => e.class,
+            Self::Source(e) => e.class,
+            Self::Canvas(e) => e.class,
+            Self::Noscript(e) => e.class,
+            Self::Script(e) => e.class,
+            Self::Del(e) => e.class,
+            Self::Ins(e) => e.class,
+            Self::Caption(e) => e.class,
+            Self::Col(e) => e.class,
+            Self::Colgroup(e) => e.class,
+            Self::Table(e) => e.class,
+            Self::Tbody(e) => e.class,
+            Self::Td(e) => e.class,
+            Self::Tfoot(e) => e.class,
+            Self::Th(e) => e.class,
+            Self::Thead(e) => e.class,
+            Self::Tr(e) => e.class,
+            Self::Button(e) => e.class,
+            Self::Datalist(e) => e.class,
+            Self::Fieldset(e) => e.class,
+            Self::Form(e) => e.class,
+            Self::Input(e) => e.class,
+            Self::Label(e) => e.class,
+            Self::Legend(e) => e.class,
+            Self::Meter(e) => e.class,
+            Self::Optgroup(e) => e.class,
+            Self::Option(e) => e.class,
+            Self::Output(e) => e.class,
+            Self::Progress(e) => e.class,
+            Self::Select(e) => e.class,
+            Self::Textarea(e) => e.class,
+            Self::Details(e) => e.class,
+            Self::Dialog(e) => e.class,
+            Self::Summary(e) => e.class,
+            Self::Slot(e) => e.class,
+            Self::Template(e) => e.class,
+            Self::Acronym(e) => e.class,
+            Self::Applet(e) => e.class,
+            Self::Bgsound(e) => e.class,
+            Self::Big(e) => e.class,
+            Self::Blink(e) => e.class,
+            Self::Center(e) => e.class,
+            Self::Content(e) => e.class,
+            Self::Dir(e) => e.class,
+            Self::Font(e) => e.class,
+            Self::Frame(e) => e.class,
+            Self::Frameset(e) => e.class,
+            Self::Image(e) => e.class,
+            Self::Keygen(e) => e.class,
+            Self::Marquee(e) => e.class,
+            Self::Menuitem(e) => e.class,
+            Self::Nobr(e) => e.class,
+            Self::Noembed(e) => e.class,
+            Self::Noframes(e) => e.class,
+            Self::Param(e) => e.class,
+            Self::Plaintext(e) => e.class,
+            Self::Rb(e) => e.class,
+            Self::Rtc(e) => e.class,
+            Self::Spacer(e) => e.class,
+            Self::Strike(e) => e.class,
+            Self::Tt(e) => e.class,
+            Self::Xmp(e) => e.class,
+        }
+    }
+
+    ///     <p>An <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code> or the <em>empty string</em>, which indicates that the element must be editable;</li>
+    ///       <li><code>false</code>, which indicates that the element must not be editable.</li>
+    ///     </ul>
+    ///   
+    pub fn contenteditable(&self) -> core::option::Option<&'life str> {
+        match self {
+            Self::Html(e) => e.contenteditable,
+            Self::Base(e) => e.contenteditable,
+            Self::Head(e) => e.contenteditable,
+            Self::Link(e) => e.contenteditable,
+            Self::Meta(e) => e.contenteditable,
+            Self::Style(e) => e.contenteditable,
+            Self::Title(e) => e.contenteditable,
+            Self::Body(e) => e.contenteditable,
+            Self::Address(e) => e.contenteditable,
+            Self::Article(e) => e.contenteditable,
+            Self::Aside(e) => e.contenteditable,
+            Self::Footer(e) => e.contenteditable,
+            Self::Header(e) => e.contenteditable,
+            Self::Hgroup(e) => e.contenteditable,
+            Self::Main(e) => e.contenteditable,
+            Self::Nav(e) => e.contenteditable,
+            Self::Section(e) => e.contenteditable,
+            Self::Blockquote(e) => e.contenteditable,
+            Self::Dd(e) => e.contenteditable,
+            Self::Div(e) => e.contenteditable,
+            Self::Dl(e) => e.contenteditable,
+            Self::Dt(e) => e.contenteditable,
+            Self::Figcaption(e) => e.contenteditable,
+            Self::Figure(e) => e.contenteditable,
+            Self::Hr(e) => e.contenteditable,
+            Self::Li(e) => e.contenteditable,
+            Self::Menu(e) => e.contenteditable,
+            Self::Ol(e) => e.contenteditable,
+            Self::P(e) => e.contenteditable,
+            Self::Pre(e) => e.contenteditable,
+            Self::Ul(e) => e.contenteditable,
+            Self::A(e) => e.contenteditable,
+            Self::Abbr(e) => e.contenteditable,
+            Self::B(e) => e.contenteditable,
+            Self::Bdi(e) => e.contenteditable,
+            Self::Bdo(e) => e.contenteditable,
+            Self::Br(e) => e.contenteditable,
+            Self::Cite(e) => e.contenteditable,
+            Self::Code(e) => e.contenteditable,
+            Self::Data(e) => e.contenteditable,
+            Self::Dfn(e) => e.contenteditable,
+            Self::Em(e) => e.contenteditable,
+            Self::I(e) => e.contenteditable,
+            Self::Kbd(e) => e.contenteditable,
+            Self::Mark(e) => e.contenteditable,
+            Self::Q(e) => e.contenteditable,
+            Self::Rp(e) => e.contenteditable,
+            Self::Rt(e) => e.contenteditable,
+            Self::Ruby(e) => e.contenteditable,
+            Self::S(e) => e.contenteditable,
+            Self::Samp(e) => e.contenteditable,
+            Self::Small(e) => e.contenteditable,
+            Self::Span(e) => e.contenteditable,
+            Self::Strong(e) => e.contenteditable,
+            Self::Sub(e) => e.contenteditable,
+            Self::Sup(e) => e.contenteditable,
+            Self::Time(e) => e.contenteditable,
+            Self::U(e) => e.contenteditable,
+            Self::Var(e) => e.contenteditable,
+            Self::Wbr(e) => e.contenteditable,
+            Self::Area(e) => e.contenteditable,
+            Self::Audio(e) => e.contenteditable,
+            Self::Img(e) => e.contenteditable,
+            Self::Map(e) => e.contenteditable,
+            Self::Track(e) => e.contenteditable,
+            Self::Video(e) => e.contenteditable,
+            Self::Embed(e) => e.contenteditable,
+            Self::Iframe(e) => e.contenteditable,
+            Self::Object(e) => e.contenteditable,
+            Self::Picture(e) => e.contenteditable,
+            Self::Portal(e) => e.contenteditable,
+            Self::Source(e) => e.contenteditable,
+            Self::Canvas(e) => e.contenteditable,
+            Self::Noscript(e) => e.contenteditable,
+            Self::Script(e) => e.contenteditable,
+            Self::Del(e) => e.contenteditable,
+            Self::Ins(e) => e.contenteditable,
+            Self::Caption(e) => e.contenteditable,
+            Self::Col(e) => e.contenteditable,
+            Self::Colgroup(e) => e.contenteditable,
+            Self::Table(e) => e.contenteditable,
+            Self::Tbody(e) => e.contenteditable,
+            Self::Td(e) => e.contenteditable,
+            Self::Tfoot(e) => e.contenteditable,
+            Self::Th(e) => e.contenteditable,
+            Self::Thead(e) => e.contenteditable,
+            Self::Tr(e) => e.contenteditable,
+            Self::Button(e) => e.contenteditable,
+            Self::Datalist(e) => e.contenteditable,
+            Self::Fieldset(e) => e.contenteditable,
+            Self::Form(e) => e.contenteditable,
+            Self::Input(e) => e.contenteditable,
+            Self::Label(e) => e.contenteditable,
+            Self::Legend(e) => e.contenteditable,
+            Self::Meter(e) => e.contenteditable,
+            Self::Optgroup(e) => e.contenteditable,
+            Self::Option(e) => e.contenteditable,
+            Self::Output(e) => e.contenteditable,
+            Self::Progress(e) => e.contenteditable,
+            Self::Select(e) => e.contenteditable,
+            Self::Textarea(e) => e.contenteditable,
+            Self::Details(e) => e.contenteditable,
+            Self::Dialog(e) => e.contenteditable,
+            Self::Summary(e) => e.contenteditable,
+            Self::Slot(e) => e.contenteditable,
+            Self::Template(e) => e.contenteditable,
+            Self::Acronym(e) => e.contenteditable,
+            Self::Applet(e) => e.contenteditable,
+            Self::Bgsound(e) => e.contenteditable,
+            Self::Big(e) => e.contenteditable,
+            Self::Blink(e) => e.contenteditable,
+            Self::Center(e) => e.contenteditable,
+            Self::Content(e) => e.contenteditable,
+            Self::Dir(e) => e.contenteditable,
+            Self::Font(e) => e.contenteditable,
+            Self::Frame(e) => e.contenteditable,
+            Self::Frameset(e) => e.contenteditable,
+            Self::Image(e) => e.contenteditable,
+            Self::Keygen(e) => e.contenteditable,
+            Self::Marquee(e) => e.contenteditable,
+            Self::Menuitem(e) => e.contenteditable,
+            Self::Nobr(e) => e.contenteditable,
+            Self::Noembed(e) => e.contenteditable,
+            Self::Noframes(e) => e.contenteditable,
+            Self::Param(e) => e.contenteditable,
+            Self::Plaintext(e) => e.contenteditable,
+            Self::Rb(e) => e.contenteditable,
+            Self::Rtc(e) => e.contenteditable,
+            Self::Spacer(e) => e.contenteditable,
+            Self::Strike(e) => e.contenteditable,
+            Self::Tt(e) => e.contenteditable,
+            Self::Xmp(e) => e.contenteditable,
+        }
+    }
+
+    ///     <p>The <a href="#id"><strong><code>id</code></strong></a> of a <a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a> to use as the contextual menu for this element.</p>
+    ///   
+    pub fn contextmenu(&self) -> core::option::Option<&'life str> {
+        match self {
+            Self::Html(e) => e.contextmenu,
+            Self::Base(e) => e.contextmenu,
+            Self::Head(e) => e.contextmenu,
+            Self::Link(e) => e.contextmenu,
+            Self::Meta(e) => e.contextmenu,
+            Self::Style(e) => e.contextmenu,
+            Self::Title(e) => e.contextmenu,
+            Self::Body(e) => e.contextmenu,
+            Self::Address(e) => e.contextmenu,
+            Self::Article(e) => e.contextmenu,
+            Self::Aside(e) => e.contextmenu,
+            Self::Footer(e) => e.contextmenu,
+            Self::Header(e) => e.contextmenu,
+            Self::Hgroup(e) => e.contextmenu,
+            Self::Main(e) => e.contextmenu,
+            Self::Nav(e) => e.contextmenu,
+            Self::Section(e) => e.contextmenu,
+            Self::Blockquote(e) => e.contextmenu,
+            Self::Dd(e) => e.contextmenu,
+            Self::Div(e) => e.contextmenu,
+            Self::Dl(e) => e.contextmenu,
+            Self::Dt(e) => e.contextmenu,
+            Self::Figcaption(e) => e.contextmenu,
+            Self::Figure(e) => e.contextmenu,
+            Self::Hr(e) => e.contextmenu,
+            Self::Li(e) => e.contextmenu,
+            Self::Menu(e) => e.contextmenu,
+            Self::Ol(e) => e.contextmenu,
+            Self::P(e) => e.contextmenu,
+            Self::Pre(e) => e.contextmenu,
+            Self::Ul(e) => e.contextmenu,
+            Self::A(e) => e.contextmenu,
+            Self::Abbr(e) => e.contextmenu,
+            Self::B(e) => e.contextmenu,
+            Self::Bdi(e) => e.contextmenu,
+            Self::Bdo(e) => e.contextmenu,
+            Self::Br(e) => e.contextmenu,
+            Self::Cite(e) => e.contextmenu,
+            Self::Code(e) => e.contextmenu,
+            Self::Data(e) => e.contextmenu,
+            Self::Dfn(e) => e.contextmenu,
+            Self::Em(e) => e.contextmenu,
+            Self::I(e) => e.contextmenu,
+            Self::Kbd(e) => e.contextmenu,
+            Self::Mark(e) => e.contextmenu,
+            Self::Q(e) => e.contextmenu,
+            Self::Rp(e) => e.contextmenu,
+            Self::Rt(e) => e.contextmenu,
+            Self::Ruby(e) => e.contextmenu,
+            Self::S(e) => e.contextmenu,
+            Self::Samp(e) => e.contextmenu,
+            Self::Small(e) => e.contextmenu,
+            Self::Span(e) => e.contextmenu,
+            Self::Strong(e) => e.contextmenu,
+            Self::Sub(e) => e.contextmenu,
+            Self::Sup(e) => e.contextmenu,
+            Self::Time(e) => e.contextmenu,
+            Self::U(e) => e.contextmenu,
+            Self::Var(e) => e.contextmenu,
+            Self::Wbr(e) => e.contextmenu,
+            Self::Area(e) => e.contextmenu,
+            Self::Audio(e) => e.contextmenu,
+            Self::Img(e) => e.contextmenu,
+            Self::Map(e) => e.contextmenu,
+            Self::Track(e) => e.contextmenu,
+            Self::Video(e) => e.contextmenu,
+            Self::Embed(e) => e.contextmenu,
+            Self::Iframe(e) => e.contextmenu,
+            Self::Object(e) => e.contextmenu,
+            Self::Picture(e) => e.contextmenu,
+            Self::Portal(e) => e.contextmenu,
+            Self::Source(e) => e.contextmenu,
+            Self::Canvas(e) => e.contextmenu,
+            Self::Noscript(e) => e.contextmenu,
+            Self::Script(e) => e.contextmenu,
+            Self::Del(e) => e.contextmenu,
+            Self::Ins(e) => e.contextmenu,
+            Self::Caption(e) => e.contextmenu,
+            Self::Col(e) => e.contextmenu,
+            Self::Colgroup(e) => e.contextmenu,
+            Self::Table(e) => e.contextmenu,
+            Self::Tbody(e) => e.contextmenu,
+            Self::Td(e) => e.contextmenu,
+            Self::Tfoot(e) => e.contextmenu,
+            Self::Th(e) => e.contextmenu,
+            Self::Thead(e) => e.contextmenu,
+            Self::Tr(e) => e.contextmenu,
+            Self::Button(e) => e.contextmenu,
+            Self::Datalist(e) => e.contextmenu,
+            Self::Fieldset(e) => e.contextmenu,
+            Self::Form(e) => e.contextmenu,
+            Self::Input(e) => e.contextmenu,
+            Self::Label(e) => e.contextmenu,
+            Self::Legend(e) => e.contextmenu,
+            Self::Meter(e) => e.contextmenu,
+            Self::Optgroup(e) => e.contextmenu,
+            Self::Option(e) => e.contextmenu,
+            Self::Output(e) => e.contextmenu,
+            Self::Progress(e) => e.contextmenu,
+            Self::Select(e) => e.contextmenu,
+            Self::Textarea(e) => e.contextmenu,
+            Self::Details(e) => e.contextmenu,
+            Self::Dialog(e) => e.contextmenu,
+            Self::Summary(e) => e.contextmenu,
+            Self::Slot(e) => e.contextmenu,
+            Self::Template(e) => e.contextmenu,
+            Self::Acronym(e) => e.contextmenu,
+            Self::Applet(e) => e.contextmenu,
+            Self::Bgsound(e) => e.contextmenu,
+            Self::Big(e) => e.contextmenu,
+            Self::Blink(e) => e.contextmenu,
+            Self::Center(e) => e.contextmenu,
+            Self::Content(e) => e.contextmenu,
+            Self::Dir(e) => e.contextmenu,
+            Self::Font(e) => e.contextmenu,
+            Self::Frame(e) => e.contextmenu,
+            Self::Frameset(e) => e.contextmenu,
+            Self::Image(e) => e.contextmenu,
+            Self::Keygen(e) => e.contextmenu,
+            Self::Marquee(e) => e.contextmenu,
+            Self::Menuitem(e) => e.contextmenu,
+            Self::Nobr(e) => e.contextmenu,
+            Self::Noembed(e) => e.contextmenu,
+            Self::Noframes(e) => e.contextmenu,
+            Self::Param(e) => e.contextmenu,
+            Self::Plaintext(e) => e.contextmenu,
+            Self::Rb(e) => e.contextmenu,
+            Self::Rtc(e) => e.contextmenu,
+            Self::Spacer(e) => e.contextmenu,
+            Self::Strike(e) => e.contextmenu,
+            Self::Tt(e) => e.contextmenu,
+            Self::Xmp(e) => e.contextmenu,
+        }
+    }
+
+    ///     <p>Forms a class of attributes, called custom data attributes, that allow proprietary information to be exchanged between the <a href="/en-US/docs/Web/HTML">HTML</a> and its <a href="/en-US/docs/Glossary/DOM">DOM</a> representation that may be used by scripts. All such custom data are available via the <a href="/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> interface of the element the attribute is set on. The <a href="/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property gives access to them.</p>
+    ///   
+    #[cfg(feature = "alloc")]
+    pub fn data(
+        &self,
+    ) -> core::option::Option<&alloc::collections::BTreeMap<&'life str, &'life str>> {
+        match self {
+            Self::Html(e) => e.data.as_ref(),
+            Self::Base(e) => e.data.as_ref(),
+            Self::Head(e) => e.data.as_ref(),
+            Self::Link(e) => e.data.as_ref(),
+            Self::Meta(e) => e.data.as_ref(),
+            Self::Style(e) => e.data.as_ref(),
+            Self::Title(e) => e.data.as_ref(),
+            Self::Body(e) => e.data.as_ref(),
+            Self::Address(e) => e.data.as_ref(),
+            Self::Article(e) => e.data.as_ref(),
+            Self::Aside(e) => e.data.as_ref(),
+            Self::Footer(e) => e.data.as_ref(),
+            Self::Header(e) => e.data.as_ref(),
+            Self::Hgroup(e) => e.data.as_ref(),
+            Self::Main(e) => e.data.as_ref(),
+            Self::Nav(e) => e.data.as_ref(),
+            Self::Section(e) => e.data.as_ref(),
+            Self::Blockquote(e) => e.data.as_ref(),
+            Self::Dd(e) => e.data.as_ref(),
+            Self::Div(e) => e.data.as_ref(),
+            Self::Dl(e) => e.data.as_ref(),
+            Self::Dt(e) => e.data.as_ref(),
+            Self::Figcaption(e) => e.data.as_ref(),
+            Self::Figure(e) => e.data.as_ref(),
+            Self::Hr(e) => e.data.as_ref(),
+            Self::Li(e) => e.data.as_ref(),
+            Self::Menu(e) => e.data.as_ref(),
+            Self::Ol(e) => e.data.as_ref(),
+            Self::P(e) => e.data.as_ref(),
+            Self::Pre(e) => e.data.as_ref(),
+            Self::Ul(e) => e.data.as_ref(),
+            Self::A(e) => e.data.as_ref(),
+            Self::Abbr(e) => e.data.as_ref(),
+            Self::B(e) => e.data.as_ref(),
+            Self::Bdi(e) => e.data.as_ref(),
+            Self::Bdo(e) => e.data.as_ref(),
+            Self::Br(e) => e.data.as_ref(),
+            Self::Cite(e) => e.data.as_ref(),
+            Self::Code(e) => e.data.as_ref(),
+            Self::Data(e) => e.data.as_ref(),
+            Self::Dfn(e) => e.data.as_ref(),
+            Self::Em(e) => e.data.as_ref(),
+            Self::I(e) => e.data.as_ref(),
+            Self::Kbd(e) => e.data.as_ref(),
+            Self::Mark(e) => e.data.as_ref(),
+            Self::Q(e) => e.data.as_ref(),
+            Self::Rp(e) => e.data.as_ref(),
+            Self::Rt(e) => e.data.as_ref(),
+            Self::Ruby(e) => e.data.as_ref(),
+            Self::S(e) => e.data.as_ref(),
+            Self::Samp(e) => e.data.as_ref(),
+            Self::Small(e) => e.data.as_ref(),
+            Self::Span(e) => e.data.as_ref(),
+            Self::Strong(e) => e.data.as_ref(),
+            Self::Sub(e) => e.data.as_ref(),
+            Self::Sup(e) => e.data.as_ref(),
+            Self::Time(e) => e.data.as_ref(),
+            Self::U(e) => e.data.as_ref(),
+            Self::Var(e) => e.data.as_ref(),
+            Self::Wbr(e) => e.data.as_ref(),
+            Self::Area(e) => e.data.as_ref(),
+            Self::Audio(e) => e.data.as_ref(),
+            Self::Img(e) => e.data.as_ref(),
+            Self::Map(e) => e.data.as_ref(),
+            Self::Track(e) => e.data.as_ref(),
+            Self::Video(e) => e.data.as_ref(),
+            Self::Embed(e) => e.data.as_ref(),
+            Self::Iframe(e) => e.data.as_ref(),
+            Self::Object(e) => e.data.as_ref(),
+            Self::Picture(e) => e.data.as_ref(),
+            Self::Portal(e) => e.data.as_ref(),
+            Self::Source(e) => e.data.as_ref(),
+            Self::Canvas(e) => e.data.as_ref(),
+            Self::Noscript(e) => e.data.as_ref(),
+            Self::Script(e) => e.data.as_ref(),
+            Self::Del(e) => e.data.as_ref(),
+            Self::Ins(e) => e.data.as_ref(),
+            Self::Caption(e) => e.data.as_ref(),
+            Self::Col(e) => e.data.as_ref(),
+            Self::Colgroup(e) => e.data.as_ref(),
+            Self::Table(e) => e.data.as_ref(),
+            Self::Tbody(e) => e.data.as_ref(),
+            Self::Td(e) => e.data.as_ref(),
+            Self::Tfoot(e) => e.data.as_ref(),
+            Self::Th(e) => e.data.as_ref(),
+            Self::Thead(e) => e.data.as_ref(),
+            Self::Tr(e) => e.data.as_ref(),
+            Self::Button(e) => e.data.as_ref(),
+            Self::Datalist(e) => e.data.as_ref(),
+            Self::Fieldset(e) => e.data.as_ref(),
+            Self::Form(e) => e.data.as_ref(),
+            Self::Input(e) => e.data.as_ref(),
+            Self::Label(e) => e.data.as_ref(),
+            Self::Legend(e) => e.data.as_ref(),
+            Self::Meter(e) => e.data.as_ref(),
+            Self::Optgroup(e) => e.data.as_ref(),
+            Self::Option(e) => e.data.as_ref(),
+            Self::Output(e) => e.data.as_ref(),
+            Self::Progress(e) => e.data.as_ref(),
+            Self::Select(e) => e.data.as_ref(),
+            Self::Textarea(e) => e.data.as_ref(),
+            Self::Details(e) => e.data.as_ref(),
+            Self::Dialog(e) => e.data.as_ref(),
+            Self::Summary(e) => e.data.as_ref(),
+            Self::Slot(e) => e.data.as_ref(),
+            Self::Template(e) => e.data.as_ref(),
+            Self::Acronym(e) => e.data.as_ref(),
+            Self::Applet(e) => e.data.as_ref(),
+            Self::Bgsound(e) => e.data.as_ref(),
+            Self::Big(e) => e.data.as_ref(),
+            Self::Blink(e) => e.data.as_ref(),
+            Self::Center(e) => e.data.as_ref(),
+            Self::Content(e) => e.data.as_ref(),
+            Self::Dir(e) => e.data.as_ref(),
+            Self::Font(e) => e.data.as_ref(),
+            Self::Frame(e) => e.data.as_ref(),
+            Self::Frameset(e) => e.data.as_ref(),
+            Self::Image(e) => e.data.as_ref(),
+            Self::Keygen(e) => e.data.as_ref(),
+            Self::Marquee(e) => e.data.as_ref(),
+            Self::Menuitem(e) => e.data.as_ref(),
+            Self::Nobr(e) => e.data.as_ref(),
+            Self::Noembed(e) => e.data.as_ref(),
+            Self::Noframes(e) => e.data.as_ref(),
+            Self::Param(e) => e.data.as_ref(),
+            Self::Plaintext(e) => e.data.as_ref(),
+            Self::Rb(e) => e.data.as_ref(),
+            Self::Rtc(e) => e.data.as_ref(),
+            Self::Spacer(e) => e.data.as_ref(),
+            Self::Strike(e) => e.data.as_ref(),
+            Self::Tt(e) => e.data.as_ref(),
+            Self::Xmp(e) => e.data.as_ref(),
+        }
+    }
+
+    ///     <p>An enumerated attribute indicating the directionality of the element's text. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>ltr</code>, which means <em>left to right</em> and is to be used for languages that are written from the left to the right (like English);</li>
+    ///       <li><code>rtl</code>, which means <em>right to left</em> and is to be used for languages that are written from the right to the left (like Arabic);</li>
+    ///       <li><code>auto</code>, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.</li>
+    ///     </ul>
+    ///   
+    pub fn dir(&self) -> core::option::Option<&'life str> {
+        match self {
+            Self::Html(e) => e.dir,
+            Self::Base(e) => e.dir,
+            Self::Head(e) => e.dir,
+            Self::Link(e) => e.dir,
+            Self::Meta(e) => e.dir,
+            Self::Style(e) => e.dir,
+            Self::Title(e) => e.dir,
+            Self::Body(e) => e.dir,
+            Self::Address(e) => e.dir,
+            Self::Article(e) => e.dir,
+            Self::Aside(e) => e.dir,
+            Self::Footer(e) => e.dir,
+            Self::Header(e) => e.dir,
+            Self::Hgroup(e) => e.dir,
+            Self::Main(e) => e.dir,
+            Self::Nav(e) => e.dir,
+            Self::Section(e) => e.dir,
+            Self::Blockquote(e) => e.dir,
+            Self::Dd(e) => e.dir,
+            Self::Div(e) => e.dir,
+            Self::Dl(e) => e.dir,
+            Self::Dt(e) => e.dir,
+            Self::Figcaption(e) => e.dir,
+            Self::Figure(e) => e.dir,
+            Self::Hr(e) => e.dir,
+            Self::Li(e) => e.dir,
+            Self::Menu(e) => e.dir,
+            Self::Ol(e) => e.dir,
+            Self::P(e) => e.dir,
+            Self::Pre(e) => e.dir,
+            Self::Ul(e) => e.dir,
+            Self::A(e) => e.dir,
+            Self::Abbr(e) => e.dir,
+            Self::B(e) => e.dir,
+            Self::Bdi(e) => e.dir,
+            Self::Bdo(e) => e.dir,
+            Self::Br(e) => e.dir,
+            Self::Cite(e) => e.dir,
+            Self::Code(e) => e.dir,
+            Self::Data(e) => e.dir,
+            Self::Dfn(e) => e.dir,
+            Self::Em(e) => e.dir,
+            Self::I(e) => e.dir,
+            Self::Kbd(e) => e.dir,
+            Self::Mark(e) => e.dir,
+            Self::Q(e) => e.dir,
+            Self::Rp(e) => e.dir,
+            Self::Rt(e) => e.dir,
+            Self::Ruby(e) => e.dir,
+            Self::S(e) => e.dir,
+            Self::Samp(e) => e.dir,
+            Self::Small(e) => e.dir,
+            Self::Span(e) => e.dir,
+            Self::Strong(e) => e.dir,
+            Self::Sub(e) => e.dir,
+            Self::Sup(e) => e.dir,
+            Self::Time(e) => e.dir,
+            Self::U(e) => e.dir,
+            Self::Var(e) => e.dir,
+            Self::Wbr(e) => e.dir,
+            Self::Area(e) => e.dir,
+            Self::Audio(e) => e.dir,
+            Self::Img(e) => e.dir,
+            Self::Map(e) => e.dir,
+            Self::Track(e) => e.dir,
+            Self::Video(e) => e.dir,
+            Self::Embed(e) => e.dir,
+            Self::Iframe(e) => e.dir,
+            Self::Object(e) => e.dir,
+            Self::Picture(e) => e.dir,
+            Self::Portal(e) => e.dir,
+            Self::Source(e) => e.dir,
+            Self::Canvas(e) => e.dir,
+            Self::Noscript(e) => e.dir,
+            Self::Script(e) => e.dir,
+            Self::Del(e) => e.dir,
+            Self::Ins(e) => e.dir,
+            Self::Caption(e) => e.dir,
+            Self::Col(e) => e.dir,
+            Self::Colgroup(e) => e.dir,
+            Self::Table(e) => e.dir,
+            Self::Tbody(e) => e.dir,
+            Self::Td(e) => e.dir,
+            Self::Tfoot(e) => e.dir,
+            Self::Th(e) => e.dir,
+            Self::Thead(e) => e.dir,
+            Self::Tr(e) => e.dir,
+            Self::Button(e) => e.dir,
+            Self::Datalist(e) => e.dir,
+            Self::Fieldset(e) => e.dir,
+            Self::Form(e) => e.dir,
+            Self::Input(e) => e.dir,
+            Self::Label(e) => e.dir,
+            Self::Legend(e) => e.dir,
+            Self::Meter(e) => e.dir,
+            Self::Optgroup(e) => e.dir,
+            Self::Option(e) => e.dir,
+            Self::Output(e) => e.dir,
+            Self::Progress(e) => e.dir,
+            Self::Select(e) => e.dir,
+            Self::Textarea(e) => e.dir,
+            Self::Details(e) => e.dir,
+            Self::Dialog(e) => e.dir,
+            Self::Summary(e) => e.dir,
+            Self::Slot(e) => e.dir,
+            Self::Template(e) => e.dir,
+            Self::Acronym(e) => e.dir,
+            Self::Applet(e) => e.dir,
+            Self::Bgsound(e) => e.dir,
+            Self::Big(e) => e.dir,
+            Self::Blink(e) => e.dir,
+            Self::Center(e) => e.dir,
+            Self::Content(e) => e.dir,
+            Self::Dir(e) => e.dir,
+            Self::Font(e) => e.dir,
+            Self::Frame(e) => e.dir,
+            Self::Frameset(e) => e.dir,
+            Self::Image(e) => e.dir,
+            Self::Keygen(e) => e.dir,
+            Self::Marquee(e) => e.dir,
+            Self::Menuitem(e) => e.dir,
+            Self::Nobr(e) => e.dir,
+            Self::Noembed(e) => e.dir,
+            Self::Noframes(e) => e.dir,
+            Self::Param(e) => e.dir,
+            Self::Plaintext(e) => e.dir,
+            Self::Rb(e) => e.dir,
+            Self::Rtc(e) => e.dir,
+            Self::Spacer(e) => e.dir,
+            Self::Strike(e) => e.dir,
+            Self::Tt(e) => e.dir,
+            Self::Xmp(e) => e.dir,
+        }
+    }
+
+    ///     <p>An enumerated attribute indicating whether the element can be dragged, using the <a href="/en-US/docs/Web/API/HTML_Drag_and_Drop_API">Drag and Drop API</a>. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code>, which indicates that the element may be dragged</li>
+    ///       <li><code>false</code>, which indicates that the element may not be dragged.</li>
+    ///     </ul>
+    ///   
+    pub fn draggable(&self) -> core::option::Option<&'life str> {
+        match self {
+            Self::Html(e) => e.draggable,
+            Self::Base(e) => e.draggable,
+            Self::Head(e) => e.draggable,
+            Self::Link(e) => e.draggable,
+            Self::Meta(e) => e.draggable,
+            Self::Style(e) => e.draggable,
+            Self::Title(e) => e.draggable,
+            Self::Body(e) => e.draggable,
+            Self::Address(e) => e.draggable,
+            Self::Article(e) => e.draggable,
+            Self::Aside(e) => e.draggable,
+            Self::Footer(e) => e.draggable,
+            Self::Header(e) => e.draggable,
+            Self::Hgroup(e) => e.draggable,
+            Self::Main(e) => e.draggable,
+            Self::Nav(e) => e.draggable,
+            Self::Section(e) => e.draggable,
+            Self::Blockquote(e) => e.draggable,
+            Self::Dd(e) => e.draggable,
+            Self::Div(e) => e.draggable,
+            Self::Dl(e) => e.draggable,
+            Self::Dt(e) => e.draggable,
+            Self::Figcaption(e) => e.draggable,
+            Self::Figure(e) => e.draggable,
+            Self::Hr(e) => e.draggable,
+            Self::Li(e) => e.draggable,
+            Self::Menu(e) => e.draggable,
+            Self::Ol(e) => e.draggable,
+            Self::P(e) => e.draggable,
+            Self::Pre(e) => e.draggable,
+            Self::Ul(e) => e.draggable,
+            Self::A(e) => e.draggable,
+            Self::Abbr(e) => e.draggable,
+            Self::B(e) => e.draggable,
+            Self::Bdi(e) => e.draggable,
+            Self::Bdo(e) => e.draggable,
+            Self::Br(e) => e.draggable,
+            Self::Cite(e) => e.draggable,
+            Self::Code(e) => e.draggable,
+            Self::Data(e) => e.draggable,
+            Self::Dfn(e) => e.draggable,
+            Self::Em(e) => e.draggable,
+            Self::I(e) => e.draggable,
+            Self::Kbd(e) => e.draggable,
+            Self::Mark(e) => e.draggable,
+            Self::Q(e) => e.draggable,
+            Self::Rp(e) => e.draggable,
+            Self::Rt(e) => e.draggable,
+            Self::Ruby(e) => e.draggable,
+            Self::S(e) => e.draggable,
+            Self::Samp(e) => e.draggable,
+            Self::Small(e) => e.draggable,
+            Self::Span(e) => e.draggable,
+            Self::Strong(e) => e.draggable,
+            Self::Sub(e) => e.draggable,
+            Self::Sup(e) => e.draggable,
+            Self::Time(e) => e.draggable,
+            Self::U(e) => e.draggable,
+            Self::Var(e) => e.draggable,
+            Self::Wbr(e) => e.draggable,
+            Self::Area(e) => e.draggable,
+            Self::Audio(e) => e.draggable,
+            Self::Img(e) => e.draggable,
+            Self::Map(e) => e.draggable,
+            Self::Track(e) => e.draggable,
+            Self::Video(e) => e.draggable,
+            Self::Embed(e) => e.draggable,
+            Self::Iframe(e) => e.draggable,
+            Self::Object(e) => e.draggable,
+            Self::Picture(e) => e.draggable,
+            Self::Portal(e) => e.draggable,
+            Self::Source(e) => e.draggable,
+            Self::Canvas(e) => e.draggable,
+            Self::Noscript(e) => e.draggable,
+            Self::Script(e) => e.draggable,
+            Self::Del(e) => e.draggable,
+            Self::Ins(e) => e.draggable,
+            Self::Caption(e) => e.draggable,
+            Self::Col(e) => e.draggable,
+            Self::Colgroup(e) => e.draggable,
+            Self::Table(e) => e.draggable,
+            Self::Tbody(e) => e.draggable,
+            Self::Td(e) => e.draggable,
+            Self::Tfoot(e) => e.draggable,
+            Self::Th(e) => e.draggable,
+            Self::Thead(e) => e.draggable,
+            Self::Tr(e) => e.draggable,
+            Self::Button(e) => e.draggable,
+            Self::Datalist(e) => e.draggable,
+            Self::Fieldset(e) => e.draggable,
+            Self::Form(e) => e.draggable,
+            Self::Input(e) => e.draggable,
+            Self::Label(e) => e.draggable,
+            Self::Legend(e) => e.draggable,
+            Self::Meter(e) => e.draggable,
+            Self::Optgroup(e) => e.draggable,
+            Self::Option(e) => e.draggable,
+            Self::Output(e) => e.draggable,
+            Self::Progress(e) => e.draggable,
+            Self::Select(e) => e.draggable,
+            Self::Textarea(e) => e.draggable,
+            Self::Details(e) => e.draggable,
+            Self::Dialog(e) => e.draggable,
+            Self::Summary(e) => e.draggable,
+            Self::Slot(e) => e.draggable,
+            Self::Template(e) => e.draggable,
+            Self::Acronym(e) => e.draggable,
+            Self::Applet(e) => e.draggable,
+            Self::Bgsound(e) => e.draggable,
+            Self::Big(e) => e.draggable,
+            Self::Blink(e) => e.draggable,
+            Self::Center(e) => e.draggable,
+            Self::Content(e) => e.draggable,
+            Self::Dir(e) => e.draggable,
+            Self::Font(e) => e.draggable,
+            Self::Frame(e) => e.draggable,
+            Self::Frameset(e) => e.draggable,
+            Self::Image(e) => e.draggable,
+            Self::Keygen(e) => e.draggable,
+            Self::Marquee(e) => e.draggable,
+            Self::Menuitem(e) => e.draggable,
+            Self::Nobr(e) => e.draggable,
+            Self::Noembed(e) => e.draggable,
+            Self::Noframes(e) => e.draggable,
+            Self::Param(e) => e.draggable,
+            Self::Plaintext(e) => e.draggable,
+            Self::Rb(e) => e.draggable,
+            Self::Rtc(e) => e.draggable,
+            Self::Spacer(e) => e.draggable,
+            Self::Strike(e) => e.draggable,
+            Self::Tt(e) => e.draggable,
+            Self::Xmp(e) => e.draggable,
+        }
+    }
+
+    ///     <p>Hints what action label (or icon) to present for the enter key on virtual keyboards.</p>
+    ///   
+    pub fn enterkeyhint(&self) -> core::option::Option<&'life str> {
+        match self {
+            Self::Html(e) => e.enterkeyhint,
+            Self::Base(e) => e.enterkeyhint,
+            Self::Head(e) => e.enterkeyhint,
+            Self::Link(e) => e.enterkeyhint,
+            Self::Meta(e) => e.enterkeyhint,
+            Self::Style(e) => e.enterkeyhint,
+            Self::Title(e) => e.enterkeyhint,
+            Self::Body(e) => e.enterkeyhint,
+            Self::Address(e) => e.enterkeyhint,
+            Self::Article(e) => e.enterkeyhint,
+            Self::Aside(e) => e.enterkeyhint,
+            Self::Footer(e) => e.enterkeyhint,
+            Self::Header(e) => e.enterkeyhint,
+            Self::Hgroup(e) => e.enterkeyhint,
+            Self::Main(e) => e.enterkeyhint,
+            Self::Nav(e) => e.enterkeyhint,
+            Self::Section(e) => e.enterkeyhint,
+            Self::Blockquote(e) => e.enterkeyhint,
+            Self::Dd(e) => e.enterkeyhint,
+            Self::Div(e) => e.enterkeyhint,
+            Self::Dl(e) => e.enterkeyhint,
+            Self::Dt(e) => e.enterkeyhint,
+            Self::Figcaption(e) => e.enterkeyhint,
+            Self::Figure(e) => e.enterkeyhint,
+            Self::Hr(e) => e.enterkeyhint,
+            Self::Li(e) => e.enterkeyhint,
+            Self::Menu(e) => e.enterkeyhint,
+            Self::Ol(e) => e.enterkeyhint,
+            Self::P(e) => e.enterkeyhint,
+            Self::Pre(e) => e.enterkeyhint,
+            Self::Ul(e) => e.enterkeyhint,
+            Self::A(e) => e.enterkeyhint,
+            Self::Abbr(e) => e.enterkeyhint,
+            Self::B(e) => e.enterkeyhint,
+            Self::Bdi(e) => e.enterkeyhint,
+            Self::Bdo(e) => e.enterkeyhint,
+            Self::Br(e) => e.enterkeyhint,
+            Self::Cite(e) => e.enterkeyhint,
+            Self::Code(e) => e.enterkeyhint,
+            Self::Data(e) => e.enterkeyhint,
+            Self::Dfn(e) => e.enterkeyhint,
+            Self::Em(e) => e.enterkeyhint,
+            Self::I(e) => e.enterkeyhint,
+            Self::Kbd(e) => e.enterkeyhint,
+            Self::Mark(e) => e.enterkeyhint,
+            Self::Q(e) => e.enterkeyhint,
+            Self::Rp(e) => e.enterkeyhint,
+            Self::Rt(e) => e.enterkeyhint,
+            Self::Ruby(e) => e.enterkeyhint,
+            Self::S(e) => e.enterkeyhint,
+            Self::Samp(e) => e.enterkeyhint,
+            Self::Small(e) => e.enterkeyhint,
+            Self::Span(e) => e.enterkeyhint,
+            Self::Strong(e) => e.enterkeyhint,
+            Self::Sub(e) => e.enterkeyhint,
+            Self::Sup(e) => e.enterkeyhint,
+            Self::Time(e) => e.enterkeyhint,
+            Self::U(e) => e.enterkeyhint,
+            Self::Var(e) => e.enterkeyhint,
+            Self::Wbr(e) => e.enterkeyhint,
+            Self::Area(e) => e.enterkeyhint,
+            Self::Audio(e) => e.enterkeyhint,
+            Self::Img(e) => e.enterkeyhint,
+            Self::Map(e) => e.enterkeyhint,
+            Self::Track(e) => e.enterkeyhint,
+            Self::Video(e) => e.enterkeyhint,
+            Self::Embed(e) => e.enterkeyhint,
+            Self::Iframe(e) => e.enterkeyhint,
+            Self::Object(e) => e.enterkeyhint,
+            Self::Picture(e) => e.enterkeyhint,
+            Self::Portal(e) => e.enterkeyhint,
+            Self::Source(e) => e.enterkeyhint,
+            Self::Canvas(e) => e.enterkeyhint,
+            Self::Noscript(e) => e.enterkeyhint,
+            Self::Script(e) => e.enterkeyhint,
+            Self::Del(e) => e.enterkeyhint,
+            Self::Ins(e) => e.enterkeyhint,
+            Self::Caption(e) => e.enterkeyhint,
+            Self::Col(e) => e.enterkeyhint,
+            Self::Colgroup(e) => e.enterkeyhint,
+            Self::Table(e) => e.enterkeyhint,
+            Self::Tbody(e) => e.enterkeyhint,
+            Self::Td(e) => e.enterkeyhint,
+            Self::Tfoot(e) => e.enterkeyhint,
+            Self::Th(e) => e.enterkeyhint,
+            Self::Thead(e) => e.enterkeyhint,
+            Self::Tr(e) => e.enterkeyhint,
+            Self::Button(e) => e.enterkeyhint,
+            Self::Datalist(e) => e.enterkeyhint,
+            Self::Fieldset(e) => e.enterkeyhint,
+            Self::Form(e) => e.enterkeyhint,
+            Self::Input(e) => e.enterkeyhint,
+            Self::Label(e) => e.enterkeyhint,
+            Self::Legend(e) => e.enterkeyhint,
+            Self::Meter(e) => e.enterkeyhint,
+            Self::Optgroup(e) => e.enterkeyhint,
+            Self::Option(e) => e.enterkeyhint,
+            Self::Output(e) => e.enterkeyhint,
+            Self::Progress(e) => e.enterkeyhint,
+            Self::Select(e) => e.enterkeyhint,
+            Self::Textarea(e) => e.enterkeyhint,
+            Self::Details(e) => e.enterkeyhint,
+            Self::Dialog(e) => e.enterkeyhint,
+            Self::Summary(e) => e.enterkeyhint,
+            Self::Slot(e) => e.enterkeyhint,
+            Self::Template(e) => e.enterkeyhint,
+            Self::Acronym(e) => e.enterkeyhint,
+            Self::Applet(e) => e.enterkeyhint,
+            Self::Bgsound(e) => e.enterkeyhint,
+            Self::Big(e) => e.enterkeyhint,
+            Self::Blink(e) => e.enterkeyhint,
+            Self::Center(e) => e.enterkeyhint,
+            Self::Content(e) => e.enterkeyhint,
+            Self::Dir(e) => e.enterkeyhint,
+            Self::Font(e) => e.enterkeyhint,
+            Self::Frame(e) => e.enterkeyhint,
+            Self::Frameset(e) => e.enterkeyhint,
+            Self::Image(e) => e.enterkeyhint,
+            Self::Keygen(e) => e.enterkeyhint,
+            Self::Marquee(e) => e.enterkeyhint,
+            Self::Menuitem(e) => e.enterkeyhint,
+            Self::Nobr(e) => e.enterkeyhint,
+            Self::Noembed(e) => e.enterkeyhint,
+            Self::Noframes(e) => e.enterkeyhint,
+            Self::Param(e) => e.enterkeyhint,
+            Self::Plaintext(e) => e.enterkeyhint,
+            Self::Rb(e) => e.enterkeyhint,
+            Self::Rtc(e) => e.enterkeyhint,
+            Self::Spacer(e) => e.enterkeyhint,
+            Self::Strike(e) => e.enterkeyhint,
+            Self::Tt(e) => e.enterkeyhint,
+            Self::Xmp(e) => e.enterkeyhint,
+        }
+    }
+
+    ///     <p>Used to transitively export shadow parts from a nested shadow tree into a containing light tree.</p>
+    ///   
+    pub fn exportparts(&self) -> core::option::Option<&'life str> {
+        match self {
+            Self::Html(e) => e.exportparts,
+            Self::Base(e) => e.exportparts,
+            Self::Head(e) => e.exportparts,
+            Self::Link(e) => e.exportparts,
+            Self::Meta(e) => e.exportparts,
+            Self::Style(e) => e.exportparts,
+            Self::Title(e) => e.exportparts,
+            Self::Body(e) => e.exportparts,
+            Self::Address(e) => e.exportparts,
+            Self::Article(e) => e.exportparts,
+            Self::Aside(e) => e.exportparts,
+            Self::Footer(e) => e.exportparts,
+            Self::Header(e) => e.exportparts,
+            Self::Hgroup(e) => e.exportparts,
+            Self::Main(e) => e.exportparts,
+            Self::Nav(e) => e.exportparts,
+            Self::Section(e) => e.exportparts,
+            Self::Blockquote(e) => e.exportparts,
+            Self::Dd(e) => e.exportparts,
+            Self::Div(e) => e.exportparts,
+            Self::Dl(e) => e.exportparts,
+            Self::Dt(e) => e.exportparts,
+            Self::Figcaption(e) => e.exportparts,
+            Self::Figure(e) => e.exportparts,
+            Self::Hr(e) => e.exportparts,
+            Self::Li(e) => e.exportparts,
+            Self::Menu(e) => e.exportparts,
+            Self::Ol(e) => e.exportparts,
+            Self::P(e) => e.exportparts,
+            Self::Pre(e) => e.exportparts,
+            Self::Ul(e) => e.exportparts,
+            Self::A(e) => e.exportparts,
+            Self::Abbr(e) => e.exportparts,
+            Self::B(e) => e.exportparts,
+            Self::Bdi(e) => e.exportparts,
+            Self::Bdo(e) => e.exportparts,
+            Self::Br(e) => e.exportparts,
+            Self::Cite(e) => e.exportparts,
+            Self::Code(e) => e.exportparts,
+            Self::Data(e) => e.exportparts,
+            Self::Dfn(e) => e.exportparts,
+            Self::Em(e) => e.exportparts,
+            Self::I(e) => e.exportparts,
+            Self::Kbd(e) => e.exportparts,
+            Self::Mark(e) => e.exportparts,
+            Self::Q(e) => e.exportparts,
+            Self::Rp(e) => e.exportparts,
+            Self::Rt(e) => e.exportparts,
+            Self::Ruby(e) => e.exportparts,
+            Self::S(e) => e.exportparts,
+            Self::Samp(e) => e.exportparts,
+            Self::Small(e) => e.exportparts,
+            Self::Span(e) => e.exportparts,
+            Self::Strong(e) => e.exportparts,
+            Self::Sub(e) => e.exportparts,
+            Self::Sup(e) => e.exportparts,
+            Self::Time(e) => e.exportparts,
+            Self::U(e) => e.exportparts,
+            Self::Var(e) => e.exportparts,
+            Self::Wbr(e) => e.exportparts,
+            Self::Area(e) => e.exportparts,
+            Self::Audio(e) => e.exportparts,
+            Self::Img(e) => e.exportparts,
+            Self::Map(e) => e.exportparts,
+            Self::Track(e) => e.exportparts,
+            Self::Video(e) => e.exportparts,
+            Self::Embed(e) => e.exportparts,
+            Self::Iframe(e) => e.exportparts,
+            Self::Object(e) => e.exportparts,
+            Self::Picture(e) => e.exportparts,
+            Self::Portal(e) => e.exportparts,
+            Self::Source(e) => e.exportparts,
+            Self::Canvas(e) => e.exportparts,
+            Self::Noscript(e) => e.exportparts,
+            Self::Script(e) => e.exportparts,
+            Self::Del(e) => e.exportparts,
+            Self::Ins(e) => e.exportparts,
+            Self::Caption(e) => e.exportparts,
+            Self::Col(e) => e.exportparts,
+            Self::Colgroup(e) => e.exportparts,
+            Self::Table(e) => e.exportparts,
+            Self::Tbody(e) => e.exportparts,
+            Self::Td(e) => e.exportparts,
+            Self::Tfoot(e) => e.exportparts,
+            Self::Th(e) => e.exportparts,
+            Self::Thead(e) => e.exportparts,
+            Self::Tr(e) => e.exportparts,
+            Self::Button(e) => e.exportparts,
+            Self::Datalist(e) => e.exportparts,
+            Self::Fieldset(e) => e.exportparts,
+            Self::Form(e) => e.exportparts,
+            Self::Input(e) => e.exportparts,
+            Self::Label(e) => e.exportparts,
+            Self::Legend(e) => e.exportparts,
+            Self::Meter(e) => e.exportparts,
+            Self::Optgroup(e) => e.exportparts,
+            Self::Option(e) => e.exportparts,
+            Self::Output(e) => e.exportparts,
+            Self::Progress(e) => e.exportparts,
+            Self::Select(e) => e.exportparts,
+            Self::Textarea(e) => e.exportparts,
+            Self::Details(e) => e.exportparts,
+            Self::Dialog(e) => e.exportparts,
+            Self::Summary(e) => e.exportparts,
+            Self::Slot(e) => e.exportparts,
+            Self::Template(e) => e.exportparts,
+            Self::Acronym(e) => e.exportparts,
+            Self::Applet(e) => e.exportparts,
+            Self::Bgsound(e) => e.exportparts,
+            Self::Big(e) => e.exportparts,
+            Self::Blink(e) => e.exportparts,
+            Self::Center(e) => e.exportparts,
+            Self::Content(e) => e.exportparts,
+            Self::Dir(e) => e.exportparts,
+            Self::Font(e) => e.exportparts,
+            Self::Frame(e) => e.exportparts,
+            Self::Frameset(e) => e.exportparts,
+            Self::Image(e) => e.exportparts,
+            Self::Keygen(e) => e.exportparts,
+            Self::Marquee(e) => e.exportparts,
+            Self::Menuitem(e) => e.exportparts,
+            Self::Nobr(e) => e.exportparts,
+            Self::Noembed(e) => e.exportparts,
+            Self::Noframes(e) => e.exportparts,
+            Self::Param(e) => e.exportparts,
+            Self::Plaintext(e) => e.exportparts,
+            Self::Rb(e) => e.exportparts,
+            Self::Rtc(e) => e.exportparts,
+            Self::Spacer(e) => e.exportparts,
+            Self::Strike(e) => e.exportparts,
+            Self::Tt(e) => e.exportparts,
+            Self::Xmp(e) => e.exportparts,
+        }
+    }
+
+    ///     <p>An enumerated attribute indicating that the element is not yet, or is no longer, <em>relevant</em>. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.</p>
+    ///   
+    pub fn hidden(&self) -> core::option::Option<bool> {
+        match self {
+            Self::Html(e) => e.hidden,
+            Self::Base(e) => e.hidden,
+            Self::Head(e) => e.hidden,
+            Self::Link(e) => e.hidden,
+            Self::Meta(e) => e.hidden,
+            Self::Style(e) => e.hidden,
+            Self::Title(e) => e.hidden,
+            Self::Body(e) => e.hidden,
+            Self::Address(e) => e.hidden,
+            Self::Article(e) => e.hidden,
+            Self::Aside(e) => e.hidden,
+            Self::Footer(e) => e.hidden,
+            Self::Header(e) => e.hidden,
+            Self::Hgroup(e) => e.hidden,
+            Self::Main(e) => e.hidden,
+            Self::Nav(e) => e.hidden,
+            Self::Section(e) => e.hidden,
+            Self::Blockquote(e) => e.hidden,
+            Self::Dd(e) => e.hidden,
+            Self::Div(e) => e.hidden,
+            Self::Dl(e) => e.hidden,
+            Self::Dt(e) => e.hidden,
+            Self::Figcaption(e) => e.hidden,
+            Self::Figure(e) => e.hidden,
+            Self::Hr(e) => e.hidden,
+            Self::Li(e) => e.hidden,
+            Self::Menu(e) => e.hidden,
+            Self::Ol(e) => e.hidden,
+            Self::P(e) => e.hidden,
+            Self::Pre(e) => e.hidden,
+            Self::Ul(e) => e.hidden,
+            Self::A(e) => e.hidden,
+            Self::Abbr(e) => e.hidden,
+            Self::B(e) => e.hidden,
+            Self::Bdi(e) => e.hidden,
+            Self::Bdo(e) => e.hidden,
+            Self::Br(e) => e.hidden,
+            Self::Cite(e) => e.hidden,
+            Self::Code(e) => e.hidden,
+            Self::Data(e) => e.hidden,
+            Self::Dfn(e) => e.hidden,
+            Self::Em(e) => e.hidden,
+            Self::I(e) => e.hidden,
+            Self::Kbd(e) => e.hidden,
+            Self::Mark(e) => e.hidden,
+            Self::Q(e) => e.hidden,
+            Self::Rp(e) => e.hidden,
+            Self::Rt(e) => e.hidden,
+            Self::Ruby(e) => e.hidden,
+            Self::S(e) => e.hidden,
+            Self::Samp(e) => e.hidden,
+            Self::Small(e) => e.hidden,
+            Self::Span(e) => e.hidden,
+            Self::Strong(e) => e.hidden,
+            Self::Sub(e) => e.hidden,
+            Self::Sup(e) => e.hidden,
+            Self::Time(e) => e.hidden,
+            Self::U(e) => e.hidden,
+            Self::Var(e) => e.hidden,
+            Self::Wbr(e) => e.hidden,
+            Self::Area(e) => e.hidden,
+            Self::Audio(e) => e.hidden,
+            Self::Img(e) => e.hidden,
+            Self::Map(e) => e.hidden,
+            Self::Track(e) => e.hidden,
+            Self::Video(e) => e.hidden,
+            Self::Embed(e) => e.hidden,
+            Self::Iframe(e) => e.hidden,
+            Self::Object(e) => e.hidden,
+            Self::Picture(e) => e.hidden,
+            Self::Portal(e) => e.hidden,
+            Self::Source(e) => e.hidden,
+            Self::Canvas(e) => e.hidden,
+            Self::Noscript(e) => e.hidden,
+            Self::Script(e) => e.hidden,
+            Self::Del(e) => e.hidden,
+            Self::Ins(e) => e.hidden,
+            Self::Caption(e) => e.hidden,
+            Self::Col(e) => e.hidden,
+            Self::Colgroup(e) => e.hidden,
+            Self::Table(e) => e.hidden,
+            Self::Tbody(e) => e.hidden,
+            Self::Td(e) => e.hidden,
+            Self::Tfoot(e) => e.hidden,
+            Self::Th(e) => e.hidden,
+            Self::Thead(e) => e.hidden,
+            Self::Tr(e) => e.hidden,
+            Self::Button(e) => e.hidden,
+            Self::Datalist(e) => e.hidden,
+            Self::Fieldset(e) => e.hidden,
+            Self::Form(e) => e.hidden,
+            Self::Input(e) => e.hidden,
+            Self::Label(e) => e.hidden,
+            Self::Legend(e) => e.hidden,
+            Self::Meter(e) => e.hidden,
+            Self::Optgroup(e) => e.hidden,
+            Self::Option(e) => e.hidden,
+            Self::Output(e) => e.hidden,
+            Self::Progress(e) => e.hidden,
+            Self::Select(e) => e.hidden,
+            Self::Textarea(e) => e.hidden,
+            Self::Details(e) => e.hidden,
+            Self::Dialog(e) => e.hidden,
+            Self::Summary(e) => e.hidden,
+            Self::Slot(e) => e.hidden,
+            Self::Template(e) => e.hidden,
+            Self::Acronym(e) => e.hidden,
+            Self::Applet(e) => e.hidden,
+            Self::Bgsound(e) => e.hidden,
+            Self::Big(e) => e.hidden,
+            Self::Blink(e) => e.hidden,
+            Self::Center(e) => e.hidden,
+            Self::Content(e) => e.hidden,
+            Self::Dir(e) => e.hidden,
+            Self::Font(e) => e.hidden,
+            Self::Frame(e) => e.hidden,
+            Self::Frameset(e) => e.hidden,
+            Self::Image(e) => e.hidden,
+            Self::Keygen(e) => e.hidden,
+            Self::Marquee(e) => e.hidden,
+            Self::Menuitem(e) => e.hidden,
+            Self::Nobr(e) => e.hidden,
+            Self::Noembed(e) => e.hidden,
+            Self::Noframes(e) => e.hidden,
+            Self::Param(e) => e.hidden,
+            Self::Plaintext(e) => e.hidden,
+            Self::Rb(e) => e.hidden,
+            Self::Rtc(e) => e.hidden,
+            Self::Spacer(e) => e.hidden,
+            Self::Strike(e) => e.hidden,
+            Self::Tt(e) => e.hidden,
+            Self::Xmp(e) => e.hidden,
+        }
+    }
+
+    ///     <p>Defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS).</p>
+    ///   
+    pub fn id(&self) -> core::option::Option<&'life str> {
+        match self {
+            Self::Html(e) => e.id,
+            Self::Base(e) => e.id,
+            Self::Head(e) => e.id,
+            Self::Link(e) => e.id,
+            Self::Meta(e) => e.id,
+            Self::Style(e) => e.id,
+            Self::Title(e) => e.id,
+            Self::Body(e) => e.id,
+            Self::Address(e) => e.id,
+            Self::Article(e) => e.id,
+            Self::Aside(e) => e.id,
+            Self::Footer(e) => e.id,
+            Self::Header(e) => e.id,
+            Self::Hgroup(e) => e.id,
+            Self::Main(e) => e.id,
+            Self::Nav(e) => e.id,
+            Self::Section(e) => e.id,
+            Self::Blockquote(e) => e.id,
+            Self::Dd(e) => e.id,
+            Self::Div(e) => e.id,
+            Self::Dl(e) => e.id,
+            Self::Dt(e) => e.id,
+            Self::Figcaption(e) => e.id,
+            Self::Figure(e) => e.id,
+            Self::Hr(e) => e.id,
+            Self::Li(e) => e.id,
+            Self::Menu(e) => e.id,
+            Self::Ol(e) => e.id,
+            Self::P(e) => e.id,
+            Self::Pre(e) => e.id,
+            Self::Ul(e) => e.id,
+            Self::A(e) => e.id,
+            Self::Abbr(e) => e.id,
+            Self::B(e) => e.id,
+            Self::Bdi(e) => e.id,
+            Self::Bdo(e) => e.id,
+            Self::Br(e) => e.id,
+            Self::Cite(e) => e.id,
+            Self::Code(e) => e.id,
+            Self::Data(e) => e.id,
+            Self::Dfn(e) => e.id,
+            Self::Em(e) => e.id,
+            Self::I(e) => e.id,
+            Self::Kbd(e) => e.id,
+            Self::Mark(e) => e.id,
+            Self::Q(e) => e.id,
+            Self::Rp(e) => e.id,
+            Self::Rt(e) => e.id,
+            Self::Ruby(e) => e.id,
+            Self::S(e) => e.id,
+            Self::Samp(e) => e.id,
+            Self::Small(e) => e.id,
+            Self::Span(e) => e.id,
+            Self::Strong(e) => e.id,
+            Self::Sub(e) => e.id,
+            Self::Sup(e) => e.id,
+            Self::Time(e) => e.id,
+            Self::U(e) => e.id,
+            Self::Var(e) => e.id,
+            Self::Wbr(e) => e.id,
+            Self::Area(e) => e.id,
+            Self::Audio(e) => e.id,
+            Self::Img(e) => e.id,
+            Self::Map(e) => e.id,
+            Self::Track(e) => e.id,
+            Self::Video(e) => e.id,
+            Self::Embed(e) => e.id,
+            Self::Iframe(e) => e.id,
+            Self::Object(e) => e.id,
+            Self::Picture(e) => e.id,
+            Self::Portal(e) => e.id,
+            Self::Source(e) => e.id,
+            Self::Canvas(e) => e.id,
+            Self::Noscript(e) => e.id,
+            Self::Script(e) => e.id,
+            Self::Del(e) => e.id,
+            Self::Ins(e) => e.id,
+            Self::Caption(e) => e.id,
+            Self::Col(e) => e.id,
+            Self::Colgroup(e) => e.id,
+            Self::Table(e) => e.id,
+            Self::Tbody(e) => e.id,
+            Self::Td(e) => e.id,
+            Self::Tfoot(e) => e.id,
+            Self::Th(e) => e.id,
+            Self::Thead(e) => e.id,
+            Self::Tr(e) => e.id,
+            Self::Button(e) => e.id,
+            Self::Datalist(e) => e.id,
+            Self::Fieldset(e) => e.id,
+            Self::Form(e) => e.id,
+            Self::Input(e) => e.id,
+            Self::Label(e) => e.id,
+            Self::Legend(e) => e.id,
+            Self::Meter(e) => e.id,
+            Self::Optgroup(e) => e.id,
+            Self::Option(e) => e.id,
+            Self::Output(e) => e.id,
+            Self::Progress(e) => e.id,
+            Self::Select(e) => e.id,
+            Self::Textarea(e) => e.id,
+            Self::Details(e) => e.id,
+            Self::Dialog(e) => e.id,
+            Self::Summary(e) => e.id,
+            Self::Slot(e) => e.id,
+            Self::Template(e) => e.id,
+            Self::Acronym(e) => e.id,
+            Self::Applet(e) => e.id,
+            Self::Bgsound(e) => e.id,
+            Self::Big(e) => e.id,
+            Self::Blink(e) => e.id,
+            Self::Center(e) => e.id,
+            Self::Content(e) => e.id,
+            Self::Dir(e) => e.id,
+            Self::Font(e) => e.id,
+            Self::Frame(e) => e.id,
+            Self::Frameset(e) => e.id,
+            Self::Image(e) => e.id,
+            Self::Keygen(e) => e.id,
+            Self::Marquee(e) => e.id,
+            Self::Menuitem(e) => e.id,
+            Self::Nobr(e) => e.id,
+            Self::Noembed(e) => e.id,
+            Self::Noframes(e) => e.id,
+            Self::Param(e) => e.id,
+            Self::Plaintext(e) => e.id,
+            Self::Rb(e) => e.id,
+            Self::Rtc(e) => e.id,
+            Self::Spacer(e) => e.id,
+            Self::Strike(e) => e.id,
+            Self::Tt(e) => e.id,
+            Self::Xmp(e) => e.id,
+        }
+    }
+
+    ///     <p>A boolean value that makes the browser disregard user input events for the element. Useful when click events are present.</p>
+    ///   
+    pub fn inert(&self) -> core::option::Option<&'life str> {
+        match self {
+            Self::Html(e) => e.inert,
+            Self::Base(e) => e.inert,
+            Self::Head(e) => e.inert,
+            Self::Link(e) => e.inert,
+            Self::Meta(e) => e.inert,
+            Self::Style(e) => e.inert,
+            Self::Title(e) => e.inert,
+            Self::Body(e) => e.inert,
+            Self::Address(e) => e.inert,
+            Self::Article(e) => e.inert,
+            Self::Aside(e) => e.inert,
+            Self::Footer(e) => e.inert,
+            Self::Header(e) => e.inert,
+            Self::Hgroup(e) => e.inert,
+            Self::Main(e) => e.inert,
+            Self::Nav(e) => e.inert,
+            Self::Section(e) => e.inert,
+            Self::Blockquote(e) => e.inert,
+            Self::Dd(e) => e.inert,
+            Self::Div(e) => e.inert,
+            Self::Dl(e) => e.inert,
+            Self::Dt(e) => e.inert,
+            Self::Figcaption(e) => e.inert,
+            Self::Figure(e) => e.inert,
+            Self::Hr(e) => e.inert,
+            Self::Li(e) => e.inert,
+            Self::Menu(e) => e.inert,
+            Self::Ol(e) => e.inert,
+            Self::P(e) => e.inert,
+            Self::Pre(e) => e.inert,
+            Self::Ul(e) => e.inert,
+            Self::A(e) => e.inert,
+            Self::Abbr(e) => e.inert,
+            Self::B(e) => e.inert,
+            Self::Bdi(e) => e.inert,
+            Self::Bdo(e) => e.inert,
+            Self::Br(e) => e.inert,
+            Self::Cite(e) => e.inert,
+            Self::Code(e) => e.inert,
+            Self::Data(e) => e.inert,
+            Self::Dfn(e) => e.inert,
+            Self::Em(e) => e.inert,
+            Self::I(e) => e.inert,
+            Self::Kbd(e) => e.inert,
+            Self::Mark(e) => e.inert,
+            Self::Q(e) => e.inert,
+            Self::Rp(e) => e.inert,
+            Self::Rt(e) => e.inert,
+            Self::Ruby(e) => e.inert,
+            Self::S(e) => e.inert,
+            Self::Samp(e) => e.inert,
+            Self::Small(e) => e.inert,
+            Self::Span(e) => e.inert,
+            Self::Strong(e) => e.inert,
+            Self::Sub(e) => e.inert,
+            Self::Sup(e) => e.inert,
+            Self::Time(e) => e.inert,
+            Self::U(e) => e.inert,
+            Self::Var(e) => e.inert,
+            Self::Wbr(e) => e.inert,
+            Self::Area(e) => e.inert,
+            Self::Audio(e) => e.inert,
+            Self::Img(e) => e.inert,
+            Self::Map(e) => e.inert,
+            Self::Track(e) => e.inert,
+            Self::Video(e) => e.inert,
+            Self::Embed(e) => e.inert,
+            Self::Iframe(e) => e.inert,
+            Self::Object(e) => e.inert,
+            Self::Picture(e) => e.inert,
+            Self::Portal(e) => e.inert,
+            Self::Source(e) => e.inert,
+            Self::Canvas(e) => e.inert,
+            Self::Noscript(e) => e.inert,
+            Self::Script(e) => e.inert,
+            Self::Del(e) => e.inert,
+            Self::Ins(e) => e.inert,
+            Self::Caption(e) => e.inert,
+            Self::Col(e) => e.inert,
+            Self::Colgroup(e) => e.inert,
+            Self::Table(e) => e.inert,
+            Self::Tbody(e) => e.inert,
+            Self::Td(e) => e.inert,
+            Self::Tfoot(e) => e.inert,
+            Self::Th(e) => e.inert,
+            Self::Thead(e) => e.inert,
+            Self::Tr(e) => e.inert,
+            Self::Button(e) => e.inert,
+            Self::Datalist(e) => e.inert,
+            Self::Fieldset(e) => e.inert,
+            Self::Form(e) => e.inert,
+            Self::Input(e) => e.inert,
+            Self::Label(e) => e.inert,
+            Self::Legend(e) => e.inert,
+            Self::Meter(e) => e.inert,
+            Self::Optgroup(e) => e.inert,
+            Self::Option(e) => e.inert,
+            Self::Output(e) => e.inert,
+            Self::Progress(e) => e.inert,
+            Self::Select(e) => e.inert,
+            Self::Textarea(e) => e.inert,
+            Self::Details(e) => e.inert,
+            Self::Dialog(e) => e.inert,
+            Self::Summary(e) => e.inert,
+            Self::Slot(e) => e.inert,
+            Self::Template(e) => e.inert,
+            Self::Acronym(e) => e.inert,
+            Self::Applet(e) => e.inert,
+            Self::Bgsound(e) => e.inert,
+            Self::Big(e) => e.inert,
+            Self::Blink(e) => e.inert,
+            Self::Center(e) => e.inert,
+            Self::Content(e) => e.inert,
+            Self::Dir(e) => e.inert,
+            Self::Font(e) => e.inert,
+            Self::Frame(e) => e.inert,
+            Self::Frameset(e) => e.inert,
+            Self::Image(e) => e.inert,
+            Self::Keygen(e) => e.inert,
+            Self::Marquee(e) => e.inert,
+            Self::Menuitem(e) => e.inert,
+            Self::Nobr(e) => e.inert,
+            Self::Noembed(e) => e.inert,
+            Self::Noframes(e) => e.inert,
+            Self::Param(e) => e.inert,
+            Self::Plaintext(e) => e.inert,
+            Self::Rb(e) => e.inert,
+            Self::Rtc(e) => e.inert,
+            Self::Spacer(e) => e.inert,
+            Self::Strike(e) => e.inert,
+            Self::Tt(e) => e.inert,
+            Self::Xmp(e) => e.inert,
+        }
+    }
+
+    ///     <p>Provides a hint to browsers about the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> elements, but is usable on any element while in <a href="#contenteditable"><code>contenteditable</code></a> mode.</p>
+    ///   
+    pub fn inputmode(&self) -> core::option::Option<&'life str> {
+        match self {
+            Self::Html(e) => e.inputmode,
+            Self::Base(e) => e.inputmode,
+            Self::Head(e) => e.inputmode,
+            Self::Link(e) => e.inputmode,
+            Self::Meta(e) => e.inputmode,
+            Self::Style(e) => e.inputmode,
+            Self::Title(e) => e.inputmode,
+            Self::Body(e) => e.inputmode,
+            Self::Address(e) => e.inputmode,
+            Self::Article(e) => e.inputmode,
+            Self::Aside(e) => e.inputmode,
+            Self::Footer(e) => e.inputmode,
+            Self::Header(e) => e.inputmode,
+            Self::Hgroup(e) => e.inputmode,
+            Self::Main(e) => e.inputmode,
+            Self::Nav(e) => e.inputmode,
+            Self::Section(e) => e.inputmode,
+            Self::Blockquote(e) => e.inputmode,
+            Self::Dd(e) => e.inputmode,
+            Self::Div(e) => e.inputmode,
+            Self::Dl(e) => e.inputmode,
+            Self::Dt(e) => e.inputmode,
+            Self::Figcaption(e) => e.inputmode,
+            Self::Figure(e) => e.inputmode,
+            Self::Hr(e) => e.inputmode,
+            Self::Li(e) => e.inputmode,
+            Self::Menu(e) => e.inputmode,
+            Self::Ol(e) => e.inputmode,
+            Self::P(e) => e.inputmode,
+            Self::Pre(e) => e.inputmode,
+            Self::Ul(e) => e.inputmode,
+            Self::A(e) => e.inputmode,
+            Self::Abbr(e) => e.inputmode,
+            Self::B(e) => e.inputmode,
+            Self::Bdi(e) => e.inputmode,
+            Self::Bdo(e) => e.inputmode,
+            Self::Br(e) => e.inputmode,
+            Self::Cite(e) => e.inputmode,
+            Self::Code(e) => e.inputmode,
+            Self::Data(e) => e.inputmode,
+            Self::Dfn(e) => e.inputmode,
+            Self::Em(e) => e.inputmode,
+            Self::I(e) => e.inputmode,
+            Self::Kbd(e) => e.inputmode,
+            Self::Mark(e) => e.inputmode,
+            Self::Q(e) => e.inputmode,
+            Self::Rp(e) => e.inputmode,
+            Self::Rt(e) => e.inputmode,
+            Self::Ruby(e) => e.inputmode,
+            Self::S(e) => e.inputmode,
+            Self::Samp(e) => e.inputmode,
+            Self::Small(e) => e.inputmode,
+            Self::Span(e) => e.inputmode,
+            Self::Strong(e) => e.inputmode,
+            Self::Sub(e) => e.inputmode,
+            Self::Sup(e) => e.inputmode,
+            Self::Time(e) => e.inputmode,
+            Self::U(e) => e.inputmode,
+            Self::Var(e) => e.inputmode,
+            Self::Wbr(e) => e.inputmode,
+            Self::Area(e) => e.inputmode,
+            Self::Audio(e) => e.inputmode,
+            Self::Img(e) => e.inputmode,
+            Self::Map(e) => e.inputmode,
+            Self::Track(e) => e.inputmode,
+            Self::Video(e) => e.inputmode,
+            Self::Embed(e) => e.inputmode,
+            Self::Iframe(e) => e.inputmode,
+            Self::Object(e) => e.inputmode,
+            Self::Picture(e) => e.inputmode,
+            Self::Portal(e) => e.inputmode,
+            Self::Source(e) => e.inputmode,
+            Self::Canvas(e) => e.inputmode,
+            Self::Noscript(e) => e.inputmode,
+            Self::Script(e) => e.inputmode,
+            Self::Del(e) => e.inputmode,
+            Self::Ins(e) => e.inputmode,
+            Self::Caption(e) => e.inputmode,
+            Self::Col(e) => e.inputmode,
+            Self::Colgroup(e) => e.inputmode,
+            Self::Table(e) => e.inputmode,
+            Self::Tbody(e) => e.inputmode,
+            Self::Td(e) => e.inputmode,
+            Self::Tfoot(e) => e.inputmode,
+            Self::Th(e) => e.inputmode,
+            Self::Thead(e) => e.inputmode,
+            Self::Tr(e) => e.inputmode,
+            Self::Button(e) => e.inputmode,
+            Self::Datalist(e) => e.inputmode,
+            Self::Fieldset(e) => e.inputmode,
+            Self::Form(e) => e.inputmode,
+            Self::Input(e) => e.inputmode,
+            Self::Label(e) => e.inputmode,
+            Self::Legend(e) => e.inputmode,
+            Self::Meter(e) => e.inputmode,
+            Self::Optgroup(e) => e.inputmode,
+            Self::Option(e) => e.inputmode,
+            Self::Output(e) => e.inputmode,
+            Self::Progress(e) => e.inputmode,
+            Self::Select(e) => e.inputmode,
+            Self::Textarea(e) => e.inputmode,
+            Self::Details(e) => e.inputmode,
+            Self::Dialog(e) => e.inputmode,
+            Self::Summary(e) => e.inputmode,
+            Self::Slot(e) => e.inputmode,
+            Self::Template(e) => e.inputmode,
+            Self::Acronym(e) => e.inputmode,
+            Self::Applet(e) => e.inputmode,
+            Self::Bgsound(e) => e.inputmode,
+            Self::Big(e) => e.inputmode,
+            Self::Blink(e) => e.inputmode,
+            Self::Center(e) => e.inputmode,
+            Self::Content(e) => e.inputmode,
+            Self::Dir(e) => e.inputmode,
+            Self::Font(e) => e.inputmode,
+            Self::Frame(e) => e.inputmode,
+            Self::Frameset(e) => e.inputmode,
+            Self::Image(e) => e.inputmode,
+            Self::Keygen(e) => e.inputmode,
+            Self::Marquee(e) => e.inputmode,
+            Self::Menuitem(e) => e.inputmode,
+            Self::Nobr(e) => e.inputmode,
+            Self::Noembed(e) => e.inputmode,
+            Self::Noframes(e) => e.inputmode,
+            Self::Param(e) => e.inputmode,
+            Self::Plaintext(e) => e.inputmode,
+            Self::Rb(e) => e.inputmode,
+            Self::Rtc(e) => e.inputmode,
+            Self::Spacer(e) => e.inputmode,
+            Self::Strike(e) => e.inputmode,
+            Self::Tt(e) => e.inputmode,
+            Self::Xmp(e) => e.inputmode,
+        }
+    }
+
+    ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
+    ///   
+    pub fn is(&self) -> core::option::Option<&'life str> {
+        match self {
+            Self::Html(e) => e.is,
+            Self::Base(e) => e.is,
+            Self::Head(e) => e.is,
+            Self::Link(e) => e.is,
+            Self::Meta(e) => e.is,
+            Self::Style(e) => e.is,
+            Self::Title(e) => e.is,
+            Self::Body(e) => e.is,
+            Self::Address(e) => e.is,
+            Self::Article(e) => e.is,
+            Self::Aside(e) => e.is,
+            Self::Footer(e) => e.is,
+            Self::Header(e) => e.is,
+            Self::Hgroup(e) => e.is,
+            Self::Main(e) => e.is,
+            Self::Nav(e) => e.is,
+            Self::Section(e) => e.is,
+            Self::Blockquote(e) => e.is,
+            Self::Dd(e) => e.is,
+            Self::Div(e) => e.is,
+            Self::Dl(e) => e.is,
+            Self::Dt(e) => e.is,
+            Self::Figcaption(e) => e.is,
+            Self::Figure(e) => e.is,
+            Self::Hr(e) => e.is,
+            Self::Li(e) => e.is,
+            Self::Menu(e) => e.is,
+            Self::Ol(e) => e.is,
+            Self::P(e) => e.is,
+            Self::Pre(e) => e.is,
+            Self::Ul(e) => e.is,
+            Self::A(e) => e.is,
+            Self::Abbr(e) => e.is,
+            Self::B(e) => e.is,
+            Self::Bdi(e) => e.is,
+            Self::Bdo(e) => e.is,
+            Self::Br(e) => e.is,
+            Self::Cite(e) => e.is,
+            Self::Code(e) => e.is,
+            Self::Data(e) => e.is,
+            Self::Dfn(e) => e.is,
+            Self::Em(e) => e.is,
+            Self::I(e) => e.is,
+            Self::Kbd(e) => e.is,
+            Self::Mark(e) => e.is,
+            Self::Q(e) => e.is,
+            Self::Rp(e) => e.is,
+            Self::Rt(e) => e.is,
+            Self::Ruby(e) => e.is,
+            Self::S(e) => e.is,
+            Self::Samp(e) => e.is,
+            Self::Small(e) => e.is,
+            Self::Span(e) => e.is,
+            Self::Strong(e) => e.is,
+            Self::Sub(e) => e.is,
+            Self::Sup(e) => e.is,
+            Self::Time(e) => e.is,
+            Self::U(e) => e.is,
+            Self::Var(e) => e.is,
+            Self::Wbr(e) => e.is,
+            Self::Area(e) => e.is,
+            Self::Audio(e) => e.is,
+            Self::Img(e) => e.is,
+            Self::Map(e) => e.is,
+            Self::Track(e) => e.is,
+            Self::Video(e) => e.is,
+            Self::Embed(e) => e.is,
+            Self::Iframe(e) => e.is,
+            Self::Object(e) => e.is,
+            Self::Picture(e) => e.is,
+            Self::Portal(e) => e.is,
+            Self::Source(e) => e.is,
+            Self::Canvas(e) => e.is,
+            Self::Noscript(e) => e.is,
+            Self::Script(e) => e.is,
+            Self::Del(e) => e.is,
+            Self::Ins(e) => e.is,
+            Self::Caption(e) => e.is,
+            Self::Col(e) => e.is,
+            Self::Colgroup(e) => e.is,
+            Self::Table(e) => e.is,
+            Self::Tbody(e) => e.is,
+            Self::Td(e) => e.is,
+            Self::Tfoot(e) => e.is,
+            Self::Th(e) => e.is,
+            Self::Thead(e) => e.is,
+            Self::Tr(e) => e.is,
+            Self::Button(e) => e.is,
+            Self::Datalist(e) => e.is,
+            Self::Fieldset(e) => e.is,
+            Self::Form(e) => e.is,
+            Self::Input(e) => e.is,
+            Self::Label(e) => e.is,
+            Self::Legend(e) => e.is,
+            Self::Meter(e) => e.is,
+            Self::Optgroup(e) => e.is,
+            Self::Option(e) => e.is,
+            Self::Output(e) => e.is,
+            Self::Progress(e) => e.is,
+            Self::Select(e) => e.is,
+            Self::Textarea(e) => e.is,
+            Self::Details(e) => e.is,
+            Self::Dialog(e) => e.is,
+            Self::Summary(e) => e.is,
+            Self::Slot(e) => e.is,
+            Self::Template(e) => e.is,
+            Self::Acronym(e) => e.is,
+            Self::Applet(e) => e.is,
+            Self::Bgsound(e) => e.is,
+            Self::Big(e) => e.is,
+            Self::Blink(e) => e.is,
+            Self::Center(e) => e.is,
+            Self::Content(e) => e.is,
+            Self::Dir(e) => e.is,
+            Self::Font(e) => e.is,
+            Self::Frame(e) => e.is,
+            Self::Frameset(e) => e.is,
+            Self::Image(e) => e.is,
+            Self::Keygen(e) => e.is,
+            Self::Marquee(e) => e.is,
+            Self::Menuitem(e) => e.is,
+            Self::Nobr(e) => e.is,
+            Self::Noembed(e) => e.is,
+            Self::Noframes(e) => e.is,
+            Self::Param(e) => e.is,
+            Self::Plaintext(e) => e.is,
+            Self::Rb(e) => e.is,
+            Self::Rtc(e) => e.is,
+            Self::Spacer(e) => e.is,
+            Self::Strike(e) => e.is,
+            Self::Tt(e) => e.is,
+            Self::Xmp(e) => e.is,
+        }
+    }
 }

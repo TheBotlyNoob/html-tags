@@ -11,7 +11,7 @@
 //! itertools = "0.10.5"
 //! ```
 
-use heck::ToSnakeCase;
+use heck::{ToSnakeCase, ToUpperCamelCase};
 use itertools::Itertools;
 use scraper::{Element, ElementRef, Html, Selector};
 use std::{collections::BTreeMap, io::Write};
@@ -29,6 +29,8 @@ fn main() {
         Selector::parse("td:first-child > a[href^='/en-US/docs/Web/HTML/Element/']:only-child")
             .unwrap();
 
+    let mut elems = Vec::new();
+
     let global_attrs = BTreeMap::from_iter(get_global_attrs());
 
     let mut buf = String::from(
@@ -43,8 +45,8 @@ fn main() {
         // the name without the brackets
         let name = e.text().next().unwrap();
         let name = &name[1..name.len() - 1];
+        let name = name.to_upper_camel_case();
 
-        println!("{name} {url}");
         let resp = agent.get(&url).call().unwrap();
         let html = resp.into_string().unwrap();
         let document = Html::parse_document(&html);
@@ -57,15 +59,16 @@ fn main() {
             .count()
             != 0;
 
+        elems.push((name.clone(), deprecated));
+
         let mut attrs = global_attrs.clone();
         attrs.extend(get_attrs(&document));
 
         writeln!(
             buf,
-            "{}\n{}pub struct {}<'life> {{{}\n}}",
+            "{}\n{}#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]\npub struct {name}<'life> {{{}\n}}",
             get_mdn_doc(&document, &url),
             if deprecated { "#[deprecated]\n" } else { "" },
-            heck::AsUpperCamelCase(name),
             attrs
                 .iter()
                 .format_with(",\n/// ", |(name, (desc, ty, alloc)), f| f(&format_args!(
@@ -79,6 +82,40 @@ fn main() {
         )
         .unwrap();
     }
+    writeln!(
+        buf,
+        "#[allow(deprecated)]\npub enum Element<'life> {{\n{}}}",
+        elems.iter().format_with(",\n", |(e, dep), f| f(&format_args!(
+            "{}{e}({e}<'life>)",
+            if *dep { "#[deprecated]\n" } else { "" },
+        )))
+    )
+    .unwrap();
+    writeln!(
+        buf, 
+        "#[allow(deprecated)]\nimpl<'life> Element<'life> {{\n{}\n}}",
+        global_attrs.iter().format_with("\n", |(name, (desc, ty, alloc)), f| f(&format_args!(
+            "{desc}\n\t{}pub fn {name}(&self) -> core::option::Option<{}{ty}> {{\n\t\tmatch self {{\n\t\t\t{}\n\t\t}}\n\t}}",
+            if *alloc {
+                "#[cfg(feature = \"alloc\")]\n\t"
+            } else {
+                ""
+            },
+            if *alloc {
+                "&"
+            } else {
+                ""
+            },
+            elems.iter().format_with(",\n", |(e, _), f| f(&format_args!(
+                "Self::{e}(e) => {{ e.{name}{} }}",
+                if *alloc {
+                    ".as_ref()"
+                } else {
+                    ""
+                }
+            )))
+        )))
+    ).unwrap();
     std::fs::write("src/lib.rs", buf).unwrap();
 }
 
