@@ -2,7 +2,7 @@
 name = "html-tags"
 version = "0.0.3"
 edition = "2021"
-repository = "https://github.com/TheBotlyNoob/html-tags"
+repository = "https://github.com/fournii/html-tags"
 description = "An automated list of HTML tags with their attributes and values"
 authors = ["Jay Jackson <jj@jj.is-a.dev>"]
 license = "MIT"
