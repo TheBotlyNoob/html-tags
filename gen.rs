@@ -67,34 +67,37 @@ fn main() {
         let mut attrs = global_attrs.clone();
         attrs.extend(get_attrs(&document));
 
-        writeln!(
-            buf,
-            "{}
-            {}
-            #[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
-            pub struct {name}<'life> {{
-                {}
-            }}",
+        write_elem(
             get_mdn_doc(&document, &url),
-            if deprecated { "#[deprecated]" } else { "" },
-            attrs
-                .iter()
-                .format_with(",\n/// ", |(name, (desc, ty, alloc)), f| f(&format_args!(
-                    "{desc}
-                    {}
-                    pub {name}: core::option::Option<{ty}>",
-                    if *alloc {
-                        "#[cfg(feature = \"alloc\")]"
-                    } else {
-                        ""
-                    },
-                ))),
-        )
-        .unwrap();
+            name,
+            &attrs,
+            deprecated,
+            &mut buf,
+        );
     }
+    write_elem(
+        "/// An unknown element.".to_string(),
+        "Unknown".to_string(),
+        &{
+            let mut attrs = global_attrs.clone();
+            attrs.insert(
+                "tag_name".to_string(),
+                (
+                    "/// The tag name of the element.".to_string(),
+                    "&'life str".to_string(),
+                    false,
+                ),
+            );
+            attrs
+        },
+        false,
+        &mut buf,
+    );
+    elems.push(("Unknown".to_string(), false));
     writeln!(
         buf,
         "#[allow(deprecated)]
+        #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
         pub enum Element<'life> {{
             {}
         }}",
@@ -109,15 +112,15 @@ fn main() {
     writeln!(
         buf,
         "#[allow(deprecated)]
-impl<'life> Element<'life> {{
-    /// Gets an element from a lowercase tag name.
-    pub fn from_tag(tag: &str) -> core::option::Option<Self> {{
-        match tag {{
-            {},
-            _ => None,
-        }}
-    }}
-}}",
+        impl<'life> Element<'life> {{
+            /// Gets an element from a lowercase tag name.
+            pub fn from_tag(tag: &str) -> core::option::Option<Self> {{
+                match tag {{
+                    {},
+                    _ => core::option::Option::Some(Self::default()),
+                }}
+            }}
+        }}",
         elems.iter().format_with(",", |(e, _), f| f(&format_args!(
             "\"{}\" => Some(Self::{e}({e}::default()))",
             AsKebabCase(e)
@@ -127,9 +130,9 @@ impl<'life> Element<'life> {{
     writeln!(
         buf,
         "#[allow(deprecated)]
-impl<'life> Element<'life> {{
-    {}
-}}",
+        impl<'life> Element<'life> {{
+            {}
+        }}",
         global_attrs
             .iter()
             .format_with("\n", |(name, (desc, ty, alloc)), f| f(&format_args!(
@@ -151,6 +154,16 @@ impl<'life> Element<'life> {{
                     if *alloc { ".as_ref()" } else { "" }
                 )))
             )))
+    )
+    .unwrap();
+    writeln!(
+        buf,
+        "#[allow(deprecated)]
+        impl<'life> Default for Element<'life> {{
+            fn default() -> Self {{
+                Self::Unknown(Unknown::default())
+            }}
+        }}"
     )
     .unwrap();
     std::fs::write("src/lib.rs", buf).unwrap();
@@ -262,4 +275,42 @@ fn dl_to_attrs(dl: ElementRef) -> Vec<(String, (String, String, bool))> {
         ));
     }
     attrs
+}
+
+fn write_elem(
+    doc: String,
+    name: String,
+    attrs: &BTreeMap<String, (String, String, bool)>,
+    deprecated: bool,
+    buf: &mut Vec<u8>,
+) {
+    writeln!(
+        buf,
+        "{}
+        {}
+        #[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
+        pub struct {name}<'life> {{
+            {},
+            /// The extra attributes of the element.
+            /// This is a map of attribute names to their values.
+            /// The attribute names are in lowercase.
+            #[cfg(feature = \"alloc\")]
+            pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
+        }}",
+        doc,
+        if deprecated { "#[deprecated]" } else { "" },
+        attrs
+            .iter()
+            .format_with(",\n/// ", |(name, (desc, ty, alloc)), f| f(&format_args!(
+                "{desc}
+                {}
+                pub {name}: core::option::Option<{ty}>",
+                if *alloc {
+                    "#[cfg(feature = \"alloc\")]"
+                } else {
+                    ""
+                },
+            ))),
+    )
+    .unwrap();
 }

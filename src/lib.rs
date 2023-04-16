@@ -103,6 +103,11 @@ pub struct Html<'life> {
     ///     <p>Specifies the <a href="/en-US/docs/Glossary/XML">XML</a> <a href="/en-US/docs/Glossary/Namespace">Namespace</a> of the document. Default value is <code>"http://www.w3.org/1999/xhtml"</code>. This is required in documents parsed with XML <a href="/en-US/docs/Glossary/Parser">parsers</a>, and optional in text/html documents.</p>
     ///   
     pub xmlns: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;base&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies the base URL to use for all <em>relative</em> URLs in a document. There can be only one <code>&lt;base&gt;</code> element in a document.
 ///
@@ -209,6 +214,11 @@ pub struct Base<'life> {
     ///     </ul>
     ///   
     pub target: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;head&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element contains machine-readable information (<a href="/en-US/docs/Glossary/Metadata">metadata</a>) about the document, like its <a href="/en-US/docs/Web/HTML/Element/title">title</a>, <a href="/en-US/docs/Web/HTML/Element/script">scripts</a>, and <a href="/en-US/docs/Web/HTML/Element/style">style sheets</a>.
 ///
@@ -303,6 +313,11 @@ pub struct Head<'life> {
     ///     <p>The <a href="/en-US/docs/Glossary/URI">URI</a>s of one or more metadata profiles, separated by <a href="/en-US/docs/Glossary/Whitespace">white space</a>.</p>
     ///   
     pub profile: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 ///
 ///   The <strong><code>&lt;link&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies relationships between the current document and an external resource.
@@ -532,7 +547,7 @@ pub struct Link<'life> {
     ///     <p>
     ///       This attribute indicates the language of the linked resource.
     ///       It is purely advisory.
-    ///       Allowed values are specified by <a href="https://datatracker.ietf.org/doc/html/rfc5646" target="_blank" class="external">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Allowed values are specified by <a target="_blank" class="external" href="https://datatracker.ietf.org/doc/html/rfc5646">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -542,11 +557,11 @@ pub struct Link<'life> {
     ///   
     pub id: core::option::Option<&'life str>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesizes</code> attribute is <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/images.html#sizes-attribute">a sizes attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesizes</code> attribute is <a class="external" href="https://html.spec.whatwg.org/multipage/images.html#sizes-attribute" target="_blank">a sizes attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesizes: core::option::Option<&'life str>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute" class="external" target="_blank">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a target="_blank" href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute" class="external">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesrcset: core::option::Option<&'life str>,
     ///
@@ -574,7 +589,7 @@ pub struct Link<'life> {
     ///       This attribute specifies the media that the linked resource applies to. Its value must be a media type / <a href="/en-US/docs/Web/CSS/Media_Queries">media query</a>.
     ///       This attribute is mainly useful when linking to external stylesheets — it allows the user agent to pick the best adapted one for the device it runs on.
     ///     </p>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>
@@ -648,6 +663,11 @@ pub struct Link<'life> {
     ///     </p>
     ///   
     pub type_: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;meta&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents <a href="/en-US/docs/Glossary/Metadata">metadata</a> that cannot be represented by other HTML meta-related elements, like <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/link"><code>&lt;link&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/script"><code>&lt;script&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/style"><code>&lt;style&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/title"><code>&lt;title&gt;</code></a>.
 ///
@@ -762,9 +782,9 @@ pub struct Meta<'life> {
     ///           <ul>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.2_%E2%80%94_enough_time_provide_users_enough_time_to_read_and_use_content">MDN Understanding WCAG, Guideline 2.1 explanations</a></li>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.2_%E2%80%94_predictable_make_web_pages_appear_and_operate_in_predictable_ways">MDN Understanding WCAG, Guideline 3.1 explanations</a></li>
-    ///             <li><a target="_blank" class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html" class="external">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a target="_blank" class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a class="external" target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html" class="external" target="_blank">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a class="external" target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
     ///           </ul>
     ///         </div>
     ///       </li>
@@ -792,6 +812,11 @@ pub struct Meta<'life> {
     ///     <p>See <a href="/en-US/docs/Web/HTML/Element/meta/name">standard metadata names</a> for details about the set of standard metadata names defined in the HTML specification.</p>
     ///   
     pub name: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;style&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element contains style information for a document, or part of a document. It contains CSS, which is applied to the contents of the document containing the <code>&lt;style&gt;</code> element.
 ///
@@ -901,6 +926,11 @@ pub struct Style<'life> {
     ///     <p>This attribute specifies <a href="/en-US/docs/Web/CSS/Alternative_style_sheets">alternative style sheet</a> sets.</p>
     ///   
     pub title: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;title&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines the document's title that is shown in a <a href="/en-US/docs/Glossary/Browser">browser</a>'s title bar or a page's tab. It only contains text; tags within the element are ignored.
 ///
@@ -991,6 +1021,11 @@ pub struct Title<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;body&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents the content of an HTML document. There can be only one <code>&lt;body&gt;</code> element in a document.
 ///
@@ -1223,6 +1258,11 @@ pub struct Body<'life> {
     ///     </p>
     ///   
     pub vlink: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;address&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
 ///
@@ -1313,6 +1353,11 @@ pub struct Address<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;article&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
 ///
@@ -1403,6 +1448,11 @@ pub struct Article<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;aside&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes.
 ///
@@ -1493,6 +1543,11 @@ pub struct Aside<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;footer&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a footer for its nearest ancestor <a href="/en-US/docs/Web/HTML/Content_categories#sectioning_content">sectioning content</a> or <a href="/en-US/docs/Web/HTML/Element/Heading_Elements#sectioning_root">sectioning root</a> element. A <code>&lt;footer&gt;</code> typically contains information about the author of the section, copyright data or links to related documents.
 ///
@@ -1583,6 +1638,11 @@ pub struct Footer<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;header&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.
 ///
@@ -1673,6 +1733,11 @@ pub struct Header<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;hgroup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a heading and related content. It groups a single <a href="/en-US/docs/Web/HTML/Element/Heading_Elements"><code>&lt;h1&gt;–&lt;h6&gt;</code></a> element with one or more <a href="/en-US/docs/Web/HTML/Element/p"><code>&lt;p&gt;</code></a>.
 ///
@@ -1763,6 +1828,11 @@ pub struct Hgroup<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;main&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents the dominant content of the <a href="/en-US/docs/Web/HTML/Element/body"><code>&lt;body&gt;</code></a> of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.
 ///
@@ -1853,6 +1923,11 @@ pub struct Main<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;nav&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes.
 ///
@@ -1943,6 +2018,11 @@ pub struct Nav<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;section&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions.
 ///
@@ -2033,6 +2113,11 @@ pub struct Section<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;blockquote&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation (see <a href="#usage_notes">Notes</a> for how to change it). A URL for the source of the quotation may be given using the <code>cite</code> attribute, while a text representation of the source can be given using the <a href="/en-US/docs/Web/HTML/Element/cite"><code>&lt;cite&gt;</code></a> element.
 ///
@@ -2127,6 +2212,11 @@ pub struct Blockquote<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;dd&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element provides the description, definition, or value for the preceding term (<a href="/en-US/docs/Web/HTML/Element/dt"><code>&lt;dt&gt;</code></a>) in a description list (<a href="/en-US/docs/Web/HTML/Element/dl"><code>&lt;dl&gt;</code></a>).
 ///
@@ -2221,6 +2311,11 @@ pub struct Dd<'life> {
     ///     <p>If the value of this attribute is set to <code>yes</code>, the definition text will not wrap. The default value is <code>no</code>.</p>
     ///   
     pub nowrap: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;div&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is the generic container for flow content. It has no effect on the content or layout until styled in some way using <a href="/en-US/docs/Glossary/CSS">CSS</a> (e.g. styling is directly applied to it, or some kind of layout model like <a href="/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout">Flexbox</a> is applied to its parent element).
 ///
@@ -2311,6 +2406,11 @@ pub struct Div<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;dl&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a description list. The element encloses a list of groups of terms (specified using the <a href="/en-US/docs/Web/HTML/Element/dt"><code>&lt;dt&gt;</code></a> element) and descriptions (provided by <a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
 ///
@@ -2401,6 +2501,11 @@ pub struct Dl<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;dt&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies a term in a description or definition list, and as such must be used inside a <a href="/en-US/docs/Web/HTML/Element/dl"><code>&lt;dl&gt;</code></a> element. It is usually followed by a <a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> element; however, multiple <code>&lt;dt&gt;</code> elements in a row indicate several terms that are all defined by the immediate next <a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> element.
 ///
@@ -2493,6 +2598,11 @@ pub struct Dt<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;figcaption&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a caption or legend describing the rest of the contents of its parent <a href="/en-US/docs/Web/HTML/Element/figure"><code>&lt;figure&gt;</code></a> element.
 ///
@@ -2583,6 +2693,11 @@ pub struct Figcaption<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;figure&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents self-contained content, potentially with an optional caption, which is specified using the <a href="/en-US/docs/Web/HTML/Element/figcaption"><code>&lt;figcaption&gt;</code></a> element. The figure, its caption, and its contents are referenced as a single unit.
 ///
@@ -2673,6 +2788,11 @@ pub struct Figure<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;hr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.
 ///
@@ -2783,6 +2903,11 @@ pub struct Hr<'life> {
     ///     <p>Sets the length of the rule on the page through a pixel or percentage value.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;li&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to represent an item in a list. It must be contained in a parent element: an ordered list (<a href="/en-US/docs/Web/HTML/Element/ol"><code>&lt;ol&gt;</code></a>), an unordered list (<a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>), or a menu (<a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a>). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
 ///
@@ -2892,6 +3017,11 @@ pub struct Li<'life> {
     ///     <p>This integer attribute indicates the current ordinal value of the list item as defined by the <a href="/en-US/docs/Web/HTML/Element/ol"><code>&lt;ol&gt;</code></a> element. The only allowed value for this attribute is a number, even if the list is displayed with Roman numerals or letters. List items that follow this one continue numbering from the value set. The <strong>value</strong> attribute has no meaning for unordered lists (<a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>) or for menus (<a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a>).</p>
     ///   
     pub value: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;menu&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is described in the HTML specification as a semantic alternative to <a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>, but treated by browsers (and exposed through the accessibility tree) as no different than <a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>. It represents an unordered list of items (which are represented by <a href="/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a> elements).
 ///
@@ -2982,6 +3112,11 @@ pub struct Menu<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;ol&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents an ordered list of items — typically rendered as a numbered list.
 ///
@@ -3090,11 +3225,16 @@ pub struct Ol<'life> {
     ///       <li><code>1</code> for numbers (default)</li>
     ///     </ul>
     ///     <p>The specified type is used for the entire list unless a different <a href="/en-US/docs/Web/HTML/Element/li#type"><code>type</code></a> attribute is used on an enclosed <a href="/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a> element.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Unless the type of the list number matters (like legal or technical documents where items are referenced by their number/letter), use the CSS <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
     pub type_: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;p&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a paragraph. Paragraphs are usually represented in visual media as blocks of text separated from adjacent blocks by blank lines and/or first-line indentation, but HTML paragraphs can be any structural grouping of related content, such as images or form fields.
 ///
@@ -3187,8 +3327,13 @@ pub struct P<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
-/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a target="_blank" href="https://en.wikipedia.org/wiki/Monospaced_font" class="external">monospaced</a>, font. Whitespace inside this element is displayed as written.
+/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a href="https://en.wikipedia.org/wiki/Monospaced_font" class="external" target="_blank">monospaced</a>, font. Whitespace inside this element is displayed as written.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre>
 
@@ -3289,6 +3434,11 @@ pub struct Pre<'life> {
     ///     <p>Is a <em>hint</em> indicating how the overflow must happen. In modern browser this hint is ignored and no visual effect results in its present; to achieve such an effect, use CSS <a href="/en-US/docs/Web/CSS/white-space"><code>white-space</code></a> instead.</p>
     ///   
     pub wrap: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;ul&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents an unordered list of items, typically rendered as a bulleted list.
 ///
@@ -3319,7 +3469,7 @@ pub struct Ul<'life> {
     pub class: core::option::Option<&'life str>,
     ///
     ///     <p>This Boolean attribute hints that the list should be rendered in a compact style. The interpretation of this attribute depends on the <a href="/en-US/docs/Glossary/User_agent">user agent</a>, and it doesn't work in all browsers.</p>
-    ///     <div class="notecard warning" id="sect1">
+    ///     <div id="sect1" class="notecard warning">
     ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated: use <a href="/en-US/docs/Web/CSS">CSS</a> instead. To give a similar effect as the <code>compact</code> attribute, the CSS property <a href="/en-US/docs/Web/CSS/line-height"><code>line-height</code></a> can be used with a value of <code>80%</code>.</p>
     ///     </div>
     ///   
@@ -3400,6 +3550,11 @@ pub struct Ul<'life> {
     ///     </div>
     ///   
     pub type_: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;a&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element (or <em>anchor</em> element), with <a href="#href">its <code>href</code> attribute</a>, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.
 ///
@@ -3574,6 +3729,11 @@ pub struct A<'life> {
     ///     <p>Hints at the linked URL's format with a <a href="/en-US/docs/Glossary/MIME_type">MIME type</a>. No built-in functionality.</p>
     ///   
     pub type_: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;abbr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents an abbreviation or acronym.
 ///
@@ -3668,6 +3828,11 @@ pub struct Abbr<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;b&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use <code>&lt;b&gt;</code> for styling text or granting importance. If you wish to create boldface text, you should use the CSS <a href="/en-US/docs/Web/CSS/font-weight"><code>font-weight</code></a> property. If you wish to indicate an element is of special importance, you should use the <a href="/en-US/docs/Web/HTML/Element/strong"><code>&lt;strong&gt;</code></a> element.
 ///
@@ -3758,6 +3923,11 @@ pub struct B<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;bdi&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text. It's particularly useful when a website dynamically inserts some text and doesn't know the directionality of the text being inserted.
 ///
@@ -3848,6 +4018,11 @@ pub struct Bdi<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;bdo&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element overrides the current directionality of text, so that the text within is rendered in a different direction.
 ///
@@ -3937,6 +4112,11 @@ pub struct Bdo<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;br&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.
 ///
@@ -4031,6 +4211,11 @@ pub struct Br<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;cite&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to mark up the title of a cited creative work. The reference may be in an abbreviated form according to context-appropriate conventions related to citation metadata.
 ///
@@ -4121,6 +4306,11 @@ pub struct Cite<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;code&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element displays its contents styled in a fashion intended to indicate that the text is a short fragment of computer code. By default, the content text is displayed using the <a href="/en-US/docs/Glossary/User_agent">user agent's</a> default monospace font.
 ///
@@ -4211,6 +4401,11 @@ pub struct Code<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;data&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element links a given piece of content with a machine-readable translation. If the content is time- or date-related, the <a href="/en-US/docs/Web/HTML/Element/time"><code>&lt;time&gt;</code></a> element must be used.
 ///
@@ -4305,6 +4500,11 @@ pub struct Data<'life> {
     ///     <p>This attribute specifies the machine-readable translation of the content of the element.</p>
     ///   
     pub value: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;dfn&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor <a href="/en-US/docs/Web/HTML/Element/p"><code>&lt;p&gt;</code></a> element, the <a href="/en-US/docs/Web/HTML/Element/dt"><code>&lt;dt&gt;</code></a>/<a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> pairing, or the nearest <a href="/en-US/docs/Web/HTML/Element/section"><code>&lt;section&gt;</code></a> ancestor of the <code>&lt;dfn&gt;</code> element, is considered to be the definition of the term.
 ///
@@ -4395,6 +4595,11 @@ pub struct Dfn<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;em&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element marks text that has stress emphasis. The <code>&lt;em&gt;</code> element can be nested, with each level of nesting indicating a greater degree of emphasis.
 ///
@@ -4485,6 +4690,11 @@ pub struct Em<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;i&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a range of text that is set off from the normal text for some reason, such as idiomatic text, technical terms, taxonomical designations, among others. Historically, these have been presented using italicized type, which is the original source of the <code>&lt;i&gt;</code> naming of this element.
 ///
@@ -4575,6 +4785,11 @@ pub struct I<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;kbd&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device. By convention, the <a href="/en-US/docs/Glossary/User_agent">user agent</a> defaults to rendering the contents of a <code>&lt;kbd&gt;</code> element using its default monospace font, although this is not mandated by the HTML standard.
 ///
@@ -4665,6 +4880,11 @@ pub struct Kbd<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;mark&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents text which is <strong>marked</strong> or <strong>highlighted</strong> for reference or notation purposes due to the marked passage's relevance in the enclosing context.
 ///
@@ -4755,6 +4975,11 @@ pub struct Mark<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;q&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the <a href="/en-US/docs/Web/HTML/Element/blockquote"><code>&lt;blockquote&gt;</code></a> element.
 ///
@@ -4849,6 +5074,11 @@ pub struct Q<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;rp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to provide fall-back parentheses for browsers that do not support display of ruby annotations using the <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. One <code>&lt;rp&gt;</code> element should enclose each of the opening and closing parentheses that wrap the <a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a> element that contains the annotation's text.
 ///
@@ -4939,6 +5169,11 @@ pub struct Rp<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;rt&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The <code>&lt;rt&gt;</code> element must always be contained within a <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element.
 ///
@@ -5029,10 +5264,15 @@ pub struct Rt<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;ruby&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
 ///
-/// The term <em>ruby</em> originated as <a class="external" href="https://en.wikipedia.org/wiki/Agate_(typography)" target="_blank">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
+/// The term <em>ruby</em> originated as <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Agate_(typography)">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby>
 
@@ -5121,6 +5361,11 @@ pub struct Ruby<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;s&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element renders text with a strikethrough, or a line through it. Use the <code>&lt;s&gt;</code> element to represent things that are no longer relevant or no longer accurate. However, <code>&lt;s&gt;</code> is not appropriate when indicating document edits; for that, use the <a href="/en-US/docs/Web/HTML/Element/del"><code>&lt;del&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/ins"><code>&lt;ins&gt;</code></a> elements, as appropriate.
 ///
@@ -5211,8 +5456,13 @@ pub struct S<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
-/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a href="https://en.wikipedia.org/wiki/Courier_(typeface)" class="external" target="_blank">Courier</a> or Lucida Console).
+/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Courier_(typeface)">Courier</a> or Lucida Console).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp>
 
@@ -5301,6 +5551,11 @@ pub struct Samp<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;small&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents side-comments and small print, like copyright and legal text, independent of its styled presentation. By default, it renders text within it one font-size smaller, such as from <code>small</code> to <code>x-small</code>.
 ///
@@ -5391,6 +5646,11 @@ pub struct Small<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;span&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the <a href="/en-US/docs/Web/HTML/Global_attributes#class"><code>class</code></a> or <a href="/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a> attributes), or because they share attribute values, such as <a href="/en-US/docs/Web/HTML/Global_attributes#lang"><code>lang</code></a>. It should be used only when no other semantic element is appropriate. <code>&lt;span&gt;</code> is very much like a <a href="/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> element, but <a href="/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> is a <a href="/en-US/docs/Web/HTML/Block-level_elements">block-level element</a> whereas a <code>&lt;span&gt;</code> is an <a href="/en-US/docs/Web/HTML/Inline_elements">inline element</a>.
 ///
@@ -5481,6 +5741,11 @@ pub struct Span<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;strong&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type.
 ///
@@ -5571,6 +5836,11 @@ pub struct Strong<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;sub&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies inline text which should be displayed as subscript for solely typographical reasons. Subscripts are typically rendered with a lowered baseline using smaller text.
 ///
@@ -5661,6 +5931,11 @@ pub struct Sub<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;sup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies inline text which is to be displayed as superscript for solely typographical reasons. Superscripts are usually rendered with a raised baseline using smaller text.
 ///
@@ -5751,6 +6026,11 @@ pub struct Sup<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;time&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a specific period in time. It may include the <code>datetime</code> attribute to translate dates into machine-readable format, allowing for better search engine results or custom features such as reminders.
 ///
@@ -5847,6 +6127,11 @@ pub struct Time<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;u&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a simple solid underline, but may be altered using CSS.
 ///
@@ -5937,6 +6222,11 @@ pub struct U<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;var&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents the name of a variable in a mathematical expression or a programming context. It's typically presented using an italicized version of the current typeface, although that behavior is browser-dependent.
 ///
@@ -6027,6 +6317,11 @@ pub struct Var<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;wbr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a word break opportunity—a position within text where the browser may optionally break a line, though its line-breaking rules would not otherwise create a break at that location.
 ///
@@ -6117,6 +6412,11 @@ pub struct Wbr<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;area&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines an area inside an image map that has predefined clickable areas. An <em>image map</em> allows geometric areas on an image to be associated with <a href="/en-US/docs/Glossary/Hyperlink">hypertext links</a>.
 ///
@@ -6241,7 +6541,7 @@ pub struct Area<'life> {
     pub href: core::option::Option<&'life str>,
     ///
     ///     <p>
-    ///       Indicates the language of the linked resource. Allowed values are defined by <a href="https://datatracker.ietf.org/doc/html/rfc5646" target="_blank" class="external">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Indicates the language of the linked resource. Allowed values are defined by <a class="external" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5646">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -6322,6 +6622,11 @@ pub struct Area<'life> {
     ///     </div>
     ///   
     pub target: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;audio&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to embed sound content in documents. It may contain one or more audio sources, represented using the <code>src</code> attribute or the <a href="/en-US/docs/Web/HTML/Element/source"><code>&lt;source&gt;</code></a> element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a <a href="/en-US/docs/Web/API/MediaStream"><code>MediaStream</code></a>.
 ///
@@ -6374,7 +6679,7 @@ pub struct Audio<'life> {
     ///   
     pub controls: core::option::Option<&'life str>,
     ///
-    ///     <p>The <a class="external" href="https://wicg.github.io/controls-list/explainer.html" target="_blank"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
+    ///     <p>The <a href="https://wicg.github.io/controls-list/explainer.html" class="external" target="_blank"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
     ///     <p>The allowed values are <code>nodownload</code>, <code>nofullscreen</code> and <code>noremoteplayback</code>.</p>
     ///   
     pub controlslist: core::option::Option<&'life str>,
@@ -6408,9 +6713,9 @@ pub struct Audio<'life> {
     ///   
     pub dir: core::option::Option<&'life str>,
     ///
-    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a class="external" target="_blank" href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute">this proposed specification</a> for more information.</p>
-    ///     <div class="notecard note" id="sect2">
-    ///       <p><strong>Note:</strong> In Safari, you can use <a target="_blank" class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute" class="external" target="_blank">this proposed specification</a> for more information.</p>
+    ///     <div id="sect2" class="notecard note">
+    ///       <p><strong>Note:</strong> In Safari, you can use <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" class="external" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///     </div>
     ///   
     pub disableremoteplayback: core::option::Option<&'life str>,
@@ -6467,7 +6772,7 @@ pub struct Audio<'life> {
     ///       <li><em>empty string</em>: A synonym of the <code>auto</code> value.</li>
     ///     </ul>
     ///     <p>The default value is different for each browser. The spec advises it to be set to <code>metadata</code>.</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>The <code>autoplay</code> attribute has precedence over <code>preload</code>. If <code>autoplay</code> is specified, the browser would obviously need to start downloading the audio for playback.</li>
@@ -6480,6 +6785,11 @@ pub struct Audio<'life> {
     ///     <p>The URL of the audio to embed. This is subject to <a href="/en-US/docs/Web/HTTP/CORS">HTTP access controls</a>. This is optional; you may instead use the <a href="/en-US/docs/Web/HTML/Element/source"><code>&lt;source&gt;</code></a> element within the audio block to specify the audio to embed.</p>
     ///   
     pub src: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;img&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embeds an image into the document.
 ///
@@ -6543,7 +6853,7 @@ pub struct Img<'life> {
     ///     <dl>
     ///       <dt id="anonymous"><code>anonymous</code></dt>
     ///       <dd>
-    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a href="https://datatracker.ietf.org/doc/html/rfc5280" target="_blank" class="external">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
+    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5280" class="external">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
     ///       </dd>
     ///       <dt id="use-credentials"><code>use-credentials</code></dt>
     ///       <dd>
@@ -6652,7 +6962,7 @@ pub struct Img<'life> {
     pub is: core::option::Option<&'life str>,
     ///
     ///     <p>This Boolean attribute indicates that the image is part of a <a href="https://en.wikipedia.org/wiki/Image_map#Server-side" class="external" target="_blank">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
-    ///     <div id="sect4" class="notecard note">
+    ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is allowed only if the <code>&lt;img&gt;</code> element is a descendant of an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> element with a valid <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute. This gives users without pointing devices a fallback destination.</p>
     ///     </div>
     ///   
@@ -6730,6 +7040,11 @@ pub struct Img<'life> {
     ///     <p>The intrinsic width of the image in pixels. Must be an integer without a unit.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;map&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used with <a href="/en-US/docs/Web/HTML/Element/area"><code>&lt;area&gt;</code></a> elements to define an image map (a clickable link area).
 ///
@@ -6824,6 +7139,11 @@ pub struct Map<'life> {
     ///     <p>The <code>name</code> attribute gives the map a name so that it can be referenced. The attribute must be present and must have a non-empty value with no space characters. The value of the <code>name</code> attribute must not be equal to the value of the <code>name</code> attribute of another <code>&lt;map&gt;</code> element in the same document. If the <a href="/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a> attribute is also specified, both attributes must have the same value.</p>
     ///   
     pub name: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;track&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used as a child of the media elements, <a href="/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a>. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in <a href="/en-US/docs/Web/API/WebVTT_API">WebVTT format</a> (<code>.vtt</code> files) — Web Video Text Tracks.
 ///
@@ -6962,9 +7282,14 @@ pub struct Track<'life> {
     ///   
     pub src: core::option::Option<&'life str>,
     ///
-    ///     <p>Language of the track text data. It must be a valid <a class="external" href="https://r12a.github.io/app-subtags/" target="_blank">BCP 47</a> language tag. If the <code>kind</code> attribute is set to <code>subtitles</code>, then <code>srclang</code> must be defined.</p>
+    ///     <p>Language of the track text data. It must be a valid <a class="external" target="_blank" href="https://r12a.github.io/app-subtags/">BCP 47</a> language tag. If the <code>kind</code> attribute is set to <code>subtitles</code>, then <code>srclang</code> must be defined.</p>
     ///   
     pub srclang: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;video&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embeds a media player which supports video playback into the document. You can use <code>&lt;video&gt;</code> for audio content as well, but the <a href="/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> element may provide a more appropriate user experience.
 ///
@@ -7023,7 +7348,7 @@ pub struct Video<'life> {
     ///   
     pub controls: core::option::Option<&'life str>,
     ///
-    ///     <p>The <a target="_blank" href="https://wicg.github.io/controls-list/explainer.html" class="external"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>video</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
+    ///     <p>The <a class="external" href="https://wicg.github.io/controls-list/explainer.html" target="_blank"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>video</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
     ///     <p>The allowed values are <code>nodownload</code>, <code>nofullscreen</code> and <code>noremoteplayback</code>.</p>
     ///     <p>Use the <a href="#disablepictureinpicture"><code>disablepictureinpicture</code></a> attribute if you want to disable the Picture-In-Picture mode (and the control).</p>
     ///   
@@ -7063,7 +7388,7 @@ pub struct Video<'life> {
     pub disablepictureinpicture: core::option::Option<&'life str>,
     ///
     ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.).</p>
-    ///     <p>In Safari, you can use <a class="external" target="_blank" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <p>In Safari, you can use <a target="_blank" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" class="external"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///   
     pub disableremoteplayback: core::option::Option<&'life str>,
     ///
@@ -7083,7 +7408,7 @@ pub struct Video<'life> {
     ///   
     pub exportparts: core::option::Option<&'life str>,
     ///
-    ///     <p>The height of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a> (absolute values only; <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">no percentages</a>).</p>
+    ///     <p>The height of the video's display area, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a> (absolute values only; <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">no percentages</a>).</p>
     ///   
     pub height: core::option::Option<&'life str>,
     ///
@@ -7131,7 +7456,7 @@ pub struct Video<'life> {
     ///       <li><em>empty string</em>: Synonym of the <code>auto</code> value.</li>
     ///     </ul>
     ///     <p>The default value is different for each browser. The spec advises it to be set to <code>metadata</code>.</p>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>The <code>autoplay</code> attribute has precedence over <code>preload</code>. If <code>autoplay</code> is specified, the browser would obviously need to start downloading the video for playback.</li>
@@ -7145,9 +7470,14 @@ pub struct Video<'life> {
     ///   
     pub src: core::option::Option<&'life str>,
     ///
-    ///     <p>The width of the video's display area, in <a target="_blank" href="https://drafts.csswg.org/css-values/#px" class="external">CSS pixels</a> (absolute values only; <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">no percentages</a>).</p>
+    ///     <p>The width of the video's display area, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a> (absolute values only; <a class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" target="_blank">no percentages</a>).</p>
     ///   
     pub width: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;embed&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
 ///
@@ -7219,7 +7549,7 @@ pub struct Embed<'life> {
     ///   
     pub exportparts: core::option::Option<&'life str>,
     ///
-    ///     <p>The displayed height of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed height of the resource, in <a target="_blank" href="https://drafts.csswg.org/css-values/#px" class="external">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub height: core::option::Option<&'life str>,
     ///
@@ -7251,9 +7581,14 @@ pub struct Embed<'life> {
     ///   
     pub type_: core::option::Option<&'life str>,
     ///
-    ///     <p>The displayed width of the resource, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed width of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;iframe&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a nested <a href="/en-US/docs/Glossary/Browsing_context">browsing context</a>, embedding another HTML page into the current one.
 ///
@@ -7266,14 +7601,14 @@ pub struct Iframe<'life> {
     pub accesskey: core::option::Option<&'life str>,
     ///
     ///     <p>Specifies a <a href="/en-US/docs/Web/HTTP/Permissions_Policy">Permissions Policy</a> for the <code>&lt;iframe&gt;</code>. The policy defines what features are available to the <code>&lt;iframe&gt;</code> (for example, access to the microphone, camera, battery, web-share, etc.) based on the origin of the request.</p>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> A Permissions Policy specified by the <code>allow</code> attribute implements a further restriction on top of the policy specified in the <a href="/en-US/docs/Web/HTTP/Headers/Permissions-Policy"><code>Permissions-Policy</code></a> header. It doesn't replace it.</p>
     ///     </div>
     ///   
     pub allow: core::option::Option<&'life str>,
     ///
     ///     <p>Set to <code>true</code> if the <code>&lt;iframe&gt;</code> can activate fullscreen mode by calling the <a title="requestFullscreen()" href="/en-US/docs/Web/API/Element/requestFullscreen"><code>requestFullscreen()</code></a> method.</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong> This attribute is considered a legacy attribute and redefined as <code>allow="fullscreen"</code>.</p>
     ///     </div>
     ///   
@@ -7386,7 +7721,7 @@ pub struct Iframe<'life> {
     ///   
     pub loading: core::option::Option<&'life str>,
     ///
-    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a title="window.open()" href="/en-US/docs/Web/API/Window/open"><code>window.open()</code></a> method.</p>
+    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a href="/en-US/docs/Web/API/Window/open" title="window.open()"><code>window.open()</code></a> method.</p>
     ///   
     pub name: core::option::Option<&'life str>,
     ///
@@ -7419,7 +7754,7 @@ pub struct Iframe<'life> {
     ///       <li><code>allow-presentation</code>: Allows embedders to have control over whether an iframe can start a <a href="/en-US/docs/Web/API/PresentationRequest">presentation session</a>.</li>
     ///       <li><code>allow-same-origin</code>: If this token is not used, the resource is treated as being from a special origin that always fails the <a href="/en-US/docs/Glossary/Same-origin_policy">same-origin policy</a> (potentially preventing access to <a href="/en-US/docs/Web/Security/Same-origin_policy#cross-origin_data_storage_access">data storage/cookies</a> and some JavaScript APIs).</li>
     ///       <li><code>allow-scripts</code>: Allows the page to run scripts (but not create pop-up windows). If this keyword is not used, this operation is not allowed.</li>
-    ///       <li><code>allow-storage-access-by-user-activation</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
+    ///       <li><code>allow-storage-access-by-user-activation</code> <abbr title="Experimental. Expect behavior to change in the future." class="icon icon-experimental">
     ///     <span class="visually-hidden">Experimental</span>
     /// </abbr>: Lets the resource request access to the parent's storage capabilities with the <a href="/en-US/docs/Web/API/Storage_Access_API">Storage Access API</a>.</li>
     ///       <li><code>allow-top-navigation</code>: Lets the resource navigate the top-level browsing context (the one named <code>_top</code>).</li>
@@ -7447,6 +7782,11 @@ pub struct Iframe<'life> {
     ///     <p>The width of the frame in CSS pixels. Default is <code>300</code>.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;object&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.
 ///
@@ -7546,7 +7886,7 @@ pub struct Object<'life> {
     ///   
     pub form: core::option::Option<&'life str>,
     ///
-    ///     <p>The height of the displayed resource, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" target="_blank">NO percentages</a>)</p>
+    ///     <p>The height of the displayed resource, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">NO percentages</a>)</p>
     ///   
     pub height: core::option::Option<&'life str>,
     ///
@@ -7586,9 +7926,14 @@ pub struct Object<'life> {
     ///   
     pub usemap: core::option::Option<&'life str>,
     ///
-    ///     <p>The width of the display resource, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a>. — (Absolute values only. <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">NO percentages</a>)</p>
+    ///     <p>The width of the display resource, in <a target="_blank" href="https://drafts.csswg.org/css-values/#px" class="external">CSS pixels</a>. — (Absolute values only. <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">NO percentages</a>)</p>
     ///   
     pub width: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;picture&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element contains zero or more <a href="/en-US/docs/Web/HTML/Element/source"><code>&lt;source&gt;</code></a> elements and one <a href="/en-US/docs/Web/HTML/Element/img"><code>&lt;img&gt;</code></a> element to offer alternative versions of an image for different display/device scenarios.
 ///
@@ -7681,6 +8026,11 @@ pub struct Picture<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;portal&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element enables the embedding of another HTML page into the current one for the purposes of allowing smoother navigation into new pages.
 ///
@@ -7781,6 +8131,11 @@ pub struct Portal<'life> {
     ///     <p>The URL of the page to embed.</p>
     ///   
     pub src: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;source&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies multiple media resources for the <a href="/en-US/docs/Web/HTML/Element/picture"><code>&lt;picture&gt;</code></a>, the <a href="/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> element, or the <a href="/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a> element. It is a <a href="/en-US/docs/Glossary/Void_element">void element</a>, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for <a href="/en-US/docs/Web/Media/Formats/Image_types">image file formats</a> and <a href="/en-US/docs/Web/Media/Formats">media file formats</a>.
 ///
@@ -7911,6 +8266,11 @@ pub struct Source<'life> {
     ///     <p>The intrinsic width of the image in pixels. Must be an integer without a unit.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// Use the <strong>HTML <code>&lt;canvas&gt;</code> element</strong> with either the <a href="/en-US/docs/Web/API/Canvas_API">canvas scripting API</a> or the <a href="/en-US/docs/Web/API/WebGL_API">WebGL API</a> to draw graphics and animations.
 ///
@@ -8006,13 +8366,18 @@ pub struct Canvas<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
     ///
-    ///     <p>Lets the canvas know whether translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized <a title="canvas.getContext('2d', { alpha: false })" href="/en-US/docs/Web/API/HTMLCanvasElement/getContext"><code>canvas.getContext('2d', { alpha: false })</code></a> instead.</p>
+    ///     <p>Lets the canvas know whether translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized <a href="/en-US/docs/Web/API/HTMLCanvasElement/getContext" title="canvas.getContext('2d', { alpha: false })"><code>canvas.getContext('2d', { alpha: false })</code></a> instead.</p>
     ///   
     pub moz_opaque: core::option::Option<&'life str>,
     ///
     ///     <p>The width of the coordinate space in CSS pixels. Defaults to 300.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;noscript&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser.
 ///
@@ -8103,6 +8468,11 @@ pub struct Noscript<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;script&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The <code>&lt;script&gt;</code> element can also be used with other languages, such as <a href="/en-US/docs/Web/API/WebGL_API">WebGL</a>'s GLSL shader programming language and <a href="/en-US/docs/Glossary/JSON">JSON</a>.
 ///
@@ -8168,9 +8538,9 @@ pub struct Script<'life> {
     #[cfg(feature = "alloc")]
     pub data: core::option::Option<alloc::collections::BTreeMap<&'life str, &'life str>>,
     ///
-    ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a title="DOMContentLoaded" href="/en-US/docs/Web/API/Document/DOMContentLoaded_event"><code>DOMContentLoaded</code></a>.</p>
+    ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a href="/en-US/docs/Web/API/Document/DOMContentLoaded_event" title="DOMContentLoaded"><code>DOMContentLoaded</code></a>.</p>
     ///     <p>Scripts with the <code>defer</code> attribute will prevent the <code>DOMContentLoaded</code> event from firing until the script has loaded and finished evaluating.</p>
-    ///     <div class="notecard warning" id="sect1">
+    ///     <div id="sect1" class="notecard warning">
     ///       <p><strong>Warning:</strong> This attribute must not be used if the <code>src</code> attribute is absent (i.e. for inline scripts), in this case it would have no effect.</p>
     ///       <p>The <code>defer</code> attribute has no effect on <a href="/en-US/docs/Web/JavaScript/Guide/Modules">module scripts</a> — they defer by default.</p>
     ///     </div>
@@ -8265,7 +8635,7 @@ pub struct Script<'life> {
     ///       <li><code>strict-origin-when-cross-origin</code> (default): Send a full URL when performing a same-origin request, only send the origin when the protocol security level stays the same (HTTPS→HTTPS), and send no header to a less secure destination (HTTPS→HTTP).</li>
     ///       <li><code>unsafe-url</code>: The referrer will include the origin <em>and</em> the path (but not the <a href="/en-US/docs/Web/API/HTMLAnchorElement/hash">fragment</a>, <a href="/en-US/docs/Web/API/HTMLAnchorElement/password">password</a>, or <a href="/en-US/docs/Web/API/HTMLAnchorElement/username">username</a>). <strong>This value is unsafe</strong>, because it leaks origins and paths from TLS-protected resources to insecure origins.</li>
     ///     </ul>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> An empty string value (<code>""</code>) is both the default value, and a fallback value if <code>referrerpolicy</code> is not supported. If <code>referrerpolicy</code> is not explicitly specified on the <code>&lt;script&gt;</code> element, it will adopt a higher-level referrer policy, i.e. one set on the whole document or domain. If a higher-level policy is not available, the empty string is treated as being equivalent to <code>strict-origin-when-cross-origin</code>.</p>
     ///     </div>
     ///   
@@ -8316,6 +8686,11 @@ pub struct Script<'life> {
     ///     </dl>
     ///   
     pub type_: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;del&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a range of text that has been deleted from a document. This can be used when rendering "track changes" or source code diff information, for example. The <a href="/en-US/docs/Web/HTML/Element/ins"><code>&lt;ins&gt;</code></a> element can be used for the opposite purpose: to indicate text that has been added to the document.
 ///
@@ -8414,6 +8789,11 @@ pub struct Del<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;ins&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a range of text that has been added to a document. You can use the <a href="/en-US/docs/Web/HTML/Element/del"><code>&lt;del&gt;</code></a> element to similarly represent a range of text that has been deleted from the document.
 ///
@@ -8512,6 +8892,11 @@ pub struct Ins<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;caption&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies the caption (or title) of a table.
 ///
@@ -8542,8 +8927,8 @@ pub struct Caption<'life> {
     ///         <p>The caption is displayed below the table.</p>
     ///       </dd>
     ///     </dl>
-    ///     <div id="sect1" class="notecard warning">
-    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a href="/en-US/docs/Web/HTML/Element/caption" aria-current="page"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
+    ///     <div class="notecard warning" id="sect1">
+    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a aria-current="page" href="/en-US/docs/Web/HTML/Element/caption"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
     ///     </div>
     ///   
     pub align: core::option::Option<&'life str>,
@@ -8627,6 +9012,11 @@ pub struct Caption<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;col&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <a href="/en-US/docs/Web/HTML/Element/colgroup"><code>&lt;colgroup&gt;</code></a> element.
 ///
@@ -8721,6 +9111,11 @@ pub struct Col<'life> {
     ///     <p>This attribute contains a positive integer indicating the number of consecutive columns the <code>&lt;col&gt;</code> element spans. If not present, its default value is <code>1</code>.</p>
     ///   
     pub span: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;colgroup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a group of columns within a table.
 ///
@@ -8816,6 +9211,11 @@ pub struct Colgroup<'life> {
     ///     <p>The <code>span</code> attribute is not permitted if there are one or more <a href="/en-US/docs/Web/HTML/Element/col"><code>&lt;col&gt;</code></a> elements within the <code>&lt;colgroup&gt;</code>.</p>
     ///   
     pub span: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;table&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.
 ///
@@ -8961,6 +9361,11 @@ pub struct Table<'life> {
     ///     <p>This attribute defines the width of the table. Use the CSS <a href="/en-US/docs/Web/CSS/width"><code>width</code></a> property instead.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;tbody&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element encapsulates a set of table rows (<a href="/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a> elements), indicating that they comprise the body of the table (<a href="/en-US/docs/Web/HTML/Element/table"><code>&lt;table&gt;</code></a>).
 ///
@@ -8982,7 +9387,7 @@ pub struct Tbody<'life> {
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
     ///     <p>As this attribute is deprecated, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> The equivalent <code>text-align</code> property for the <code>align="char"</code> is not implemented in any browsers yet. See the <a href="/en-US/docs/Web/CSS/text-align#browser_compatibility"><code>text-align</code>'s browser compatibility section</a> for the <code>&lt;string&gt;</code> value.</p>
     ///     </div>
     ///   
@@ -9083,7 +9488,7 @@ pub struct Tbody<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
@@ -9091,6 +9496,11 @@ pub struct Tbody<'life> {
     ///     <p>As this attribute is deprecated, use the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property instead.</p>
     ///   
     pub valign: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;td&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a cell of a table that contains data. It participates in the <em>table model</em>.
 ///
@@ -9193,6 +9603,11 @@ pub struct Td<'life> {
     ///     <p>This attribute contains a non-negative integer value that indicates for how many rows the cell extends. Its default value is <code>1</code>; if its value is set to <code>0</code>, it extends until the end of the table section (<a href="/en-US/docs/Web/HTML/Element/thead"><code>&lt;thead&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/tbody"><code>&lt;tbody&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/tfoot"><code>&lt;tfoot&gt;</code></a>, even if implicitly defined), that the cell belongs to. Values higher than 65534 are clipped down to 65534.</p>
     ///   
     pub rowspan: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;tfoot&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a set of rows summarizing the columns of the table.
 ///
@@ -9213,7 +9628,7 @@ pub struct Tfoot<'life> {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>To achieve the same effect as the <code>left</code>, <code>center</code>, <code>right</code> or <code>justify</code> values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property on it.</li>
@@ -9318,7 +9733,7 @@ pub struct Tfoot<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table footer. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
@@ -9328,6 +9743,11 @@ pub struct Tfoot<'life> {
     ///     </div>
     ///   
     pub valign: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;th&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a cell as the header of a group of table cells. The exact nature of this group is defined by the <a href="#scope"><code>scope</code></a> and <a href="#headers"><code>headers</code></a> attributes.
 ///
@@ -9445,6 +9865,11 @@ pub struct Th<'life> {
     ///     <p>If the <code>scope</code> attribute is not specified, or its value is not <code>row</code>, <code>col</code>, or <code>rowgroup</code>, or <code>colgroup</code>, then browsers automatically select the set of cells to which the header cell applies.</p>
     ///   
     pub scope: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;thead&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a set of rows defining the head of the columns of the table.
 ///
@@ -9465,7 +9890,7 @@ pub struct Thead<'life> {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div id="sect1" class="notecard warning">
+    ///     <div class="notecard warning" id="sect1">
     ///       <p><strong>Warning:</strong> Do not use this attribute as it is obsolete (not supported) in the latest standard.</p>
     ///       <ul>
     ///         <li>To align values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</li>
@@ -9496,14 +9921,14 @@ pub struct Thead<'life> {
     pub bgcolor: core::option::Option<&'life str>,
     ///
     ///     <p>This attribute is used to set the character to align the cells in a column on. Typical values for this include a period (.) when attempting to align numbers or monetary values. If <a href="#align"><code>align</code></a> is not set to <code>char</code>, this attribute is ignored.</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
     pub char: core::option::Option<&'life str>,
     ///
     ///     <p>This attribute is used to indicate the number of characters to offset the column data from the alignment characters specified by the <strong>char</strong> attribute.</p>
-    ///     <div id="sect4" class="notecard note">
+    ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
@@ -9577,16 +10002,21 @@ pub struct Thead<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li><code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
     ///     </ul>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property on it.</p>
     ///     </div>
     ///   
     pub valign: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;tr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a row of cells in a table. The row's cells can then be established using a mix of <a href="/en-US/docs/Web/HTML/Element/td"><code>&lt;td&gt;</code></a> (data cell) and <a href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a> (header cell) elements.
 ///
@@ -9622,7 +10052,7 @@ pub struct Tr<'life> {
     ///       </dd>
     ///     </dl>
     ///     <p>If no value is expressly set for <code>align</code>, the parent node's value is inherited.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> Instead of using the obsolete <code>align</code> attribute, you should instead use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to establish <code>left</code>, <code>center</code>, <code>right</code>, or <code>justify</code> alignment for the row's cells. To apply character-based alignment, set the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to the alignment character (such as <code>"."</code> or <code>","</code>).</p>
     ///     </div>
     ///   
@@ -9650,7 +10080,7 @@ pub struct Tr<'life> {
     pub bgcolor: core::option::Option<&'life str>,
     ///
     ///     <p>A string that sets the character to align the cells in each row's columns (each row's centering that uses the same character gets aligned with others using the same character. Typical values for this include a period (<code>"."</code>) or comma (<code>","</code>) when attempting to align numbers or monetary values. If <a href="#align"><code>align</code></a> is not set to <code>char</code>, this attribute is ignored.</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong> This attribute is obsolete and rarely implemented anyway. To achieve the same effect as the <a href="#char"><code>char</code></a> attribute, set the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to the same string you would specify for the <code>char</code> property, such as <code>text-align: "."</code>.</p>
     ///     </div>
     ///   
@@ -9733,7 +10163,7 @@ pub struct Tr<'life> {
     ///     <dl>
     ///       <dt id="baseline"><code>baseline</code></dt>
     ///       <dd>
-    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Baseline">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
+    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a target="_blank" href="https://en.wikipedia.org/wiki/Baseline" class="external">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
     ///       </dd>
     ///       <dt id="bottom"><code>bottom</code>,</dt>
     ///       <dd>
@@ -9748,11 +10178,16 @@ pub struct Tr<'life> {
     ///         <p>Each cell's text is drawn as closely as possible to the top edge of the containing cell.</p>
     ///       </dd>
     ///     </dl>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> Don't use the obsolete <code>valign</code> attribute. Instead, add the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property to the row.</p>
     ///     </div>
     ///   
     pub valign: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;button&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is an interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it then performs an action, such as submitting a <a href="/en-US/docs/Learn/Forms">form</a> or opening a dialog.
 ///
@@ -9776,7 +10211,7 @@ pub struct Button<'life> {
     ///   
     pub autocapitalize: core::option::Option<&'life str>,
     ///
-    ///     <p>This attribute on a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a target="_blank" class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing">Firefox persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a href="https://bugzil.la/654072" target="_blank" class="external">Firefox bug 654072</a>.</p>
+    ///     <p>This attribute on a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank" class="external">Firefox persists the dynamic disabled state</a> of a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a class="external" href="https://bugzil.la/654072" target="_blank">Firefox bug 654072</a>.</p>
     ///   
     pub autocomplete: core::option::Option<&'life str>,
     ///
@@ -9815,7 +10250,7 @@ pub struct Button<'life> {
     pub dir: core::option::Option<&'life str>,
     ///
     ///     <p>This Boolean attribute prevents the user from interacting with the button: it cannot be pressed or focused.</p>
-    ///     <p>Firefox, unlike other browsers, <a class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank">persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
+    ///     <p>Firefox, unlike other browsers, <a target="_blank" class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing">persists the dynamic disabled state</a> of a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
     ///   
     pub disabled: core::option::Option<bool>,
     ///
@@ -9914,6 +10349,11 @@ pub struct Button<'life> {
     ///     <p>Defines the value associated with the button's <code>name</code> when it's submitted with the form data. This value is passed to the server in params when the form is submitted using this button.</p>
     ///   
     pub value: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;datalist&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element contains a set of <a href="/en-US/docs/Web/HTML/Element/option"><code>&lt;option&gt;</code></a> elements that represent the permissible or recommended options available to choose from within other controls.
 ///
@@ -10004,6 +10444,11 @@ pub struct Datalist<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;fieldset&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to group several controls as well as labels (<a href="/en-US/docs/Web/HTML/Element/label"><code>&lt;label&gt;</code></a>) within a web form.
 ///
@@ -10109,6 +10554,11 @@ pub struct Fieldset<'life> {
     ///     </div>
     ///   
     pub name: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;form&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a document section containing interactive controls for submitting information.
 ///
@@ -10229,6 +10679,11 @@ pub struct Form<'life> {
     ///     <p>Controls the annotations and what kinds of links the form creates. Annotations include <a href="/en-US/docs/Web/HTML/Attributes/rel#external"><code>external</code></a>, <a href="/en-US/docs/Web/HTML/Attributes/rel#nofollow"><code>nofollow</code></a>, <a href="/en-US/docs/Web/HTML/Attributes/rel#opener"><code>opener</code></a>, <a href="/en-US/docs/Web/HTML/Attributes/rel#noopener"><code>noopener</code></a>, and <a href="/en-US/docs/Web/HTML/Attributes/rel#noreferrer"><code>noreferrer</code></a>. Link types include <a href="/en-US/docs/Web/HTML/Attributes/rel#help"><code>help</code></a>, <a href="/en-US/docs/Web/HTML/Attributes/rel#prev"><code>prev</code></a>, <a href="/en-US/docs/Web/HTML/Attributes/rel#next"><code>next</code></a>, <a href="/en-US/docs/Web/HTML/Attributes/rel#search"><code>search</code></a>, and <a href="/en-US/docs/Web/HTML/Attributes/rel#license"><code>license</code></a>. The <a href="/en-US/docs/Web/HTML/Attributes/rel"><code>rel</code></a> value is a space-separated list of these enumerated values.</p>
     ///   
     pub rel: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;input&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and <a href="/en-US/docs/Glossary/User_agent">user agent</a>. The <code>&lt;input&gt;</code> element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
 ///
@@ -10265,12 +10720,12 @@ pub struct Input<'life> {
     pub autocomplete: core::option::Option<&'life str>,
     ///
     ///     <p>A Boolean attribute which, if present, indicates that the input should automatically have focus when the page has finished loading (or when the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> containing the element has been displayed).</p>
-    ///     <div id="sect1" class="notecard note">
-    ///       <p><strong>Note:</strong> An element with the <code>autofocus</code> attribute may gain focus before the <a href="/en-US/docs/Web/API/Window/DOMContentLoaded_event" title="DOMContentLoaded"><code>DOMContentLoaded</code></a> event is fired.</p>
+    ///     <div class="notecard note" id="sect1">
+    ///       <p><strong>Note:</strong> An element with the <code>autofocus</code> attribute may gain focus before the <a title="DOMContentLoaded" href="/en-US/docs/Web/API/Window/DOMContentLoaded_event"><code>DOMContentLoaded</code></a> event is fired.</p>
     ///     </div>
     ///     <p>No more than one element in the document may have the <code>autofocus</code> attribute. If put on more than one element, the first one with the attribute receives focus.</p>
     ///     <p>The <code>autofocus</code> attribute cannot be used on inputs of type <code>hidden</code>, since hidden inputs cannot be focused.</p>
-    ///     <div id="sect2" class="notecard warning">
+    ///     <div class="notecard warning" id="sect2">
     ///       <p><strong>Warning:</strong> Automatically focusing a form control can confuse visually-impaired people using screen-reading technology and people with cognitive impairments. When <code>autofocus</code> is assigned, screen-readers "teleport" their user to the form control without warning them beforehand.</p>
     ///     </div>
     ///     <p>Use careful consideration for accessibility when applying the <code>autofocus</code> attribute. Automatically focusing on a control can cause the page to scroll on load. The focus can also cause dynamic keyboards to display on some touch devices. While a screen reader will announce the label of the form control receiving focus, the screen reader will not announce anything before the label, and the sighted user on a small device will equally miss the context created by the preceding content.</p>
@@ -10336,7 +10791,7 @@ pub struct Input<'life> {
     ///     <p>A Boolean attribute which, if present, indicates that the user should not be able to interact with the input. Disabled inputs are typically rendered with a dimmer color or using some other form of indication that the field is not available for use.</p>
     ///     <p>Specifically, disabled inputs do not receive the <a href="/en-US/docs/Web/API/Element/click_event" title="click"><code>click</code></a> event, and disabled inputs are not submitted with the form.</p>
     ///     <div id="sect4" class="notecard note">
-    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a target="_blank" class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
+    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank" class="external">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
     ///     </div>
     ///   
     pub disabled: core::option::Option<bool>,
@@ -10359,7 +10814,7 @@ pub struct Input<'life> {
     ///
     ///     <p>A string specifying the <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a> element with which the input is associated (that is, its <strong>form owner</strong>). This string's value, if present, must match the <a href="#id"><code>id</code></a> of a <code>&lt;form&gt;</code> element in the same document. If this attribute isn't specified, the <code>&lt;input&gt;</code> element is associated with the nearest containing form, if any.</p>
     ///     <p>The <code>form</code> attribute lets you place an input anywhere in the document but have it included with a form elsewhere in the document.</p>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> An input can only be associated with one form.</p>
     ///     </div>
     ///   
@@ -10409,7 +10864,7 @@ pub struct Input<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
     ///
-    ///     <p>The value given to the <code>list</code> attribute should be the <a href="/en-US/docs/Web/API/Element/id" title="id"><code>id</code></a> of a <a href="/en-US/docs/Web/HTML/Element/datalist"><code>&lt;datalist&gt;</code></a> element located in the same document. The <code>&lt;datalist&gt;</code> provides a list of predefined values to suggest to the user for this input. Any values in the list that are not compatible with the <a href="#type"><code>type</code></a> are not included in the suggested options. The values provided are suggestions, not requirements: users can select from this predefined list or provide a different value.</p>
+    ///     <p>The value given to the <code>list</code> attribute should be the <a title="id" href="/en-US/docs/Web/API/Element/id"><code>id</code></a> of a <a href="/en-US/docs/Web/HTML/Element/datalist"><code>&lt;datalist&gt;</code></a> element located in the same document. The <code>&lt;datalist&gt;</code> provides a list of predefined values to suggest to the user for this input. Any values in the list that are not compatible with the <a href="#type"><code>type</code></a> are not included in the suggested options. The values provided are suggestions, not requirements: users can select from this predefined list or provide a different value.</p>
     ///     <p>It is valid on <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, <code>date</code>, <code>month</code>, <code>week</code>, <code>time</code>, <code>datetime-local</code>, <code>number</code>, <code>range</code>, and <code>color</code>.</p>
     ///     <p>Per the specifications, the <code>list</code> attribute is not supported by the <code>hidden</code>, <code>password</code>, <code>checkbox</code>, <code>radio</code>, <code>file</code>, or any of the button types.</p>
     ///     <p>Depending on the browser, the user may see a custom color palette suggested, tic marks along a range, or even an input that opens like a <a href="/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a> but allows for non-listed values. Check out the <a href="/en-US/docs/Web/HTML/Element/datalist#browser_compatibility">browser compatibility table</a> for the other input types.</p>
@@ -10447,7 +10902,7 @@ pub struct Input<'life> {
     ///     <p>There are two special cases:</p>
     ///     <ol>
     ///       <li><code>_charset_</code> : If used as the name of an <code>&lt;input&gt;</code> element of type <a href="/en-US/docs/Web/HTML/Element/input/hidden">hidden</a>, the input's <code>value</code> is automatically set by the <a href="/en-US/docs/Glossary/User_agent">user agent</a> to the character encoding being used to submit the form.</li>
-    ///       <li><code>isindex</code>: For historical reasons, the name <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name"><code>isindex</code></a> is not allowed.</li>
+    ///       <li><code>isindex</code>: For historical reasons, the name <a class="external" href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name" target="_blank"><code>isindex</code></a> is not allowed.</li>
     ///     </ol>
     ///     <p>The <a href="#name"><code>name</code></a> attribute creates a unique behavior for radio buttons.</p>
     ///     <p>Only one radio button in a same-named group of radio buttons can be checked at a time. Selecting any radio button in that group automatically deselects any currently-selected radio button in the same group. The value of that one checked radio button is sent along with the name if the form is submitted,</p>
@@ -10468,7 +10923,7 @@ pub struct Input<'life> {
     ///
     ///     <p>Valid for <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, and <code>password</code>, the <code>pattern</code> attribute defines a regular expression that the input's <a href="#value"><code>value</code></a> must match in order for the value to pass <a href="/en-US/docs/Web/HTML/Constraint_validation">constraint validation</a>. It must be a valid JavaScript regular expression, as used by the <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp"><code>RegExp</code></a> type, and as documented in our <a href="/en-US/docs/Web/JavaScript/Guide/Regular_expressions">guide on regular expressions</a>; the <code>'u'</code> flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.</p>
     ///     <p>If the <code>pattern</code> attribute is present but is not specified or is invalid, no regular expression is applied and this attribute is ignored completely. If the pattern attribute is valid and a non-empty value does not match the pattern, constraint validation will prevent form submission.</p>
-    ///     <div class="notecard note" id="sect7">
+    ///     <div id="sect7" class="notecard note">
     ///       <p><strong>Note:</strong> If using the <code>pattern</code> attribute, inform the user about the expected format by including explanatory text nearby. You can also include a <a href="#title"><code>title</code></a> attribute to explain what the requirements are to match the pattern; most browsers will display this title as a tooltip. The visible explanation is required for accessibility. The tooltip is an enhancement.</p>
     ///     </div>
     ///     <p>See <a href="#client-side_validation">Client-side validation</a> for more information.</p>
@@ -10476,7 +10931,7 @@ pub struct Input<'life> {
     pub pattern: core::option::Option<&'life str>,
     ///
     ///     <p>Valid for <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, <code>password</code>, and <code>number</code>, the <code>placeholder</code> attribute provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that provides a hint as to the expected type of data, rather than an explanation or prompt. The text <em>must not</em> include carriage returns or line feeds. So for example if a field is expected to capture a user's first name, and its label is "First Name", a suitable placeholder might be "e.g. Mustafa".</p>
-    ///     <div id="sect8" class="notecard note">
+    ///     <div class="notecard note" id="sect8">
     ///       <p><strong>Note:</strong> The <code>placeholder</code> attribute is not as semantically useful as other ways to explain your form, and can cause unexpected technical issues with your content. See <a href="#labels">Labels</a> for more information.</p>
     ///     </div>
     ///   
@@ -10536,6 +10991,11 @@ pub struct Input<'life> {
     ///     <p>Valid for the <code>image</code> input button only, the <code>width</code> is the width of the image file to display to represent the graphical submit button. See the <a href="/en-US/docs/Web/HTML/Element/input/image">image</a> input type.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;label&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a caption for an item in a user interface.
 ///
@@ -10638,6 +11098,11 @@ pub struct Label<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;legend&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a caption for the content of its parent <a href="/en-US/docs/Web/HTML/Element/fieldset"><code>&lt;fieldset&gt;</code></a>.
 ///
@@ -10728,6 +11193,11 @@ pub struct Legend<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;meter&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents either a scalar value within a known range or a fractional value.
 ///
@@ -10840,11 +11310,16 @@ pub struct Meter<'life> {
     pub optimum: core::option::Option<&'life str>,
     ///
     ///     <p>The current numeric value. This must be between the minimum and maximum values (<code>min</code> attribute and <code>max</code> attribute) if they are specified. If unspecified or malformed, the value is <code>0</code>. If specified, but not within the range given by the <code>min</code> attribute and <code>max</code> attribute, the value is equal to the nearest end of the range.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Unless the <code>value</code> attribute is between <code>0</code> and <code>1</code> (inclusive), the <code>min</code> and <code>max</code> attributes should define the range so that the <code>value</code> attribute's value is within it.</p>
     ///     </div>
     ///   
     pub value: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;optgroup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element creates a grouping of options within a <a href="/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a> element.
 ///
@@ -10943,6 +11418,11 @@ pub struct Optgroup<'life> {
     ///     <p>The name of the group of options, which the browser can use when labeling the options in the user interface. This attribute is mandatory if this element is used.</p>
     ///   
     pub label: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;option&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to define an item contained in a <a href="/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a>, an <a href="/en-US/docs/Web/HTML/Element/optgroup"><code>&lt;optgroup&gt;</code></a>, or a <a href="/en-US/docs/Web/HTML/Element/datalist"><code>&lt;datalist&gt;</code></a> element. As such, <code>&lt;option&gt;</code> can represent menu items in popups and other lists of items in an HTML document.
 ///
@@ -11049,6 +11529,11 @@ pub struct Option<'life> {
     ///     <p>The content of this attribute represents the value to be submitted with the form, should this option be selected. If this attribute is omitted, the value is taken from the text content of the option element.</p>
     ///   
     pub value: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;output&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a container element into which a site or app can inject the results of a calculation or the outcome of a user action.
 ///
@@ -11152,6 +11637,11 @@ pub struct Output<'life> {
     ///     <p>The element's name. Used in the <a href="/en-US/docs/Web/API/HTMLFormElement/elements" title="form.elements"><code>form.elements</code></a> API.</p>
     ///   
     pub name: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;progress&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
 ///
@@ -11250,6 +11740,11 @@ pub struct Progress<'life> {
     ///     <p>This attribute specifies how much of the task that has been completed. It must be a valid floating point number between <code>0</code> and <code>max</code>, or between <code>0</code> and <code>1</code> if <code>max</code> is omitted. If there is no <code>value</code> attribute, the progress bar is indeterminate; this indicates that an activity is ongoing with no indication of how long it is expected to take.</p>
     ///   
     pub value: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;select&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a control that provides a menu of options.
 ///
@@ -11372,6 +11867,11 @@ pub struct Select<'life> {
     ///     </div>
     ///   
     pub size: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;textarea&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form.
 ///
@@ -11511,7 +12011,7 @@ pub struct Textarea<'life> {
     pub name: core::option::Option<&'life str>,
     ///
     ///     <p>A hint to the user of what can be entered in the control. Carriage returns or line-feeds within the placeholder text must be treated as line breaks when rendering the hint.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Placeholders should only be used to show an example of the type of data that should be entered into a form; they are <em>not</em> a substitute for a proper <a href="/en-US/docs/Web/HTML/Element/label"><code>&lt;label&gt;</code></a> element tied to the input. See <a href="/en-US/docs/Web/HTML/Element/input#labels"><code>&lt;input&gt;</code> labels</a> for a full explanation.</p>
     ///     </div>
     ///   
@@ -11549,6 +12049,11 @@ pub struct Textarea<'life> {
     ///     <p>If this attribute is not specified, <code>soft</code> is its default value.</p>
     ///   
     pub wrap: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;details&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the <a href="/en-US/docs/Web/HTML/Element/summary"><code>&lt;summary&gt;</code></a> element.
 ///
@@ -11648,6 +12153,11 @@ pub struct Details<'life> {
     ///     </div>
     ///   
     pub open: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;dialog&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.
 ///
@@ -11745,6 +12255,11 @@ pub struct Dialog<'life> {
     ///     </p>
     ///   
     pub open: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;summary&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies a summary, caption, or legend for a <a href="/en-US/docs/Web/HTML/Element/details"><code>&lt;details&gt;</code></a> element's disclosure box. Clicking the <code>&lt;summary&gt;</code> element toggles the state of the parent <code>&lt;details&gt;</code> element open and closed.
 ///
@@ -11835,6 +12350,11 @@ pub struct Summary<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;slot&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element—part of the <a href="/en-US/docs/Web/API/Web_components">Web Components</a> technology suite—is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
 ///
@@ -11930,6 +12450,11 @@ pub struct Slot<'life> {
     ///     <p>A <strong><em>named slot</em></strong> is a <code>&lt;slot&gt;</code> element with a <code>name</code> attribute.</p>
     ///   
     pub name: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;template&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a mechanism for holding <a href="/en-US/docs/Glossary/HTML">HTML</a> that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
 ///
@@ -12022,9 +12547,14 @@ pub struct Template<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// <p>The <strong><code>&lt;acronym&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element allows authors to clearly indicate a sequence of characters that compose an acronym or abbreviation for a word.</p>
-/// <div class="notecard warning" id="sect2">
+/// <div id="sect2" class="notecard warning">
 ///   <p><strong>Warning:</strong> Don't use this element. Use the <a href="/en-US/docs/Web/HTML/Element/abbr"><code>&lt;abbr&gt;</code></a> element instead.</p>
 /// </div>
 ///
@@ -12115,6 +12645,11 @@ pub struct Acronym<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The obsolete <strong>HTML Applet Element</strong> (<strong><code>&lt;applet&gt;</code></strong>) embeds a Java applet into the document; this element has been deprecated in favor of <a href="/en-US/docs/Web/HTML/Element/object"><code>&lt;object&gt;</code></a>.
 ///
@@ -12267,6 +12802,11 @@ pub struct Applet<'life> {
     ///     <p>This attribute specifies in pixels the width that the applet needs.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;bgsound&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is deprecated. It sets up a sound file to play in the background while the page is used; use <a href="/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> instead.
 ///
@@ -12373,6 +12913,11 @@ pub struct Bgsound<'life> {
     ///     <p>This attribute defines a number between -10,000 and 0 that determines the loudness of a page's background sound.</p>
     ///   
     pub volume: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;big&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> deprecated element renders the enclosed text at a font size one level larger than the surrounding text (<code>medium</code> becomes <code>large</code>, for example). The size is capped at the browser's maximum permitted font size.
 ///
@@ -12463,6 +13008,11 @@ pub struct Big<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;blink&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a non-standard element which causes the enclosed text to flash slowly.
 ///
@@ -12553,6 +13103,11 @@ pub struct Blink<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;center&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a <a href="/en-US/docs/Web/HTML/Block-level_elements">block-level element</a> that displays its block-level or inline contents centered horizontally within its containing element. The container is usually, but isn't required to be, <a href="/en-US/docs/Web/HTML/Element/body"><code>&lt;body&gt;</code></a>.
 ///
@@ -12645,6 +13200,11 @@ pub struct Center<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;slot&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element—part of the <a href="/en-US/docs/Web/API/Web_components">Web Components</a> technology suite—is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
 ///
@@ -12740,6 +13300,11 @@ pub struct Content<'life> {
     ///     <p>A <strong><em>named slot</em></strong> is a <code>&lt;slot&gt;</code> element with a <code>name</code> attribute.</p>
     ///   
     pub name: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;dir&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used as a container for a directory of files and/or folders, potentially with styles and icons applied by the <a href="/en-US/docs/Glossary/User_agent">user agent</a>. Do not use this obsolete element; instead, you should use the <a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a> element for lists, including lists of files.
 ///
@@ -12834,6 +13399,11 @@ pub struct Dir<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;font&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines the font size, color and face for its content.
 ///
@@ -12936,6 +13506,11 @@ pub struct Font<'life> {
     ///     <p>This attribute specifies the font size as either a numeric or relative value. Numeric values range from <code>1</code> to <code>7</code> with <code>1</code> being the smallest and <code>3</code> the default. It can be defined using a relative value, like <code>+2</code> or <code>-3</code>, which sets it relative to <code>3</code>, the default value.</p>
     ///   
     pub size: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;frame&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a particular area in which another HTML document can be displayed. A frame should be used within a <a href="/en-US/docs/Web/HTML/Element/frameset"><code>&lt;frameset&gt;</code></a>.
 ///
@@ -13056,6 +13631,11 @@ pub struct Frame<'life> {
     ///     <p>This attribute specifies the document that will be displayed by the frame.</p>
     ///   
     pub src: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;frameset&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to contain <a href="/en-US/docs/Web/HTML/Element/frame"><code>&lt;frame&gt;</code></a> elements.
 ///
@@ -13154,6 +13734,11 @@ pub struct Frameset<'life> {
     ///     <p>This attribute specifies the number and size of vertical spaces in a frameset.</p>
     ///   
     pub rows: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 ///
 ///   The <strong><code>&lt;image&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is an ancient and poorly supported precursor to the <a href="/en-US/docs/Web/HTML/Element/img"><code>&lt;img&gt;</code></a> element.
@@ -13249,6 +13834,11 @@ pub struct Image<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;keygen&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element exists to facilitate generation of key material, and submission of the public key as part of an <a href="/en-US/docs/Learn/Forms">HTML form</a>. This mechanism is designed for use with Web-based certificate management systems. It is expected that the <code>&lt;keygen&gt;</code> element will be used in an HTML form along with other information needed to construct a certificate request, and that the result of the process will be a signed certificate.
 ///
@@ -13359,6 +13949,11 @@ pub struct Keygen<'life> {
     ///     <p>The name of the control, which is submitted with the form data.</p>
     ///   
     pub name: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;marquee&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to insert a scrolling area of text. You can control what happens when the text reaches the edges of its content area using its attributes.
 ///
@@ -13493,6 +14088,11 @@ pub struct Marquee<'life> {
     ///     <p>Sets the width in pixels or percentage value.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;menuitem&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a command that a user is able to invoke through a popup menu. This includes context menus, as well as menus that might be attached to a menu button.
 ///
@@ -13622,6 +14222,11 @@ pub struct Menuitem<'life> {
     ///     </ul>
     ///   
     pub type_: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;nobr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element prevents the text it contains from automatically wrapping across multiple lines, potentially resulting in the user having to scroll horizontally to see the entire width of the text.
 ///
@@ -13712,6 +14317,11 @@ pub struct Nobr<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;noembed&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is an obsolete, non-standard way to provide alternative, or "fallback", content for browsers that do not support the <a href="/en-US/docs/Web/HTML/Element/embed"><code>&lt;embed&gt;</code></a> element or do not support the type of <a href="/en-US/docs/Web/HTML/Content_categories#embedded_content">embedded content</a> an author wishes to use. This element was deprecated in HTML 4.01 and above in favor of placing fallback content between the opening and closing tags of an <a href="/en-US/docs/Web/HTML/Element/object"><code>&lt;object&gt;</code></a> element.
 ///
@@ -13802,6 +14412,11 @@ pub struct Noembed<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;noframes&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element provides content to be presented in browsers that don't support (or have disabled support for) the <a href="/en-US/docs/Web/HTML/Element/frame"><code>&lt;frame&gt;</code></a> element. Although most commonly-used browsers support frames, there are exceptions, including certain special-use browsers including some mobile browsers, as well as text-mode browsers.
 ///
@@ -13896,6 +14511,11 @@ pub struct Noframes<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;param&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines parameters for an <a href="/en-US/docs/Web/HTML/Element/object"><code>&lt;object&gt;</code></a> element.
 ///
@@ -14007,6 +14627,11 @@ pub struct Param<'life> {
     ///     </ul>
     ///   
     pub valuetype: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;plaintext&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element renders everything following the start tag as raw text, ignoring any following HTML. There is no closing tag, since everything after it is considered raw text.
 ///
@@ -14097,6 +14722,11 @@ pub struct Plaintext<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;rb&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to delimit the base text component of a <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> annotation, i.e. the text that is being annotated. One <code>&lt;rb&gt;</code> element should wrap each separate atomic segment of the base text.
 ///
@@ -14187,6 +14817,11 @@ pub struct Rb<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;rtc&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>) and semantic (<a href="/en-US/docs/Web/HTML/Element/rtc" aria-current="page"><code>&lt;rtc&gt;</code></a>) annotations.
 ///
@@ -14277,6 +14912,11 @@ pub struct Rtc<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;spacer&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is an obsolete HTML element which allowed insertion of empty spaces on pages. It was devised by Netscape to accomplish the same effect as a single-pixel layout image, which was something web designers used to use to add white spaces to web pages without actually using an image. However, <code>&lt;spacer&gt;</code> is no longer supported by any major browser and the same effects can now be achieved using simple CSS.
 ///
@@ -14389,6 +15029,11 @@ pub struct Spacer<'life> {
     ///     <p>This attribute can be used for defining width of spacer in pixels when type is <code>block</code>.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;strike&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element places a strikethrough (horizontal line) over text.
 ///
@@ -14479,6 +15124,11 @@ pub struct Strike<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// The <strong><code>&lt;tt&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element creates inline text which is presented using the <a href="/en-US/docs/Glossary/User_agent">user agent's</a> default monospace font face. This element was created for the purpose of rendering text as it would be displayed on a fixed-width display such as a teletype, text-only screen, or line printer.
 ///
@@ -14573,6 +15223,11 @@ pub struct Tt<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 /// <p>The <strong><code>&lt;xmp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element renders text between the start and end tags without interpreting the HTML in between and using a monospaced font. The HTML2 specification recommended that it should be rendered wide enough to allow 80 characters per line.</p>
 /// <div id="sect2" class="notecard note">
@@ -14671,8 +15326,109 @@ pub struct Xmp<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
+}
+/// An unknown element.
+
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
+pub struct Unknown<'life> {
+    ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
+    ///   
+    pub accesskey: core::option::Option<&'life str>,
+    ///
+    ///     <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>off</code> or <code>none</code>, no autocapitalization is applied (all letters default to lowercase)</li>
+    ///       <li><code>on</code> or <code>sentences</code>, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>words</code>, the first letter of each word defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>characters</code>, all letters should default to uppercase</li>
+    ///     </ul>
+    ///   
+    pub autocapitalize: core::option::Option<&'life str>,
+    ///
+    ///     <p>Indicates that an element is to be focused on page load, or as soon as the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> it is part of is displayed. This attribute is a boolean, initially false.</p>
+    ///   
+    pub autofocus: core::option::Option<bool>,
+    ///
+    ///     <p>A space-separated list of the classes of the element. Classes allow CSS and JavaScript to select and access specific elements via the <a href="/en-US/docs/Web/CSS/Class_selectors">class selectors</a> or functions like the method <a href="/en-US/docs/Web/API/Document/getElementsByClassName"><code>Document.getElementsByClassName()</code></a>.</p>
+    ///   
+    pub class: core::option::Option<&'life str>,
+    ///
+    ///     <p>An <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code> or the <em>empty string</em>, which indicates that the element must be editable;</li>
+    ///       <li><code>false</code>, which indicates that the element must not be editable.</li>
+    ///     </ul>
+    ///   
+    pub contenteditable: core::option::Option<&'life str>,
+    ///
+    ///     <p>The <a href="#id"><strong><code>id</code></strong></a> of a <a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a> to use as the contextual menu for this element.</p>
+    ///   
+    pub contextmenu: core::option::Option<&'life str>,
+    ///
+    ///     <p>Forms a class of attributes, called custom data attributes, that allow proprietary information to be exchanged between the <a href="/en-US/docs/Web/HTML">HTML</a> and its <a href="/en-US/docs/Glossary/DOM">DOM</a> representation that may be used by scripts. All such custom data are available via the <a href="/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> interface of the element the attribute is set on. The <a href="/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property gives access to them.</p>
+    ///   
+    #[cfg(feature = "alloc")]
+    pub data: core::option::Option<alloc::collections::BTreeMap<&'life str, &'life str>>,
+    ///
+    ///     <p>An enumerated attribute indicating the directionality of the element's text. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>ltr</code>, which means <em>left to right</em> and is to be used for languages that are written from the left to the right (like English);</li>
+    ///       <li><code>rtl</code>, which means <em>right to left</em> and is to be used for languages that are written from the right to the left (like Arabic);</li>
+    ///       <li><code>auto</code>, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.</li>
+    ///     </ul>
+    ///   
+    pub dir: core::option::Option<&'life str>,
+    ///
+    ///     <p>An enumerated attribute indicating whether the element can be dragged, using the <a href="/en-US/docs/Web/API/HTML_Drag_and_Drop_API">Drag and Drop API</a>. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code>, which indicates that the element may be dragged</li>
+    ///       <li><code>false</code>, which indicates that the element may not be dragged.</li>
+    ///     </ul>
+    ///   
+    pub draggable: core::option::Option<&'life str>,
+    ///
+    ///     <p>Hints what action label (or icon) to present for the enter key on virtual keyboards.</p>
+    ///   
+    pub enterkeyhint: core::option::Option<&'life str>,
+    ///
+    ///     <p>Used to transitively export shadow parts from a nested shadow tree into a containing light tree.</p>
+    ///   
+    pub exportparts: core::option::Option<&'life str>,
+    ///
+    ///     <p>An enumerated attribute indicating that the element is not yet, or is no longer, <em>relevant</em>. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.</p>
+    ///   
+    pub hidden: core::option::Option<bool>,
+    ///
+    ///     <p>Defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS).</p>
+    ///   
+    pub id: core::option::Option<&'life str>,
+    ///
+    ///     <p>A boolean value that makes the browser disregard user input events for the element. Useful when click events are present.</p>
+    ///   
+    pub inert: core::option::Option<&'life str>,
+    ///
+    ///     <p>Provides a hint to browsers about the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> elements, but is usable on any element while in <a href="#contenteditable"><code>contenteditable</code></a> mode.</p>
+    ///   
+    pub inputmode: core::option::Option<&'life str>,
+    ///
+    ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
+    ///   
+    pub is: core::option::Option<&'life str>,
+    /// /// The tag name of the element.
+    pub tag_name: core::option::Option<&'life str>,
+    /// The extra attributes of the element.
+    /// This is a map of attribute names to their values.
+    /// The attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, &'life str>,
 }
 #[allow(deprecated)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Element<'life> {
     Html(Html<'life>),
     Base(Base<'life>),
@@ -14831,6 +15587,7 @@ pub enum Element<'life> {
     Tt(Tt<'life>),
     #[deprecated]
     Xmp(Xmp<'life>),
+    Unknown(Unknown<'life>),
 }
 #[allow(deprecated)]
 impl<'life> Element<'life> {
@@ -14969,7 +15726,8 @@ impl<'life> Element<'life> {
             "strike" => Some(Self::Strike(Strike::default())),
             "tt" => Some(Self::Tt(Tt::default())),
             "xmp" => Some(Self::Xmp(Xmp::default())),
-            _ => None,
+            "unknown" => Some(Self::Unknown(Unknown::default())),
+            _ => core::option::Option::Some(Self::default()),
         }
     }
 }
@@ -15112,6 +15870,7 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.accesskey,
             Self::Tt(e) => e.accesskey,
             Self::Xmp(e) => e.accesskey,
+            Self::Unknown(e) => e.accesskey,
         }
     }
 
@@ -15258,6 +16017,7 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.autocapitalize,
             Self::Tt(e) => e.autocapitalize,
             Self::Xmp(e) => e.autocapitalize,
+            Self::Unknown(e) => e.autocapitalize,
         }
     }
 
@@ -15398,6 +16158,7 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.autofocus,
             Self::Tt(e) => e.autofocus,
             Self::Xmp(e) => e.autofocus,
+            Self::Unknown(e) => e.autofocus,
         }
     }
 
@@ -15538,6 +16299,7 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.class,
             Self::Tt(e) => e.class,
             Self::Xmp(e) => e.class,
+            Self::Unknown(e) => e.class,
         }
     }
 
@@ -15682,6 +16444,7 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.contenteditable,
             Self::Tt(e) => e.contenteditable,
             Self::Xmp(e) => e.contenteditable,
+            Self::Unknown(e) => e.contenteditable,
         }
     }
 
@@ -15822,6 +16585,7 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.contextmenu,
             Self::Tt(e) => e.contextmenu,
             Self::Xmp(e) => e.contextmenu,
+            Self::Unknown(e) => e.contextmenu,
         }
     }
 
@@ -15964,6 +16728,7 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.data.as_ref(),
             Self::Tt(e) => e.data.as_ref(),
             Self::Xmp(e) => e.data.as_ref(),
+            Self::Unknown(e) => e.data.as_ref(),
         }
     }
 
@@ -16109,6 +16874,7 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.dir,
             Self::Tt(e) => e.dir,
             Self::Xmp(e) => e.dir,
+            Self::Unknown(e) => e.dir,
         }
     }
 
@@ -16253,6 +17019,7 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.draggable,
             Self::Tt(e) => e.draggable,
             Self::Xmp(e) => e.draggable,
+            Self::Unknown(e) => e.draggable,
         }
     }
 
@@ -16393,6 +17160,7 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.enterkeyhint,
             Self::Tt(e) => e.enterkeyhint,
             Self::Xmp(e) => e.enterkeyhint,
+            Self::Unknown(e) => e.enterkeyhint,
         }
     }
 
@@ -16533,6 +17301,7 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.exportparts,
             Self::Tt(e) => e.exportparts,
             Self::Xmp(e) => e.exportparts,
+            Self::Unknown(e) => e.exportparts,
         }
     }
 
@@ -16673,6 +17442,7 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.hidden,
             Self::Tt(e) => e.hidden,
             Self::Xmp(e) => e.hidden,
+            Self::Unknown(e) => e.hidden,
         }
     }
 
@@ -16813,6 +17583,7 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.id,
             Self::Tt(e) => e.id,
             Self::Xmp(e) => e.id,
+            Self::Unknown(e) => e.id,
         }
     }
 
@@ -16953,6 +17724,7 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.inert,
             Self::Tt(e) => e.inert,
             Self::Xmp(e) => e.inert,
+            Self::Unknown(e) => e.inert,
         }
     }
 
@@ -17093,6 +17865,7 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.inputmode,
             Self::Tt(e) => e.inputmode,
             Self::Xmp(e) => e.inputmode,
+            Self::Unknown(e) => e.inputmode,
         }
     }
 
@@ -17233,6 +18006,13 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.is,
             Self::Tt(e) => e.is,
             Self::Xmp(e) => e.is,
+            Self::Unknown(e) => e.is,
         }
+    }
+}
+#[allow(deprecated)]
+impl<'life> Default for Element<'life> {
+    fn default() -> Self {
+        Self::Unknown(Unknown::default())
     }
 }
