@@ -18,7 +18,7 @@ use std::{collections::BTreeMap, io::Write};
 
 fn main() {
     let agent = ureq::agent();
-    // scrape MDN for all the elements
+
     let resp = agent
         .get("https://developer.mozilla.org/en-US/docs/Web/HTML/Element")
         .call()
@@ -84,7 +84,7 @@ fn main() {
 
 fn get_global_attrs() -> Vec<(String, (String, String, bool))> {
     let agent = ureq::agent();
-    // scrape MDN for all the elements
+
     let resp = agent
         .get("https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes")
         .call()
