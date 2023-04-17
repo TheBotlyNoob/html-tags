@@ -923,7 +923,7 @@ pub struct Link<'life> {
     ///     <p>
     ///       This attribute indicates the language of the linked resource.
     ///       It is purely advisory.
-    ///       Allowed values are specified by <a href="https://datatracker.ietf.org/doc/html/rfc5646" target="_blank" class="external">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Allowed values are specified by <a href="https://datatracker.ietf.org/doc/html/rfc5646" class="external" target="_blank">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -933,11 +933,11 @@ pub struct Link<'life> {
     ///   
     pub id: core::option::Option<&'life str>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesizes</code> attribute is <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/images.html#sizes-attribute">a sizes attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesizes</code> attribute is <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/images.html#sizes-attribute">a sizes attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesizes: core::option::Option<&'life str>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a target="_blank" href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute" class="external">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesrcset: core::option::Option<&'life str>,
     ///
@@ -965,7 +965,7 @@ pub struct Link<'life> {
     ///       This attribute specifies the media that the linked resource applies to. Its value must be a media type / <a href="/en-US/docs/Web/CSS/Media_Queries">media query</a>.
     ///       This attribute is mainly useful when linking to external stylesheets — it allows the user agent to pick the best adapted one for the device it runs on.
     ///     </p>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>
@@ -1015,7 +1015,7 @@ pub struct Link<'life> {
     ///       <li><code>any</code>, meaning that the icon can be scaled to any size as it is in a vector format, like <code>image/svg+xml</code>.</li>
     ///       <li>a white-space separated list of sizes, each in the format <code>&lt;width in pixels&gt;x&lt;height in pixels&gt;</code> or <code>&lt;width in pixels&gt;X&lt;height in pixels&gt;</code>. Each of these sizes must be contained in the resource.</li>
     ///     </ul>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p>
     ///         <strong>Note:</strong> Most icon formats are only able to store one single icon; therefore, most of the time, the <a href="#sizes"><code>sizes</code></a> attribute contains only one entry.
     ///         MS's ICO format does, as well as Apple's ICNS. ICO is more ubiquitous, so you should use this format if cross-browser support is a concern (especially for old IE versions).
@@ -1284,7 +1284,7 @@ pub struct LinkOwned {
     ///     <p>
     ///       This attribute indicates the language of the linked resource.
     ///       It is purely advisory.
-    ///       Allowed values are specified by <a href="https://datatracker.ietf.org/doc/html/rfc5646" target="_blank" class="external">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Allowed values are specified by <a href="https://datatracker.ietf.org/doc/html/rfc5646" class="external" target="_blank">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -1294,11 +1294,11 @@ pub struct LinkOwned {
     ///   
     pub id: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesizes</code> attribute is <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/images.html#sizes-attribute">a sizes attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesizes</code> attribute is <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/images.html#sizes-attribute">a sizes attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesizes: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a target="_blank" href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute" class="external">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesrcset: core::option::Option<alloc::string::String>,
     ///
@@ -1326,7 +1326,7 @@ pub struct LinkOwned {
     ///       This attribute specifies the media that the linked resource applies to. Its value must be a media type / <a href="/en-US/docs/Web/CSS/Media_Queries">media query</a>.
     ///       This attribute is mainly useful when linking to external stylesheets — it allows the user agent to pick the best adapted one for the device it runs on.
     ///     </p>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>
@@ -1376,7 +1376,7 @@ pub struct LinkOwned {
     ///       <li><code>any</code>, meaning that the icon can be scaled to any size as it is in a vector format, like <code>image/svg+xml</code>.</li>
     ///       <li>a white-space separated list of sizes, each in the format <code>&lt;width in pixels&gt;x&lt;height in pixels&gt;</code> or <code>&lt;width in pixels&gt;X&lt;height in pixels&gt;</code>. Each of these sizes must be contained in the resource.</li>
     ///     </ul>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p>
     ///         <strong>Note:</strong> Most icon formats are only able to store one single icon; therefore, most of the time, the <a href="#sizes"><code>sizes</code></a> attribute contains only one entry.
     ///         MS's ICO format does, as well as Apple's ICNS. ICO is more ubiquitous, so you should use this format if cross-browser support is a concern (especially for old IE versions).
@@ -1519,7 +1519,7 @@ pub struct Meta<'life> {
     ///           <li>The number of seconds until the page should be reloaded - only if the <a href="#content"><code>content</code></a> attribute contains a non-negative integer.</li>
     ///           <li>The number of seconds until the page should redirect to another - only if the <a href="#content"><code>content</code></a> attribute contains a non-negative integer followed by the string '<code>;url=</code>', and a valid URL.</li>
     ///         </ul>
-    ///         <div class="notecard warning" id="sect2">
+    ///         <div id="sect2" class="notecard warning">
     ///           <p><strong>Warning:</strong></p>
     ///           <p>Pages set with a <code>refresh</code> value run the risk of having the time interval being too short. People navigating with the aid of assistive technology such as a screen reader may be unable to read through and understand the page's content before being automatically redirected. The abrupt, unannounced updating of the page content may also be disorienting for people experiencing low vision conditions.</p>
     ///           <ul>
@@ -1527,7 +1527,7 @@ pub struct Meta<'life> {
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.2_%E2%80%94_predictable_make_web_pages_appear_and_operate_in_predictable_ways">MDN Understanding WCAG, Guideline 3.1 explanations</a></li>
     ///             <li><a class="external" target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
     ///             <li><a target="_blank" class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html" target="_blank" class="external">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a target="_blank" class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
     ///           </ul>
     ///         </div>
     ///       </li>
@@ -1679,7 +1679,7 @@ pub struct MetaOwned {
     ///           <li>The number of seconds until the page should be reloaded - only if the <a href="#content"><code>content</code></a> attribute contains a non-negative integer.</li>
     ///           <li>The number of seconds until the page should redirect to another - only if the <a href="#content"><code>content</code></a> attribute contains a non-negative integer followed by the string '<code>;url=</code>', and a valid URL.</li>
     ///         </ul>
-    ///         <div class="notecard warning" id="sect2">
+    ///         <div id="sect2" class="notecard warning">
     ///           <p><strong>Warning:</strong></p>
     ///           <p>Pages set with a <code>refresh</code> value run the risk of having the time interval being too short. People navigating with the aid of assistive technology such as a screen reader may be unable to read through and understand the page's content before being automatically redirected. The abrupt, unannounced updating of the page content may also be disorienting for people experiencing low vision conditions.</p>
     ///           <ul>
@@ -1687,7 +1687,7 @@ pub struct MetaOwned {
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.2_%E2%80%94_predictable_make_web_pages_appear_and_operate_in_predictable_ways">MDN Understanding WCAG, Guideline 3.1 explanations</a></li>
     ///             <li><a class="external" target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
     ///             <li><a target="_blank" class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html" target="_blank" class="external">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a target="_blank" class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
     ///           </ul>
     ///         </div>
     ///       </li>
@@ -7162,7 +7162,7 @@ impl POwned {
         "p"
     }
 }
-/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a target="_blank" href="https://en.wikipedia.org/wiki/Monospaced_font" class="external">monospaced</a>, font. Whitespace inside this element is displayed as written.
+/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a class="external" href="https://en.wikipedia.org/wiki/Monospaced_font" target="_blank">monospaced</a>, font. Whitespace inside this element is displayed as written.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre>
 
@@ -7275,7 +7275,7 @@ impl<'life> Pre<'life> {
         "pre"
     }
 }
-/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a target="_blank" href="https://en.wikipedia.org/wiki/Monospaced_font" class="external">monospaced</a>, font. Whitespace inside this element is displayed as written.
+/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a class="external" href="https://en.wikipedia.org/wiki/Monospaced_font" target="_blank">monospaced</a>, font. Whitespace inside this element is displayed as written.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre>
 
@@ -7422,7 +7422,7 @@ pub struct Ul<'life> {
     pub class: core::option::Option<&'life str>,
     ///
     ///     <p>This Boolean attribute hints that the list should be rendered in a compact style. The interpretation of this attribute depends on the <a href="/en-US/docs/Glossary/User_agent">user agent</a>, and it doesn't work in all browsers.</p>
-    ///     <div class="notecard warning" id="sect1">
+    ///     <div id="sect1" class="notecard warning">
     ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated: use <a href="/en-US/docs/Web/CSS">CSS</a> instead. To give a similar effect as the <code>compact</code> attribute, the CSS property <a href="/en-US/docs/Web/CSS/line-height"><code>line-height</code></a> can be used with a value of <code>80%</code>.</p>
     ///     </div>
     ///   
@@ -7501,7 +7501,7 @@ pub struct Ul<'life> {
     ///     </ul>
     ///     <p>A fourth bullet type has been defined in the WebTV interface, but not all browsers support it: <code>triangle</code>.</p>
     ///     <p>If not present and if no <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property applies to the element, the user agent selects a bullet type depending on the nesting level of the list.</p>
-    ///     <div class="notecard warning" id="sect2">
+    ///     <div id="sect2" class="notecard warning">
     ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated; use the <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
@@ -7545,7 +7545,7 @@ pub struct UlOwned {
     pub class: core::option::Option<alloc::string::String>,
     ///
     ///     <p>This Boolean attribute hints that the list should be rendered in a compact style. The interpretation of this attribute depends on the <a href="/en-US/docs/Glossary/User_agent">user agent</a>, and it doesn't work in all browsers.</p>
-    ///     <div class="notecard warning" id="sect1">
+    ///     <div id="sect1" class="notecard warning">
     ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated: use <a href="/en-US/docs/Web/CSS">CSS</a> instead. To give a similar effect as the <code>compact</code> attribute, the CSS property <a href="/en-US/docs/Web/CSS/line-height"><code>line-height</code></a> can be used with a value of <code>80%</code>.</p>
     ///     </div>
     ///   
@@ -7628,7 +7628,7 @@ pub struct UlOwned {
     ///     </ul>
     ///     <p>A fourth bullet type has been defined in the WebTV interface, but not all browsers support it: <code>triangle</code>.</p>
     ///     <p>If not present and if no <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property applies to the element, the user agent selects a bullet type depending on the nesting level of the list.</p>
-    ///     <div class="notecard warning" id="sect2">
+    ///     <div id="sect2" class="notecard warning">
     ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated; use the <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
@@ -11361,7 +11361,7 @@ impl RtOwned {
 }
 /// The <strong><code>&lt;ruby&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
 ///
-/// The term <em>ruby</em> originated as <a href="https://en.wikipedia.org/wiki/Agate_(typography)" class="external" target="_blank">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
+/// The term <em>ruby</em> originated as <a target="_blank" href="https://en.wikipedia.org/wiki/Agate_(typography)" class="external">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby>
 
@@ -11464,7 +11464,7 @@ impl<'life> Ruby<'life> {
 }
 /// The <strong><code>&lt;ruby&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
 ///
-/// The term <em>ruby</em> originated as <a href="https://en.wikipedia.org/wiki/Agate_(typography)" class="external" target="_blank">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
+/// The term <em>ruby</em> originated as <a target="_blank" href="https://en.wikipedia.org/wiki/Agate_(typography)" class="external">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby>
 
@@ -11777,7 +11777,7 @@ impl SOwned {
         "s"
     }
 }
-/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a href="https://en.wikipedia.org/wiki/Courier_(typeface)" class="external" target="_blank">Courier</a> or Lucida Console).
+/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a target="_blank" class="external" href="https://en.wikipedia.org/wiki/Courier_(typeface)">Courier</a> or Lucida Console).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp>
 
@@ -11878,7 +11878,7 @@ impl<'life> Samp<'life> {
         "samp"
     }
 }
-/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a href="https://en.wikipedia.org/wiki/Courier_(typeface)" class="external" target="_blank">Courier</a> or Lucida Console).
+/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a target="_blank" class="external" href="https://en.wikipedia.org/wiki/Courier_(typeface)">Courier</a> or Lucida Console).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp>
 
@@ -13985,7 +13985,7 @@ pub struct Area<'life> {
     pub href: core::option::Option<&'life str>,
     ///
     ///     <p>
-    ///       Indicates the language of the linked resource. Allowed values are defined by <a href="https://datatracker.ietf.org/doc/html/rfc5646" class="external" target="_blank">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Indicates the language of the linked resource. Allowed values are defined by <a class="external" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5646">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -14206,7 +14206,7 @@ pub struct AreaOwned {
     pub href: core::option::Option<alloc::string::String>,
     ///
     ///     <p>
-    ///       Indicates the language of the linked resource. Allowed values are defined by <a href="https://datatracker.ietf.org/doc/html/rfc5646" class="external" target="_blank">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Indicates the language of the linked resource. Allowed values are defined by <a class="external" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5646">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -14321,7 +14321,7 @@ pub struct Audio<'life> {
     pub autofocus: core::option::Option<bool>,
     ///
     ///     <p>A Boolean attribute: if specified, the audio will automatically begin playback as soon as it can do so, without waiting for the entire audio file to finish downloading.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> Sites that automatically play audio (or videos with an audio track) can be an unpleasant experience for users, so should be avoided when possible. If you must offer autoplay functionality, you should make it opt-in (requiring a user to specifically enable it). However, this can be useful when creating media elements whose source will be set at a later time, under user control. See our <a href="/en-US/docs/Web/Media/Autoplay_guide">autoplay guide</a> for additional information about how to properly use autoplay.</p>
     ///     </div>
     ///   
@@ -14347,7 +14347,7 @@ pub struct Audio<'life> {
     ///   
     pub controls: core::option::Option<&'life str>,
     ///
-    ///     <p>The <a href="https://wicg.github.io/controls-list/explainer.html" class="external" target="_blank"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
+    ///     <p>The <a class="external" href="https://wicg.github.io/controls-list/explainer.html" target="_blank"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
     ///     <p>The allowed values are <code>nodownload</code>, <code>nofullscreen</code> and <code>noremoteplayback</code>.</p>
     ///   
     pub controlslist: core::option::Option<&'life str>,
@@ -14382,8 +14382,8 @@ pub struct Audio<'life> {
     pub dir: core::option::Option<&'life str>,
     ///
     ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a class="external" target="_blank" href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute">this proposed specification</a> for more information.</p>
-    ///     <div id="sect2" class="notecard note">
-    ///       <p><strong>Note:</strong> In Safari, you can use <a class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <div class="notecard note" id="sect2">
+    ///       <p><strong>Note:</strong> In Safari, you can use <a target="_blank" class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///     </div>
     ///   
     pub disableremoteplayback: core::option::Option<&'life str>,
@@ -14491,7 +14491,7 @@ pub struct AudioOwned {
     pub autofocus: core::option::Option<bool>,
     ///
     ///     <p>A Boolean attribute: if specified, the audio will automatically begin playback as soon as it can do so, without waiting for the entire audio file to finish downloading.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> Sites that automatically play audio (or videos with an audio track) can be an unpleasant experience for users, so should be avoided when possible. If you must offer autoplay functionality, you should make it opt-in (requiring a user to specifically enable it). However, this can be useful when creating media elements whose source will be set at a later time, under user control. See our <a href="/en-US/docs/Web/Media/Autoplay_guide">autoplay guide</a> for additional information about how to properly use autoplay.</p>
     ///     </div>
     ///   
@@ -14517,7 +14517,7 @@ pub struct AudioOwned {
     ///   
     pub controls: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The <a href="https://wicg.github.io/controls-list/explainer.html" class="external" target="_blank"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
+    ///     <p>The <a class="external" href="https://wicg.github.io/controls-list/explainer.html" target="_blank"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
     ///     <p>The allowed values are <code>nodownload</code>, <code>nofullscreen</code> and <code>noremoteplayback</code>.</p>
     ///   
     pub controlslist: core::option::Option<alloc::string::String>,
@@ -14554,8 +14554,8 @@ pub struct AudioOwned {
     pub dir: core::option::Option<alloc::string::String>,
     ///
     ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a class="external" target="_blank" href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute">this proposed specification</a> for more information.</p>
-    ///     <div id="sect2" class="notecard note">
-    ///       <p><strong>Note:</strong> In Safari, you can use <a class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <div class="notecard note" id="sect2">
+    ///       <p><strong>Note:</strong> In Safari, you can use <a target="_blank" class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///     </div>
     ///   
     pub disableremoteplayback: core::option::Option<alloc::string::String>,
@@ -14701,7 +14701,7 @@ pub struct Img<'life> {
     ///     <dl>
     ///       <dt id="anonymous"><code>anonymous</code></dt>
     ///       <dd>
-    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a class="external" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5280">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
+    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a href="https://datatracker.ietf.org/doc/html/rfc5280" class="external" target="_blank">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
     ///       </dd>
     ///       <dt id="use-credentials"><code>use-credentials</code></dt>
     ///       <dd>
@@ -14812,7 +14812,7 @@ pub struct Img<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
     ///
-    ///     <p>This Boolean attribute indicates that the image is part of a <a target="_blank" href="https://en.wikipedia.org/wiki/Image_map#Server-side" class="external">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
+    ///     <p>This Boolean attribute indicates that the image is part of a <a class="external" href="https://en.wikipedia.org/wiki/Image_map#Server-side" target="_blank">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
     ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is allowed only if the <code>&lt;img&gt;</code> element is a descendant of an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> element with a valid <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute. This gives users without pointing devices a fallback destination.</p>
     ///     </div>
@@ -14830,7 +14830,7 @@ pub struct Img<'life> {
     ///         <p>Defers loading the image until it reaches a calculated distance from the viewport, as defined by the browser. The intent is to avoid the network and storage bandwidth needed to handle the image until it's reasonably certain that it will be needed. This generally improves the performance of the content in most typical use cases.</p>
     ///       </dd>
     ///     </dl>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> Loading is only deferred when JavaScript is enabled. This is an anti-tracking measure, because if a user agent supported lazy loading when scripting is disabled, it would still be possible for a site to track a user's approximate scroll position throughout a session, by strategically placing images in a page's markup such that a server can track how many images are requested and when.</p>
     ///     </div>
     ///   
@@ -14963,7 +14963,7 @@ pub struct ImgOwned {
     ///     <dl>
     ///       <dt id="anonymous"><code>anonymous</code></dt>
     ///       <dd>
-    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a class="external" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5280">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
+    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a href="https://datatracker.ietf.org/doc/html/rfc5280" class="external" target="_blank">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
     ///       </dd>
     ///       <dt id="use-credentials"><code>use-credentials</code></dt>
     ///       <dd>
@@ -15078,7 +15078,7 @@ pub struct ImgOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>This Boolean attribute indicates that the image is part of a <a target="_blank" href="https://en.wikipedia.org/wiki/Image_map#Server-side" class="external">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
+    ///     <p>This Boolean attribute indicates that the image is part of a <a class="external" href="https://en.wikipedia.org/wiki/Image_map#Server-side" target="_blank">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
     ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is allowed only if the <code>&lt;img&gt;</code> element is a descendant of an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> element with a valid <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute. This gives users without pointing devices a fallback destination.</p>
     ///     </div>
@@ -15096,7 +15096,7 @@ pub struct ImgOwned {
     ///         <p>Defers loading the image until it reaches a calculated distance from the viewport, as defined by the browser. The intent is to avoid the network and storage bandwidth needed to handle the image until it's reasonably certain that it will be needed. This generally improves the performance of the content in most typical use cases.</p>
     ///       </dd>
     ///     </dl>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> Loading is only deferred when JavaScript is enabled. This is an anti-tracking measure, because if a user agent supported lazy loading when scripting is disabled, it would still be possible for a site to track a user's approximate scroll position throughout a session, by strategically placing images in a page's markup such that a server can track how many images are requested and when.</p>
     ///     </div>
     ///   
@@ -15521,7 +15521,7 @@ pub struct Track<'life> {
     ///   
     pub src: core::option::Option<&'life str>,
     ///
-    ///     <p>Language of the track text data. It must be a valid <a target="_blank" class="external" href="https://r12a.github.io/app-subtags/">BCP 47</a> language tag. If the <code>kind</code> attribute is set to <code>subtitles</code>, then <code>srclang</code> must be defined.</p>
+    ///     <p>Language of the track text data. It must be a valid <a class="external" href="https://r12a.github.io/app-subtags/" target="_blank">BCP 47</a> language tag. If the <code>kind</code> attribute is set to <code>subtitles</code>, then <code>srclang</code> must be defined.</p>
     ///   
     pub srclang: core::option::Option<&'life str>,
 }
@@ -15678,7 +15678,7 @@ pub struct TrackOwned {
     ///   
     pub src: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>Language of the track text data. It must be a valid <a target="_blank" class="external" href="https://r12a.github.io/app-subtags/">BCP 47</a> language tag. If the <code>kind</code> attribute is set to <code>subtitles</code>, then <code>srclang</code> must be defined.</p>
+    ///     <p>Language of the track text data. It must be a valid <a class="external" href="https://r12a.github.io/app-subtags/" target="_blank">BCP 47</a> language tag. If the <code>kind</code> attribute is set to <code>subtitles</code>, then <code>srclang</code> must be defined.</p>
     ///   
     pub srclang: core::option::Option<alloc::string::String>,
 }
@@ -15719,7 +15719,7 @@ pub struct Video<'life> {
     pub autopictureinpicture: core::option::Option<&'life str>,
     ///
     ///     <p>A Boolean attribute; if specified, the video automatically begins to play back as soon as it can do so without stopping to finish loading the data.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Sites that automatically play audio (or videos with an audio track) can be an unpleasant experience for users, so should be avoided when possible. If you must offer autoplay functionality, you should make it opt-in (requiring a user to specifically enable it). However, this can be useful when creating media elements whose source will be set at a later time, under user control. See our <a href="/en-US/docs/Web/Media/Autoplay_guide">autoplay guide</a> for additional information about how to properly use autoplay.</p>
     ///     </div>
     ///     <p>To disable video autoplay, <code>autoplay="false"</code> will not work; the video will autoplay if the attribute is there in the <code>&lt;video&gt;</code> tag at all. To remove autoplay, the attribute needs to be removed altogether.</p>
@@ -15787,7 +15787,7 @@ pub struct Video<'life> {
     pub disablepictureinpicture: core::option::Option<&'life str>,
     ///
     ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.).</p>
-    ///     <p>In Safari, you can use <a class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <p>In Safari, you can use <a target="_blank" class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///   
     pub disableremoteplayback: core::option::Option<&'life str>,
     ///
@@ -15810,7 +15810,7 @@ pub struct Video<'life> {
     #[cfg(feature = "alloc")]
     pub extra: core::option::Option<alloc::collections::BTreeMap<&'life str, &'life str>>,
     ///
-    ///     <p>The height of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
+    ///     <p>The height of the video's display area, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a> (absolute values only; <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">no percentages</a>).</p>
     ///   
     pub height: core::option::Option<&'life str>,
     ///
@@ -15872,7 +15872,7 @@ pub struct Video<'life> {
     ///   
     pub src: core::option::Option<&'life str>,
     ///
-    ///     <p>The width of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
+    ///     <p>The width of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" target="_blank" class="external">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
     ///   
     pub width: core::option::Option<&'life str>,
 }
@@ -15914,7 +15914,7 @@ pub struct VideoOwned {
     pub autopictureinpicture: core::option::Option<alloc::string::String>,
     ///
     ///     <p>A Boolean attribute; if specified, the video automatically begins to play back as soon as it can do so without stopping to finish loading the data.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Sites that automatically play audio (or videos with an audio track) can be an unpleasant experience for users, so should be avoided when possible. If you must offer autoplay functionality, you should make it opt-in (requiring a user to specifically enable it). However, this can be useful when creating media elements whose source will be set at a later time, under user control. See our <a href="/en-US/docs/Web/Media/Autoplay_guide">autoplay guide</a> for additional information about how to properly use autoplay.</p>
     ///     </div>
     ///     <p>To disable video autoplay, <code>autoplay="false"</code> will not work; the video will autoplay if the attribute is there in the <code>&lt;video&gt;</code> tag at all. To remove autoplay, the attribute needs to be removed altogether.</p>
@@ -15984,7 +15984,7 @@ pub struct VideoOwned {
     pub disablepictureinpicture: core::option::Option<alloc::string::String>,
     ///
     ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.).</p>
-    ///     <p>In Safari, you can use <a class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <p>In Safari, you can use <a target="_blank" class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///   
     pub disableremoteplayback: core::option::Option<alloc::string::String>,
     ///
@@ -16009,7 +16009,7 @@ pub struct VideoOwned {
         alloc::collections::BTreeMap<alloc::string::String, alloc::string::String>,
     >,
     ///
-    ///     <p>The height of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
+    ///     <p>The height of the video's display area, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a> (absolute values only; <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">no percentages</a>).</p>
     ///   
     pub height: core::option::Option<alloc::string::String>,
     ///
@@ -16071,7 +16071,7 @@ pub struct VideoOwned {
     ///   
     pub src: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The width of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
+    ///     <p>The width of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" target="_blank" class="external">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
     ///   
     pub width: core::option::Option<alloc::string::String>,
 }
@@ -16156,7 +16156,7 @@ pub struct Embed<'life> {
     #[cfg(feature = "alloc")]
     pub extra: core::option::Option<alloc::collections::BTreeMap<&'life str, &'life str>>,
     ///
-    ///     <p>The displayed height of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed height of the resource, in <a target="_blank" href="https://drafts.csswg.org/css-values/#px" class="external">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub height: core::option::Option<&'life str>,
     ///
@@ -16188,7 +16188,7 @@ pub struct Embed<'life> {
     ///   
     pub type_: core::option::Option<&'life str>,
     ///
-    ///     <p>The displayed width of the resource, in <a href="https://drafts.csswg.org/css-values/#px" target="_blank" class="external">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed width of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub width: core::option::Option<&'life str>,
 }
@@ -16278,7 +16278,7 @@ pub struct EmbedOwned {
         alloc::collections::BTreeMap<alloc::string::String, alloc::string::String>,
     >,
     ///
-    ///     <p>The displayed height of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed height of the resource, in <a target="_blank" href="https://drafts.csswg.org/css-values/#px" class="external">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub height: core::option::Option<alloc::string::String>,
     ///
@@ -16310,7 +16310,7 @@ pub struct EmbedOwned {
     ///   
     pub type_: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The displayed width of the resource, in <a href="https://drafts.csswg.org/css-values/#px" target="_blank" class="external">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed width of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub width: core::option::Option<alloc::string::String>,
 }
@@ -16456,7 +16456,7 @@ pub struct Iframe<'life> {
     ///   
     pub loading: core::option::Option<&'life str>,
     ///
-    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a title="window.open()" href="/en-US/docs/Web/API/Window/open"><code>window.open()</code></a> method.</p>
+    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a href="/en-US/docs/Web/API/Window/open" title="window.open()"><code>window.open()</code></a> method.</p>
     ///   
     pub name: core::option::Option<&'life str>,
     ///
@@ -16477,7 +16477,7 @@ pub struct Iframe<'life> {
     ///     <p>Applies extra restrictions to the content in the frame. The value of the attribute can either be empty to apply all restrictions, or space-separated tokens to lift particular restrictions:</p>
     ///     <ul>
     ///       <li><code>allow-downloads</code>: Allows downloading files through an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/area"><code>&lt;area&gt;</code></a> element with the <a href="/en-US/docs/Web/HTML/Element/a#download">download</a> attribute, as well as through the navigation that leads to a download of a file. This works regardless of whether the user clicked on the link, or JS code initiated it without user interaction.</li>
-    ///       <li><code>allow-downloads-without-user-activation</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
+    ///       <li><code>allow-downloads-without-user-activation</code> <abbr title="Experimental. Expect behavior to change in the future." class="icon icon-experimental">
     ///     <span class="visually-hidden">Experimental</span>
     /// </abbr>: Allows for downloads to occur without a gesture from the user.</li>
     ///       <li><code>allow-forms</code>: Allows the page to submit forms. If this keyword is not used, form will be displayed as normal, but submitting it will not trigger input validation, sending data to a web server or closing a dialog.</li>
@@ -16489,7 +16489,7 @@ pub struct Iframe<'life> {
     ///       <li><code>allow-presentation</code>: Allows embedders to have control over whether an iframe can start a <a href="/en-US/docs/Web/API/PresentationRequest">presentation session</a>.</li>
     ///       <li><code>allow-same-origin</code>: If this token is not used, the resource is treated as being from a special origin that always fails the <a href="/en-US/docs/Glossary/Same-origin_policy">same-origin policy</a> (potentially preventing access to <a href="/en-US/docs/Web/Security/Same-origin_policy#cross-origin_data_storage_access">data storage/cookies</a> and some JavaScript APIs).</li>
     ///       <li><code>allow-scripts</code>: Allows the page to run scripts (but not create pop-up windows). If this keyword is not used, this operation is not allowed.</li>
-    ///       <li><code>allow-storage-access-by-user-activation</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
+    ///       <li><code>allow-storage-access-by-user-activation</code> <abbr title="Experimental. Expect behavior to change in the future." class="icon icon-experimental">
     ///     <span class="visually-hidden">Experimental</span>
     /// </abbr>: Lets the resource request access to the parent's storage capabilities with the <a href="/en-US/docs/Web/API/Storage_Access_API">Storage Access API</a>.</li>
     ///       <li><code>allow-top-navigation</code>: Lets the resource navigate the top-level browsing context (the one named <code>_top</code>).</li>
@@ -16665,7 +16665,7 @@ pub struct IframeOwned {
     ///   
     pub loading: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a title="window.open()" href="/en-US/docs/Web/API/Window/open"><code>window.open()</code></a> method.</p>
+    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a href="/en-US/docs/Web/API/Window/open" title="window.open()"><code>window.open()</code></a> method.</p>
     ///   
     pub name: core::option::Option<alloc::string::String>,
     ///
@@ -16686,7 +16686,7 @@ pub struct IframeOwned {
     ///     <p>Applies extra restrictions to the content in the frame. The value of the attribute can either be empty to apply all restrictions, or space-separated tokens to lift particular restrictions:</p>
     ///     <ul>
     ///       <li><code>allow-downloads</code>: Allows downloading files through an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/area"><code>&lt;area&gt;</code></a> element with the <a href="/en-US/docs/Web/HTML/Element/a#download">download</a> attribute, as well as through the navigation that leads to a download of a file. This works regardless of whether the user clicked on the link, or JS code initiated it without user interaction.</li>
-    ///       <li><code>allow-downloads-without-user-activation</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
+    ///       <li><code>allow-downloads-without-user-activation</code> <abbr title="Experimental. Expect behavior to change in the future." class="icon icon-experimental">
     ///     <span class="visually-hidden">Experimental</span>
     /// </abbr>: Allows for downloads to occur without a gesture from the user.</li>
     ///       <li><code>allow-forms</code>: Allows the page to submit forms. If this keyword is not used, form will be displayed as normal, but submitting it will not trigger input validation, sending data to a web server or closing a dialog.</li>
@@ -16698,7 +16698,7 @@ pub struct IframeOwned {
     ///       <li><code>allow-presentation</code>: Allows embedders to have control over whether an iframe can start a <a href="/en-US/docs/Web/API/PresentationRequest">presentation session</a>.</li>
     ///       <li><code>allow-same-origin</code>: If this token is not used, the resource is treated as being from a special origin that always fails the <a href="/en-US/docs/Glossary/Same-origin_policy">same-origin policy</a> (potentially preventing access to <a href="/en-US/docs/Web/Security/Same-origin_policy#cross-origin_data_storage_access">data storage/cookies</a> and some JavaScript APIs).</li>
     ///       <li><code>allow-scripts</code>: Allows the page to run scripts (but not create pop-up windows). If this keyword is not used, this operation is not allowed.</li>
-    ///       <li><code>allow-storage-access-by-user-activation</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
+    ///       <li><code>allow-storage-access-by-user-activation</code> <abbr title="Experimental. Expect behavior to change in the future." class="icon icon-experimental">
     ///     <span class="visually-hidden">Experimental</span>
     /// </abbr>: Lets the resource request access to the parent's storage capabilities with the <a href="/en-US/docs/Web/API/Storage_Access_API">Storage Access API</a>.</li>
     ///       <li><code>allow-top-navigation</code>: Lets the resource navigate the top-level browsing context (the one named <code>_top</code>).</li>
@@ -16836,7 +16836,7 @@ pub struct Object<'life> {
     ///   
     pub form: core::option::Option<&'life str>,
     ///
-    ///     <p>The height of the displayed resource, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">NO percentages</a>)</p>
+    ///     <p>The height of the displayed resource, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">NO percentages</a>)</p>
     ///   
     pub height: core::option::Option<&'life str>,
     ///
@@ -16876,7 +16876,7 @@ pub struct Object<'life> {
     ///   
     pub usemap: core::option::Option<&'life str>,
     ///
-    ///     <p>The width of the display resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. — (Absolute values only. <a class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" target="_blank">NO percentages</a>)</p>
+    ///     <p>The width of the display resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. — (Absolute values only. <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">NO percentages</a>)</p>
     ///   
     pub width: core::option::Option<&'life str>,
 }
@@ -16994,7 +16994,7 @@ pub struct ObjectOwned {
     ///   
     pub form: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The height of the displayed resource, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">NO percentages</a>)</p>
+    ///     <p>The height of the displayed resource, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">NO percentages</a>)</p>
     ///   
     pub height: core::option::Option<alloc::string::String>,
     ///
@@ -17034,7 +17034,7 @@ pub struct ObjectOwned {
     ///   
     pub usemap: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The width of the display resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. — (Absolute values only. <a class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" target="_blank">NO percentages</a>)</p>
+    ///     <p>The width of the display resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. — (Absolute values only. <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">NO percentages</a>)</p>
     ///   
     pub width: core::option::Option<alloc::string::String>,
 }
@@ -17868,7 +17868,7 @@ pub struct Canvas<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
     ///
-    ///     <p>Lets the canvas know whether translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized <a title="canvas.getContext('2d', { alpha: false })" href="/en-US/docs/Web/API/HTMLCanvasElement/getContext"><code>canvas.getContext('2d', { alpha: false })</code></a> instead.</p>
+    ///     <p>Lets the canvas know whether translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized <a href="/en-US/docs/Web/API/HTMLCanvasElement/getContext" title="canvas.getContext('2d', { alpha: false })"><code>canvas.getContext('2d', { alpha: false })</code></a> instead.</p>
     ///   
     pub moz_opaque: core::option::Option<&'life str>,
     ///
@@ -17986,7 +17986,7 @@ pub struct CanvasOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>Lets the canvas know whether translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized <a title="canvas.getContext('2d', { alpha: false })" href="/en-US/docs/Web/API/HTMLCanvasElement/getContext"><code>canvas.getContext('2d', { alpha: false })</code></a> instead.</p>
+    ///     <p>Lets the canvas know whether translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized <a href="/en-US/docs/Web/API/HTMLCanvasElement/getContext" title="canvas.getContext('2d', { alpha: false })"><code>canvas.getContext('2d', { alpha: false })</code></a> instead.</p>
     ///   
     pub moz_opaque: core::option::Option<alloc::string::String>,
     ///
@@ -18264,7 +18264,7 @@ pub struct Script<'life> {
     ///   
     pub contextmenu: core::option::Option<&'life str>,
     ///
-    ///     <p>Normal <code>script</code> elements pass minimal information to the <a title="window.onerror" href="/en-US/docs/Web/API/Window/error_event"><code>window.onerror</code></a> for scripts which do not pass the standard <a href="/en-US/docs/Glossary/CORS">CORS</a> checks. To allow error logging for sites which use a separate domain for static media, use this attribute. See <a href="/en-US/docs/Web/HTML/Attributes/crossorigin">CORS settings attributes</a> for a more descriptive explanation of its valid arguments.</p>
+    ///     <p>Normal <code>script</code> elements pass minimal information to the <a href="/en-US/docs/Web/API/Window/error_event" title="window.onerror"><code>window.onerror</code></a> for scripts which do not pass the standard <a href="/en-US/docs/Glossary/CORS">CORS</a> checks. To allow error logging for sites which use a separate domain for static media, use this attribute. See <a href="/en-US/docs/Web/HTML/Attributes/crossorigin">CORS settings attributes</a> for a more descriptive explanation of its valid arguments.</p>
     ///   
     pub crossorigin: core::option::Option<&'life str>,
     ///
@@ -18273,7 +18273,7 @@ pub struct Script<'life> {
     #[cfg(feature = "alloc")]
     pub data: core::option::Option<alloc::collections::BTreeMap<&'life str, &'life str>>,
     ///
-    ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a title="DOMContentLoaded" href="/en-US/docs/Web/API/Document/DOMContentLoaded_event"><code>DOMContentLoaded</code></a>.</p>
+    ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a href="/en-US/docs/Web/API/Document/DOMContentLoaded_event" title="DOMContentLoaded"><code>DOMContentLoaded</code></a>.</p>
     ///     <p>Scripts with the <code>defer</code> attribute will prevent the <code>DOMContentLoaded</code> event from firing until the script has loaded and finished evaluating.</p>
     ///     <div class="notecard warning" id="sect1">
     ///       <p><strong>Warning:</strong> This attribute must not be used if the <code>src</code> attribute is absent (i.e. for inline scripts), in this case it would have no effect.</p>
@@ -18373,7 +18373,7 @@ pub struct Script<'life> {
     ///       <li><code>strict-origin-when-cross-origin</code> (default): Send a full URL when performing a same-origin request, only send the origin when the protocol security level stays the same (HTTPS→HTTPS), and send no header to a less secure destination (HTTPS→HTTP).</li>
     ///       <li><code>unsafe-url</code>: The referrer will include the origin <em>and</em> the path (but not the <a href="/en-US/docs/Web/API/HTMLAnchorElement/hash">fragment</a>, <a href="/en-US/docs/Web/API/HTMLAnchorElement/password">password</a>, or <a href="/en-US/docs/Web/API/HTMLAnchorElement/username">username</a>). <strong>This value is unsafe</strong>, because it leaks origins and paths from TLS-protected resources to insecure origins.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong> An empty string value (<code>""</code>) is both the default value, and a fallback value if <code>referrerpolicy</code> is not supported. If <code>referrerpolicy</code> is not explicitly specified on the <code>&lt;script&gt;</code> element, it will adopt a higher-level referrer policy, i.e. one set on the whole document or domain. If a higher-level policy is not available, the empty string is treated as being equivalent to <code>strict-origin-when-cross-origin</code>.</p>
     ///     </div>
     ///   
@@ -18489,7 +18489,7 @@ pub struct ScriptOwned {
     ///   
     pub contextmenu: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>Normal <code>script</code> elements pass minimal information to the <a title="window.onerror" href="/en-US/docs/Web/API/Window/error_event"><code>window.onerror</code></a> for scripts which do not pass the standard <a href="/en-US/docs/Glossary/CORS">CORS</a> checks. To allow error logging for sites which use a separate domain for static media, use this attribute. See <a href="/en-US/docs/Web/HTML/Attributes/crossorigin">CORS settings attributes</a> for a more descriptive explanation of its valid arguments.</p>
+    ///     <p>Normal <code>script</code> elements pass minimal information to the <a href="/en-US/docs/Web/API/Window/error_event" title="window.onerror"><code>window.onerror</code></a> for scripts which do not pass the standard <a href="/en-US/docs/Glossary/CORS">CORS</a> checks. To allow error logging for sites which use a separate domain for static media, use this attribute. See <a href="/en-US/docs/Web/HTML/Attributes/crossorigin">CORS settings attributes</a> for a more descriptive explanation of its valid arguments.</p>
     ///   
     pub crossorigin: core::option::Option<alloc::string::String>,
     ///
@@ -18500,7 +18500,7 @@ pub struct ScriptOwned {
         alloc::collections::BTreeMap<alloc::string::String, alloc::string::String>,
     >,
     ///
-    ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a title="DOMContentLoaded" href="/en-US/docs/Web/API/Document/DOMContentLoaded_event"><code>DOMContentLoaded</code></a>.</p>
+    ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a href="/en-US/docs/Web/API/Document/DOMContentLoaded_event" title="DOMContentLoaded"><code>DOMContentLoaded</code></a>.</p>
     ///     <p>Scripts with the <code>defer</code> attribute will prevent the <code>DOMContentLoaded</code> event from firing until the script has loaded and finished evaluating.</p>
     ///     <div class="notecard warning" id="sect1">
     ///       <p><strong>Warning:</strong> This attribute must not be used if the <code>src</code> attribute is absent (i.e. for inline scripts), in this case it would have no effect.</p>
@@ -18602,7 +18602,7 @@ pub struct ScriptOwned {
     ///       <li><code>strict-origin-when-cross-origin</code> (default): Send a full URL when performing a same-origin request, only send the origin when the protocol security level stays the same (HTTPS→HTTPS), and send no header to a less secure destination (HTTPS→HTTP).</li>
     ///       <li><code>unsafe-url</code>: The referrer will include the origin <em>and</em> the path (but not the <a href="/en-US/docs/Web/API/HTMLAnchorElement/hash">fragment</a>, <a href="/en-US/docs/Web/API/HTMLAnchorElement/password">password</a>, or <a href="/en-US/docs/Web/API/HTMLAnchorElement/username">username</a>). <strong>This value is unsafe</strong>, because it leaks origins and paths from TLS-protected resources to insecure origins.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong> An empty string value (<code>""</code>) is both the default value, and a fallback value if <code>referrerpolicy</code> is not supported. If <code>referrerpolicy</code> is not explicitly specified on the <code>&lt;script&gt;</code> element, it will adopt a higher-level referrer policy, i.e. one set on the whole document or domain. If a higher-level policy is not available, the empty string is treated as being equivalent to <code>strict-origin-when-cross-origin</code>.</p>
     ///     </div>
     ///   
@@ -19138,7 +19138,7 @@ pub struct Caption<'life> {
     ///       </dd>
     ///     </dl>
     ///     <div class="notecard warning" id="sect1">
-    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a href="/en-US/docs/Web/HTML/Element/caption" aria-current="page"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
+    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a aria-current="page" href="/en-US/docs/Web/HTML/Element/caption"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
     ///     </div>
     ///   
     pub align: core::option::Option<&'life str>,
@@ -19265,7 +19265,7 @@ pub struct CaptionOwned {
     ///       </dd>
     ///     </dl>
     ///     <div class="notecard warning" id="sect1">
-    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a href="/en-US/docs/Web/HTML/Element/caption" aria-current="page"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
+    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a aria-current="page" href="/en-US/docs/Web/HTML/Element/caption"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
     ///     </div>
     ///   
     pub align: core::option::Option<alloc::string::String>,
@@ -20134,7 +20134,7 @@ pub struct Tbody<'life> {
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
     ///     <p>As this attribute is deprecated, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> The equivalent <code>text-align</code> property for the <code>align="char"</code> is not implemented in any browsers yet. See the <a href="/en-US/docs/Web/CSS/text-align#browser_compatibility"><code>text-align</code>'s browser compatibility section</a> for the <code>&lt;string&gt;</code> value.</p>
     ///     </div>
     ///   
@@ -20238,7 +20238,7 @@ pub struct Tbody<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
@@ -20276,7 +20276,7 @@ pub struct TbodyOwned {
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
     ///     <p>As this attribute is deprecated, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> The equivalent <code>text-align</code> property for the <code>align="char"</code> is not implemented in any browsers yet. See the <a href="/en-US/docs/Web/CSS/text-align#browser_compatibility"><code>text-align</code>'s browser compatibility section</a> for the <code>&lt;string&gt;</code> value.</p>
     ///     </div>
     ///   
@@ -20384,7 +20384,7 @@ pub struct TbodyOwned {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
@@ -20651,7 +20651,7 @@ pub struct Tfoot<'life> {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>To achieve the same effect as the <code>left</code>, <code>center</code>, <code>right</code> or <code>justify</code> values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property on it.</li>
@@ -20759,12 +20759,12 @@ pub struct Tfoot<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table footer. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a target="_blank" class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
     ///     </ul>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property on it.</p>
     ///     </div>
     ///   
@@ -20798,7 +20798,7 @@ pub struct TfootOwned {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>To achieve the same effect as the <code>left</code>, <code>center</code>, <code>right</code> or <code>justify</code> values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property on it.</li>
@@ -20910,12 +20910,12 @@ pub struct TfootOwned {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table footer. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a target="_blank" class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
     ///     </ul>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property on it.</p>
     ///     </div>
     ///   
@@ -21010,7 +21010,7 @@ pub struct Th<'life> {
     #[cfg(feature = "alloc")]
     pub extra: core::option::Option<alloc::collections::BTreeMap<&'life str, &'life str>>,
     ///
-    ///     <p>This attribute contains a list of space-separated strings, each corresponding to the <strong>id</strong> attribute of the <a href="/en-US/docs/Web/HTML/Element/th" aria-current="page"><code>&lt;th&gt;</code></a> elements that apply to this element.</p>
+    ///     <p>This attribute contains a list of space-separated strings, each corresponding to the <strong>id</strong> attribute of the <a aria-current="page" href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a> elements that apply to this element.</p>
     ///   
     pub headers: core::option::Option<&'life str>,
     ///
@@ -21038,7 +21038,7 @@ pub struct Th<'life> {
     ///   
     pub rowspan: core::option::Option<&'life str>,
     ///
-    ///     <p>This <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute defines the cells that the header (defined in the <a aria-current="page" href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a>) element relates to. It may have the following values:</p>
+    ///     <p>This <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute defines the cells that the header (defined in the <a href="/en-US/docs/Web/HTML/Element/th" aria-current="page"><code>&lt;th&gt;</code></a>) element relates to. It may have the following values:</p>
     ///     <ul>
     ///       <li><code>row</code>: The header relates to all cells of the row it belongs to.</li>
     ///       <li><code>col</code>: The header relates to all cells of the column it belongs to.</li>
@@ -21143,7 +21143,7 @@ pub struct ThOwned {
         alloc::collections::BTreeMap<alloc::string::String, alloc::string::String>,
     >,
     ///
-    ///     <p>This attribute contains a list of space-separated strings, each corresponding to the <strong>id</strong> attribute of the <a href="/en-US/docs/Web/HTML/Element/th" aria-current="page"><code>&lt;th&gt;</code></a> elements that apply to this element.</p>
+    ///     <p>This attribute contains a list of space-separated strings, each corresponding to the <strong>id</strong> attribute of the <a aria-current="page" href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a> elements that apply to this element.</p>
     ///   
     pub headers: core::option::Option<alloc::string::String>,
     ///
@@ -21171,7 +21171,7 @@ pub struct ThOwned {
     ///   
     pub rowspan: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>This <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute defines the cells that the header (defined in the <a aria-current="page" href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a>) element relates to. It may have the following values:</p>
+    ///     <p>This <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute defines the cells that the header (defined in the <a href="/en-US/docs/Web/HTML/Element/th" aria-current="page"><code>&lt;th&gt;</code></a>) element relates to. It may have the following values:</p>
     ///     <ul>
     ///       <li><code>row</code>: The header relates to all cells of the row it belongs to.</li>
     ///       <li><code>col</code>: The header relates to all cells of the column it belongs to.</li>
@@ -21233,21 +21233,21 @@ pub struct Thead<'life> {
     pub autofocus: core::option::Option<bool>,
     ///
     ///     <p>This attribute defines the background color of each column cell. It accepts a 6-digit hexadecimal color or a named color. Alpha transparency is not supported.</p>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> Do not use this attribute, as it is non-standard. The <code>thead</code> element should be styled using the CSS <a href="/en-US/docs/Web/CSS/background-color"><code>background-color</code></a> property, which can be applied to any element, including the <code>thead</code>, <a href="/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/td"><code>&lt;td&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a> elements.</p>
     ///     </div>
     ///   
     pub bgcolor: core::option::Option<&'life str>,
     ///
     ///     <p>This attribute is used to set the character to align the cells in a column on. Typical values for this include a period (.) when attempting to align numbers or monetary values. If <a href="#align"><code>align</code></a> is not set to <code>char</code>, this attribute is ignored.</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
     pub char: core::option::Option<&'life str>,
     ///
     ///     <p>This attribute is used to indicate the number of characters to offset the column data from the alignment characters specified by the <strong>char</strong> attribute.</p>
-    ///     <div id="sect4" class="notecard note">
+    ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
@@ -21324,7 +21324,7 @@ pub struct Thead<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li><code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
@@ -21387,21 +21387,21 @@ pub struct TheadOwned {
     pub autofocus: core::option::Option<bool>,
     ///
     ///     <p>This attribute defines the background color of each column cell. It accepts a 6-digit hexadecimal color or a named color. Alpha transparency is not supported.</p>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> Do not use this attribute, as it is non-standard. The <code>thead</code> element should be styled using the CSS <a href="/en-US/docs/Web/CSS/background-color"><code>background-color</code></a> property, which can be applied to any element, including the <code>thead</code>, <a href="/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/td"><code>&lt;td&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a> elements.</p>
     ///     </div>
     ///   
     pub bgcolor: core::option::Option<alloc::string::String>,
     ///
     ///     <p>This attribute is used to set the character to align the cells in a column on. Typical values for this include a period (.) when attempting to align numbers or monetary values. If <a href="#align"><code>align</code></a> is not set to <code>char</code>, this attribute is ignored.</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
     pub char: core::option::Option<alloc::string::String>,
     ///
     ///     <p>This attribute is used to indicate the number of characters to offset the column data from the alignment characters specified by the <strong>char</strong> attribute.</p>
-    ///     <div id="sect4" class="notecard note">
+    ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
@@ -21482,7 +21482,7 @@ pub struct TheadOwned {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li><code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
@@ -21563,14 +21563,14 @@ pub struct Tr<'life> {
     pub bgcolor: core::option::Option<&'life str>,
     ///
     ///     <p>A string that sets the character to align the cells in each row's columns (each row's centering that uses the same character gets aligned with others using the same character. Typical values for this include a period (<code>"."</code>) or comma (<code>","</code>) when attempting to align numbers or monetary values. If <a href="#align"><code>align</code></a> is not set to <code>char</code>, this attribute is ignored.</p>
-    ///     <div class="notecard note" id="sect3">
+    ///     <div id="sect3" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute is obsolete and rarely implemented anyway. To achieve the same effect as the <a href="#char"><code>char</code></a> attribute, set the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to the same string you would specify for the <code>char</code> property, such as <code>text-align: "."</code>.</p>
     ///     </div>
     ///   
     pub char: core::option::Option<&'life str>,
     ///
     ///     <p>A string indicating the number of characters on the tail end of the column's data should be displayed after the alignment character specified by the <code>char</code> attribute. For example, when displaying money values for currencies that use hundredths of a unit (such as the dollar, which is divided into 100 cents), you would typically specify a value of 2, so that in tandem with <code>char</code> being set to <code>"."</code>, the values in a column would be cleanly aligned on the decimal points, with the number of cents properly displayed to the right of the decimal point.</p>
-    ///     <div class="notecard note" id="sect4">
+    ///     <div id="sect4" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute is obsolete, and was never widely supported anyway.</p>
     ///     </div>
     ///   
@@ -21649,7 +21649,7 @@ pub struct Tr<'life> {
     ///     <dl>
     ///       <dt id="baseline"><code>baseline</code></dt>
     ///       <dd>
-    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a target="_blank" href="https://en.wikipedia.org/wiki/Baseline" class="external">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
+    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a href="https://en.wikipedia.org/wiki/Baseline" target="_blank" class="external">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
     ///       </dd>
     ///       <dt id="bottom"><code>bottom</code>,</dt>
     ///       <dd>
@@ -21741,14 +21741,14 @@ pub struct TrOwned {
     pub bgcolor: core::option::Option<alloc::string::String>,
     ///
     ///     <p>A string that sets the character to align the cells in each row's columns (each row's centering that uses the same character gets aligned with others using the same character. Typical values for this include a period (<code>"."</code>) or comma (<code>","</code>) when attempting to align numbers or monetary values. If <a href="#align"><code>align</code></a> is not set to <code>char</code>, this attribute is ignored.</p>
-    ///     <div class="notecard note" id="sect3">
+    ///     <div id="sect3" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute is obsolete and rarely implemented anyway. To achieve the same effect as the <a href="#char"><code>char</code></a> attribute, set the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to the same string you would specify for the <code>char</code> property, such as <code>text-align: "."</code>.</p>
     ///     </div>
     ///   
     pub char: core::option::Option<alloc::string::String>,
     ///
     ///     <p>A string indicating the number of characters on the tail end of the column's data should be displayed after the alignment character specified by the <code>char</code> attribute. For example, when displaying money values for currencies that use hundredths of a unit (such as the dollar, which is divided into 100 cents), you would typically specify a value of 2, so that in tandem with <code>char</code> being set to <code>"."</code>, the values in a column would be cleanly aligned on the decimal points, with the number of cents properly displayed to the right of the decimal point.</p>
-    ///     <div class="notecard note" id="sect4">
+    ///     <div id="sect4" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute is obsolete, and was never widely supported anyway.</p>
     ///     </div>
     ///   
@@ -21831,7 +21831,7 @@ pub struct TrOwned {
     ///     <dl>
     ///       <dt id="baseline"><code>baseline</code></dt>
     ///       <dd>
-    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a target="_blank" href="https://en.wikipedia.org/wiki/Baseline" class="external">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
+    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a href="https://en.wikipedia.org/wiki/Baseline" target="_blank" class="external">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
     ///       </dd>
     ///       <dt id="bottom"><code>bottom</code>,</dt>
     ///       <dd>
@@ -21882,7 +21882,7 @@ pub struct Button<'life> {
     ///   
     pub autocapitalize: core::option::Option<&'life str>,
     ///
-    ///     <p>This attribute on a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external">Firefox persists the dynamic disabled state</a> of a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a target="_blank" class="external" href="https://bugzil.la/654072">Firefox bug 654072</a>.</p>
+    ///     <p>This attribute on a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a class="external" target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing">Firefox persists the dynamic disabled state</a> of a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a target="_blank" class="external" href="https://bugzil.la/654072">Firefox bug 654072</a>.</p>
     ///   
     pub autocomplete: core::option::Option<&'life str>,
     ///
@@ -21921,7 +21921,7 @@ pub struct Button<'life> {
     pub dir: core::option::Option<&'life str>,
     ///
     ///     <p>This Boolean attribute prevents the user from interacting with the button: it cannot be pressed or focused.</p>
-    ///     <p>Firefox, unlike other browsers, <a class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank">persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
+    ///     <p>Firefox, unlike other browsers, <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank" class="external">persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
     ///   
     pub disabled: core::option::Option<bool>,
     ///
@@ -22055,7 +22055,7 @@ pub struct ButtonOwned {
     ///   
     pub autocapitalize: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>This attribute on a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external">Firefox persists the dynamic disabled state</a> of a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a target="_blank" class="external" href="https://bugzil.la/654072">Firefox bug 654072</a>.</p>
+    ///     <p>This attribute on a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a class="external" target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing">Firefox persists the dynamic disabled state</a> of a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a target="_blank" class="external" href="https://bugzil.la/654072">Firefox bug 654072</a>.</p>
     ///   
     pub autocomplete: core::option::Option<alloc::string::String>,
     ///
@@ -22096,7 +22096,7 @@ pub struct ButtonOwned {
     pub dir: core::option::Option<alloc::string::String>,
     ///
     ///     <p>This Boolean attribute prevents the user from interacting with the button: it cannot be pressed or focused.</p>
-    ///     <p>Firefox, unlike other browsers, <a class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank">persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
+    ///     <p>Firefox, unlike other browsers, <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank" class="external">persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
     ///   
     pub disabled: core::option::Option<bool>,
     ///
@@ -22518,7 +22518,7 @@ pub struct Fieldset<'life> {
     pub is: core::option::Option<&'life str>,
     ///
     ///     <p>The name associated with the group.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> The caption for the fieldset is given by the first <a href="/en-US/docs/Web/HTML/Element/legend"><code>&lt;legend&gt;</code></a> element nested inside it.</p>
     ///     </div>
     ///   
@@ -22639,7 +22639,7 @@ pub struct FieldsetOwned {
     pub is: core::option::Option<alloc::string::String>,
     ///
     ///     <p>The name associated with the group.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> The caption for the fieldset is given by the first <a href="/en-US/docs/Web/HTML/Element/legend"><code>&lt;legend&gt;</code></a> element nested inside it.</p>
     ///     </div>
     ///   
@@ -22660,7 +22660,7 @@ impl FieldsetOwned {
 #[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Form<'life> {
     ///     <p>Comma-separated <a href="/en-US/docs/Web/SVG/Content_type">content types</a> the server accepts.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> <strong>This attribute has been deprecated and should not be used.</strong> Instead, use the <a href="/en-US/docs/Web/HTML/Element/input#accept"><code>accept</code></a> attribute on <code>&lt;input type=file&gt;</code> elements.</p>
     ///     </div>
     ///   
@@ -22792,7 +22792,7 @@ impl<'life> Form<'life> {
 #[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 pub struct FormOwned {
     ///     <p>Comma-separated <a href="/en-US/docs/Web/SVG/Content_type">content types</a> the server accepts.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> <strong>This attribute has been deprecated and should not be used.</strong> Instead, use the <a href="/en-US/docs/Web/HTML/Element/input#accept"><code>accept</code></a> attribute on <code>&lt;input type=file&gt;</code> elements.</p>
     ///     </div>
     ///   
@@ -22960,7 +22960,7 @@ pub struct Input<'life> {
     ///     </div>
     ///     <p>No more than one element in the document may have the <code>autofocus</code> attribute. If put on more than one element, the first one with the attribute receives focus.</p>
     ///     <p>The <code>autofocus</code> attribute cannot be used on inputs of type <code>hidden</code>, since hidden inputs cannot be focused.</p>
-    ///     <div class="notecard warning" id="sect2">
+    ///     <div id="sect2" class="notecard warning">
     ///       <p><strong>Warning:</strong> Automatically focusing a form control can confuse visually-impaired people using screen-reading technology and people with cognitive impairments. When <code>autofocus</code> is assigned, screen-readers "teleport" their user to the form control without warning them beforehand.</p>
     ///     </div>
     ///     <p>Use careful consideration for accessibility when applying the <code>autofocus</code> attribute. Automatically focusing on a control can cause the page to scroll on load. The focus can also cause dynamic keyboards to display on some touch devices. While a screen reader will announce the label of the form control receiving focus, the screen reader will not announce anything before the label, and the sighted user on a small device will equally miss the context created by the preceding content.</p>
@@ -22972,7 +22972,7 @@ pub struct Input<'life> {
     pub capture: core::option::Option<&'life str>,
     ///
     ///     <p>Valid for both <code>radio</code> and <code>checkbox</code> types, <code>checked</code> is a Boolean attribute. If present on a <code>radio</code> type, it indicates that the radio button is the currently selected one in the group of same-named radio buttons. If present on a <code>checkbox</code> type, it indicates that the checkbox is checked by default (when the page loads). It does <em>not</em> indicate whether this checkbox is currently checked: if the checkbox's state is changed, this content attribute does not reflect the change. (Only the <a href="/en-US/docs/Web/API/HTMLInputElement"><code>HTMLInputElement</code>'s <code>checked</code> IDL attribute</a> is updated.)</p>
-    ///     <div class="notecard note" id="sect3">
+    ///     <div id="sect3" class="notecard note">
     ///       <p><strong>Note:</strong> Unlike other input controls, a checkboxes and radio buttons value are only included in the submitted data if they are currently <code>checked</code>. If they are, the name and the value(s) of the checked controls are submitted.</p>
     ///       <p>For example, if a checkbox whose <code>name</code> is <code>fruit</code> has a <code>value</code> of <code>cherry</code>, and the checkbox is checked, the form data submitted will include <code>fruit=cherry</code>. If the checkbox isn't active, it isn't listed in the form data at all. The default <code>value</code> for checkboxes and radio buttons is <code>on</code>.</p>
     ///     </div>
@@ -23024,9 +23024,9 @@ pub struct Input<'life> {
     pub dirname: core::option::Option<&'life str>,
     ///
     ///     <p>A Boolean attribute which, if present, indicates that the user should not be able to interact with the input. Disabled inputs are typically rendered with a dimmer color or using some other form of indication that the field is not available for use.</p>
-    ///     <p>Specifically, disabled inputs do not receive the <a href="/en-US/docs/Web/API/Element/click_event" title="click"><code>click</code></a> event, and disabled inputs are not submitted with the form.</p>
+    ///     <p>Specifically, disabled inputs do not receive the <a title="click" href="/en-US/docs/Web/API/Element/click_event"><code>click</code></a> event, and disabled inputs are not submitted with the form.</p>
     ///     <div class="notecard note" id="sect4">
-    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
+    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external" target="_blank">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
     ///     </div>
     ///   
     pub disabled: core::option::Option<bool>,
@@ -23140,7 +23140,7 @@ pub struct Input<'life> {
     ///     <p>There are two special cases:</p>
     ///     <ol>
     ///       <li><code>_charset_</code> : If used as the name of an <code>&lt;input&gt;</code> element of type <a href="/en-US/docs/Web/HTML/Element/input/hidden">hidden</a>, the input's <code>value</code> is automatically set by the <a href="/en-US/docs/Glossary/User_agent">user agent</a> to the character encoding being used to submit the form.</li>
-    ///       <li><code>isindex</code>: For historical reasons, the name <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name" target="_blank" class="external"><code>isindex</code></a> is not allowed.</li>
+    ///       <li><code>isindex</code>: For historical reasons, the name <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name" class="external" target="_blank"><code>isindex</code></a> is not allowed.</li>
     ///     </ol>
     ///     <p>The <a href="#name"><code>name</code></a> attribute creates a unique behavior for radio buttons.</p>
     ///     <p>Only one radio button in a same-named group of radio buttons can be checked at a time. Selecting any radio button in that group automatically deselects any currently-selected radio button in the same group. The value of that one checked radio button is sent along with the name if the form is submitted,</p>
@@ -23153,7 +23153,7 @@ pub struct Input<'life> {
     /// <span class="token keyword">let</span> hatSize <span class="token operator">=</span> form<span class="token punctuation">.</span>elements<span class="token punctuation">[</span><span class="token string">"hat-size"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     /// </code></pre></div>
     ///     <p>When this code has run, <code>guestName</code> will be the <a href="/en-US/docs/Web/API/HTMLInputElement"><code>HTMLInputElement</code></a> for the <code>guest</code> field, and <code>hatSize</code> the object for the <code>hat-size</code> field.</p>
-    ///     <div class="notecard warning" id="sect6">
+    ///     <div id="sect6" class="notecard warning">
     ///       <p><strong>Warning:</strong> Avoid giving form elements a <code>name</code> that corresponds to a built-in property of the form, since you would then override the predefined property or method with this reference to the corresponding input.</p>
     ///     </div>
     ///   
@@ -23169,7 +23169,7 @@ pub struct Input<'life> {
     pub pattern: core::option::Option<&'life str>,
     ///
     ///     <p>Valid for <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, <code>password</code>, and <code>number</code>, the <code>placeholder</code> attribute provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that provides a hint as to the expected type of data, rather than an explanation or prompt. The text <em>must not</em> include carriage returns or line feeds. So for example if a field is expected to capture a user's first name, and its label is "First Name", a suitable placeholder might be "e.g. Mustafa".</p>
-    ///     <div id="sect8" class="notecard note">
+    ///     <div class="notecard note" id="sect8">
     ///       <p><strong>Note:</strong> The <code>placeholder</code> attribute is not as semantically useful as other ways to explain your form, and can cause unexpected technical issues with your content. See <a href="#labels">Labels</a> for more information.</p>
     ///     </div>
     ///   
@@ -23279,7 +23279,7 @@ pub struct InputOwned {
     ///     </div>
     ///     <p>No more than one element in the document may have the <code>autofocus</code> attribute. If put on more than one element, the first one with the attribute receives focus.</p>
     ///     <p>The <code>autofocus</code> attribute cannot be used on inputs of type <code>hidden</code>, since hidden inputs cannot be focused.</p>
-    ///     <div class="notecard warning" id="sect2">
+    ///     <div id="sect2" class="notecard warning">
     ///       <p><strong>Warning:</strong> Automatically focusing a form control can confuse visually-impaired people using screen-reading technology and people with cognitive impairments. When <code>autofocus</code> is assigned, screen-readers "teleport" their user to the form control without warning them beforehand.</p>
     ///     </div>
     ///     <p>Use careful consideration for accessibility when applying the <code>autofocus</code> attribute. Automatically focusing on a control can cause the page to scroll on load. The focus can also cause dynamic keyboards to display on some touch devices. While a screen reader will announce the label of the form control receiving focus, the screen reader will not announce anything before the label, and the sighted user on a small device will equally miss the context created by the preceding content.</p>
@@ -23291,7 +23291,7 @@ pub struct InputOwned {
     pub capture: core::option::Option<alloc::string::String>,
     ///
     ///     <p>Valid for both <code>radio</code> and <code>checkbox</code> types, <code>checked</code> is a Boolean attribute. If present on a <code>radio</code> type, it indicates that the radio button is the currently selected one in the group of same-named radio buttons. If present on a <code>checkbox</code> type, it indicates that the checkbox is checked by default (when the page loads). It does <em>not</em> indicate whether this checkbox is currently checked: if the checkbox's state is changed, this content attribute does not reflect the change. (Only the <a href="/en-US/docs/Web/API/HTMLInputElement"><code>HTMLInputElement</code>'s <code>checked</code> IDL attribute</a> is updated.)</p>
-    ///     <div class="notecard note" id="sect3">
+    ///     <div id="sect3" class="notecard note">
     ///       <p><strong>Note:</strong> Unlike other input controls, a checkboxes and radio buttons value are only included in the submitted data if they are currently <code>checked</code>. If they are, the name and the value(s) of the checked controls are submitted.</p>
     ///       <p>For example, if a checkbox whose <code>name</code> is <code>fruit</code> has a <code>value</code> of <code>cherry</code>, and the checkbox is checked, the form data submitted will include <code>fruit=cherry</code>. If the checkbox isn't active, it isn't listed in the form data at all. The default <code>value</code> for checkboxes and radio buttons is <code>on</code>.</p>
     ///     </div>
@@ -23345,9 +23345,9 @@ pub struct InputOwned {
     pub dirname: core::option::Option<alloc::string::String>,
     ///
     ///     <p>A Boolean attribute which, if present, indicates that the user should not be able to interact with the input. Disabled inputs are typically rendered with a dimmer color or using some other form of indication that the field is not available for use.</p>
-    ///     <p>Specifically, disabled inputs do not receive the <a href="/en-US/docs/Web/API/Element/click_event" title="click"><code>click</code></a> event, and disabled inputs are not submitted with the form.</p>
+    ///     <p>Specifically, disabled inputs do not receive the <a title="click" href="/en-US/docs/Web/API/Element/click_event"><code>click</code></a> event, and disabled inputs are not submitted with the form.</p>
     ///     <div class="notecard note" id="sect4">
-    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
+    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external" target="_blank">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
     ///     </div>
     ///   
     pub disabled: core::option::Option<bool>,
@@ -23463,7 +23463,7 @@ pub struct InputOwned {
     ///     <p>There are two special cases:</p>
     ///     <ol>
     ///       <li><code>_charset_</code> : If used as the name of an <code>&lt;input&gt;</code> element of type <a href="/en-US/docs/Web/HTML/Element/input/hidden">hidden</a>, the input's <code>value</code> is automatically set by the <a href="/en-US/docs/Glossary/User_agent">user agent</a> to the character encoding being used to submit the form.</li>
-    ///       <li><code>isindex</code>: For historical reasons, the name <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name" target="_blank" class="external"><code>isindex</code></a> is not allowed.</li>
+    ///       <li><code>isindex</code>: For historical reasons, the name <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name" class="external" target="_blank"><code>isindex</code></a> is not allowed.</li>
     ///     </ol>
     ///     <p>The <a href="#name"><code>name</code></a> attribute creates a unique behavior for radio buttons.</p>
     ///     <p>Only one radio button in a same-named group of radio buttons can be checked at a time. Selecting any radio button in that group automatically deselects any currently-selected radio button in the same group. The value of that one checked radio button is sent along with the name if the form is submitted,</p>
@@ -23476,7 +23476,7 @@ pub struct InputOwned {
     /// <span class="token keyword">let</span> hatSize <span class="token operator">=</span> form<span class="token punctuation">.</span>elements<span class="token punctuation">[</span><span class="token string">"hat-size"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     /// </code></pre></div>
     ///     <p>When this code has run, <code>guestName</code> will be the <a href="/en-US/docs/Web/API/HTMLInputElement"><code>HTMLInputElement</code></a> for the <code>guest</code> field, and <code>hatSize</code> the object for the <code>hat-size</code> field.</p>
-    ///     <div class="notecard warning" id="sect6">
+    ///     <div id="sect6" class="notecard warning">
     ///       <p><strong>Warning:</strong> Avoid giving form elements a <code>name</code> that corresponds to a built-in property of the form, since you would then override the predefined property or method with this reference to the corresponding input.</p>
     ///     </div>
     ///   
@@ -23492,7 +23492,7 @@ pub struct InputOwned {
     pub pattern: core::option::Option<alloc::string::String>,
     ///
     ///     <p>Valid for <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, <code>password</code>, and <code>number</code>, the <code>placeholder</code> attribute provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that provides a hint as to the expected type of data, rather than an explanation or prompt. The text <em>must not</em> include carriage returns or line feeds. So for example if a field is expected to capture a user's first name, and its label is "First Name", a suitable placeholder might be "e.g. Mustafa".</p>
-    ///     <div id="sect8" class="notecard note">
+    ///     <div class="notecard note" id="sect8">
     ///       <p><strong>Note:</strong> The <code>placeholder</code> attribute is not as semantically useful as other ways to explain your form, and can cause unexpected technical issues with your content. See <a href="#labels">Labels</a> for more information.</p>
     ///     </div>
     ///   
@@ -23638,7 +23638,7 @@ pub struct Label<'life> {
     ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> To programmatically set the <code>for</code> attribute, use <a href="/en-US/docs/Web/API/HTMLLabelElement/htmlFor"><code>htmlFor</code></a>.</p>
     ///     </div>
-    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a href="https://html.spec.whatwg.org/multipage/forms.html#category-label" class="external" target="_blank">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
+    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/forms.html#category-label">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
     ///     <p>Multiple <code>label</code> elements can be given the same value for their <code>for</code> attribute; doing so causes the associated form control (the form control that <code>for</code> value references) to have multiple labels.</p>
     ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> A <code>&lt;label&gt;</code> element can have both a <code>for</code> attribute and a contained control element, as long as the <code>for</code> attribute points to the contained control element.</p>
@@ -23756,7 +23756,7 @@ pub struct LabelOwned {
     ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> To programmatically set the <code>for</code> attribute, use <a href="/en-US/docs/Web/API/HTMLLabelElement/htmlFor"><code>htmlFor</code></a>.</p>
     ///     </div>
-    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a href="https://html.spec.whatwg.org/multipage/forms.html#category-label" class="external" target="_blank">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
+    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/forms.html#category-label">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
     ///     <p>Multiple <code>label</code> elements can be given the same value for their <code>for</code> attribute; doing so causes the associated form control (the form control that <code>for</code> value references) to have multiple labels.</p>
     ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> A <code>&lt;label&gt;</code> element can have both a <code>for</code> attribute and a contained control element, as long as the <code>for</code> attribute points to the contained control element.</p>
@@ -24113,7 +24113,7 @@ pub struct Meter<'life> {
     pub optimum: core::option::Option<&'life str>,
     ///
     ///     <p>The current numeric value. This must be between the minimum and maximum values (<code>min</code> attribute and <code>max</code> attribute) if they are specified. If unspecified or malformed, the value is <code>0</code>. If specified, but not within the range given by the <code>min</code> attribute and <code>max</code> attribute, the value is equal to the nearest end of the range.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Unless the <code>value</code> attribute is between <code>0</code> and <code>1</code> (inclusive), the <code>min</code> and <code>max</code> attributes should define the range so that the <code>value</code> attribute's value is within it.</p>
     ///     </div>
     ///   
@@ -24246,7 +24246,7 @@ pub struct MeterOwned {
     pub optimum: core::option::Option<alloc::string::String>,
     ///
     ///     <p>The current numeric value. This must be between the minimum and maximum values (<code>min</code> attribute and <code>max</code> attribute) if they are specified. If unspecified or malformed, the value is <code>0</code>. If specified, but not within the range given by the <code>min</code> attribute and <code>max</code> attribute, the value is equal to the nearest end of the range.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Unless the <code>value</code> attribute is between <code>0</code> and <code>1</code> (inclusive), the <code>min</code> and <code>max</code> attributes should define the range so that the <code>value</code> attribute's value is within it.</p>
     ///     </div>
     ///   
@@ -24824,7 +24824,7 @@ pub struct Output<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
     ///
-    ///     <p>The element's name. Used in the <a href="/en-US/docs/Web/API/HTMLFormElement/elements" title="form.elements"><code>form.elements</code></a> API.</p>
+    ///     <p>The element's name. Used in the <a title="form.elements" href="/en-US/docs/Web/API/HTMLFormElement/elements"><code>form.elements</code></a> API.</p>
     ///   
     pub name: core::option::Option<&'life str>,
 }
@@ -24943,7 +24943,7 @@ pub struct OutputOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The element's name. Used in the <a href="/en-US/docs/Web/API/HTMLFormElement/elements" title="form.elements"><code>form.elements</code></a> API.</p>
+    ///     <p>The element's name. Used in the <a title="form.elements" href="/en-US/docs/Web/API/HTMLFormElement/elements"><code>form.elements</code></a> API.</p>
     ///   
     pub name: core::option::Option<alloc::string::String>,
 }
@@ -25297,7 +25297,7 @@ pub struct Select<'life> {
     pub required: core::option::Option<bool>,
     ///
     ///     <p>If the control is presented as a scrolling list box (e.g. when <code>multiple</code> is specified), this attribute represents the number of rows in the list that should be visible at one time. Browsers are not required to present a select element as a scrolled list box. The default value is <code>0</code>.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> According to the HTML specification, the default value for size should be <code>1</code>; however, in practice, this has been found to break some websites, and no other browser currently does that, so Mozilla has opted to continue to return <code>0</code> for the time being with Firefox.</p>
     ///     </div>
     ///   
@@ -25435,7 +25435,7 @@ pub struct SelectOwned {
     pub required: core::option::Option<bool>,
     ///
     ///     <p>If the control is presented as a scrolling list box (e.g. when <code>multiple</code> is specified), this attribute represents the number of rows in the list that should be visible at one time. Browsers are not required to present a select element as a scrolled list box. The default value is <code>0</code>.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> According to the HTML specification, the default value for size should be <code>1</code>; however, in practice, this has been found to break some websites, and no other browser currently does that, so Mozilla has opted to continue to return <code>0</code> for the time being with Firefox.</p>
     ///     </div>
     ///   
@@ -25590,7 +25590,7 @@ pub struct Textarea<'life> {
     pub name: core::option::Option<&'life str>,
     ///
     ///     <p>A hint to the user of what can be entered in the control. Carriage returns or line-feeds within the placeholder text must be treated as line breaks when rendering the hint.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Placeholders should only be used to show an example of the type of data that should be entered into a form; they are <em>not</em> a substitute for a proper <a href="/en-US/docs/Web/HTML/Element/label"><code>&lt;label&gt;</code></a> element tied to the input. See <a href="/en-US/docs/Web/HTML/Element/input#labels"><code>&lt;input&gt;</code> labels</a> for a full explanation.</p>
     ///     </div>
     ///   
@@ -25621,7 +25621,7 @@ pub struct Textarea<'life> {
     ///     <ul>
     ///       <li><code>hard</code>: The browser automatically inserts line breaks (CR+LF) so that each line is no longer than the width of the control; the <a href="#cols"><code>cols</code></a> attribute must be specified for this to take effect</li>
     ///       <li><code>soft</code>: The browser ensures that all line breaks in the entered value are a <code>CR+LF</code> pair, but no additional line breaks are added to the value.</li>
-    ///       <li><code>off</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using.">
+    ///       <li><code>off</code> <abbr title="Non-standard. Check cross-browser support before using." class="icon icon-nonstandard">
     ///     <span class="visually-hidden">Non-standard</span>
     /// </abbr>: Like <code>soft</code> but changes appearance to <code>white-space: pre</code> so line segments exceeding <code>cols</code> are not wrapped and the <code>&lt;textarea&gt;</code> becomes horizontally scrollable.</li>
     ///     </ul>
@@ -25783,7 +25783,7 @@ pub struct TextareaOwned {
     pub name: core::option::Option<alloc::string::String>,
     ///
     ///     <p>A hint to the user of what can be entered in the control. Carriage returns or line-feeds within the placeholder text must be treated as line breaks when rendering the hint.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Placeholders should only be used to show an example of the type of data that should be entered into a form; they are <em>not</em> a substitute for a proper <a href="/en-US/docs/Web/HTML/Element/label"><code>&lt;label&gt;</code></a> element tied to the input. See <a href="/en-US/docs/Web/HTML/Element/input#labels"><code>&lt;input&gt;</code> labels</a> for a full explanation.</p>
     ///     </div>
     ///   
@@ -25814,7 +25814,7 @@ pub struct TextareaOwned {
     ///     <ul>
     ///       <li><code>hard</code>: The browser automatically inserts line breaks (CR+LF) so that each line is no longer than the width of the control; the <a href="#cols"><code>cols</code></a> attribute must be specified for this to take effect</li>
     ///       <li><code>soft</code>: The browser ensures that all line breaks in the entered value are a <code>CR+LF</code> pair, but no additional line breaks are added to the value.</li>
-    ///       <li><code>off</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using.">
+    ///       <li><code>off</code> <abbr title="Non-standard. Check cross-browser support before using." class="icon icon-nonstandard">
     ///     <span class="visually-hidden">Non-standard</span>
     /// </abbr>: Like <code>soft</code> but changes appearance to <code>white-space: pre</code> so line segments exceeding <code>cols</code> are not wrapped and the <code>&lt;textarea&gt;</code> becomes horizontally scrollable.</li>
     ///     </ul>
@@ -26912,7 +26912,7 @@ impl TemplateOwned {
     }
 }
 /// <p>The <strong><code>&lt;acronym&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element allows authors to clearly indicate a sequence of characters that compose an acronym or abbreviation for a word.</p>
-/// <div class="notecard warning" id="sect2">
+/// <div id="sect2" class="notecard warning">
 ///   <p><strong>Warning:</strong> Don't use this element. Use the <a href="/en-US/docs/Web/HTML/Element/abbr"><code>&lt;abbr&gt;</code></a> element instead.</p>
 /// </div>
 ///
@@ -27016,7 +27016,7 @@ impl<'life> Acronym<'life> {
     }
 }
 /// <p>The <strong><code>&lt;acronym&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element allows authors to clearly indicate a sequence of characters that compose an acronym or abbreviation for a word.</p>
-/// <div class="notecard warning" id="sect2">
+/// <div id="sect2" class="notecard warning">
 ///   <p><strong>Warning:</strong> Don't use this element. Use the <a href="/en-US/docs/Web/HTML/Element/abbr"><code>&lt;abbr&gt;</code></a> element instead.</p>
 /// </div>
 ///
@@ -31591,7 +31591,7 @@ impl RbOwned {
         "rb"
     }
 }
-/// The <strong><code>&lt;rtc&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>) and semantic (<a href="/en-US/docs/Web/HTML/Element/rtc" aria-current="page"><code>&lt;rtc&gt;</code></a>) annotations.
+/// The <strong><code>&lt;rtc&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>) and semantic (<a aria-current="page" href="/en-US/docs/Web/HTML/Element/rtc"><code>&lt;rtc&gt;</code></a>) annotations.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rtc>
 #[deprecated]
@@ -31692,7 +31692,7 @@ impl<'life> Rtc<'life> {
         "rtc"
     }
 }
-/// The <strong><code>&lt;rtc&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>) and semantic (<a href="/en-US/docs/Web/HTML/Element/rtc" aria-current="page"><code>&lt;rtc&gt;</code></a>) annotations.
+/// The <strong><code>&lt;rtc&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>) and semantic (<a aria-current="page" href="/en-US/docs/Web/HTML/Element/rtc"><code>&lt;rtc&gt;</code></a>) annotations.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rtc>
 #[deprecated]
@@ -32472,7 +32472,7 @@ impl TtOwned {
     }
 }
 /// <p>The <strong><code>&lt;xmp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element renders text between the start and end tags without interpreting the HTML in between and using a monospaced font. The HTML2 specification recommended that it should be rendered wide enough to allow 80 characters per line.</p>
-/// <div id="sect2" class="notecard note">
+/// <div class="notecard note" id="sect2">
 ///   <p><strong>Note:</strong> Do not use this element.</p>
 ///   <ul>
 ///     <li>It has been deprecated since HTML3.2 and was not implemented in a consistent way. It was completely removed from current HTML.</li>
@@ -32581,7 +32581,7 @@ impl<'life> Xmp<'life> {
     }
 }
 /// <p>The <strong><code>&lt;xmp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element renders text between the start and end tags without interpreting the HTML in between and using a monospaced font. The HTML2 specification recommended that it should be rendered wide enough to allow 80 characters per line.</p>
-/// <div id="sect2" class="notecard note">
+/// <div class="notecard note" id="sect2">
 ///   <p><strong>Note:</strong> Do not use this element.</p>
 ///   <ul>
 ///     <li>It has been deprecated since HTML3.2 and was not implemented in a consistent way. It was completely removed from current HTML.</li>
