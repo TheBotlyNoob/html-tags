@@ -113,6 +113,7 @@ pub struct Html<'life> {
     pub xmlns: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Html<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -231,6 +232,7 @@ pub struct HtmlOwned {
     pub xmlns: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl HtmlOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -348,6 +350,7 @@ pub struct Base<'life> {
     pub target: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Base<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -470,6 +473,7 @@ pub struct BaseOwned {
     pub target: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl BaseOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -575,6 +579,7 @@ pub struct Head<'life> {
     pub profile: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Head<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -685,6 +690,7 @@ pub struct HeadOwned {
     pub profile: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl HeadOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -735,7 +741,7 @@ pub struct Link<'life> {
     ///           <td>fetch</td>
     ///           <td>
     ///             <p>fetch, XHR</p>
-    ///             <div id="sect1" class="notecard note">
+    ///             <div class="notecard note" id="sect1">
     ///               <p>
     ///                 <strong>Note:</strong> This value also requires
     ///                 <code>&lt;link&gt;</code> to contain the crossorigin attribute.
@@ -923,7 +929,7 @@ pub struct Link<'life> {
     ///     <p>
     ///       This attribute indicates the language of the linked resource.
     ///       It is purely advisory.
-    ///       Allowed values are specified by <a href="https://datatracker.ietf.org/doc/html/rfc5646" class="external" target="_blank">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Allowed values are specified by <a href="https://datatracker.ietf.org/doc/html/rfc5646" target="_blank" class="external">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -933,11 +939,11 @@ pub struct Link<'life> {
     ///   
     pub id: core::option::Option<&'life str>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesizes</code> attribute is <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/images.html#sizes-attribute">a sizes attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesizes</code> attribute is <a href="https://html.spec.whatwg.org/multipage/images.html#sizes-attribute" class="external" target="_blank">a sizes attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesizes: core::option::Option<&'life str>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a target="_blank" href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute" class="external">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute" target="_blank" class="external">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesrcset: core::option::Option<&'life str>,
     ///
@@ -965,7 +971,7 @@ pub struct Link<'life> {
     ///       This attribute specifies the media that the linked resource applies to. Its value must be a media type / <a href="/en-US/docs/Web/CSS/Media_Queries">media query</a>.
     ///       This attribute is mainly useful when linking to external stylesheets — it allows the user agent to pick the best adapted one for the device it runs on.
     ///     </p>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>
@@ -1015,7 +1021,7 @@ pub struct Link<'life> {
     ///       <li><code>any</code>, meaning that the icon can be scaled to any size as it is in a vector format, like <code>image/svg+xml</code>.</li>
     ///       <li>a white-space separated list of sizes, each in the format <code>&lt;width in pixels&gt;x&lt;height in pixels&gt;</code> or <code>&lt;width in pixels&gt;X&lt;height in pixels&gt;</code>. Each of these sizes must be contained in the resource.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect3">
+    ///     <div id="sect3" class="notecard note">
     ///       <p>
     ///         <strong>Note:</strong> Most icon formats are only able to store one single icon; therefore, most of the time, the <a href="#sizes"><code>sizes</code></a> attribute contains only one entry.
     ///         MS's ICO format does, as well as Apple's ICNS. ICO is more ubiquitous, so you should use this format if cross-browser support is a concern (especially for old IE versions).
@@ -1041,6 +1047,7 @@ pub struct Link<'life> {
     pub type_: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Link<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -1092,7 +1099,7 @@ pub struct LinkOwned {
     ///           <td>fetch</td>
     ///           <td>
     ///             <p>fetch, XHR</p>
-    ///             <div id="sect1" class="notecard note">
+    ///             <div class="notecard note" id="sect1">
     ///               <p>
     ///                 <strong>Note:</strong> This value also requires
     ///                 <code>&lt;link&gt;</code> to contain the crossorigin attribute.
@@ -1284,7 +1291,7 @@ pub struct LinkOwned {
     ///     <p>
     ///       This attribute indicates the language of the linked resource.
     ///       It is purely advisory.
-    ///       Allowed values are specified by <a href="https://datatracker.ietf.org/doc/html/rfc5646" class="external" target="_blank">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Allowed values are specified by <a href="https://datatracker.ietf.org/doc/html/rfc5646" target="_blank" class="external">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -1294,11 +1301,11 @@ pub struct LinkOwned {
     ///   
     pub id: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesizes</code> attribute is <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/images.html#sizes-attribute">a sizes attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesizes</code> attribute is <a href="https://html.spec.whatwg.org/multipage/images.html#sizes-attribute" class="external" target="_blank">a sizes attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesizes: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a target="_blank" href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute" class="external">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute" target="_blank" class="external">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesrcset: core::option::Option<alloc::string::String>,
     ///
@@ -1326,7 +1333,7 @@ pub struct LinkOwned {
     ///       This attribute specifies the media that the linked resource applies to. Its value must be a media type / <a href="/en-US/docs/Web/CSS/Media_Queries">media query</a>.
     ///       This attribute is mainly useful when linking to external stylesheets — it allows the user agent to pick the best adapted one for the device it runs on.
     ///     </p>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>
@@ -1376,7 +1383,7 @@ pub struct LinkOwned {
     ///       <li><code>any</code>, meaning that the icon can be scaled to any size as it is in a vector format, like <code>image/svg+xml</code>.</li>
     ///       <li>a white-space separated list of sizes, each in the format <code>&lt;width in pixels&gt;x&lt;height in pixels&gt;</code> or <code>&lt;width in pixels&gt;X&lt;height in pixels&gt;</code>. Each of these sizes must be contained in the resource.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect3">
+    ///     <div id="sect3" class="notecard note">
     ///       <p>
     ///         <strong>Note:</strong> Most icon formats are only able to store one single icon; therefore, most of the time, the <a href="#sizes"><code>sizes</code></a> attribute contains only one entry.
     ///         MS's ICO format does, as well as Apple's ICNS. ICO is more ubiquitous, so you should use this format if cross-browser support is a concern (especially for old IE versions).
@@ -1402,6 +1409,7 @@ pub struct LinkOwned {
     pub type_: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl LinkOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -1525,9 +1533,9 @@ pub struct Meta<'life> {
     ///           <ul>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.2_%E2%80%94_enough_time_provide_users_enough_time_to_read_and_use_content">MDN Understanding WCAG, Guideline 2.1 explanations</a></li>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.2_%E2%80%94_predictable_make_web_pages_appear_and_operate_in_predictable_ways">MDN Understanding WCAG, Guideline 3.1 explanations</a></li>
-    ///             <li><a class="external" target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a target="_blank" class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a target="_blank" class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html" class="external" target="_blank">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html" target="_blank" class="external">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html" class="external">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
     ///           </ul>
     ///         </div>
     ///       </li>
@@ -1557,6 +1565,7 @@ pub struct Meta<'life> {
     pub name: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Meta<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -1685,9 +1694,9 @@ pub struct MetaOwned {
     ///           <ul>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.2_%E2%80%94_enough_time_provide_users_enough_time_to_read_and_use_content">MDN Understanding WCAG, Guideline 2.1 explanations</a></li>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.2_%E2%80%94_predictable_make_web_pages_appear_and_operate_in_predictable_ways">MDN Understanding WCAG, Guideline 3.1 explanations</a></li>
-    ///             <li><a class="external" target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a target="_blank" class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a target="_blank" class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html" class="external" target="_blank">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html" target="_blank" class="external">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html" class="external">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
     ///           </ul>
     ///         </div>
     ///       </li>
@@ -1717,6 +1726,7 @@ pub struct MetaOwned {
     pub name: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl MetaOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -1837,6 +1847,7 @@ pub struct Style<'life> {
     pub title: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Style<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -1962,6 +1973,7 @@ pub struct StyleOwned {
     pub title: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl StyleOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -2063,6 +2075,7 @@ pub struct Title<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Title<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -2169,6 +2182,7 @@ pub struct TitleOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl TitleOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -2412,6 +2426,7 @@ pub struct Body<'life> {
     pub vlink: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Body<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -2660,6 +2675,7 @@ pub struct BodyOwned {
     pub vlink: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl BodyOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -2761,6 +2777,7 @@ pub struct Address<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Address<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -2867,6 +2884,7 @@ pub struct AddressOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl AddressOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -2968,6 +2986,7 @@ pub struct Article<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Article<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -3074,6 +3093,7 @@ pub struct ArticleOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl ArticleOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -3175,6 +3195,7 @@ pub struct Aside<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Aside<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -3281,6 +3302,7 @@ pub struct AsideOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl AsideOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -3382,6 +3404,7 @@ pub struct Footer<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Footer<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -3488,6 +3511,7 @@ pub struct FooterOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl FooterOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -3589,6 +3613,7 @@ pub struct Header<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Header<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -3695,6 +3720,7 @@ pub struct HeaderOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl HeaderOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -3796,6 +3822,7 @@ pub struct Hgroup<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Hgroup<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -3902,6 +3929,7 @@ pub struct HgroupOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl HgroupOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -4003,6 +4031,7 @@ pub struct Main<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Main<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -4109,6 +4138,7 @@ pub struct MainOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl MainOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -4210,6 +4240,7 @@ pub struct Nav<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Nav<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -4316,6 +4347,7 @@ pub struct NavOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl NavOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -4417,6 +4449,7 @@ pub struct Section<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Section<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -4523,6 +4556,7 @@ pub struct SectionOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl SectionOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -4628,6 +4662,7 @@ pub struct Blockquote<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Blockquote<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -4738,6 +4773,7 @@ pub struct BlockquoteOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl BlockquoteOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -4843,6 +4879,7 @@ pub struct Dd<'life> {
     pub nowrap: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Dd<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -4953,6 +4990,7 @@ pub struct DdOwned {
     pub nowrap: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl DdOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -5054,6 +5092,7 @@ pub struct Div<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Div<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -5160,6 +5199,7 @@ pub struct DivOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl DivOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -5261,6 +5301,7 @@ pub struct Dl<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Dl<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -5367,6 +5408,7 @@ pub struct DlOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl DlOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -5470,6 +5512,7 @@ pub struct Dt<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Dt<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -5578,6 +5621,7 @@ pub struct DtOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl DtOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -5679,6 +5723,7 @@ pub struct Figcaption<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Figcaption<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -5785,6 +5830,7 @@ pub struct FigcaptionOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl FigcaptionOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -5886,6 +5932,7 @@ pub struct Figure<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Figure<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -5992,6 +6039,7 @@ pub struct FigureOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl FigureOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -6113,6 +6161,7 @@ pub struct Hr<'life> {
     pub width: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Hr<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -6239,6 +6288,7 @@ pub struct HrOwned {
     pub width: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl HrOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -6359,6 +6409,7 @@ pub struct Li<'life> {
     pub value: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Li<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -6484,6 +6535,7 @@ pub struct LiOwned {
     pub value: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl LiOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -6585,6 +6637,7 @@ pub struct Menu<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Menu<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -6691,6 +6744,7 @@ pub struct MenuOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl MenuOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -6808,13 +6862,14 @@ pub struct Ol<'life> {
     ///       <li><code>1</code> for numbers (default)</li>
     ///     </ul>
     ///     <p>The specified type is used for the entire list unless a different <a href="/en-US/docs/Web/HTML/Element/li#type"><code>type</code></a> attribute is used on an enclosed <a href="/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a> element.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> Unless the type of the list number matters (like legal or technical documents where items are referenced by their number/letter), use the CSS <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
     pub type_: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Ol<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -6937,13 +6992,14 @@ pub struct OlOwned {
     ///       <li><code>1</code> for numbers (default)</li>
     ///     </ul>
     ///     <p>The specified type is used for the entire list unless a different <a href="/en-US/docs/Web/HTML/Element/li#type"><code>type</code></a> attribute is used on an enclosed <a href="/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a> element.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> Unless the type of the list number matters (like legal or technical documents where items are referenced by their number/letter), use the CSS <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
     pub type_: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl OlOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -7047,6 +7103,7 @@ pub struct P<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> P<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -7155,6 +7212,7 @@ pub struct POwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl POwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -7162,7 +7220,7 @@ impl POwned {
         "p"
     }
 }
-/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a class="external" href="https://en.wikipedia.org/wiki/Monospaced_font" target="_blank">monospaced</a>, font. Whitespace inside this element is displayed as written.
+/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a href="https://en.wikipedia.org/wiki/Monospaced_font" target="_blank" class="external">monospaced</a>, font. Whitespace inside this element is displayed as written.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre>
 
@@ -7268,6 +7326,7 @@ pub struct Pre<'life> {
     pub wrap: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Pre<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -7275,7 +7334,7 @@ impl<'life> Pre<'life> {
         "pre"
     }
 }
-/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a class="external" href="https://en.wikipedia.org/wiki/Monospaced_font" target="_blank">monospaced</a>, font. Whitespace inside this element is displayed as written.
+/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a href="https://en.wikipedia.org/wiki/Monospaced_font" target="_blank" class="external">monospaced</a>, font. Whitespace inside this element is displayed as written.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre>
 
@@ -7386,6 +7445,7 @@ pub struct PreOwned {
     pub wrap: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl PreOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -7422,7 +7482,7 @@ pub struct Ul<'life> {
     pub class: core::option::Option<&'life str>,
     ///
     ///     <p>This Boolean attribute hints that the list should be rendered in a compact style. The interpretation of this attribute depends on the <a href="/en-US/docs/Glossary/User_agent">user agent</a>, and it doesn't work in all browsers.</p>
-    ///     <div id="sect1" class="notecard warning">
+    ///     <div class="notecard warning" id="sect1">
     ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated: use <a href="/en-US/docs/Web/CSS">CSS</a> instead. To give a similar effect as the <code>compact</code> attribute, the CSS property <a href="/en-US/docs/Web/CSS/line-height"><code>line-height</code></a> can be used with a value of <code>80%</code>.</p>
     ///     </div>
     ///   
@@ -7501,13 +7561,14 @@ pub struct Ul<'life> {
     ///     </ul>
     ///     <p>A fourth bullet type has been defined in the WebTV interface, but not all browsers support it: <code>triangle</code>.</p>
     ///     <p>If not present and if no <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property applies to the element, the user agent selects a bullet type depending on the nesting level of the list.</p>
-    ///     <div id="sect2" class="notecard warning">
+    ///     <div class="notecard warning" id="sect2">
     ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated; use the <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
     pub type_: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Ul<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -7545,7 +7606,7 @@ pub struct UlOwned {
     pub class: core::option::Option<alloc::string::String>,
     ///
     ///     <p>This Boolean attribute hints that the list should be rendered in a compact style. The interpretation of this attribute depends on the <a href="/en-US/docs/Glossary/User_agent">user agent</a>, and it doesn't work in all browsers.</p>
-    ///     <div id="sect1" class="notecard warning">
+    ///     <div class="notecard warning" id="sect1">
     ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated: use <a href="/en-US/docs/Web/CSS">CSS</a> instead. To give a similar effect as the <code>compact</code> attribute, the CSS property <a href="/en-US/docs/Web/CSS/line-height"><code>line-height</code></a> can be used with a value of <code>80%</code>.</p>
     ///     </div>
     ///   
@@ -7628,13 +7689,14 @@ pub struct UlOwned {
     ///     </ul>
     ///     <p>A fourth bullet type has been defined in the WebTV interface, but not all browsers support it: <code>triangle</code>.</p>
     ///     <p>If not present and if no <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property applies to the element, the user agent selects a bullet type depending on the nesting level of the list.</p>
-    ///     <div id="sect2" class="notecard warning">
+    ///     <div class="notecard warning" id="sect2">
     ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated; use the <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
     pub type_: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl UlOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -7820,6 +7882,7 @@ pub struct A<'life> {
     pub type_: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> A<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -8010,6 +8073,7 @@ pub struct AOwned {
     pub type_: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl AOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -8115,6 +8179,7 @@ pub struct Abbr<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Abbr<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -8225,6 +8290,7 @@ pub struct AbbrOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl AbbrOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -8326,6 +8392,7 @@ pub struct B<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> B<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -8432,6 +8499,7 @@ pub struct BOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl BOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -8533,6 +8601,7 @@ pub struct Bdi<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Bdi<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -8639,6 +8708,7 @@ pub struct BdiOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl BdiOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -8739,6 +8809,7 @@ pub struct Bdo<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Bdo<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -8844,6 +8915,7 @@ pub struct BdoOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl BdoOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -8949,6 +9021,7 @@ pub struct Br<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Br<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -9059,6 +9132,7 @@ pub struct BrOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl BrOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -9160,6 +9234,7 @@ pub struct Cite<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Cite<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -9266,6 +9341,7 @@ pub struct CiteOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl CiteOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -9367,6 +9443,7 @@ pub struct Code<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Code<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -9473,6 +9550,7 @@ pub struct CodeOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl CodeOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -9578,6 +9656,7 @@ pub struct Data<'life> {
     pub value: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Data<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -9688,6 +9767,7 @@ pub struct DataOwned {
     pub value: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl DataOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -9789,6 +9869,7 @@ pub struct Dfn<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Dfn<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -9895,6 +9976,7 @@ pub struct DfnOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl DfnOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -9996,6 +10078,7 @@ pub struct Em<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Em<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -10102,6 +10185,7 @@ pub struct EmOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl EmOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -10203,6 +10287,7 @@ pub struct I<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> I<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -10309,6 +10394,7 @@ pub struct IOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl IOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -10410,6 +10496,7 @@ pub struct Kbd<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Kbd<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -10516,6 +10603,7 @@ pub struct KbdOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl KbdOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -10617,6 +10705,7 @@ pub struct Mark<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Mark<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -10723,6 +10812,7 @@ pub struct MarkOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl MarkOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -10828,6 +10918,7 @@ pub struct Q<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Q<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -10938,6 +11029,7 @@ pub struct QOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl QOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -11039,6 +11131,7 @@ pub struct Rp<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Rp<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -11145,6 +11238,7 @@ pub struct RpOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl RpOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -11246,6 +11340,7 @@ pub struct Rt<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Rt<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -11352,6 +11447,7 @@ pub struct RtOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl RtOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -11361,7 +11457,7 @@ impl RtOwned {
 }
 /// The <strong><code>&lt;ruby&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
 ///
-/// The term <em>ruby</em> originated as <a target="_blank" href="https://en.wikipedia.org/wiki/Agate_(typography)" class="external">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
+/// The term <em>ruby</em> originated as <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Agate_(typography)">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby>
 
@@ -11455,6 +11551,7 @@ pub struct Ruby<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Ruby<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -11464,7 +11561,7 @@ impl<'life> Ruby<'life> {
 }
 /// The <strong><code>&lt;ruby&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
 ///
-/// The term <em>ruby</em> originated as <a target="_blank" href="https://en.wikipedia.org/wiki/Agate_(typography)" class="external">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
+/// The term <em>ruby</em> originated as <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Agate_(typography)">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby>
 
@@ -11563,6 +11660,7 @@ pub struct RubyOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl RubyOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -11664,6 +11762,7 @@ pub struct S<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> S<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -11770,6 +11869,7 @@ pub struct SOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl SOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -11777,7 +11877,7 @@ impl SOwned {
         "s"
     }
 }
-/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a target="_blank" class="external" href="https://en.wikipedia.org/wiki/Courier_(typeface)">Courier</a> or Lucida Console).
+/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a target="_blank" href="https://en.wikipedia.org/wiki/Courier_(typeface)" class="external">Courier</a> or Lucida Console).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp>
 
@@ -11871,6 +11971,7 @@ pub struct Samp<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Samp<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -11878,7 +11979,7 @@ impl<'life> Samp<'life> {
         "samp"
     }
 }
-/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a target="_blank" class="external" href="https://en.wikipedia.org/wiki/Courier_(typeface)">Courier</a> or Lucida Console).
+/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a target="_blank" href="https://en.wikipedia.org/wiki/Courier_(typeface)" class="external">Courier</a> or Lucida Console).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp>
 
@@ -11977,6 +12078,7 @@ pub struct SampOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl SampOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -12078,6 +12180,7 @@ pub struct Small<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Small<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -12184,6 +12287,7 @@ pub struct SmallOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl SmallOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -12285,6 +12389,7 @@ pub struct Span<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Span<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -12391,6 +12496,7 @@ pub struct SpanOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl SpanOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -12492,6 +12598,7 @@ pub struct Strong<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Strong<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -12598,6 +12705,7 @@ pub struct StrongOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl StrongOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -12699,6 +12807,7 @@ pub struct Sub<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Sub<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -12805,6 +12914,7 @@ pub struct SubOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl SubOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -12906,6 +13016,7 @@ pub struct Sup<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Sup<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -13012,6 +13123,7 @@ pub struct SupOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl SupOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -13119,6 +13231,7 @@ pub struct Time<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Time<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -13231,6 +13344,7 @@ pub struct TimeOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl TimeOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -13332,6 +13446,7 @@ pub struct U<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> U<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -13438,6 +13553,7 @@ pub struct UOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl UOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -13539,6 +13655,7 @@ pub struct Var<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Var<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -13645,6 +13762,7 @@ pub struct VarOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl VarOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -13746,6 +13864,7 @@ pub struct Wbr<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Wbr<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -13852,6 +13971,7 @@ pub struct WbrOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl WbrOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -13985,7 +14105,7 @@ pub struct Area<'life> {
     pub href: core::option::Option<&'life str>,
     ///
     ///     <p>
-    ///       Indicates the language of the linked resource. Allowed values are defined by <a class="external" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5646">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Indicates the language of the linked resource. Allowed values are defined by <a href="https://datatracker.ietf.org/doc/html/rfc5646" target="_blank" class="external">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -14061,13 +14181,14 @@ pub struct Area<'life> {
     ///       </li>
     ///     </ul>
     ///     <p>Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Setting <code>target="_blank"</code> on <code>&lt;area&gt;</code> elements implicitly provides the same <code>rel</code> behavior as setting <a href="/en-US/docs/Web/HTML/Attributes/rel/noopener"><code>rel="noopener"</code></a> which does not set <code>window.opener</code>. See <a href="#browser_compatibility">browser compatibility</a> for support status.</p>
     ///     </div>
     ///   
     pub target: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Area<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -14206,7 +14327,7 @@ pub struct AreaOwned {
     pub href: core::option::Option<alloc::string::String>,
     ///
     ///     <p>
-    ///       Indicates the language of the linked resource. Allowed values are defined by <a class="external" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5646">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Indicates the language of the linked resource. Allowed values are defined by <a href="https://datatracker.ietf.org/doc/html/rfc5646" target="_blank" class="external">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -14282,13 +14403,14 @@ pub struct AreaOwned {
     ///       </li>
     ///     </ul>
     ///     <p>Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Setting <code>target="_blank"</code> on <code>&lt;area&gt;</code> elements implicitly provides the same <code>rel</code> behavior as setting <a href="/en-US/docs/Web/HTML/Attributes/rel/noopener"><code>rel="noopener"</code></a> which does not set <code>window.opener</code>. See <a href="#browser_compatibility">browser compatibility</a> for support status.</p>
     ///     </div>
     ///   
     pub target: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl AreaOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -14347,7 +14469,7 @@ pub struct Audio<'life> {
     ///   
     pub controls: core::option::Option<&'life str>,
     ///
-    ///     <p>The <a class="external" href="https://wicg.github.io/controls-list/explainer.html" target="_blank"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
+    ///     <p>The <a target="_blank" class="external" href="https://wicg.github.io/controls-list/explainer.html"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
     ///     <p>The allowed values are <code>nodownload</code>, <code>nofullscreen</code> and <code>noremoteplayback</code>.</p>
     ///   
     pub controlslist: core::option::Option<&'life str>,
@@ -14381,9 +14503,9 @@ pub struct Audio<'life> {
     ///   
     pub dir: core::option::Option<&'life str>,
     ///
-    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a class="external" target="_blank" href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute">this proposed specification</a> for more information.</p>
+    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a target="_blank" href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute" class="external">this proposed specification</a> for more information.</p>
     ///     <div class="notecard note" id="sect2">
-    ///       <p><strong>Note:</strong> In Safari, you can use <a target="_blank" class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///       <p><strong>Note:</strong> In Safari, you can use <a class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///     </div>
     ///   
     pub disableremoteplayback: core::option::Option<&'life str>,
@@ -14458,6 +14580,7 @@ pub struct Audio<'life> {
     pub src: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Audio<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -14517,7 +14640,7 @@ pub struct AudioOwned {
     ///   
     pub controls: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The <a class="external" href="https://wicg.github.io/controls-list/explainer.html" target="_blank"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
+    ///     <p>The <a target="_blank" class="external" href="https://wicg.github.io/controls-list/explainer.html"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
     ///     <p>The allowed values are <code>nodownload</code>, <code>nofullscreen</code> and <code>noremoteplayback</code>.</p>
     ///   
     pub controlslist: core::option::Option<alloc::string::String>,
@@ -14553,9 +14676,9 @@ pub struct AudioOwned {
     ///   
     pub dir: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a class="external" target="_blank" href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute">this proposed specification</a> for more information.</p>
+    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a target="_blank" href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute" class="external">this proposed specification</a> for more information.</p>
     ///     <div class="notecard note" id="sect2">
-    ///       <p><strong>Note:</strong> In Safari, you can use <a target="_blank" class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///       <p><strong>Note:</strong> In Safari, you can use <a class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///     </div>
     ///   
     pub disableremoteplayback: core::option::Option<alloc::string::String>,
@@ -14632,6 +14755,7 @@ pub struct AudioOwned {
     pub src: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl AudioOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -14701,7 +14825,7 @@ pub struct Img<'life> {
     ///     <dl>
     ///       <dt id="anonymous"><code>anonymous</code></dt>
     ///       <dd>
-    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a href="https://datatracker.ietf.org/doc/html/rfc5280" class="external" target="_blank">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
+    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a href="https://datatracker.ietf.org/doc/html/rfc5280" target="_blank" class="external">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
     ///       </dd>
     ///       <dt id="use-credentials"><code>use-credentials</code></dt>
     ///       <dd>
@@ -14812,8 +14936,8 @@ pub struct Img<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
     ///
-    ///     <p>This Boolean attribute indicates that the image is part of a <a class="external" href="https://en.wikipedia.org/wiki/Image_map#Server-side" target="_blank">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
-    ///     <div class="notecard note" id="sect4">
+    ///     <p>This Boolean attribute indicates that the image is part of a <a target="_blank" href="https://en.wikipedia.org/wiki/Image_map#Server-side" class="external">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
+    ///     <div id="sect4" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute is allowed only if the <code>&lt;img&gt;</code> element is a descendant of an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> element with a valid <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute. This gives users without pointing devices a fallback destination.</p>
     ///     </div>
     ///   
@@ -14830,7 +14954,7 @@ pub struct Img<'life> {
     ///         <p>Defers loading the image until it reaches a calculated distance from the viewport, as defined by the browser. The intent is to avoid the network and storage bandwidth needed to handle the image until it's reasonably certain that it will be needed. This generally improves the performance of the content in most typical use cases.</p>
     ///       </dd>
     ///     </dl>
-    ///     <div class="notecard note" id="sect5">
+    ///     <div id="sect5" class="notecard note">
     ///       <p><strong>Note:</strong> Loading is only deferred when JavaScript is enabled. This is an anti-tracking measure, because if a user agent supported lazy loading when scripting is disabled, it would still be possible for a site to track a user's approximate scroll position throughout a session, by strategically placing images in a page's markup such that a server can track how many images are requested and when.</p>
     ///     </div>
     ///   
@@ -14893,6 +15017,7 @@ pub struct Img<'life> {
     pub width: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Img<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -14963,7 +15088,7 @@ pub struct ImgOwned {
     ///     <dl>
     ///       <dt id="anonymous"><code>anonymous</code></dt>
     ///       <dd>
-    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a href="https://datatracker.ietf.org/doc/html/rfc5280" class="external" target="_blank">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
+    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a href="https://datatracker.ietf.org/doc/html/rfc5280" target="_blank" class="external">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
     ///       </dd>
     ///       <dt id="use-credentials"><code>use-credentials</code></dt>
     ///       <dd>
@@ -15078,8 +15203,8 @@ pub struct ImgOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>This Boolean attribute indicates that the image is part of a <a class="external" href="https://en.wikipedia.org/wiki/Image_map#Server-side" target="_blank">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
-    ///     <div class="notecard note" id="sect4">
+    ///     <p>This Boolean attribute indicates that the image is part of a <a target="_blank" href="https://en.wikipedia.org/wiki/Image_map#Server-side" class="external">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
+    ///     <div id="sect4" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute is allowed only if the <code>&lt;img&gt;</code> element is a descendant of an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> element with a valid <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute. This gives users without pointing devices a fallback destination.</p>
     ///     </div>
     ///   
@@ -15096,7 +15221,7 @@ pub struct ImgOwned {
     ///         <p>Defers loading the image until it reaches a calculated distance from the viewport, as defined by the browser. The intent is to avoid the network and storage bandwidth needed to handle the image until it's reasonably certain that it will be needed. This generally improves the performance of the content in most typical use cases.</p>
     ///       </dd>
     ///     </dl>
-    ///     <div class="notecard note" id="sect5">
+    ///     <div id="sect5" class="notecard note">
     ///       <p><strong>Note:</strong> Loading is only deferred when JavaScript is enabled. This is an anti-tracking measure, because if a user agent supported lazy loading when scripting is disabled, it would still be possible for a site to track a user's approximate scroll position throughout a session, by strategically placing images in a page's markup such that a server can track how many images are requested and when.</p>
     ///     </div>
     ///   
@@ -15159,6 +15284,7 @@ pub struct ImgOwned {
     pub width: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl ImgOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -15264,6 +15390,7 @@ pub struct Map<'life> {
     pub name: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Map<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -15374,6 +15501,7 @@ pub struct MapOwned {
     pub name: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl MapOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -15526,6 +15654,7 @@ pub struct Track<'life> {
     pub srclang: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Track<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -15683,6 +15812,7 @@ pub struct TrackOwned {
     pub srclang: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl TrackOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -15747,7 +15877,7 @@ pub struct Video<'life> {
     ///   
     pub controls: core::option::Option<&'life str>,
     ///
-    ///     <p>The <a href="https://wicg.github.io/controls-list/explainer.html" class="external" target="_blank"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>video</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
+    ///     <p>The <a target="_blank" class="external" href="https://wicg.github.io/controls-list/explainer.html"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>video</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
     ///     <p>The allowed values are <code>nodownload</code>, <code>nofullscreen</code> and <code>noremoteplayback</code>.</p>
     ///     <p>Use the <a href="#disablepictureinpicture"><code>disablepictureinpicture</code></a> attribute if you want to disable the Picture-In-Picture mode (and the control).</p>
     ///   
@@ -15787,7 +15917,7 @@ pub struct Video<'life> {
     pub disablepictureinpicture: core::option::Option<&'life str>,
     ///
     ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.).</p>
-    ///     <p>In Safari, you can use <a target="_blank" class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <p>In Safari, you can use <a class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///   
     pub disableremoteplayback: core::option::Option<&'life str>,
     ///
@@ -15810,7 +15940,7 @@ pub struct Video<'life> {
     #[cfg(feature = "alloc")]
     pub extra: core::option::Option<alloc::collections::BTreeMap<&'life str, &'life str>>,
     ///
-    ///     <p>The height of the video's display area, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a> (absolute values only; <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">no percentages</a>).</p>
+    ///     <p>The height of the video's display area, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a> (absolute values only; <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">no percentages</a>).</p>
     ///   
     pub height: core::option::Option<&'life str>,
     ///
@@ -15872,11 +16002,12 @@ pub struct Video<'life> {
     ///   
     pub src: core::option::Option<&'life str>,
     ///
-    ///     <p>The width of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" target="_blank" class="external">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
+    ///     <p>The width of the video's display area, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a> (absolute values only; <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">no percentages</a>).</p>
     ///   
     pub width: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Video<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -15942,7 +16073,7 @@ pub struct VideoOwned {
     ///   
     pub controls: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The <a href="https://wicg.github.io/controls-list/explainer.html" class="external" target="_blank"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>video</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
+    ///     <p>The <a target="_blank" class="external" href="https://wicg.github.io/controls-list/explainer.html"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>video</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
     ///     <p>The allowed values are <code>nodownload</code>, <code>nofullscreen</code> and <code>noremoteplayback</code>.</p>
     ///     <p>Use the <a href="#disablepictureinpicture"><code>disablepictureinpicture</code></a> attribute if you want to disable the Picture-In-Picture mode (and the control).</p>
     ///   
@@ -15984,7 +16115,7 @@ pub struct VideoOwned {
     pub disablepictureinpicture: core::option::Option<alloc::string::String>,
     ///
     ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.).</p>
-    ///     <p>In Safari, you can use <a target="_blank" class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <p>In Safari, you can use <a class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///   
     pub disableremoteplayback: core::option::Option<alloc::string::String>,
     ///
@@ -16009,7 +16140,7 @@ pub struct VideoOwned {
         alloc::collections::BTreeMap<alloc::string::String, alloc::string::String>,
     >,
     ///
-    ///     <p>The height of the video's display area, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a> (absolute values only; <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">no percentages</a>).</p>
+    ///     <p>The height of the video's display area, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a> (absolute values only; <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">no percentages</a>).</p>
     ///   
     pub height: core::option::Option<alloc::string::String>,
     ///
@@ -16071,11 +16202,12 @@ pub struct VideoOwned {
     ///   
     pub src: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The width of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" target="_blank" class="external">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
+    ///     <p>The width of the video's display area, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a> (absolute values only; <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">no percentages</a>).</p>
     ///   
     pub width: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl VideoOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -16156,7 +16288,7 @@ pub struct Embed<'life> {
     #[cfg(feature = "alloc")]
     pub extra: core::option::Option<alloc::collections::BTreeMap<&'life str, &'life str>>,
     ///
-    ///     <p>The displayed height of the resource, in <a target="_blank" href="https://drafts.csswg.org/css-values/#px" class="external">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed height of the resource, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub height: core::option::Option<&'life str>,
     ///
@@ -16188,11 +16320,12 @@ pub struct Embed<'life> {
     ///   
     pub type_: core::option::Option<&'life str>,
     ///
-    ///     <p>The displayed width of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed width of the resource, in <a target="_blank" href="https://drafts.csswg.org/css-values/#px" class="external">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub width: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Embed<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -16278,7 +16411,7 @@ pub struct EmbedOwned {
         alloc::collections::BTreeMap<alloc::string::String, alloc::string::String>,
     >,
     ///
-    ///     <p>The displayed height of the resource, in <a target="_blank" href="https://drafts.csswg.org/css-values/#px" class="external">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed height of the resource, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub height: core::option::Option<alloc::string::String>,
     ///
@@ -16310,11 +16443,12 @@ pub struct EmbedOwned {
     ///   
     pub type_: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The displayed width of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed width of the resource, in <a target="_blank" href="https://drafts.csswg.org/css-values/#px" class="external">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub width: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl EmbedOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -16347,7 +16481,7 @@ pub struct Iframe<'life> {
     pub allowfullscreen: core::option::Option<&'life str>,
     ///
     ///     <p>Set to <code>true</code> if a cross-origin <code>&lt;iframe&gt;</code> should be allowed to invoke the <a href="/en-US/docs/Web/API/Payment_Request_API">Payment Request API</a>.</p>
-    ///     <div class="notecard note" id="sect4">
+    ///     <div id="sect4" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute is considered a legacy attribute and redefined as <code>allow="payment"</code>.</p>
     ///     </div>
     ///   
@@ -16456,7 +16590,7 @@ pub struct Iframe<'life> {
     ///   
     pub loading: core::option::Option<&'life str>,
     ///
-    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a href="/en-US/docs/Web/API/Window/open" title="window.open()"><code>window.open()</code></a> method.</p>
+    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a title="window.open()" href="/en-US/docs/Web/API/Window/open"><code>window.open()</code></a> method.</p>
     ///   
     pub name: core::option::Option<&'life str>,
     ///
@@ -16477,7 +16611,7 @@ pub struct Iframe<'life> {
     ///     <p>Applies extra restrictions to the content in the frame. The value of the attribute can either be empty to apply all restrictions, or space-separated tokens to lift particular restrictions:</p>
     ///     <ul>
     ///       <li><code>allow-downloads</code>: Allows downloading files through an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/area"><code>&lt;area&gt;</code></a> element with the <a href="/en-US/docs/Web/HTML/Element/a#download">download</a> attribute, as well as through the navigation that leads to a download of a file. This works regardless of whether the user clicked on the link, or JS code initiated it without user interaction.</li>
-    ///       <li><code>allow-downloads-without-user-activation</code> <abbr title="Experimental. Expect behavior to change in the future." class="icon icon-experimental">
+    ///       <li><code>allow-downloads-without-user-activation</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
     ///     <span class="visually-hidden">Experimental</span>
     /// </abbr>: Allows for downloads to occur without a gesture from the user.</li>
     ///       <li><code>allow-forms</code>: Allows the page to submit forms. If this keyword is not used, form will be displayed as normal, but submitting it will not trigger input validation, sending data to a web server or closing a dialog.</li>
@@ -16519,6 +16653,7 @@ pub struct Iframe<'life> {
     pub width: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Iframe<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -16552,7 +16687,7 @@ pub struct IframeOwned {
     pub allowfullscreen: core::option::Option<alloc::string::String>,
     ///
     ///     <p>Set to <code>true</code> if a cross-origin <code>&lt;iframe&gt;</code> should be allowed to invoke the <a href="/en-US/docs/Web/API/Payment_Request_API">Payment Request API</a>.</p>
-    ///     <div class="notecard note" id="sect4">
+    ///     <div id="sect4" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute is considered a legacy attribute and redefined as <code>allow="payment"</code>.</p>
     ///     </div>
     ///   
@@ -16665,7 +16800,7 @@ pub struct IframeOwned {
     ///   
     pub loading: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a href="/en-US/docs/Web/API/Window/open" title="window.open()"><code>window.open()</code></a> method.</p>
+    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a title="window.open()" href="/en-US/docs/Web/API/Window/open"><code>window.open()</code></a> method.</p>
     ///   
     pub name: core::option::Option<alloc::string::String>,
     ///
@@ -16686,7 +16821,7 @@ pub struct IframeOwned {
     ///     <p>Applies extra restrictions to the content in the frame. The value of the attribute can either be empty to apply all restrictions, or space-separated tokens to lift particular restrictions:</p>
     ///     <ul>
     ///       <li><code>allow-downloads</code>: Allows downloading files through an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/area"><code>&lt;area&gt;</code></a> element with the <a href="/en-US/docs/Web/HTML/Element/a#download">download</a> attribute, as well as through the navigation that leads to a download of a file. This works regardless of whether the user clicked on the link, or JS code initiated it without user interaction.</li>
-    ///       <li><code>allow-downloads-without-user-activation</code> <abbr title="Experimental. Expect behavior to change in the future." class="icon icon-experimental">
+    ///       <li><code>allow-downloads-without-user-activation</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
     ///     <span class="visually-hidden">Experimental</span>
     /// </abbr>: Allows for downloads to occur without a gesture from the user.</li>
     ///       <li><code>allow-forms</code>: Allows the page to submit forms. If this keyword is not used, form will be displayed as normal, but submitting it will not trigger input validation, sending data to a web server or closing a dialog.</li>
@@ -16728,6 +16863,7 @@ pub struct IframeOwned {
     pub width: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl IframeOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -16836,7 +16972,7 @@ pub struct Object<'life> {
     ///   
     pub form: core::option::Option<&'life str>,
     ///
-    ///     <p>The height of the displayed resource, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">NO percentages</a>)</p>
+    ///     <p>The height of the displayed resource, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" target="_blank">NO percentages</a>)</p>
     ///   
     pub height: core::option::Option<&'life str>,
     ///
@@ -16876,11 +17012,12 @@ pub struct Object<'life> {
     ///   
     pub usemap: core::option::Option<&'life str>,
     ///
-    ///     <p>The width of the display resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. — (Absolute values only. <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">NO percentages</a>)</p>
+    ///     <p>The width of the display resource, in <a target="_blank" href="https://drafts.csswg.org/css-values/#px" class="external">CSS pixels</a>. — (Absolute values only. <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">NO percentages</a>)</p>
     ///   
     pub width: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Object<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -16994,7 +17131,7 @@ pub struct ObjectOwned {
     ///   
     pub form: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The height of the displayed resource, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">NO percentages</a>)</p>
+    ///     <p>The height of the displayed resource, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" target="_blank">NO percentages</a>)</p>
     ///   
     pub height: core::option::Option<alloc::string::String>,
     ///
@@ -17034,11 +17171,12 @@ pub struct ObjectOwned {
     ///   
     pub usemap: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The width of the display resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. — (Absolute values only. <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">NO percentages</a>)</p>
+    ///     <p>The width of the display resource, in <a target="_blank" href="https://drafts.csswg.org/css-values/#px" class="external">CSS pixels</a>. — (Absolute values only. <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">NO percentages</a>)</p>
     ///   
     pub width: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl ObjectOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -17142,6 +17280,7 @@ pub struct Picture<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Picture<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -17250,6 +17389,7 @@ pub struct PictureOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl PictureOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -17361,6 +17501,7 @@ pub struct Portal<'life> {
     pub src: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Portal<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -17477,6 +17618,7 @@ pub struct PortalOwned {
     pub src: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl PortalOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -17618,6 +17760,7 @@ pub struct Source<'life> {
     pub width: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Source<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -17764,6 +17907,7 @@ pub struct SourceOwned {
     pub width: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl SourceOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -17868,7 +18012,7 @@ pub struct Canvas<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
     ///
-    ///     <p>Lets the canvas know whether translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized <a href="/en-US/docs/Web/API/HTMLCanvasElement/getContext" title="canvas.getContext('2d', { alpha: false })"><code>canvas.getContext('2d', { alpha: false })</code></a> instead.</p>
+    ///     <p>Lets the canvas know whether translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized <a title="canvas.getContext('2d', { alpha: false })" href="/en-US/docs/Web/API/HTMLCanvasElement/getContext"><code>canvas.getContext('2d', { alpha: false })</code></a> instead.</p>
     ///   
     pub moz_opaque: core::option::Option<&'life str>,
     ///
@@ -17877,6 +18021,7 @@ pub struct Canvas<'life> {
     pub width: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Canvas<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -17986,7 +18131,7 @@ pub struct CanvasOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>Lets the canvas know whether translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized <a href="/en-US/docs/Web/API/HTMLCanvasElement/getContext" title="canvas.getContext('2d', { alpha: false })"><code>canvas.getContext('2d', { alpha: false })</code></a> instead.</p>
+    ///     <p>Lets the canvas know whether translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized <a title="canvas.getContext('2d', { alpha: false })" href="/en-US/docs/Web/API/HTMLCanvasElement/getContext"><code>canvas.getContext('2d', { alpha: false })</code></a> instead.</p>
     ///   
     pub moz_opaque: core::option::Option<alloc::string::String>,
     ///
@@ -17995,6 +18140,7 @@ pub struct CanvasOwned {
     pub width: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl CanvasOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -18096,6 +18242,7 @@ pub struct Noscript<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Noscript<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -18202,6 +18349,7 @@ pub struct NoscriptOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl NoscriptOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -18275,7 +18423,7 @@ pub struct Script<'life> {
     ///
     ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a href="/en-US/docs/Web/API/Document/DOMContentLoaded_event" title="DOMContentLoaded"><code>DOMContentLoaded</code></a>.</p>
     ///     <p>Scripts with the <code>defer</code> attribute will prevent the <code>DOMContentLoaded</code> event from firing until the script has loaded and finished evaluating.</p>
-    ///     <div class="notecard warning" id="sect1">
+    ///     <div id="sect1" class="notecard warning">
     ///       <p><strong>Warning:</strong> This attribute must not be used if the <code>src</code> attribute is absent (i.e. for inline scripts), in this case it would have no effect.</p>
     ///       <p>The <code>defer</code> attribute has no effect on <a href="/en-US/docs/Web/JavaScript/Guide/Modules">module scripts</a> — they defer by default.</p>
     ///     </div>
@@ -18373,7 +18521,7 @@ pub struct Script<'life> {
     ///       <li><code>strict-origin-when-cross-origin</code> (default): Send a full URL when performing a same-origin request, only send the origin when the protocol security level stays the same (HTTPS→HTTPS), and send no header to a less secure destination (HTTPS→HTTP).</li>
     ///       <li><code>unsafe-url</code>: The referrer will include the origin <em>and</em> the path (but not the <a href="/en-US/docs/Web/API/HTMLAnchorElement/hash">fragment</a>, <a href="/en-US/docs/Web/API/HTMLAnchorElement/password">password</a>, or <a href="/en-US/docs/Web/API/HTMLAnchorElement/username">username</a>). <strong>This value is unsafe</strong>, because it leaks origins and paths from TLS-protected resources to insecure origins.</li>
     ///     </ul>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> An empty string value (<code>""</code>) is both the default value, and a fallback value if <code>referrerpolicy</code> is not supported. If <code>referrerpolicy</code> is not explicitly specified on the <code>&lt;script&gt;</code> element, it will adopt a higher-level referrer policy, i.e. one set on the whole document or domain. If a higher-level policy is not available, the empty string is treated as being equivalent to <code>strict-origin-when-cross-origin</code>.</p>
     ///     </div>
     ///   
@@ -18426,6 +18574,7 @@ pub struct Script<'life> {
     pub type_: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Script<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -18502,7 +18651,7 @@ pub struct ScriptOwned {
     ///
     ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a href="/en-US/docs/Web/API/Document/DOMContentLoaded_event" title="DOMContentLoaded"><code>DOMContentLoaded</code></a>.</p>
     ///     <p>Scripts with the <code>defer</code> attribute will prevent the <code>DOMContentLoaded</code> event from firing until the script has loaded and finished evaluating.</p>
-    ///     <div class="notecard warning" id="sect1">
+    ///     <div id="sect1" class="notecard warning">
     ///       <p><strong>Warning:</strong> This attribute must not be used if the <code>src</code> attribute is absent (i.e. for inline scripts), in this case it would have no effect.</p>
     ///       <p>The <code>defer</code> attribute has no effect on <a href="/en-US/docs/Web/JavaScript/Guide/Modules">module scripts</a> — they defer by default.</p>
     ///     </div>
@@ -18602,7 +18751,7 @@ pub struct ScriptOwned {
     ///       <li><code>strict-origin-when-cross-origin</code> (default): Send a full URL when performing a same-origin request, only send the origin when the protocol security level stays the same (HTTPS→HTTPS), and send no header to a less secure destination (HTTPS→HTTP).</li>
     ///       <li><code>unsafe-url</code>: The referrer will include the origin <em>and</em> the path (but not the <a href="/en-US/docs/Web/API/HTMLAnchorElement/hash">fragment</a>, <a href="/en-US/docs/Web/API/HTMLAnchorElement/password">password</a>, or <a href="/en-US/docs/Web/API/HTMLAnchorElement/username">username</a>). <strong>This value is unsafe</strong>, because it leaks origins and paths from TLS-protected resources to insecure origins.</li>
     ///     </ul>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> An empty string value (<code>""</code>) is both the default value, and a fallback value if <code>referrerpolicy</code> is not supported. If <code>referrerpolicy</code> is not explicitly specified on the <code>&lt;script&gt;</code> element, it will adopt a higher-level referrer policy, i.e. one set on the whole document or domain. If a higher-level policy is not available, the empty string is treated as being equivalent to <code>strict-origin-when-cross-origin</code>.</p>
     ///     </div>
     ///   
@@ -18655,6 +18804,7 @@ pub struct ScriptOwned {
     pub type_: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl ScriptOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -18764,6 +18914,7 @@ pub struct Del<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Del<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -18878,6 +19029,7 @@ pub struct DelOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl DelOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -18987,6 +19139,7 @@ pub struct Ins<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Ins<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -19101,6 +19254,7 @@ pub struct InsOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl InsOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -19138,7 +19292,7 @@ pub struct Caption<'life> {
     ///       </dd>
     ///     </dl>
     ///     <div class="notecard warning" id="sect1">
-    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a aria-current="page" href="/en-US/docs/Web/HTML/Element/caption"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
+    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a href="/en-US/docs/Web/HTML/Element/caption" aria-current="page"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
     ///     </div>
     ///   
     pub align: core::option::Option<&'life str>,
@@ -19227,6 +19381,7 @@ pub struct Caption<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Caption<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -19265,7 +19420,7 @@ pub struct CaptionOwned {
     ///       </dd>
     ///     </dl>
     ///     <div class="notecard warning" id="sect1">
-    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a aria-current="page" href="/en-US/docs/Web/HTML/Element/caption"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
+    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a href="/en-US/docs/Web/HTML/Element/caption" aria-current="page"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
     ///     </div>
     ///   
     pub align: core::option::Option<alloc::string::String>,
@@ -19358,6 +19513,7 @@ pub struct CaptionOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl CaptionOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -19463,6 +19619,7 @@ pub struct Col<'life> {
     pub span: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Col<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -19573,6 +19730,7 @@ pub struct ColOwned {
     pub span: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl ColOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -19679,6 +19837,7 @@ pub struct Colgroup<'life> {
     pub span: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Colgroup<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -19790,6 +19949,7 @@ pub struct ColgroupOwned {
     pub span: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl ColgroupOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -19946,6 +20106,7 @@ pub struct Table<'life> {
     pub width: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Table<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -20107,6 +20268,7 @@ pub struct TableOwned {
     pub width: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl TableOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -20134,7 +20296,7 @@ pub struct Tbody<'life> {
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
     ///     <p>As this attribute is deprecated, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> The equivalent <code>text-align</code> property for the <code>align="char"</code> is not implemented in any browsers yet. See the <a href="/en-US/docs/Web/CSS/text-align#browser_compatibility"><code>text-align</code>'s browser compatibility section</a> for the <code>&lt;string&gt;</code> value.</p>
     ///     </div>
     ///   
@@ -20238,7 +20400,7 @@ pub struct Tbody<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
@@ -20248,6 +20410,7 @@ pub struct Tbody<'life> {
     pub valign: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Tbody<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -20276,7 +20439,7 @@ pub struct TbodyOwned {
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
     ///     <p>As this attribute is deprecated, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> The equivalent <code>text-align</code> property for the <code>align="char"</code> is not implemented in any browsers yet. See the <a href="/en-US/docs/Web/CSS/text-align#browser_compatibility"><code>text-align</code>'s browser compatibility section</a> for the <code>&lt;string&gt;</code> value.</p>
     ///     </div>
     ///   
@@ -20384,7 +20547,7 @@ pub struct TbodyOwned {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
@@ -20394,6 +20557,7 @@ pub struct TbodyOwned {
     pub valign: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl TbodyOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -20507,6 +20671,7 @@ pub struct Td<'life> {
     pub rowspan: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Td<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -20625,6 +20790,7 @@ pub struct TdOwned {
     pub rowspan: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl TdOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -20651,7 +20817,7 @@ pub struct Tfoot<'life> {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>To achieve the same effect as the <code>left</code>, <code>center</code>, <code>right</code> or <code>justify</code> values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property on it.</li>
@@ -20759,7 +20925,7 @@ pub struct Tfoot<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table footer. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
@@ -20771,6 +20937,7 @@ pub struct Tfoot<'life> {
     pub valign: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Tfoot<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -20798,7 +20965,7 @@ pub struct TfootOwned {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>To achieve the same effect as the <code>left</code>, <code>center</code>, <code>right</code> or <code>justify</code> values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property on it.</li>
@@ -20910,7 +21077,7 @@ pub struct TfootOwned {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table footer. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
@@ -20922,6 +21089,7 @@ pub struct TfootOwned {
     pub valign: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl TfootOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -21010,7 +21178,7 @@ pub struct Th<'life> {
     #[cfg(feature = "alloc")]
     pub extra: core::option::Option<alloc::collections::BTreeMap<&'life str, &'life str>>,
     ///
-    ///     <p>This attribute contains a list of space-separated strings, each corresponding to the <strong>id</strong> attribute of the <a aria-current="page" href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a> elements that apply to this element.</p>
+    ///     <p>This attribute contains a list of space-separated strings, each corresponding to the <strong>id</strong> attribute of the <a href="/en-US/docs/Web/HTML/Element/th" aria-current="page"><code>&lt;th&gt;</code></a> elements that apply to this element.</p>
     ///   
     pub headers: core::option::Option<&'life str>,
     ///
@@ -21038,7 +21206,7 @@ pub struct Th<'life> {
     ///   
     pub rowspan: core::option::Option<&'life str>,
     ///
-    ///     <p>This <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute defines the cells that the header (defined in the <a href="/en-US/docs/Web/HTML/Element/th" aria-current="page"><code>&lt;th&gt;</code></a>) element relates to. It may have the following values:</p>
+    ///     <p>This <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute defines the cells that the header (defined in the <a aria-current="page" href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a>) element relates to. It may have the following values:</p>
     ///     <ul>
     ///       <li><code>row</code>: The header relates to all cells of the row it belongs to.</li>
     ///       <li><code>col</code>: The header relates to all cells of the column it belongs to.</li>
@@ -21050,6 +21218,7 @@ pub struct Th<'life> {
     pub scope: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Th<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -21143,7 +21312,7 @@ pub struct ThOwned {
         alloc::collections::BTreeMap<alloc::string::String, alloc::string::String>,
     >,
     ///
-    ///     <p>This attribute contains a list of space-separated strings, each corresponding to the <strong>id</strong> attribute of the <a aria-current="page" href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a> elements that apply to this element.</p>
+    ///     <p>This attribute contains a list of space-separated strings, each corresponding to the <strong>id</strong> attribute of the <a href="/en-US/docs/Web/HTML/Element/th" aria-current="page"><code>&lt;th&gt;</code></a> elements that apply to this element.</p>
     ///   
     pub headers: core::option::Option<alloc::string::String>,
     ///
@@ -21171,7 +21340,7 @@ pub struct ThOwned {
     ///   
     pub rowspan: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>This <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute defines the cells that the header (defined in the <a href="/en-US/docs/Web/HTML/Element/th" aria-current="page"><code>&lt;th&gt;</code></a>) element relates to. It may have the following values:</p>
+    ///     <p>This <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute defines the cells that the header (defined in the <a aria-current="page" href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a>) element relates to. It may have the following values:</p>
     ///     <ul>
     ///       <li><code>row</code>: The header relates to all cells of the row it belongs to.</li>
     ///       <li><code>col</code>: The header relates to all cells of the column it belongs to.</li>
@@ -21183,6 +21352,7 @@ pub struct ThOwned {
     pub scope: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl ThOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -21209,7 +21379,7 @@ pub struct Thead<'life> {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div class="notecard warning" id="sect1">
+    ///     <div id="sect1" class="notecard warning">
     ///       <p><strong>Warning:</strong> Do not use this attribute as it is obsolete (not supported) in the latest standard.</p>
     ///       <ul>
     ///         <li>To align values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</li>
@@ -21240,7 +21410,7 @@ pub struct Thead<'life> {
     pub bgcolor: core::option::Option<&'life str>,
     ///
     ///     <p>This attribute is used to set the character to align the cells in a column on. Typical values for this include a period (.) when attempting to align numbers or monetary values. If <a href="#align"><code>align</code></a> is not set to <code>char</code>, this attribute is ignored.</p>
-    ///     <div class="notecard note" id="sect3">
+    ///     <div id="sect3" class="notecard note">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
@@ -21324,18 +21494,19 @@ pub struct Thead<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li><code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
     ///     </ul>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property on it.</p>
     ///     </div>
     ///   
     pub valign: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Thead<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -21363,7 +21534,7 @@ pub struct TheadOwned {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div class="notecard warning" id="sect1">
+    ///     <div id="sect1" class="notecard warning">
     ///       <p><strong>Warning:</strong> Do not use this attribute as it is obsolete (not supported) in the latest standard.</p>
     ///       <ul>
     ///         <li>To align values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</li>
@@ -21394,7 +21565,7 @@ pub struct TheadOwned {
     pub bgcolor: core::option::Option<alloc::string::String>,
     ///
     ///     <p>This attribute is used to set the character to align the cells in a column on. Typical values for this include a period (.) when attempting to align numbers or monetary values. If <a href="#align"><code>align</code></a> is not set to <code>char</code>, this attribute is ignored.</p>
-    ///     <div class="notecard note" id="sect3">
+    ///     <div id="sect3" class="notecard note">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
@@ -21482,18 +21653,19 @@ pub struct TheadOwned {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li><code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
     ///     </ul>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property on it.</p>
     ///     </div>
     ///   
     pub valign: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl TheadOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -21535,7 +21707,7 @@ pub struct Tr<'life> {
     ///       </dd>
     ///     </dl>
     ///     <p>If no value is expressly set for <code>align</code>, the parent node's value is inherited.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Instead of using the obsolete <code>align</code> attribute, you should instead use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to establish <code>left</code>, <code>center</code>, <code>right</code>, or <code>justify</code> alignment for the row's cells. To apply character-based alignment, set the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to the alignment character (such as <code>"."</code> or <code>","</code>).</p>
     ///     </div>
     ///   
@@ -21563,14 +21735,14 @@ pub struct Tr<'life> {
     pub bgcolor: core::option::Option<&'life str>,
     ///
     ///     <p>A string that sets the character to align the cells in each row's columns (each row's centering that uses the same character gets aligned with others using the same character. Typical values for this include a period (<code>"."</code>) or comma (<code>","</code>) when attempting to align numbers or monetary values. If <a href="#align"><code>align</code></a> is not set to <code>char</code>, this attribute is ignored.</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong> This attribute is obsolete and rarely implemented anyway. To achieve the same effect as the <a href="#char"><code>char</code></a> attribute, set the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to the same string you would specify for the <code>char</code> property, such as <code>text-align: "."</code>.</p>
     ///     </div>
     ///   
     pub char: core::option::Option<&'life str>,
     ///
     ///     <p>A string indicating the number of characters on the tail end of the column's data should be displayed after the alignment character specified by the <code>char</code> attribute. For example, when displaying money values for currencies that use hundredths of a unit (such as the dollar, which is divided into 100 cents), you would typically specify a value of 2, so that in tandem with <code>char</code> being set to <code>"."</code>, the values in a column would be cleanly aligned on the decimal points, with the number of cents properly displayed to the right of the decimal point.</p>
-    ///     <div id="sect4" class="notecard note">
+    ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is obsolete, and was never widely supported anyway.</p>
     ///     </div>
     ///   
@@ -21649,7 +21821,7 @@ pub struct Tr<'life> {
     ///     <dl>
     ///       <dt id="baseline"><code>baseline</code></dt>
     ///       <dd>
-    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a href="https://en.wikipedia.org/wiki/Baseline" target="_blank" class="external">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
+    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a href="https://en.wikipedia.org/wiki/Baseline" class="external" target="_blank">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
     ///       </dd>
     ///       <dt id="bottom"><code>bottom</code>,</dt>
     ///       <dd>
@@ -21671,6 +21843,7 @@ pub struct Tr<'life> {
     pub valign: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Tr<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -21713,7 +21886,7 @@ pub struct TrOwned {
     ///       </dd>
     ///     </dl>
     ///     <p>If no value is expressly set for <code>align</code>, the parent node's value is inherited.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Instead of using the obsolete <code>align</code> attribute, you should instead use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to establish <code>left</code>, <code>center</code>, <code>right</code>, or <code>justify</code> alignment for the row's cells. To apply character-based alignment, set the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to the alignment character (such as <code>"."</code> or <code>","</code>).</p>
     ///     </div>
     ///   
@@ -21741,14 +21914,14 @@ pub struct TrOwned {
     pub bgcolor: core::option::Option<alloc::string::String>,
     ///
     ///     <p>A string that sets the character to align the cells in each row's columns (each row's centering that uses the same character gets aligned with others using the same character. Typical values for this include a period (<code>"."</code>) or comma (<code>","</code>) when attempting to align numbers or monetary values. If <a href="#align"><code>align</code></a> is not set to <code>char</code>, this attribute is ignored.</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong> This attribute is obsolete and rarely implemented anyway. To achieve the same effect as the <a href="#char"><code>char</code></a> attribute, set the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to the same string you would specify for the <code>char</code> property, such as <code>text-align: "."</code>.</p>
     ///     </div>
     ///   
     pub char: core::option::Option<alloc::string::String>,
     ///
     ///     <p>A string indicating the number of characters on the tail end of the column's data should be displayed after the alignment character specified by the <code>char</code> attribute. For example, when displaying money values for currencies that use hundredths of a unit (such as the dollar, which is divided into 100 cents), you would typically specify a value of 2, so that in tandem with <code>char</code> being set to <code>"."</code>, the values in a column would be cleanly aligned on the decimal points, with the number of cents properly displayed to the right of the decimal point.</p>
-    ///     <div id="sect4" class="notecard note">
+    ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is obsolete, and was never widely supported anyway.</p>
     ///     </div>
     ///   
@@ -21831,7 +22004,7 @@ pub struct TrOwned {
     ///     <dl>
     ///       <dt id="baseline"><code>baseline</code></dt>
     ///       <dd>
-    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a href="https://en.wikipedia.org/wiki/Baseline" target="_blank" class="external">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
+    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a href="https://en.wikipedia.org/wiki/Baseline" class="external" target="_blank">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
     ///       </dd>
     ///       <dt id="bottom"><code>bottom</code>,</dt>
     ///       <dd>
@@ -21853,6 +22026,7 @@ pub struct TrOwned {
     pub valign: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl TrOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -21882,7 +22056,7 @@ pub struct Button<'life> {
     ///   
     pub autocapitalize: core::option::Option<&'life str>,
     ///
-    ///     <p>This attribute on a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a class="external" target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing">Firefox persists the dynamic disabled state</a> of a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a target="_blank" class="external" href="https://bugzil.la/654072">Firefox bug 654072</a>.</p>
+    ///     <p>This attribute on a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external" target="_blank">Firefox persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a class="external" href="https://bugzil.la/654072" target="_blank">Firefox bug 654072</a>.</p>
     ///   
     pub autocomplete: core::option::Option<&'life str>,
     ///
@@ -21921,7 +22095,7 @@ pub struct Button<'life> {
     pub dir: core::option::Option<&'life str>,
     ///
     ///     <p>This Boolean attribute prevents the user from interacting with the button: it cannot be pressed or focused.</p>
-    ///     <p>Firefox, unlike other browsers, <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank" class="external">persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
+    ///     <p>Firefox, unlike other browsers, <a target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external">persists the dynamic disabled state</a> of a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
     ///   
     pub disabled: core::option::Option<bool>,
     ///
@@ -22025,6 +22199,7 @@ pub struct Button<'life> {
     pub value: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Button<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -22055,7 +22230,7 @@ pub struct ButtonOwned {
     ///   
     pub autocapitalize: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>This attribute on a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a class="external" target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing">Firefox persists the dynamic disabled state</a> of a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a target="_blank" class="external" href="https://bugzil.la/654072">Firefox bug 654072</a>.</p>
+    ///     <p>This attribute on a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external" target="_blank">Firefox persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a class="external" href="https://bugzil.la/654072" target="_blank">Firefox bug 654072</a>.</p>
     ///   
     pub autocomplete: core::option::Option<alloc::string::String>,
     ///
@@ -22096,7 +22271,7 @@ pub struct ButtonOwned {
     pub dir: core::option::Option<alloc::string::String>,
     ///
     ///     <p>This Boolean attribute prevents the user from interacting with the button: it cannot be pressed or focused.</p>
-    ///     <p>Firefox, unlike other browsers, <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank" class="external">persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
+    ///     <p>Firefox, unlike other browsers, <a target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external">persists the dynamic disabled state</a> of a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
     ///   
     pub disabled: core::option::Option<bool>,
     ///
@@ -22202,6 +22377,7 @@ pub struct ButtonOwned {
     pub value: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl ButtonOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -22303,6 +22479,7 @@ pub struct Datalist<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Datalist<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -22409,6 +22586,7 @@ pub struct DatalistOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl DatalistOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -22525,6 +22703,7 @@ pub struct Fieldset<'life> {
     pub name: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Fieldset<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -22646,6 +22825,7 @@ pub struct FieldsetOwned {
     pub name: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl FieldsetOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -22777,6 +22957,7 @@ pub struct Form<'life> {
     pub rel: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Form<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -22913,6 +23094,7 @@ pub struct FormOwned {
     pub rel: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl FormOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -22960,7 +23142,7 @@ pub struct Input<'life> {
     ///     </div>
     ///     <p>No more than one element in the document may have the <code>autofocus</code> attribute. If put on more than one element, the first one with the attribute receives focus.</p>
     ///     <p>The <code>autofocus</code> attribute cannot be used on inputs of type <code>hidden</code>, since hidden inputs cannot be focused.</p>
-    ///     <div id="sect2" class="notecard warning">
+    ///     <div class="notecard warning" id="sect2">
     ///       <p><strong>Warning:</strong> Automatically focusing a form control can confuse visually-impaired people using screen-reading technology and people with cognitive impairments. When <code>autofocus</code> is assigned, screen-readers "teleport" their user to the form control without warning them beforehand.</p>
     ///     </div>
     ///     <p>Use careful consideration for accessibility when applying the <code>autofocus</code> attribute. Automatically focusing on a control can cause the page to scroll on load. The focus can also cause dynamic keyboards to display on some touch devices. While a screen reader will announce the label of the form control receiving focus, the screen reader will not announce anything before the label, and the sighted user on a small device will equally miss the context created by the preceding content.</p>
@@ -22972,7 +23154,7 @@ pub struct Input<'life> {
     pub capture: core::option::Option<&'life str>,
     ///
     ///     <p>Valid for both <code>radio</code> and <code>checkbox</code> types, <code>checked</code> is a Boolean attribute. If present on a <code>radio</code> type, it indicates that the radio button is the currently selected one in the group of same-named radio buttons. If present on a <code>checkbox</code> type, it indicates that the checkbox is checked by default (when the page loads). It does <em>not</em> indicate whether this checkbox is currently checked: if the checkbox's state is changed, this content attribute does not reflect the change. (Only the <a href="/en-US/docs/Web/API/HTMLInputElement"><code>HTMLInputElement</code>'s <code>checked</code> IDL attribute</a> is updated.)</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong> Unlike other input controls, a checkboxes and radio buttons value are only included in the submitted data if they are currently <code>checked</code>. If they are, the name and the value(s) of the checked controls are submitted.</p>
     ///       <p>For example, if a checkbox whose <code>name</code> is <code>fruit</code> has a <code>value</code> of <code>cherry</code>, and the checkbox is checked, the form data submitted will include <code>fruit=cherry</code>. If the checkbox isn't active, it isn't listed in the form data at all. The default <code>value</code> for checkboxes and radio buttons is <code>on</code>.</p>
     ///     </div>
@@ -23024,9 +23206,9 @@ pub struct Input<'life> {
     pub dirname: core::option::Option<&'life str>,
     ///
     ///     <p>A Boolean attribute which, if present, indicates that the user should not be able to interact with the input. Disabled inputs are typically rendered with a dimmer color or using some other form of indication that the field is not available for use.</p>
-    ///     <p>Specifically, disabled inputs do not receive the <a title="click" href="/en-US/docs/Web/API/Element/click_event"><code>click</code></a> event, and disabled inputs are not submitted with the form.</p>
+    ///     <p>Specifically, disabled inputs do not receive the <a href="/en-US/docs/Web/API/Element/click_event" title="click"><code>click</code></a> event, and disabled inputs are not submitted with the form.</p>
     ///     <div class="notecard note" id="sect4">
-    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external" target="_blank">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
+    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a target="_blank" class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
     ///     </div>
     ///   
     pub disabled: core::option::Option<bool>,
@@ -23102,7 +23284,7 @@ pub struct Input<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
     ///
-    ///     <p>The value given to the <code>list</code> attribute should be the <a href="/en-US/docs/Web/API/Element/id" title="id"><code>id</code></a> of a <a href="/en-US/docs/Web/HTML/Element/datalist"><code>&lt;datalist&gt;</code></a> element located in the same document. The <code>&lt;datalist&gt;</code> provides a list of predefined values to suggest to the user for this input. Any values in the list that are not compatible with the <a href="#type"><code>type</code></a> are not included in the suggested options. The values provided are suggestions, not requirements: users can select from this predefined list or provide a different value.</p>
+    ///     <p>The value given to the <code>list</code> attribute should be the <a title="id" href="/en-US/docs/Web/API/Element/id"><code>id</code></a> of a <a href="/en-US/docs/Web/HTML/Element/datalist"><code>&lt;datalist&gt;</code></a> element located in the same document. The <code>&lt;datalist&gt;</code> provides a list of predefined values to suggest to the user for this input. Any values in the list that are not compatible with the <a href="#type"><code>type</code></a> are not included in the suggested options. The values provided are suggestions, not requirements: users can select from this predefined list or provide a different value.</p>
     ///     <p>It is valid on <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, <code>date</code>, <code>month</code>, <code>week</code>, <code>time</code>, <code>datetime-local</code>, <code>number</code>, <code>range</code>, and <code>color</code>.</p>
     ///     <p>Per the specifications, the <code>list</code> attribute is not supported by the <code>hidden</code>, <code>password</code>, <code>checkbox</code>, <code>radio</code>, <code>file</code>, or any of the button types.</p>
     ///     <p>Depending on the browser, the user may see a custom color palette suggested, tic marks along a range, or even an input that opens like a <a href="/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a> but allows for non-listed values. Check out the <a href="/en-US/docs/Web/HTML/Element/datalist#browser_compatibility">browser compatibility table</a> for the other input types.</p>
@@ -23140,7 +23322,7 @@ pub struct Input<'life> {
     ///     <p>There are two special cases:</p>
     ///     <ol>
     ///       <li><code>_charset_</code> : If used as the name of an <code>&lt;input&gt;</code> element of type <a href="/en-US/docs/Web/HTML/Element/input/hidden">hidden</a>, the input's <code>value</code> is automatically set by the <a href="/en-US/docs/Glossary/User_agent">user agent</a> to the character encoding being used to submit the form.</li>
-    ///       <li><code>isindex</code>: For historical reasons, the name <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name" class="external" target="_blank"><code>isindex</code></a> is not allowed.</li>
+    ///       <li><code>isindex</code>: For historical reasons, the name <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name"><code>isindex</code></a> is not allowed.</li>
     ///     </ol>
     ///     <p>The <a href="#name"><code>name</code></a> attribute creates a unique behavior for radio buttons.</p>
     ///     <p>Only one radio button in a same-named group of radio buttons can be checked at a time. Selecting any radio button in that group automatically deselects any currently-selected radio button in the same group. The value of that one checked radio button is sent along with the name if the form is submitted,</p>
@@ -23161,7 +23343,7 @@ pub struct Input<'life> {
     ///
     ///     <p>Valid for <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, and <code>password</code>, the <code>pattern</code> attribute defines a regular expression that the input's <a href="#value"><code>value</code></a> must match in order for the value to pass <a href="/en-US/docs/Web/HTML/Constraint_validation">constraint validation</a>. It must be a valid JavaScript regular expression, as used by the <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp"><code>RegExp</code></a> type, and as documented in our <a href="/en-US/docs/Web/JavaScript/Guide/Regular_expressions">guide on regular expressions</a>; the <code>'u'</code> flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.</p>
     ///     <p>If the <code>pattern</code> attribute is present but is not specified or is invalid, no regular expression is applied and this attribute is ignored completely. If the pattern attribute is valid and a non-empty value does not match the pattern, constraint validation will prevent form submission.</p>
-    ///     <div id="sect7" class="notecard note">
+    ///     <div class="notecard note" id="sect7">
     ///       <p><strong>Note:</strong> If using the <code>pattern</code> attribute, inform the user about the expected format by including explanatory text nearby. You can also include a <a href="#title"><code>title</code></a> attribute to explain what the requirements are to match the pattern; most browsers will display this title as a tooltip. The visible explanation is required for accessibility. The tooltip is an enhancement.</p>
     ///     </div>
     ///     <p>See <a href="#client-side_validation">Client-side validation</a> for more information.</p>
@@ -23231,6 +23413,7 @@ pub struct Input<'life> {
     pub width: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Input<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -23279,7 +23462,7 @@ pub struct InputOwned {
     ///     </div>
     ///     <p>No more than one element in the document may have the <code>autofocus</code> attribute. If put on more than one element, the first one with the attribute receives focus.</p>
     ///     <p>The <code>autofocus</code> attribute cannot be used on inputs of type <code>hidden</code>, since hidden inputs cannot be focused.</p>
-    ///     <div id="sect2" class="notecard warning">
+    ///     <div class="notecard warning" id="sect2">
     ///       <p><strong>Warning:</strong> Automatically focusing a form control can confuse visually-impaired people using screen-reading technology and people with cognitive impairments. When <code>autofocus</code> is assigned, screen-readers "teleport" their user to the form control without warning them beforehand.</p>
     ///     </div>
     ///     <p>Use careful consideration for accessibility when applying the <code>autofocus</code> attribute. Automatically focusing on a control can cause the page to scroll on load. The focus can also cause dynamic keyboards to display on some touch devices. While a screen reader will announce the label of the form control receiving focus, the screen reader will not announce anything before the label, and the sighted user on a small device will equally miss the context created by the preceding content.</p>
@@ -23291,7 +23474,7 @@ pub struct InputOwned {
     pub capture: core::option::Option<alloc::string::String>,
     ///
     ///     <p>Valid for both <code>radio</code> and <code>checkbox</code> types, <code>checked</code> is a Boolean attribute. If present on a <code>radio</code> type, it indicates that the radio button is the currently selected one in the group of same-named radio buttons. If present on a <code>checkbox</code> type, it indicates that the checkbox is checked by default (when the page loads). It does <em>not</em> indicate whether this checkbox is currently checked: if the checkbox's state is changed, this content attribute does not reflect the change. (Only the <a href="/en-US/docs/Web/API/HTMLInputElement"><code>HTMLInputElement</code>'s <code>checked</code> IDL attribute</a> is updated.)</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong> Unlike other input controls, a checkboxes and radio buttons value are only included in the submitted data if they are currently <code>checked</code>. If they are, the name and the value(s) of the checked controls are submitted.</p>
     ///       <p>For example, if a checkbox whose <code>name</code> is <code>fruit</code> has a <code>value</code> of <code>cherry</code>, and the checkbox is checked, the form data submitted will include <code>fruit=cherry</code>. If the checkbox isn't active, it isn't listed in the form data at all. The default <code>value</code> for checkboxes and radio buttons is <code>on</code>.</p>
     ///     </div>
@@ -23345,9 +23528,9 @@ pub struct InputOwned {
     pub dirname: core::option::Option<alloc::string::String>,
     ///
     ///     <p>A Boolean attribute which, if present, indicates that the user should not be able to interact with the input. Disabled inputs are typically rendered with a dimmer color or using some other form of indication that the field is not available for use.</p>
-    ///     <p>Specifically, disabled inputs do not receive the <a title="click" href="/en-US/docs/Web/API/Element/click_event"><code>click</code></a> event, and disabled inputs are not submitted with the form.</p>
+    ///     <p>Specifically, disabled inputs do not receive the <a href="/en-US/docs/Web/API/Element/click_event" title="click"><code>click</code></a> event, and disabled inputs are not submitted with the form.</p>
     ///     <div class="notecard note" id="sect4">
-    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external" target="_blank">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
+    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a target="_blank" class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
     ///     </div>
     ///   
     pub disabled: core::option::Option<bool>,
@@ -23425,7 +23608,7 @@ pub struct InputOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The value given to the <code>list</code> attribute should be the <a href="/en-US/docs/Web/API/Element/id" title="id"><code>id</code></a> of a <a href="/en-US/docs/Web/HTML/Element/datalist"><code>&lt;datalist&gt;</code></a> element located in the same document. The <code>&lt;datalist&gt;</code> provides a list of predefined values to suggest to the user for this input. Any values in the list that are not compatible with the <a href="#type"><code>type</code></a> are not included in the suggested options. The values provided are suggestions, not requirements: users can select from this predefined list or provide a different value.</p>
+    ///     <p>The value given to the <code>list</code> attribute should be the <a title="id" href="/en-US/docs/Web/API/Element/id"><code>id</code></a> of a <a href="/en-US/docs/Web/HTML/Element/datalist"><code>&lt;datalist&gt;</code></a> element located in the same document. The <code>&lt;datalist&gt;</code> provides a list of predefined values to suggest to the user for this input. Any values in the list that are not compatible with the <a href="#type"><code>type</code></a> are not included in the suggested options. The values provided are suggestions, not requirements: users can select from this predefined list or provide a different value.</p>
     ///     <p>It is valid on <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, <code>date</code>, <code>month</code>, <code>week</code>, <code>time</code>, <code>datetime-local</code>, <code>number</code>, <code>range</code>, and <code>color</code>.</p>
     ///     <p>Per the specifications, the <code>list</code> attribute is not supported by the <code>hidden</code>, <code>password</code>, <code>checkbox</code>, <code>radio</code>, <code>file</code>, or any of the button types.</p>
     ///     <p>Depending on the browser, the user may see a custom color palette suggested, tic marks along a range, or even an input that opens like a <a href="/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a> but allows for non-listed values. Check out the <a href="/en-US/docs/Web/HTML/Element/datalist#browser_compatibility">browser compatibility table</a> for the other input types.</p>
@@ -23463,7 +23646,7 @@ pub struct InputOwned {
     ///     <p>There are two special cases:</p>
     ///     <ol>
     ///       <li><code>_charset_</code> : If used as the name of an <code>&lt;input&gt;</code> element of type <a href="/en-US/docs/Web/HTML/Element/input/hidden">hidden</a>, the input's <code>value</code> is automatically set by the <a href="/en-US/docs/Glossary/User_agent">user agent</a> to the character encoding being used to submit the form.</li>
-    ///       <li><code>isindex</code>: For historical reasons, the name <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name" class="external" target="_blank"><code>isindex</code></a> is not allowed.</li>
+    ///       <li><code>isindex</code>: For historical reasons, the name <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name"><code>isindex</code></a> is not allowed.</li>
     ///     </ol>
     ///     <p>The <a href="#name"><code>name</code></a> attribute creates a unique behavior for radio buttons.</p>
     ///     <p>Only one radio button in a same-named group of radio buttons can be checked at a time. Selecting any radio button in that group automatically deselects any currently-selected radio button in the same group. The value of that one checked radio button is sent along with the name if the form is submitted,</p>
@@ -23484,7 +23667,7 @@ pub struct InputOwned {
     ///
     ///     <p>Valid for <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, and <code>password</code>, the <code>pattern</code> attribute defines a regular expression that the input's <a href="#value"><code>value</code></a> must match in order for the value to pass <a href="/en-US/docs/Web/HTML/Constraint_validation">constraint validation</a>. It must be a valid JavaScript regular expression, as used by the <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp"><code>RegExp</code></a> type, and as documented in our <a href="/en-US/docs/Web/JavaScript/Guide/Regular_expressions">guide on regular expressions</a>; the <code>'u'</code> flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.</p>
     ///     <p>If the <code>pattern</code> attribute is present but is not specified or is invalid, no regular expression is applied and this attribute is ignored completely. If the pattern attribute is valid and a non-empty value does not match the pattern, constraint validation will prevent form submission.</p>
-    ///     <div id="sect7" class="notecard note">
+    ///     <div class="notecard note" id="sect7">
     ///       <p><strong>Note:</strong> If using the <code>pattern</code> attribute, inform the user about the expected format by including explanatory text nearby. You can also include a <a href="#title"><code>title</code></a> attribute to explain what the requirements are to match the pattern; most browsers will display this title as a tooltip. The visible explanation is required for accessibility. The tooltip is an enhancement.</p>
     ///     </div>
     ///     <p>See <a href="#client-side_validation">Client-side validation</a> for more information.</p>
@@ -23554,6 +23737,7 @@ pub struct InputOwned {
     pub width: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl InputOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -23635,10 +23819,10 @@ pub struct Label<'life> {
     pub extra: core::option::Option<alloc::collections::BTreeMap<&'life str, &'life str>>,
     ///
     ///     <p>The value of the <code>for</code> attribute must be a single <a href="/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a> for a <a href="/en-US/docs/Web/HTML/Content_categories#labelable">labelable</a> form-related element in the same document as the <code>&lt;label&gt;</code> element. So, any given <code>label</code> element can be associated with only one form control.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> To programmatically set the <code>for</code> attribute, use <a href="/en-US/docs/Web/API/HTMLLabelElement/htmlFor"><code>htmlFor</code></a>.</p>
     ///     </div>
-    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/forms.html#category-label">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
+    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a href="https://html.spec.whatwg.org/multipage/forms.html#category-label" class="external" target="_blank">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
     ///     <p>Multiple <code>label</code> elements can be given the same value for their <code>for</code> attribute; doing so causes the associated form control (the form control that <code>for</code> value references) to have multiple labels.</p>
     ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> A <code>&lt;label&gt;</code> element can have both a <code>for</code> attribute and a contained control element, as long as the <code>for</code> attribute points to the contained control element.</p>
@@ -23667,6 +23851,7 @@ pub struct Label<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Label<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -23753,10 +23938,10 @@ pub struct LabelOwned {
     >,
     ///
     ///     <p>The value of the <code>for</code> attribute must be a single <a href="/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a> for a <a href="/en-US/docs/Web/HTML/Content_categories#labelable">labelable</a> form-related element in the same document as the <code>&lt;label&gt;</code> element. So, any given <code>label</code> element can be associated with only one form control.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> To programmatically set the <code>for</code> attribute, use <a href="/en-US/docs/Web/API/HTMLLabelElement/htmlFor"><code>htmlFor</code></a>.</p>
     ///     </div>
-    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/forms.html#category-label">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
+    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a href="https://html.spec.whatwg.org/multipage/forms.html#category-label" class="external" target="_blank">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
     ///     <p>Multiple <code>label</code> elements can be given the same value for their <code>for</code> attribute; doing so causes the associated form control (the form control that <code>for</code> value references) to have multiple labels.</p>
     ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> A <code>&lt;label&gt;</code> element can have both a <code>for</code> attribute and a contained control element, as long as the <code>for</code> attribute points to the contained control element.</p>
@@ -23785,6 +23970,7 @@ pub struct LabelOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl LabelOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -23886,6 +24072,7 @@ pub struct Legend<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Legend<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -23992,6 +24179,7 @@ pub struct LegendOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl LegendOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -24113,13 +24301,14 @@ pub struct Meter<'life> {
     pub optimum: core::option::Option<&'life str>,
     ///
     ///     <p>The current numeric value. This must be between the minimum and maximum values (<code>min</code> attribute and <code>max</code> attribute) if they are specified. If unspecified or malformed, the value is <code>0</code>. If specified, but not within the range given by the <code>min</code> attribute and <code>max</code> attribute, the value is equal to the nearest end of the range.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> Unless the <code>value</code> attribute is between <code>0</code> and <code>1</code> (inclusive), the <code>min</code> and <code>max</code> attributes should define the range so that the <code>value</code> attribute's value is within it.</p>
     ///     </div>
     ///   
     pub value: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Meter<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -24246,13 +24435,14 @@ pub struct MeterOwned {
     pub optimum: core::option::Option<alloc::string::String>,
     ///
     ///     <p>The current numeric value. This must be between the minimum and maximum values (<code>min</code> attribute and <code>max</code> attribute) if they are specified. If unspecified or malformed, the value is <code>0</code>. If specified, but not within the range given by the <code>min</code> attribute and <code>max</code> attribute, the value is equal to the nearest end of the range.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> Unless the <code>value</code> attribute is between <code>0</code> and <code>1</code> (inclusive), the <code>min</code> and <code>max</code> attributes should define the range so that the <code>value</code> attribute's value is within it.</p>
     ///     </div>
     ///   
     pub value: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl MeterOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -24362,6 +24552,7 @@ pub struct Optgroup<'life> {
     pub label: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Optgroup<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -24476,6 +24667,7 @@ pub struct OptgroupOwned {
     pub label: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl OptgroupOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -24593,6 +24785,7 @@ pub struct Option<'life> {
     pub value: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Option<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -24715,6 +24908,7 @@ pub struct OptionOwned {
     pub value: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl OptionOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -24824,11 +25018,12 @@ pub struct Output<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
     ///
-    ///     <p>The element's name. Used in the <a title="form.elements" href="/en-US/docs/Web/API/HTMLFormElement/elements"><code>form.elements</code></a> API.</p>
+    ///     <p>The element's name. Used in the <a href="/en-US/docs/Web/API/HTMLFormElement/elements" title="form.elements"><code>form.elements</code></a> API.</p>
     ///   
     pub name: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Output<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -24943,11 +25138,12 @@ pub struct OutputOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The element's name. Used in the <a title="form.elements" href="/en-US/docs/Web/API/HTMLFormElement/elements"><code>form.elements</code></a> API.</p>
+    ///     <p>The element's name. Used in the <a href="/en-US/docs/Web/API/HTMLFormElement/elements" title="form.elements"><code>form.elements</code></a> API.</p>
     ///   
     pub name: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl OutputOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -25057,6 +25253,7 @@ pub struct Progress<'life> {
     pub value: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Progress<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -25171,6 +25368,7 @@ pub struct ProgressOwned {
     pub value: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl ProgressOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -25297,13 +25495,14 @@ pub struct Select<'life> {
     pub required: core::option::Option<bool>,
     ///
     ///     <p>If the control is presented as a scrolling list box (e.g. when <code>multiple</code> is specified), this attribute represents the number of rows in the list that should be visible at one time. Browsers are not required to present a select element as a scrolled list box. The default value is <code>0</code>.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> According to the HTML specification, the default value for size should be <code>1</code>; however, in practice, this has been found to break some websites, and no other browser currently does that, so Mozilla has opted to continue to return <code>0</code> for the time being with Firefox.</p>
     ///     </div>
     ///   
     pub size: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Select<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -25435,13 +25634,14 @@ pub struct SelectOwned {
     pub required: core::option::Option<bool>,
     ///
     ///     <p>If the control is presented as a scrolling list box (e.g. when <code>multiple</code> is specified), this attribute represents the number of rows in the list that should be visible at one time. Browsers are not required to present a select element as a scrolled list box. The default value is <code>0</code>.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> According to the HTML specification, the default value for size should be <code>1</code>; however, in practice, this has been found to break some websites, and no other browser currently does that, so Mozilla has opted to continue to return <code>0</code> for the time being with Firefox.</p>
     ///     </div>
     ///   
     pub size: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl SelectOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -25590,7 +25790,7 @@ pub struct Textarea<'life> {
     pub name: core::option::Option<&'life str>,
     ///
     ///     <p>A hint to the user of what can be entered in the control. Carriage returns or line-feeds within the placeholder text must be treated as line breaks when rendering the hint.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> Placeholders should only be used to show an example of the type of data that should be entered into a form; they are <em>not</em> a substitute for a proper <a href="/en-US/docs/Web/HTML/Element/label"><code>&lt;label&gt;</code></a> element tied to the input. See <a href="/en-US/docs/Web/HTML/Element/input#labels"><code>&lt;input&gt;</code> labels</a> for a full explanation.</p>
     ///     </div>
     ///   
@@ -25621,7 +25821,7 @@ pub struct Textarea<'life> {
     ///     <ul>
     ///       <li><code>hard</code>: The browser automatically inserts line breaks (CR+LF) so that each line is no longer than the width of the control; the <a href="#cols"><code>cols</code></a> attribute must be specified for this to take effect</li>
     ///       <li><code>soft</code>: The browser ensures that all line breaks in the entered value are a <code>CR+LF</code> pair, but no additional line breaks are added to the value.</li>
-    ///       <li><code>off</code> <abbr title="Non-standard. Check cross-browser support before using." class="icon icon-nonstandard">
+    ///       <li><code>off</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using.">
     ///     <span class="visually-hidden">Non-standard</span>
     /// </abbr>: Like <code>soft</code> but changes appearance to <code>white-space: pre</code> so line segments exceeding <code>cols</code> are not wrapped and the <code>&lt;textarea&gt;</code> becomes horizontally scrollable.</li>
     ///     </ul>
@@ -25630,6 +25830,7 @@ pub struct Textarea<'life> {
     pub wrap: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Textarea<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -25783,7 +25984,7 @@ pub struct TextareaOwned {
     pub name: core::option::Option<alloc::string::String>,
     ///
     ///     <p>A hint to the user of what can be entered in the control. Carriage returns or line-feeds within the placeholder text must be treated as line breaks when rendering the hint.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> Placeholders should only be used to show an example of the type of data that should be entered into a form; they are <em>not</em> a substitute for a proper <a href="/en-US/docs/Web/HTML/Element/label"><code>&lt;label&gt;</code></a> element tied to the input. See <a href="/en-US/docs/Web/HTML/Element/input#labels"><code>&lt;input&gt;</code> labels</a> for a full explanation.</p>
     ///     </div>
     ///   
@@ -25814,7 +26015,7 @@ pub struct TextareaOwned {
     ///     <ul>
     ///       <li><code>hard</code>: The browser automatically inserts line breaks (CR+LF) so that each line is no longer than the width of the control; the <a href="#cols"><code>cols</code></a> attribute must be specified for this to take effect</li>
     ///       <li><code>soft</code>: The browser ensures that all line breaks in the entered value are a <code>CR+LF</code> pair, but no additional line breaks are added to the value.</li>
-    ///       <li><code>off</code> <abbr title="Non-standard. Check cross-browser support before using." class="icon icon-nonstandard">
+    ///       <li><code>off</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using.">
     ///     <span class="visually-hidden">Non-standard</span>
     /// </abbr>: Like <code>soft</code> but changes appearance to <code>white-space: pre</code> so line segments exceeding <code>cols</code> are not wrapped and the <code>&lt;textarea&gt;</code> becomes horizontally scrollable.</li>
     ///     </ul>
@@ -25823,6 +26024,7 @@ pub struct TextareaOwned {
     pub wrap: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl TextareaOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -25926,13 +26128,14 @@ pub struct Details<'life> {
     pub is: core::option::Option<&'life str>,
     ///
     ///     <p>This Boolean attribute indicates whether the details — that is, the contents of the <code>&lt;details&gt;</code> element — are currently visible. The details are shown when this attribute exists, or hidden when this attribute is absent. By default this attribute is absent which means the details are not visible.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> You have to remove this attribute entirely to make the details hidden. <code>open="false"</code> makes the details visible because this attribute is Boolean.</p>
     ///     </div>
     ///   
     pub open: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Details<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -26041,13 +26244,14 @@ pub struct DetailsOwned {
     pub is: core::option::Option<alloc::string::String>,
     ///
     ///     <p>This Boolean attribute indicates whether the details — that is, the contents of the <code>&lt;details&gt;</code> element — are currently visible. The details are shown when this attribute exists, or hidden when this attribute is absent. By default this attribute is absent which means the details are not visible.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> You have to remove this attribute entirely to make the details hidden. <code>open="false"</code> makes the details visible because this attribute is Boolean.</p>
     ///     </div>
     ///   
     pub open: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl DetailsOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -26156,6 +26360,7 @@ pub struct Dialog<'life> {
     pub open: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Dialog<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -26269,6 +26474,7 @@ pub struct DialogOwned {
     pub open: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl DialogOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -26370,6 +26576,7 @@ pub struct Summary<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Summary<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -26476,6 +26683,7 @@ pub struct SummaryOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl SummaryOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -26582,6 +26790,7 @@ pub struct Slot<'life> {
     pub name: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Slot<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -26693,6 +26902,7 @@ pub struct SlotOwned {
     pub name: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl SlotOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -26796,6 +27006,7 @@ pub struct Template<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Template<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -26904,6 +27115,7 @@ pub struct TemplateOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl TemplateOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -26912,7 +27124,7 @@ impl TemplateOwned {
     }
 }
 /// <p>The <strong><code>&lt;acronym&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element allows authors to clearly indicate a sequence of characters that compose an acronym or abbreviation for a word.</p>
-/// <div id="sect2" class="notecard warning">
+/// <div class="notecard warning" id="sect2">
 ///   <p><strong>Warning:</strong> Don't use this element. Use the <a href="/en-US/docs/Web/HTML/Element/abbr"><code>&lt;abbr&gt;</code></a> element instead.</p>
 /// </div>
 ///
@@ -27008,6 +27220,7 @@ pub struct Acronym<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Acronym<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -27016,7 +27229,7 @@ impl<'life> Acronym<'life> {
     }
 }
 /// <p>The <strong><code>&lt;acronym&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element allows authors to clearly indicate a sequence of characters that compose an acronym or abbreviation for a word.</p>
-/// <div id="sect2" class="notecard warning">
+/// <div class="notecard warning" id="sect2">
 ///   <p><strong>Warning:</strong> Don't use this element. Use the <a href="/en-US/docs/Web/HTML/Element/abbr"><code>&lt;abbr&gt;</code></a> element instead.</p>
 /// </div>
 ///
@@ -27117,6 +27330,7 @@ pub struct AcronymOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl AcronymOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -27280,6 +27494,7 @@ pub struct Applet<'life> {
     pub width: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Applet<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -27448,6 +27663,7 @@ pub struct AppletOwned {
     pub width: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl AppletOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -27565,6 +27781,7 @@ pub struct Bgsound<'life> {
     pub volume: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Bgsound<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -27687,6 +27904,7 @@ pub struct BgsoundOwned {
     pub volume: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl BgsoundOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -27788,6 +28006,7 @@ pub struct Big<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Big<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -27894,6 +28113,7 @@ pub struct BigOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl BigOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -27995,6 +28215,7 @@ pub struct Blink<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Blink<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -28101,6 +28322,7 @@ pub struct BlinkOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl BlinkOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -28204,6 +28426,7 @@ pub struct Center<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Center<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -28312,6 +28535,7 @@ pub struct CenterOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl CenterOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -28417,6 +28641,7 @@ pub struct Dir<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Dir<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -28527,6 +28752,7 @@ pub struct DirOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl DirOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -28640,6 +28866,7 @@ pub struct Font<'life> {
     pub size: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Font<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -28758,6 +28985,7 @@ pub struct FontOwned {
     pub size: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl FontOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -28889,6 +29117,7 @@ pub struct Frame<'life> {
     pub src: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Frame<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -29025,6 +29254,7 @@ pub struct FrameOwned {
     pub src: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl FrameOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -29134,6 +29364,7 @@ pub struct Frameset<'life> {
     pub rows: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Frameset<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -29248,6 +29479,7 @@ pub struct FramesetOwned {
     pub rows: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl FramesetOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -29354,6 +29586,7 @@ pub struct Image<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Image<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -29465,6 +29698,7 @@ pub struct ImageOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl ImageOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -29586,6 +29820,7 @@ pub struct Keygen<'life> {
     pub name: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Keygen<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -29712,6 +29947,7 @@ pub struct KeygenOwned {
     pub name: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl KeygenOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -29857,6 +30093,7 @@ pub struct Marquee<'life> {
     pub width: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Marquee<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -30007,6 +30244,7 @@ pub struct MarqueeOwned {
     pub width: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl MarqueeOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -30147,6 +30385,7 @@ pub struct Menuitem<'life> {
     pub type_: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Menuitem<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -30292,6 +30531,7 @@ pub struct MenuitemOwned {
     pub type_: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl MenuitemOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -30393,6 +30633,7 @@ pub struct Nobr<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Nobr<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -30499,6 +30740,7 @@ pub struct NobrOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl NobrOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -30600,6 +30842,7 @@ pub struct Noembed<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Noembed<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -30706,6 +30949,7 @@ pub struct NoembedOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl NoembedOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -30811,6 +31055,7 @@ pub struct Noframes<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Noframes<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -30921,6 +31166,7 @@ pub struct NoframesOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl NoframesOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -31043,6 +31289,7 @@ pub struct Param<'life> {
     pub valuetype: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Param<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -31170,6 +31417,7 @@ pub struct ParamOwned {
     pub valuetype: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl ParamOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -31271,6 +31519,7 @@ pub struct Plaintext<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Plaintext<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -31377,6 +31626,7 @@ pub struct PlaintextOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl PlaintextOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -31478,6 +31728,7 @@ pub struct Rb<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Rb<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -31584,6 +31835,7 @@ pub struct RbOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl RbOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -31591,7 +31843,7 @@ impl RbOwned {
         "rb"
     }
 }
-/// The <strong><code>&lt;rtc&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>) and semantic (<a aria-current="page" href="/en-US/docs/Web/HTML/Element/rtc"><code>&lt;rtc&gt;</code></a>) annotations.
+/// The <strong><code>&lt;rtc&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>) and semantic (<a href="/en-US/docs/Web/HTML/Element/rtc" aria-current="page"><code>&lt;rtc&gt;</code></a>) annotations.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rtc>
 #[deprecated]
@@ -31685,6 +31937,7 @@ pub struct Rtc<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Rtc<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -31692,7 +31945,7 @@ impl<'life> Rtc<'life> {
         "rtc"
     }
 }
-/// The <strong><code>&lt;rtc&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>) and semantic (<a aria-current="page" href="/en-US/docs/Web/HTML/Element/rtc"><code>&lt;rtc&gt;</code></a>) annotations.
+/// The <strong><code>&lt;rtc&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>) and semantic (<a href="/en-US/docs/Web/HTML/Element/rtc" aria-current="page"><code>&lt;rtc&gt;</code></a>) annotations.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rtc>
 #[deprecated]
@@ -31791,6 +32044,7 @@ pub struct RtcOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl RtcOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -31914,6 +32168,7 @@ pub struct Spacer<'life> {
     pub width: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Spacer<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -32042,6 +32297,7 @@ pub struct SpacerOwned {
     pub width: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl SpacerOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -32143,6 +32399,7 @@ pub struct Strike<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Strike<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -32249,6 +32506,7 @@ pub struct StrikeOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl StrikeOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -32354,6 +32612,7 @@ pub struct Tt<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Tt<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -32464,6 +32723,7 @@ pub struct TtOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl TtOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -32573,6 +32833,7 @@ pub struct Xmp<'life> {
     pub is: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Xmp<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -32687,6 +32948,7 @@ pub struct XmpOwned {
     pub is: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl XmpOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -32788,6 +33050,7 @@ pub struct Unknown<'life> {
     pub tag_name: core::option::Option<&'life str>,
 }
 #[allow(deprecated)]
+
 impl<'life> Unknown<'life> {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -32894,6 +33157,7 @@ pub struct UnknownOwned {
     pub tag_name: core::option::Option<alloc::string::String>,
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl UnknownOwned {
     /// Get the tag name of the element.
     /// This is the same as the name of the struct, in kebab-case.
@@ -32903,6 +33167,7 @@ impl UnknownOwned {
 }
 #[allow(deprecated)]
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
+
 pub enum Element<'life> {
     Html(Html<'life>),
     Base(Base<'life>),
@@ -33063,143 +33328,144 @@ pub enum Element<'life> {
     Unknown(Unknown<'life>),
 }
 #[allow(deprecated)]
+
 impl<'life> Element<'life> {
     /// Gets an element from a lowercase tag name.
-    pub fn from_tag(tag: &str) -> core::option::Option<Self> {
+    pub fn from_tag(tag: &str) -> Self {
         match tag {
-            "html" => Some(Self::Html(Html::default())),
-            "base" => Some(Self::Base(Base::default())),
-            "head" => Some(Self::Head(Head::default())),
-            "link" => Some(Self::Link(Link::default())),
-            "meta" => Some(Self::Meta(Meta::default())),
-            "style" => Some(Self::Style(Style::default())),
-            "title" => Some(Self::Title(Title::default())),
-            "body" => Some(Self::Body(Body::default())),
-            "address" => Some(Self::Address(Address::default())),
-            "article" => Some(Self::Article(Article::default())),
-            "aside" => Some(Self::Aside(Aside::default())),
-            "footer" => Some(Self::Footer(Footer::default())),
-            "header" => Some(Self::Header(Header::default())),
-            "hgroup" => Some(Self::Hgroup(Hgroup::default())),
-            "main" => Some(Self::Main(Main::default())),
-            "nav" => Some(Self::Nav(Nav::default())),
-            "section" => Some(Self::Section(Section::default())),
-            "blockquote" => Some(Self::Blockquote(Blockquote::default())),
-            "dd" => Some(Self::Dd(Dd::default())),
-            "div" => Some(Self::Div(Div::default())),
-            "dl" => Some(Self::Dl(Dl::default())),
-            "dt" => Some(Self::Dt(Dt::default())),
-            "figcaption" => Some(Self::Figcaption(Figcaption::default())),
-            "figure" => Some(Self::Figure(Figure::default())),
-            "hr" => Some(Self::Hr(Hr::default())),
-            "li" => Some(Self::Li(Li::default())),
-            "menu" => Some(Self::Menu(Menu::default())),
-            "ol" => Some(Self::Ol(Ol::default())),
-            "p" => Some(Self::P(P::default())),
-            "pre" => Some(Self::Pre(Pre::default())),
-            "ul" => Some(Self::Ul(Ul::default())),
-            "a" => Some(Self::A(A::default())),
-            "abbr" => Some(Self::Abbr(Abbr::default())),
-            "b" => Some(Self::B(B::default())),
-            "bdi" => Some(Self::Bdi(Bdi::default())),
-            "bdo" => Some(Self::Bdo(Bdo::default())),
-            "br" => Some(Self::Br(Br::default())),
-            "cite" => Some(Self::Cite(Cite::default())),
-            "code" => Some(Self::Code(Code::default())),
-            "data" => Some(Self::Data(Data::default())),
-            "dfn" => Some(Self::Dfn(Dfn::default())),
-            "em" => Some(Self::Em(Em::default())),
-            "i" => Some(Self::I(I::default())),
-            "kbd" => Some(Self::Kbd(Kbd::default())),
-            "mark" => Some(Self::Mark(Mark::default())),
-            "q" => Some(Self::Q(Q::default())),
-            "rp" => Some(Self::Rp(Rp::default())),
-            "rt" => Some(Self::Rt(Rt::default())),
-            "ruby" => Some(Self::Ruby(Ruby::default())),
-            "s" => Some(Self::S(S::default())),
-            "samp" => Some(Self::Samp(Samp::default())),
-            "small" => Some(Self::Small(Small::default())),
-            "span" => Some(Self::Span(Span::default())),
-            "strong" => Some(Self::Strong(Strong::default())),
-            "sub" => Some(Self::Sub(Sub::default())),
-            "sup" => Some(Self::Sup(Sup::default())),
-            "time" => Some(Self::Time(Time::default())),
-            "u" => Some(Self::U(U::default())),
-            "var" => Some(Self::Var(Var::default())),
-            "wbr" => Some(Self::Wbr(Wbr::default())),
-            "area" => Some(Self::Area(Area::default())),
-            "audio" => Some(Self::Audio(Audio::default())),
-            "img" => Some(Self::Img(Img::default())),
-            "map" => Some(Self::Map(Map::default())),
-            "track" => Some(Self::Track(Track::default())),
-            "video" => Some(Self::Video(Video::default())),
-            "embed" => Some(Self::Embed(Embed::default())),
-            "iframe" => Some(Self::Iframe(Iframe::default())),
-            "object" => Some(Self::Object(Object::default())),
-            "picture" => Some(Self::Picture(Picture::default())),
-            "portal" => Some(Self::Portal(Portal::default())),
-            "source" => Some(Self::Source(Source::default())),
-            "canvas" => Some(Self::Canvas(Canvas::default())),
-            "noscript" => Some(Self::Noscript(Noscript::default())),
-            "script" => Some(Self::Script(Script::default())),
-            "del" => Some(Self::Del(Del::default())),
-            "ins" => Some(Self::Ins(Ins::default())),
-            "caption" => Some(Self::Caption(Caption::default())),
-            "col" => Some(Self::Col(Col::default())),
-            "colgroup" => Some(Self::Colgroup(Colgroup::default())),
-            "table" => Some(Self::Table(Table::default())),
-            "tbody" => Some(Self::Tbody(Tbody::default())),
-            "td" => Some(Self::Td(Td::default())),
-            "tfoot" => Some(Self::Tfoot(Tfoot::default())),
-            "th" => Some(Self::Th(Th::default())),
-            "thead" => Some(Self::Thead(Thead::default())),
-            "tr" => Some(Self::Tr(Tr::default())),
-            "button" => Some(Self::Button(Button::default())),
-            "datalist" => Some(Self::Datalist(Datalist::default())),
-            "fieldset" => Some(Self::Fieldset(Fieldset::default())),
-            "form" => Some(Self::Form(Form::default())),
-            "input" => Some(Self::Input(Input::default())),
-            "label" => Some(Self::Label(Label::default())),
-            "legend" => Some(Self::Legend(Legend::default())),
-            "meter" => Some(Self::Meter(Meter::default())),
-            "optgroup" => Some(Self::Optgroup(Optgroup::default())),
-            "option" => Some(Self::Option(Option::default())),
-            "output" => Some(Self::Output(Output::default())),
-            "progress" => Some(Self::Progress(Progress::default())),
-            "select" => Some(Self::Select(Select::default())),
-            "textarea" => Some(Self::Textarea(Textarea::default())),
-            "details" => Some(Self::Details(Details::default())),
-            "dialog" => Some(Self::Dialog(Dialog::default())),
-            "summary" => Some(Self::Summary(Summary::default())),
-            "slot" => Some(Self::Slot(Slot::default())),
-            "template" => Some(Self::Template(Template::default())),
-            "acronym" => Some(Self::Acronym(Acronym::default())),
-            "applet" => Some(Self::Applet(Applet::default())),
-            "bgsound" => Some(Self::Bgsound(Bgsound::default())),
-            "big" => Some(Self::Big(Big::default())),
-            "blink" => Some(Self::Blink(Blink::default())),
-            "center" => Some(Self::Center(Center::default())),
-            "dir" => Some(Self::Dir(Dir::default())),
-            "font" => Some(Self::Font(Font::default())),
-            "frame" => Some(Self::Frame(Frame::default())),
-            "frameset" => Some(Self::Frameset(Frameset::default())),
-            "image" => Some(Self::Image(Image::default())),
-            "keygen" => Some(Self::Keygen(Keygen::default())),
-            "marquee" => Some(Self::Marquee(Marquee::default())),
-            "menuitem" => Some(Self::Menuitem(Menuitem::default())),
-            "nobr" => Some(Self::Nobr(Nobr::default())),
-            "noembed" => Some(Self::Noembed(Noembed::default())),
-            "noframes" => Some(Self::Noframes(Noframes::default())),
-            "param" => Some(Self::Param(Param::default())),
-            "plaintext" => Some(Self::Plaintext(Plaintext::default())),
-            "rb" => Some(Self::Rb(Rb::default())),
-            "rtc" => Some(Self::Rtc(Rtc::default())),
-            "spacer" => Some(Self::Spacer(Spacer::default())),
-            "strike" => Some(Self::Strike(Strike::default())),
-            "tt" => Some(Self::Tt(Tt::default())),
-            "xmp" => Some(Self::Xmp(Xmp::default())),
-            "unknown" => Some(Self::Unknown(Unknown::default())),
-            _ => core::option::Option::Some(Self::default()),
+            "html" => Self::Html(Html::default()),
+            "base" => Self::Base(Base::default()),
+            "head" => Self::Head(Head::default()),
+            "link" => Self::Link(Link::default()),
+            "meta" => Self::Meta(Meta::default()),
+            "style" => Self::Style(Style::default()),
+            "title" => Self::Title(Title::default()),
+            "body" => Self::Body(Body::default()),
+            "address" => Self::Address(Address::default()),
+            "article" => Self::Article(Article::default()),
+            "aside" => Self::Aside(Aside::default()),
+            "footer" => Self::Footer(Footer::default()),
+            "header" => Self::Header(Header::default()),
+            "hgroup" => Self::Hgroup(Hgroup::default()),
+            "main" => Self::Main(Main::default()),
+            "nav" => Self::Nav(Nav::default()),
+            "section" => Self::Section(Section::default()),
+            "blockquote" => Self::Blockquote(Blockquote::default()),
+            "dd" => Self::Dd(Dd::default()),
+            "div" => Self::Div(Div::default()),
+            "dl" => Self::Dl(Dl::default()),
+            "dt" => Self::Dt(Dt::default()),
+            "figcaption" => Self::Figcaption(Figcaption::default()),
+            "figure" => Self::Figure(Figure::default()),
+            "hr" => Self::Hr(Hr::default()),
+            "li" => Self::Li(Li::default()),
+            "menu" => Self::Menu(Menu::default()),
+            "ol" => Self::Ol(Ol::default()),
+            "p" => Self::P(P::default()),
+            "pre" => Self::Pre(Pre::default()),
+            "ul" => Self::Ul(Ul::default()),
+            "a" => Self::A(A::default()),
+            "abbr" => Self::Abbr(Abbr::default()),
+            "b" => Self::B(B::default()),
+            "bdi" => Self::Bdi(Bdi::default()),
+            "bdo" => Self::Bdo(Bdo::default()),
+            "br" => Self::Br(Br::default()),
+            "cite" => Self::Cite(Cite::default()),
+            "code" => Self::Code(Code::default()),
+            "data" => Self::Data(Data::default()),
+            "dfn" => Self::Dfn(Dfn::default()),
+            "em" => Self::Em(Em::default()),
+            "i" => Self::I(I::default()),
+            "kbd" => Self::Kbd(Kbd::default()),
+            "mark" => Self::Mark(Mark::default()),
+            "q" => Self::Q(Q::default()),
+            "rp" => Self::Rp(Rp::default()),
+            "rt" => Self::Rt(Rt::default()),
+            "ruby" => Self::Ruby(Ruby::default()),
+            "s" => Self::S(S::default()),
+            "samp" => Self::Samp(Samp::default()),
+            "small" => Self::Small(Small::default()),
+            "span" => Self::Span(Span::default()),
+            "strong" => Self::Strong(Strong::default()),
+            "sub" => Self::Sub(Sub::default()),
+            "sup" => Self::Sup(Sup::default()),
+            "time" => Self::Time(Time::default()),
+            "u" => Self::U(U::default()),
+            "var" => Self::Var(Var::default()),
+            "wbr" => Self::Wbr(Wbr::default()),
+            "area" => Self::Area(Area::default()),
+            "audio" => Self::Audio(Audio::default()),
+            "img" => Self::Img(Img::default()),
+            "map" => Self::Map(Map::default()),
+            "track" => Self::Track(Track::default()),
+            "video" => Self::Video(Video::default()),
+            "embed" => Self::Embed(Embed::default()),
+            "iframe" => Self::Iframe(Iframe::default()),
+            "object" => Self::Object(Object::default()),
+            "picture" => Self::Picture(Picture::default()),
+            "portal" => Self::Portal(Portal::default()),
+            "source" => Self::Source(Source::default()),
+            "canvas" => Self::Canvas(Canvas::default()),
+            "noscript" => Self::Noscript(Noscript::default()),
+            "script" => Self::Script(Script::default()),
+            "del" => Self::Del(Del::default()),
+            "ins" => Self::Ins(Ins::default()),
+            "caption" => Self::Caption(Caption::default()),
+            "col" => Self::Col(Col::default()),
+            "colgroup" => Self::Colgroup(Colgroup::default()),
+            "table" => Self::Table(Table::default()),
+            "tbody" => Self::Tbody(Tbody::default()),
+            "td" => Self::Td(Td::default()),
+            "tfoot" => Self::Tfoot(Tfoot::default()),
+            "th" => Self::Th(Th::default()),
+            "thead" => Self::Thead(Thead::default()),
+            "tr" => Self::Tr(Tr::default()),
+            "button" => Self::Button(Button::default()),
+            "datalist" => Self::Datalist(Datalist::default()),
+            "fieldset" => Self::Fieldset(Fieldset::default()),
+            "form" => Self::Form(Form::default()),
+            "input" => Self::Input(Input::default()),
+            "label" => Self::Label(Label::default()),
+            "legend" => Self::Legend(Legend::default()),
+            "meter" => Self::Meter(Meter::default()),
+            "optgroup" => Self::Optgroup(Optgroup::default()),
+            "option" => Self::Option(Option::default()),
+            "output" => Self::Output(Output::default()),
+            "progress" => Self::Progress(Progress::default()),
+            "select" => Self::Select(Select::default()),
+            "textarea" => Self::Textarea(Textarea::default()),
+            "details" => Self::Details(Details::default()),
+            "dialog" => Self::Dialog(Dialog::default()),
+            "summary" => Self::Summary(Summary::default()),
+            "slot" => Self::Slot(Slot::default()),
+            "template" => Self::Template(Template::default()),
+            "acronym" => Self::Acronym(Acronym::default()),
+            "applet" => Self::Applet(Applet::default()),
+            "bgsound" => Self::Bgsound(Bgsound::default()),
+            "big" => Self::Big(Big::default()),
+            "blink" => Self::Blink(Blink::default()),
+            "center" => Self::Center(Center::default()),
+            "dir" => Self::Dir(Dir::default()),
+            "font" => Self::Font(Font::default()),
+            "frame" => Self::Frame(Frame::default()),
+            "frameset" => Self::Frameset(Frameset::default()),
+            "image" => Self::Image(Image::default()),
+            "keygen" => Self::Keygen(Keygen::default()),
+            "marquee" => Self::Marquee(Marquee::default()),
+            "menuitem" => Self::Menuitem(Menuitem::default()),
+            "nobr" => Self::Nobr(Nobr::default()),
+            "noembed" => Self::Noembed(Noembed::default()),
+            "noframes" => Self::Noframes(Noframes::default()),
+            "param" => Self::Param(Param::default()),
+            "plaintext" => Self::Plaintext(Plaintext::default()),
+            "rb" => Self::Rb(Rb::default()),
+            "rtc" => Self::Rtc(Rtc::default()),
+            "spacer" => Self::Spacer(Spacer::default()),
+            "strike" => Self::Strike(Strike::default()),
+            "tt" => Self::Tt(Tt::default()),
+            "xmp" => Self::Xmp(Xmp::default()),
+            "unknown" => Self::Unknown(Unknown::default()),
+            _ => Self::default(),
         }
     }
     /// Gets the tag name of the element.
@@ -33341,6 +33607,7 @@ impl<'life> Element<'life> {
     }
 }
 #[allow(deprecated)]
+
 impl<'life> Element<'life> {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -38141,6 +38408,7 @@ impl<'life> Element<'life> {
     }
 }
 #[allow(deprecated)]
+
 impl<'life> Default for Element<'life> {
     fn default() -> Self {
         Self::Unknown(Unknown::default())
@@ -38148,6 +38416,7 @@ impl<'life> Default for Element<'life> {
 }
 #[allow(deprecated)]
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
+#[cfg(feature = "alloc")]
 pub enum ElementOwned {
     Html(HtmlOwned),
     Base(BaseOwned),
@@ -38308,143 +38577,144 @@ pub enum ElementOwned {
     Unknown(UnknownOwned),
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl ElementOwned {
     /// Gets an element from a lowercase tag name.
-    pub fn from_tag(tag: &str) -> core::option::Option<Self> {
+    pub fn from_tag(tag: &str) -> Self {
         match tag {
-            "html" => Some(Self::Html(HtmlOwned::default())),
-            "base" => Some(Self::Base(BaseOwned::default())),
-            "head" => Some(Self::Head(HeadOwned::default())),
-            "link" => Some(Self::Link(LinkOwned::default())),
-            "meta" => Some(Self::Meta(MetaOwned::default())),
-            "style" => Some(Self::Style(StyleOwned::default())),
-            "title" => Some(Self::Title(TitleOwned::default())),
-            "body" => Some(Self::Body(BodyOwned::default())),
-            "address" => Some(Self::Address(AddressOwned::default())),
-            "article" => Some(Self::Article(ArticleOwned::default())),
-            "aside" => Some(Self::Aside(AsideOwned::default())),
-            "footer" => Some(Self::Footer(FooterOwned::default())),
-            "header" => Some(Self::Header(HeaderOwned::default())),
-            "hgroup" => Some(Self::Hgroup(HgroupOwned::default())),
-            "main" => Some(Self::Main(MainOwned::default())),
-            "nav" => Some(Self::Nav(NavOwned::default())),
-            "section" => Some(Self::Section(SectionOwned::default())),
-            "blockquote" => Some(Self::Blockquote(BlockquoteOwned::default())),
-            "dd" => Some(Self::Dd(DdOwned::default())),
-            "div" => Some(Self::Div(DivOwned::default())),
-            "dl" => Some(Self::Dl(DlOwned::default())),
-            "dt" => Some(Self::Dt(DtOwned::default())),
-            "figcaption" => Some(Self::Figcaption(FigcaptionOwned::default())),
-            "figure" => Some(Self::Figure(FigureOwned::default())),
-            "hr" => Some(Self::Hr(HrOwned::default())),
-            "li" => Some(Self::Li(LiOwned::default())),
-            "menu" => Some(Self::Menu(MenuOwned::default())),
-            "ol" => Some(Self::Ol(OlOwned::default())),
-            "p" => Some(Self::P(POwned::default())),
-            "pre" => Some(Self::Pre(PreOwned::default())),
-            "ul" => Some(Self::Ul(UlOwned::default())),
-            "a" => Some(Self::A(AOwned::default())),
-            "abbr" => Some(Self::Abbr(AbbrOwned::default())),
-            "b" => Some(Self::B(BOwned::default())),
-            "bdi" => Some(Self::Bdi(BdiOwned::default())),
-            "bdo" => Some(Self::Bdo(BdoOwned::default())),
-            "br" => Some(Self::Br(BrOwned::default())),
-            "cite" => Some(Self::Cite(CiteOwned::default())),
-            "code" => Some(Self::Code(CodeOwned::default())),
-            "data" => Some(Self::Data(DataOwned::default())),
-            "dfn" => Some(Self::Dfn(DfnOwned::default())),
-            "em" => Some(Self::Em(EmOwned::default())),
-            "i" => Some(Self::I(IOwned::default())),
-            "kbd" => Some(Self::Kbd(KbdOwned::default())),
-            "mark" => Some(Self::Mark(MarkOwned::default())),
-            "q" => Some(Self::Q(QOwned::default())),
-            "rp" => Some(Self::Rp(RpOwned::default())),
-            "rt" => Some(Self::Rt(RtOwned::default())),
-            "ruby" => Some(Self::Ruby(RubyOwned::default())),
-            "s" => Some(Self::S(SOwned::default())),
-            "samp" => Some(Self::Samp(SampOwned::default())),
-            "small" => Some(Self::Small(SmallOwned::default())),
-            "span" => Some(Self::Span(SpanOwned::default())),
-            "strong" => Some(Self::Strong(StrongOwned::default())),
-            "sub" => Some(Self::Sub(SubOwned::default())),
-            "sup" => Some(Self::Sup(SupOwned::default())),
-            "time" => Some(Self::Time(TimeOwned::default())),
-            "u" => Some(Self::U(UOwned::default())),
-            "var" => Some(Self::Var(VarOwned::default())),
-            "wbr" => Some(Self::Wbr(WbrOwned::default())),
-            "area" => Some(Self::Area(AreaOwned::default())),
-            "audio" => Some(Self::Audio(AudioOwned::default())),
-            "img" => Some(Self::Img(ImgOwned::default())),
-            "map" => Some(Self::Map(MapOwned::default())),
-            "track" => Some(Self::Track(TrackOwned::default())),
-            "video" => Some(Self::Video(VideoOwned::default())),
-            "embed" => Some(Self::Embed(EmbedOwned::default())),
-            "iframe" => Some(Self::Iframe(IframeOwned::default())),
-            "object" => Some(Self::Object(ObjectOwned::default())),
-            "picture" => Some(Self::Picture(PictureOwned::default())),
-            "portal" => Some(Self::Portal(PortalOwned::default())),
-            "source" => Some(Self::Source(SourceOwned::default())),
-            "canvas" => Some(Self::Canvas(CanvasOwned::default())),
-            "noscript" => Some(Self::Noscript(NoscriptOwned::default())),
-            "script" => Some(Self::Script(ScriptOwned::default())),
-            "del" => Some(Self::Del(DelOwned::default())),
-            "ins" => Some(Self::Ins(InsOwned::default())),
-            "caption" => Some(Self::Caption(CaptionOwned::default())),
-            "col" => Some(Self::Col(ColOwned::default())),
-            "colgroup" => Some(Self::Colgroup(ColgroupOwned::default())),
-            "table" => Some(Self::Table(TableOwned::default())),
-            "tbody" => Some(Self::Tbody(TbodyOwned::default())),
-            "td" => Some(Self::Td(TdOwned::default())),
-            "tfoot" => Some(Self::Tfoot(TfootOwned::default())),
-            "th" => Some(Self::Th(ThOwned::default())),
-            "thead" => Some(Self::Thead(TheadOwned::default())),
-            "tr" => Some(Self::Tr(TrOwned::default())),
-            "button" => Some(Self::Button(ButtonOwned::default())),
-            "datalist" => Some(Self::Datalist(DatalistOwned::default())),
-            "fieldset" => Some(Self::Fieldset(FieldsetOwned::default())),
-            "form" => Some(Self::Form(FormOwned::default())),
-            "input" => Some(Self::Input(InputOwned::default())),
-            "label" => Some(Self::Label(LabelOwned::default())),
-            "legend" => Some(Self::Legend(LegendOwned::default())),
-            "meter" => Some(Self::Meter(MeterOwned::default())),
-            "optgroup" => Some(Self::Optgroup(OptgroupOwned::default())),
-            "option" => Some(Self::Option(OptionOwned::default())),
-            "output" => Some(Self::Output(OutputOwned::default())),
-            "progress" => Some(Self::Progress(ProgressOwned::default())),
-            "select" => Some(Self::Select(SelectOwned::default())),
-            "textarea" => Some(Self::Textarea(TextareaOwned::default())),
-            "details" => Some(Self::Details(DetailsOwned::default())),
-            "dialog" => Some(Self::Dialog(DialogOwned::default())),
-            "summary" => Some(Self::Summary(SummaryOwned::default())),
-            "slot" => Some(Self::Slot(SlotOwned::default())),
-            "template" => Some(Self::Template(TemplateOwned::default())),
-            "acronym" => Some(Self::Acronym(AcronymOwned::default())),
-            "applet" => Some(Self::Applet(AppletOwned::default())),
-            "bgsound" => Some(Self::Bgsound(BgsoundOwned::default())),
-            "big" => Some(Self::Big(BigOwned::default())),
-            "blink" => Some(Self::Blink(BlinkOwned::default())),
-            "center" => Some(Self::Center(CenterOwned::default())),
-            "dir" => Some(Self::Dir(DirOwned::default())),
-            "font" => Some(Self::Font(FontOwned::default())),
-            "frame" => Some(Self::Frame(FrameOwned::default())),
-            "frameset" => Some(Self::Frameset(FramesetOwned::default())),
-            "image" => Some(Self::Image(ImageOwned::default())),
-            "keygen" => Some(Self::Keygen(KeygenOwned::default())),
-            "marquee" => Some(Self::Marquee(MarqueeOwned::default())),
-            "menuitem" => Some(Self::Menuitem(MenuitemOwned::default())),
-            "nobr" => Some(Self::Nobr(NobrOwned::default())),
-            "noembed" => Some(Self::Noembed(NoembedOwned::default())),
-            "noframes" => Some(Self::Noframes(NoframesOwned::default())),
-            "param" => Some(Self::Param(ParamOwned::default())),
-            "plaintext" => Some(Self::Plaintext(PlaintextOwned::default())),
-            "rb" => Some(Self::Rb(RbOwned::default())),
-            "rtc" => Some(Self::Rtc(RtcOwned::default())),
-            "spacer" => Some(Self::Spacer(SpacerOwned::default())),
-            "strike" => Some(Self::Strike(StrikeOwned::default())),
-            "tt" => Some(Self::Tt(TtOwned::default())),
-            "xmp" => Some(Self::Xmp(XmpOwned::default())),
-            "unknown" => Some(Self::Unknown(UnknownOwned::default())),
-            _ => core::option::Option::Some(Self::default()),
+            "html" => Self::Html(HtmlOwned::default()),
+            "base" => Self::Base(BaseOwned::default()),
+            "head" => Self::Head(HeadOwned::default()),
+            "link" => Self::Link(LinkOwned::default()),
+            "meta" => Self::Meta(MetaOwned::default()),
+            "style" => Self::Style(StyleOwned::default()),
+            "title" => Self::Title(TitleOwned::default()),
+            "body" => Self::Body(BodyOwned::default()),
+            "address" => Self::Address(AddressOwned::default()),
+            "article" => Self::Article(ArticleOwned::default()),
+            "aside" => Self::Aside(AsideOwned::default()),
+            "footer" => Self::Footer(FooterOwned::default()),
+            "header" => Self::Header(HeaderOwned::default()),
+            "hgroup" => Self::Hgroup(HgroupOwned::default()),
+            "main" => Self::Main(MainOwned::default()),
+            "nav" => Self::Nav(NavOwned::default()),
+            "section" => Self::Section(SectionOwned::default()),
+            "blockquote" => Self::Blockquote(BlockquoteOwned::default()),
+            "dd" => Self::Dd(DdOwned::default()),
+            "div" => Self::Div(DivOwned::default()),
+            "dl" => Self::Dl(DlOwned::default()),
+            "dt" => Self::Dt(DtOwned::default()),
+            "figcaption" => Self::Figcaption(FigcaptionOwned::default()),
+            "figure" => Self::Figure(FigureOwned::default()),
+            "hr" => Self::Hr(HrOwned::default()),
+            "li" => Self::Li(LiOwned::default()),
+            "menu" => Self::Menu(MenuOwned::default()),
+            "ol" => Self::Ol(OlOwned::default()),
+            "p" => Self::P(POwned::default()),
+            "pre" => Self::Pre(PreOwned::default()),
+            "ul" => Self::Ul(UlOwned::default()),
+            "a" => Self::A(AOwned::default()),
+            "abbr" => Self::Abbr(AbbrOwned::default()),
+            "b" => Self::B(BOwned::default()),
+            "bdi" => Self::Bdi(BdiOwned::default()),
+            "bdo" => Self::Bdo(BdoOwned::default()),
+            "br" => Self::Br(BrOwned::default()),
+            "cite" => Self::Cite(CiteOwned::default()),
+            "code" => Self::Code(CodeOwned::default()),
+            "data" => Self::Data(DataOwned::default()),
+            "dfn" => Self::Dfn(DfnOwned::default()),
+            "em" => Self::Em(EmOwned::default()),
+            "i" => Self::I(IOwned::default()),
+            "kbd" => Self::Kbd(KbdOwned::default()),
+            "mark" => Self::Mark(MarkOwned::default()),
+            "q" => Self::Q(QOwned::default()),
+            "rp" => Self::Rp(RpOwned::default()),
+            "rt" => Self::Rt(RtOwned::default()),
+            "ruby" => Self::Ruby(RubyOwned::default()),
+            "s" => Self::S(SOwned::default()),
+            "samp" => Self::Samp(SampOwned::default()),
+            "small" => Self::Small(SmallOwned::default()),
+            "span" => Self::Span(SpanOwned::default()),
+            "strong" => Self::Strong(StrongOwned::default()),
+            "sub" => Self::Sub(SubOwned::default()),
+            "sup" => Self::Sup(SupOwned::default()),
+            "time" => Self::Time(TimeOwned::default()),
+            "u" => Self::U(UOwned::default()),
+            "var" => Self::Var(VarOwned::default()),
+            "wbr" => Self::Wbr(WbrOwned::default()),
+            "area" => Self::Area(AreaOwned::default()),
+            "audio" => Self::Audio(AudioOwned::default()),
+            "img" => Self::Img(ImgOwned::default()),
+            "map" => Self::Map(MapOwned::default()),
+            "track" => Self::Track(TrackOwned::default()),
+            "video" => Self::Video(VideoOwned::default()),
+            "embed" => Self::Embed(EmbedOwned::default()),
+            "iframe" => Self::Iframe(IframeOwned::default()),
+            "object" => Self::Object(ObjectOwned::default()),
+            "picture" => Self::Picture(PictureOwned::default()),
+            "portal" => Self::Portal(PortalOwned::default()),
+            "source" => Self::Source(SourceOwned::default()),
+            "canvas" => Self::Canvas(CanvasOwned::default()),
+            "noscript" => Self::Noscript(NoscriptOwned::default()),
+            "script" => Self::Script(ScriptOwned::default()),
+            "del" => Self::Del(DelOwned::default()),
+            "ins" => Self::Ins(InsOwned::default()),
+            "caption" => Self::Caption(CaptionOwned::default()),
+            "col" => Self::Col(ColOwned::default()),
+            "colgroup" => Self::Colgroup(ColgroupOwned::default()),
+            "table" => Self::Table(TableOwned::default()),
+            "tbody" => Self::Tbody(TbodyOwned::default()),
+            "td" => Self::Td(TdOwned::default()),
+            "tfoot" => Self::Tfoot(TfootOwned::default()),
+            "th" => Self::Th(ThOwned::default()),
+            "thead" => Self::Thead(TheadOwned::default()),
+            "tr" => Self::Tr(TrOwned::default()),
+            "button" => Self::Button(ButtonOwned::default()),
+            "datalist" => Self::Datalist(DatalistOwned::default()),
+            "fieldset" => Self::Fieldset(FieldsetOwned::default()),
+            "form" => Self::Form(FormOwned::default()),
+            "input" => Self::Input(InputOwned::default()),
+            "label" => Self::Label(LabelOwned::default()),
+            "legend" => Self::Legend(LegendOwned::default()),
+            "meter" => Self::Meter(MeterOwned::default()),
+            "optgroup" => Self::Optgroup(OptgroupOwned::default()),
+            "option" => Self::Option(OptionOwned::default()),
+            "output" => Self::Output(OutputOwned::default()),
+            "progress" => Self::Progress(ProgressOwned::default()),
+            "select" => Self::Select(SelectOwned::default()),
+            "textarea" => Self::Textarea(TextareaOwned::default()),
+            "details" => Self::Details(DetailsOwned::default()),
+            "dialog" => Self::Dialog(DialogOwned::default()),
+            "summary" => Self::Summary(SummaryOwned::default()),
+            "slot" => Self::Slot(SlotOwned::default()),
+            "template" => Self::Template(TemplateOwned::default()),
+            "acronym" => Self::Acronym(AcronymOwned::default()),
+            "applet" => Self::Applet(AppletOwned::default()),
+            "bgsound" => Self::Bgsound(BgsoundOwned::default()),
+            "big" => Self::Big(BigOwned::default()),
+            "blink" => Self::Blink(BlinkOwned::default()),
+            "center" => Self::Center(CenterOwned::default()),
+            "dir" => Self::Dir(DirOwned::default()),
+            "font" => Self::Font(FontOwned::default()),
+            "frame" => Self::Frame(FrameOwned::default()),
+            "frameset" => Self::Frameset(FramesetOwned::default()),
+            "image" => Self::Image(ImageOwned::default()),
+            "keygen" => Self::Keygen(KeygenOwned::default()),
+            "marquee" => Self::Marquee(MarqueeOwned::default()),
+            "menuitem" => Self::Menuitem(MenuitemOwned::default()),
+            "nobr" => Self::Nobr(NobrOwned::default()),
+            "noembed" => Self::Noembed(NoembedOwned::default()),
+            "noframes" => Self::Noframes(NoframesOwned::default()),
+            "param" => Self::Param(ParamOwned::default()),
+            "plaintext" => Self::Plaintext(PlaintextOwned::default()),
+            "rb" => Self::Rb(RbOwned::default()),
+            "rtc" => Self::Rtc(RtcOwned::default()),
+            "spacer" => Self::Spacer(SpacerOwned::default()),
+            "strike" => Self::Strike(StrikeOwned::default()),
+            "tt" => Self::Tt(TtOwned::default()),
+            "xmp" => Self::Xmp(XmpOwned::default()),
+            "unknown" => Self::Unknown(UnknownOwned::default()),
+            _ => Self::default(),
         }
     }
     /// Gets the tag name of the element.
@@ -38586,6 +38856,7 @@ impl ElementOwned {
     }
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl ElementOwned {
     ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
     ///   
@@ -43396,6 +43667,7 @@ impl ElementOwned {
     }
 }
 #[allow(deprecated)]
+#[cfg(feature = "alloc")]
 impl Default for ElementOwned {
     fn default() -> Self {
         Self::Unknown(UnknownOwned::default())

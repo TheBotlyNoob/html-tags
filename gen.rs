@@ -294,6 +294,7 @@ fn write_elem(
             {5}
         }}  
         #[allow(deprecated)]
+        {2}
         impl{3} {name}{4}{3} {{
             /// Get the tag name of the element.
             /// This is the same as the name of the struct, in kebab-case.
@@ -337,9 +338,15 @@ fn write_elem_enum(
         buf,
         "#[allow(deprecated)]
         #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
+        {}
         pub enum Element{} {{
             {}
         }}",
+        if owned {
+            "#[cfg(feature = \"alloc\")]"
+        } else {
+            ""
+        },
         if owned { "Owned" } else { "<'life>" },
         elems
             .iter()
@@ -353,25 +360,31 @@ fn write_elem_enum(
     writeln!(
         buf,
         "#[allow(deprecated)]
-        impl{0} Element{1}{0} {{
+        {0}
+        impl{1} Element{2}{1} {{
             /// Gets an element from a lowercase tag name.
-            pub fn from_tag(tag: &str) -> core::option::Option<Self> {{
+            pub fn from_tag(tag: &str) -> Self {{
                 match tag {{
-                    {2},
-                    _ => core::option::Option::Some(Self::default()),
+                    {3},
+                    _ => Self::default(),
                 }}
             }}
             /// Gets the tag name of the element.
             pub fn tag(&self) -> &'static str {{
                 match self {{
-                    {3},
+                    {4},
                 }}
             }}
         }}",
+        if owned {
+            "#[cfg(feature = \"alloc\")]"
+        } else {
+            ""
+        },
         if owned { "" } else { "<'life>" },
         if owned { "Owned" } else { "" },
         elems.iter().format_with(",\n", |(e, _), f| f(&format_args!(
-            "\"{}\" => Some(Self::{e}({e}{}::default()))",
+            "\"{}\" => Self::{e}({e}{}::default())",
             AsKebabCase(e),
             if owned { "Owned" } else { "" },
         ))),
@@ -383,10 +396,16 @@ fn write_elem_enum(
     writeln!(
         buf,
         "#[allow(deprecated)]
-        impl{0} Element{1}{0} {{
-            {2}
+        {0}
+        impl{1} Element{2}{1} {{
             {3}
+            {4}
         }}",
+        if owned {
+            "#[cfg(feature = \"alloc\")]"
+        } else {
+            ""
+        },
         if owned { "" } else { "<'life>" },
         if owned { "Owned" } else { "" },
         global_attrs
@@ -434,11 +453,17 @@ fn write_elem_enum(
     writeln!(
         buf,
         "#[allow(deprecated)]
-        impl{0} Default for Element{1}{0} {{
+        {0}
+        impl{1} Default for Element{2}{1} {{
             fn default() -> Self {{
-                Self::Unknown(Unknown{1}::default())
+                Self::Unknown(Unknown{2}::default())
             }}
         }}",
+        if owned {
+            "#[cfg(feature = \"alloc\")]"
+        } else {
+            ""
+        },
         if owned { "" } else { "<'life>" },
         if owned { "Owned" } else { "" },
     )
