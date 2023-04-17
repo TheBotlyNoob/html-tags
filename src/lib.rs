@@ -112,6 +112,14 @@ pub struct Html<'life> {
     ///   
     pub xmlns: core::option::Option<&'life str>,
 }
+#[allow(deprecated)]
+impl<'life> Html<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "html"
+    }
+}
 /// The <strong><code>&lt;html&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents the root (top-level element) of an HTML document, so it is also referred to as the <em>root element</em>. All other elements must be descendants of this element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html>
@@ -222,6 +230,14 @@ pub struct HtmlOwned {
     ///   
     pub xmlns: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl HtmlOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "html"
+    }
+}
 /// The <strong><code>&lt;base&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies the base URL to use for all <em>relative</em> URLs in a document. There can be only one <code>&lt;base&gt;</code> element in a document.
 ///
 /// A document's used base URL can be accessed by scripts with <a href="/en-US/docs/Web/API/Node/baseURI"><code>Node.baseURI</code></a>. If the document has no <code>&lt;base&gt;</code> elements, then <code>baseURI</code> defaults to <a href="/en-US/docs/Web/API/Location/href"><code>location.href</code></a>.
@@ -330,6 +346,14 @@ pub struct Base<'life> {
     ///     </ul>
     ///   
     pub target: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Base<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "base"
+    }
 }
 /// The <strong><code>&lt;base&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies the base URL to use for all <em>relative</em> URLs in a document. There can be only one <code>&lt;base&gt;</code> element in a document.
 ///
@@ -445,6 +469,14 @@ pub struct BaseOwned {
     ///   
     pub target: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl BaseOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "base"
+    }
+}
 /// The <strong><code>&lt;head&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element contains machine-readable information (<a href="/en-US/docs/Glossary/Metadata">metadata</a>) about the document, like its <a href="/en-US/docs/Web/HTML/Element/title">title</a>, <a href="/en-US/docs/Web/HTML/Element/script">scripts</a>, and <a href="/en-US/docs/Web/HTML/Element/style">style sheets</a>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head>
@@ -541,6 +573,14 @@ pub struct Head<'life> {
     ///     <p>The <a href="/en-US/docs/Glossary/URI">URI</a>s of one or more metadata profiles, separated by <a href="/en-US/docs/Glossary/Whitespace">white space</a>.</p>
     ///   
     pub profile: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Head<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "head"
+    }
 }
 /// The <strong><code>&lt;head&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element contains machine-readable information (<a href="/en-US/docs/Glossary/Metadata">metadata</a>) about the document, like its <a href="/en-US/docs/Web/HTML/Element/title">title</a>, <a href="/en-US/docs/Web/HTML/Element/script">scripts</a>, and <a href="/en-US/docs/Web/HTML/Element/style">style sheets</a>.
 ///
@@ -644,6 +684,14 @@ pub struct HeadOwned {
     ///   
     pub profile: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl HeadOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "head"
+    }
+}
 ///
 ///   The <strong><code>&lt;link&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies relationships between the current document and an external resource.
 ///   This element is most commonly used to link to <a href="/en-US/docs/Glossary/CSS">stylesheets</a>, but is also used to establish site icons (both "favicon" style icons and icons for the home screen and apps on mobile devices) among other things.
@@ -687,7 +735,7 @@ pub struct Link<'life> {
     ///           <td>fetch</td>
     ///           <td>
     ///             <p>fetch, XHR</p>
-    ///             <div class="notecard note" id="sect1">
+    ///             <div id="sect1" class="notecard note">
     ///               <p>
     ///                 <strong>Note:</strong> This value also requires
     ///                 <code>&lt;link&gt;</code> to contain the crossorigin attribute.
@@ -875,7 +923,7 @@ pub struct Link<'life> {
     ///     <p>
     ///       This attribute indicates the language of the linked resource.
     ///       It is purely advisory.
-    ///       Allowed values are specified by <a class="external" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5646">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Allowed values are specified by <a href="https://datatracker.ietf.org/doc/html/rfc5646" target="_blank" class="external">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -885,11 +933,11 @@ pub struct Link<'life> {
     ///   
     pub id: core::option::Option<&'life str>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesizes</code> attribute is <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/images.html#sizes-attribute">a sizes attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesizes</code> attribute is <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/images.html#sizes-attribute">a sizes attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesizes: core::option::Option<&'life str>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a class="external" href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute" target="_blank">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesrcset: core::option::Option<&'life str>,
     ///
@@ -967,7 +1015,7 @@ pub struct Link<'life> {
     ///       <li><code>any</code>, meaning that the icon can be scaled to any size as it is in a vector format, like <code>image/svg+xml</code>.</li>
     ///       <li>a white-space separated list of sizes, each in the format <code>&lt;width in pixels&gt;x&lt;height in pixels&gt;</code> or <code>&lt;width in pixels&gt;X&lt;height in pixels&gt;</code>. Each of these sizes must be contained in the resource.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect3">
+    ///     <div id="sect3" class="notecard note">
     ///       <p>
     ///         <strong>Note:</strong> Most icon formats are only able to store one single icon; therefore, most of the time, the <a href="#sizes"><code>sizes</code></a> attribute contains only one entry.
     ///         MS's ICO format does, as well as Apple's ICNS. ICO is more ubiquitous, so you should use this format if cross-browser support is a concern (especially for old IE versions).
@@ -991,6 +1039,14 @@ pub struct Link<'life> {
     ///     </p>
     ///   
     pub type_: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Link<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "link"
+    }
 }
 ///
 ///   The <strong><code>&lt;link&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies relationships between the current document and an external resource.
@@ -1036,7 +1092,7 @@ pub struct LinkOwned {
     ///           <td>fetch</td>
     ///           <td>
     ///             <p>fetch, XHR</p>
-    ///             <div class="notecard note" id="sect1">
+    ///             <div id="sect1" class="notecard note">
     ///               <p>
     ///                 <strong>Note:</strong> This value also requires
     ///                 <code>&lt;link&gt;</code> to contain the crossorigin attribute.
@@ -1228,7 +1284,7 @@ pub struct LinkOwned {
     ///     <p>
     ///       This attribute indicates the language of the linked resource.
     ///       It is purely advisory.
-    ///       Allowed values are specified by <a class="external" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5646">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Allowed values are specified by <a href="https://datatracker.ietf.org/doc/html/rfc5646" target="_blank" class="external">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -1238,11 +1294,11 @@ pub struct LinkOwned {
     ///   
     pub id: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesizes</code> attribute is <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/images.html#sizes-attribute">a sizes attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesizes</code> attribute is <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/images.html#sizes-attribute">a sizes attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesizes: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a class="external" href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute" target="_blank">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesrcset: core::option::Option<alloc::string::String>,
     ///
@@ -1320,7 +1376,7 @@ pub struct LinkOwned {
     ///       <li><code>any</code>, meaning that the icon can be scaled to any size as it is in a vector format, like <code>image/svg+xml</code>.</li>
     ///       <li>a white-space separated list of sizes, each in the format <code>&lt;width in pixels&gt;x&lt;height in pixels&gt;</code> or <code>&lt;width in pixels&gt;X&lt;height in pixels&gt;</code>. Each of these sizes must be contained in the resource.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect3">
+    ///     <div id="sect3" class="notecard note">
     ///       <p>
     ///         <strong>Note:</strong> Most icon formats are only able to store one single icon; therefore, most of the time, the <a href="#sizes"><code>sizes</code></a> attribute contains only one entry.
     ///         MS's ICO format does, as well as Apple's ICNS. ICO is more ubiquitous, so you should use this format if cross-browser support is a concern (especially for old IE versions).
@@ -1344,6 +1400,14 @@ pub struct LinkOwned {
     ///     </p>
     ///   
     pub type_: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl LinkOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "link"
+    }
 }
 /// The <strong><code>&lt;meta&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents <a href="/en-US/docs/Glossary/Metadata">metadata</a> that cannot be represented by other HTML meta-related elements, like <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/link"><code>&lt;link&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/script"><code>&lt;script&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/style"><code>&lt;style&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/title"><code>&lt;title&gt;</code></a>.
 ///
@@ -1461,9 +1525,9 @@ pub struct Meta<'life> {
     ///           <ul>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.2_%E2%80%94_enough_time_provide_users_enough_time_to_read_and_use_content">MDN Understanding WCAG, Guideline 2.1 explanations</a></li>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.2_%E2%80%94_predictable_make_web_pages_appear_and_operate_in_predictable_ways">MDN Understanding WCAG, Guideline 3.1 explanations</a></li>
-    ///             <li><a class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html" target="_blank">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html" class="external">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html" class="external" target="_blank">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a class="external" target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a target="_blank" class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html" target="_blank" class="external">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
     ///           </ul>
     ///         </div>
     ///       </li>
@@ -1491,6 +1555,14 @@ pub struct Meta<'life> {
     ///     <p>See <a href="/en-US/docs/Web/HTML/Element/meta/name">standard metadata names</a> for details about the set of standard metadata names defined in the HTML specification.</p>
     ///   
     pub name: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Meta<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "meta"
+    }
 }
 /// The <strong><code>&lt;meta&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents <a href="/en-US/docs/Glossary/Metadata">metadata</a> that cannot be represented by other HTML meta-related elements, like <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/link"><code>&lt;link&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/script"><code>&lt;script&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/style"><code>&lt;style&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/title"><code>&lt;title&gt;</code></a>.
 ///
@@ -1613,9 +1685,9 @@ pub struct MetaOwned {
     ///           <ul>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.2_%E2%80%94_enough_time_provide_users_enough_time_to_read_and_use_content">MDN Understanding WCAG, Guideline 2.1 explanations</a></li>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.2_%E2%80%94_predictable_make_web_pages_appear_and_operate_in_predictable_ways">MDN Understanding WCAG, Guideline 3.1 explanations</a></li>
-    ///             <li><a class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html" target="_blank">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html" class="external">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html" class="external" target="_blank">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a class="external" target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a target="_blank" class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html" target="_blank" class="external">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
     ///           </ul>
     ///         </div>
     ///       </li>
@@ -1643,6 +1715,14 @@ pub struct MetaOwned {
     ///     <p>See <a href="/en-US/docs/Web/HTML/Element/meta/name">standard metadata names</a> for details about the set of standard metadata names defined in the HTML specification.</p>
     ///   
     pub name: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl MetaOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "meta"
+    }
 }
 /// The <strong><code>&lt;style&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element contains style information for a document, or part of a document. It contains CSS, which is applied to the contents of the document containing the <code>&lt;style&gt;</code> element.
 ///
@@ -1755,6 +1835,14 @@ pub struct Style<'life> {
     ///     <p>This attribute specifies <a href="/en-US/docs/Web/CSS/Alternative_style_sheets">alternative style sheet</a> sets.</p>
     ///   
     pub title: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Style<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "style"
+    }
 }
 /// The <strong><code>&lt;style&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element contains style information for a document, or part of a document. It contains CSS, which is applied to the contents of the document containing the <code>&lt;style&gt;</code> element.
 ///
@@ -1873,6 +1961,14 @@ pub struct StyleOwned {
     ///   
     pub title: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl StyleOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "style"
+    }
+}
 /// The <strong><code>&lt;title&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines the document's title that is shown in a <a href="/en-US/docs/Glossary/Browser">browser</a>'s title bar or a page's tab. It only contains text; tags within the element are ignored.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title>
@@ -1965,6 +2061,14 @@ pub struct Title<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Title<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "title"
+    }
 }
 /// The <strong><code>&lt;title&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines the document's title that is shown in a <a href="/en-US/docs/Glossary/Browser">browser</a>'s title bar or a page's tab. It only contains text; tags within the element are ignored.
 ///
@@ -2063,6 +2167,14 @@ pub struct TitleOwned {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl TitleOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "title"
+    }
 }
 /// The <strong><code>&lt;body&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents the content of an HTML document. There can be only one <code>&lt;body&gt;</code> element in a document.
 ///
@@ -2298,6 +2410,14 @@ pub struct Body<'life> {
     ///     </p>
     ///   
     pub vlink: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Body<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "body"
+    }
 }
 /// The <strong><code>&lt;body&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents the content of an HTML document. There can be only one <code>&lt;body&gt;</code> element in a document.
 ///
@@ -2539,6 +2659,14 @@ pub struct BodyOwned {
     ///   
     pub vlink: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl BodyOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "body"
+    }
+}
 /// The <strong><code>&lt;address&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address>
@@ -2631,6 +2759,14 @@ pub struct Address<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Address<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "address"
+    }
 }
 /// The <strong><code>&lt;address&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that the enclosed HTML provides contact information for a person or people, or for an organization.
 ///
@@ -2730,6 +2866,14 @@ pub struct AddressOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl AddressOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "address"
+    }
+}
 /// The <strong><code>&lt;article&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article>
@@ -2822,6 +2966,14 @@ pub struct Article<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Article<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "article"
+    }
 }
 /// The <strong><code>&lt;article&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
 ///
@@ -2921,6 +3073,14 @@ pub struct ArticleOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl ArticleOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "article"
+    }
+}
 /// The <strong><code>&lt;aside&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside>
@@ -3013,6 +3173,14 @@ pub struct Aside<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Aside<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "aside"
+    }
 }
 /// The <strong><code>&lt;aside&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes.
 ///
@@ -3112,6 +3280,14 @@ pub struct AsideOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl AsideOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "aside"
+    }
+}
 /// The <strong><code>&lt;footer&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a footer for its nearest ancestor <a href="/en-US/docs/Web/HTML/Content_categories#sectioning_content">sectioning content</a> or <a href="/en-US/docs/Web/HTML/Element/Heading_Elements#sectioning_root">sectioning root</a> element. A <code>&lt;footer&gt;</code> typically contains information about the author of the section, copyright data or links to related documents.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer>
@@ -3204,6 +3380,14 @@ pub struct Footer<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Footer<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "footer"
+    }
 }
 /// The <strong><code>&lt;footer&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a footer for its nearest ancestor <a href="/en-US/docs/Web/HTML/Content_categories#sectioning_content">sectioning content</a> or <a href="/en-US/docs/Web/HTML/Element/Heading_Elements#sectioning_root">sectioning root</a> element. A <code>&lt;footer&gt;</code> typically contains information about the author of the section, copyright data or links to related documents.
 ///
@@ -3303,6 +3487,14 @@ pub struct FooterOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl FooterOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "footer"
+    }
+}
 /// The <strong><code>&lt;header&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header>
@@ -3395,6 +3587,14 @@ pub struct Header<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Header<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "header"
+    }
 }
 /// The <strong><code>&lt;header&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.
 ///
@@ -3494,6 +3694,14 @@ pub struct HeaderOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl HeaderOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "header"
+    }
+}
 /// The <strong><code>&lt;hgroup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a heading and related content. It groups a single <a href="/en-US/docs/Web/HTML/Element/Heading_Elements"><code>&lt;h1&gt;–&lt;h6&gt;</code></a> element with one or more <a href="/en-US/docs/Web/HTML/Element/p"><code>&lt;p&gt;</code></a>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup>
@@ -3586,6 +3794,14 @@ pub struct Hgroup<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Hgroup<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "hgroup"
+    }
 }
 /// The <strong><code>&lt;hgroup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a heading and related content. It groups a single <a href="/en-US/docs/Web/HTML/Element/Heading_Elements"><code>&lt;h1&gt;–&lt;h6&gt;</code></a> element with one or more <a href="/en-US/docs/Web/HTML/Element/p"><code>&lt;p&gt;</code></a>.
 ///
@@ -3685,6 +3901,14 @@ pub struct HgroupOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl HgroupOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "hgroup"
+    }
+}
 /// The <strong><code>&lt;main&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents the dominant content of the <a href="/en-US/docs/Web/HTML/Element/body"><code>&lt;body&gt;</code></a> of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main>
@@ -3777,6 +4001,14 @@ pub struct Main<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Main<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "main"
+    }
 }
 /// The <strong><code>&lt;main&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents the dominant content of the <a href="/en-US/docs/Web/HTML/Element/body"><code>&lt;body&gt;</code></a> of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.
 ///
@@ -3876,6 +4108,14 @@ pub struct MainOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl MainOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "main"
+    }
+}
 /// The <strong><code>&lt;nav&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav>
@@ -3968,6 +4208,14 @@ pub struct Nav<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Nav<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "nav"
+    }
 }
 /// The <strong><code>&lt;nav&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. Common examples of navigation sections are menus, tables of contents, and indexes.
 ///
@@ -4067,6 +4315,14 @@ pub struct NavOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl NavOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "nav"
+    }
+}
 /// The <strong><code>&lt;section&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section>
@@ -4159,6 +4415,14 @@ pub struct Section<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Section<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "section"
+    }
 }
 /// The <strong><code>&lt;section&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a generic standalone section of a document, which doesn't have a more specific semantic element to represent it. Sections should always have a heading, with very few exceptions.
 ///
@@ -4258,6 +4522,14 @@ pub struct SectionOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl SectionOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "section"
+    }
+}
 /// The <strong><code>&lt;blockquote&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation (see <a href="#usage_notes">Notes</a> for how to change it). A URL for the source of the quotation may be given using the <code>cite</code> attribute, while a text representation of the source can be given using the <a href="/en-US/docs/Web/HTML/Element/cite"><code>&lt;cite&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote>
@@ -4354,6 +4626,14 @@ pub struct Blockquote<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Blockquote<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "blockquote"
+    }
 }
 /// The <strong><code>&lt;blockquote&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that the enclosed text is an extended quotation. Usually, this is rendered visually by indentation (see <a href="#usage_notes">Notes</a> for how to change it). A URL for the source of the quotation may be given using the <code>cite</code> attribute, while a text representation of the source can be given using the <a href="/en-US/docs/Web/HTML/Element/cite"><code>&lt;cite&gt;</code></a> element.
 ///
@@ -4457,6 +4737,14 @@ pub struct BlockquoteOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl BlockquoteOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "blockquote"
+    }
+}
 /// The <strong><code>&lt;dd&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element provides the description, definition, or value for the preceding term (<a href="/en-US/docs/Web/HTML/Element/dt"><code>&lt;dt&gt;</code></a>) in a description list (<a href="/en-US/docs/Web/HTML/Element/dl"><code>&lt;dl&gt;</code></a>).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd>
@@ -4553,6 +4841,14 @@ pub struct Dd<'life> {
     ///     <p>If the value of this attribute is set to <code>yes</code>, the definition text will not wrap. The default value is <code>no</code>.</p>
     ///   
     pub nowrap: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Dd<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "dd"
+    }
 }
 /// The <strong><code>&lt;dd&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element provides the description, definition, or value for the preceding term (<a href="/en-US/docs/Web/HTML/Element/dt"><code>&lt;dt&gt;</code></a>) in a description list (<a href="/en-US/docs/Web/HTML/Element/dl"><code>&lt;dl&gt;</code></a>).
 ///
@@ -4656,6 +4952,14 @@ pub struct DdOwned {
     ///   
     pub nowrap: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl DdOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "dd"
+    }
+}
 /// The <strong><code>&lt;div&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is the generic container for flow content. It has no effect on the content or layout until styled in some way using <a href="/en-US/docs/Glossary/CSS">CSS</a> (e.g. styling is directly applied to it, or some kind of layout model like <a href="/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout">Flexbox</a> is applied to its parent element).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div>
@@ -4748,6 +5052,14 @@ pub struct Div<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Div<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "div"
+    }
 }
 /// The <strong><code>&lt;div&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is the generic container for flow content. It has no effect on the content or layout until styled in some way using <a href="/en-US/docs/Glossary/CSS">CSS</a> (e.g. styling is directly applied to it, or some kind of layout model like <a href="/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout">Flexbox</a> is applied to its parent element).
 ///
@@ -4847,6 +5159,14 @@ pub struct DivOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl DivOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "div"
+    }
+}
 /// The <strong><code>&lt;dl&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a description list. The element encloses a list of groups of terms (specified using the <a href="/en-US/docs/Web/HTML/Element/dt"><code>&lt;dt&gt;</code></a> element) and descriptions (provided by <a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl>
@@ -4939,6 +5259,14 @@ pub struct Dl<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Dl<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "dl"
+    }
 }
 /// The <strong><code>&lt;dl&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a description list. The element encloses a list of groups of terms (specified using the <a href="/en-US/docs/Web/HTML/Element/dt"><code>&lt;dt&gt;</code></a> element) and descriptions (provided by <a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> elements). Common uses for this element are to implement a glossary or to display metadata (a list of key-value pairs).
 ///
@@ -5038,6 +5366,14 @@ pub struct DlOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl DlOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "dl"
+    }
+}
 /// The <strong><code>&lt;dt&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies a term in a description or definition list, and as such must be used inside a <a href="/en-US/docs/Web/HTML/Element/dl"><code>&lt;dl&gt;</code></a> element. It is usually followed by a <a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> element; however, multiple <code>&lt;dt&gt;</code> elements in a row indicate several terms that are all defined by the immediate next <a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> element.
 ///
 /// The subsequent <a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> (<strong>Description Details</strong>) element provides the definition or other related text associated with the term specified using <code>&lt;dt&gt;</code>.
@@ -5132,6 +5468,14 @@ pub struct Dt<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Dt<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "dt"
+    }
 }
 /// The <strong><code>&lt;dt&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies a term in a description or definition list, and as such must be used inside a <a href="/en-US/docs/Web/HTML/Element/dl"><code>&lt;dl&gt;</code></a> element. It is usually followed by a <a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> element; however, multiple <code>&lt;dt&gt;</code> elements in a row indicate several terms that are all defined by the immediate next <a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> element.
 ///
@@ -5233,6 +5577,14 @@ pub struct DtOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl DtOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "dt"
+    }
+}
 /// The <strong><code>&lt;figcaption&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a caption or legend describing the rest of the contents of its parent <a href="/en-US/docs/Web/HTML/Element/figure"><code>&lt;figure&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption>
@@ -5325,6 +5677,14 @@ pub struct Figcaption<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Figcaption<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "figcaption"
+    }
 }
 /// The <strong><code>&lt;figcaption&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a caption or legend describing the rest of the contents of its parent <a href="/en-US/docs/Web/HTML/Element/figure"><code>&lt;figure&gt;</code></a> element.
 ///
@@ -5424,6 +5784,14 @@ pub struct FigcaptionOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl FigcaptionOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "figcaption"
+    }
+}
 /// The <strong><code>&lt;figure&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents self-contained content, potentially with an optional caption, which is specified using the <a href="/en-US/docs/Web/HTML/Element/figcaption"><code>&lt;figcaption&gt;</code></a> element. The figure, its caption, and its contents are referenced as a single unit.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure>
@@ -5516,6 +5884,14 @@ pub struct Figure<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Figure<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "figure"
+    }
 }
 /// The <strong><code>&lt;figure&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents self-contained content, potentially with an optional caption, which is specified using the <a href="/en-US/docs/Web/HTML/Element/figcaption"><code>&lt;figcaption&gt;</code></a> element. The figure, its caption, and its contents are referenced as a single unit.
 ///
@@ -5614,6 +5990,14 @@ pub struct FigureOwned {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl FigureOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "figure"
+    }
 }
 /// The <strong><code>&lt;hr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.
 ///
@@ -5727,6 +6111,14 @@ pub struct Hr<'life> {
     ///     <p>Sets the length of the rule on the page through a pixel or percentage value.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Hr<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "hr"
+    }
 }
 /// The <strong><code>&lt;hr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a thematic break between paragraph-level elements: for example, a change of scene in a story, or a shift of topic within a section.
 ///
@@ -5846,6 +6238,14 @@ pub struct HrOwned {
     ///   
     pub width: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl HrOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "hr"
+    }
+}
 /// The <strong><code>&lt;li&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to represent an item in a list. It must be contained in a parent element: an ordered list (<a href="/en-US/docs/Web/HTML/Element/ol"><code>&lt;ol&gt;</code></a>), an unordered list (<a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>), or a menu (<a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a>). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li>
@@ -5948,7 +6348,7 @@ pub struct Li<'life> {
     ///       <li><code>1</code>: numbers</li>
     ///     </ul>
     ///     <p>This type overrides the one used by its parent <a href="/en-US/docs/Web/HTML/Element/ol"><code>&lt;ol&gt;</code></a> element, if any.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute has been deprecated; use the CSS <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
@@ -5957,6 +6357,14 @@ pub struct Li<'life> {
     ///     <p>This integer attribute indicates the current ordinal value of the list item as defined by the <a href="/en-US/docs/Web/HTML/Element/ol"><code>&lt;ol&gt;</code></a> element. The only allowed value for this attribute is a number, even if the list is displayed with Roman numerals or letters. List items that follow this one continue numbering from the value set. The <strong>value</strong> attribute has no meaning for unordered lists (<a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>) or for menus (<a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a>).</p>
     ///   
     pub value: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Li<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "li"
+    }
 }
 /// The <strong><code>&lt;li&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to represent an item in a list. It must be contained in a parent element: an ordered list (<a href="/en-US/docs/Web/HTML/Element/ol"><code>&lt;ol&gt;</code></a>), an unordered list (<a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>), or a menu (<a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a>). In menus and unordered lists, list items are usually displayed using bullet points. In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
 ///
@@ -6065,7 +6473,7 @@ pub struct LiOwned {
     ///       <li><code>1</code>: numbers</li>
     ///     </ul>
     ///     <p>This type overrides the one used by its parent <a href="/en-US/docs/Web/HTML/Element/ol"><code>&lt;ol&gt;</code></a> element, if any.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute has been deprecated; use the CSS <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
@@ -6074,6 +6482,14 @@ pub struct LiOwned {
     ///     <p>This integer attribute indicates the current ordinal value of the list item as defined by the <a href="/en-US/docs/Web/HTML/Element/ol"><code>&lt;ol&gt;</code></a> element. The only allowed value for this attribute is a number, even if the list is displayed with Roman numerals or letters. List items that follow this one continue numbering from the value set. The <strong>value</strong> attribute has no meaning for unordered lists (<a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>) or for menus (<a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a>).</p>
     ///   
     pub value: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl LiOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "li"
+    }
 }
 /// The <strong><code>&lt;menu&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is described in the HTML specification as a semantic alternative to <a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>, but treated by browsers (and exposed through the accessibility tree) as no different than <a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>. It represents an unordered list of items (which are represented by <a href="/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a> elements).
 ///
@@ -6167,6 +6583,14 @@ pub struct Menu<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Menu<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "menu"
+    }
 }
 /// The <strong><code>&lt;menu&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is described in the HTML specification as a semantic alternative to <a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>, but treated by browsers (and exposed through the accessibility tree) as no different than <a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a>. It represents an unordered list of items (which are represented by <a href="/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a> elements).
 ///
@@ -6265,6 +6689,14 @@ pub struct MenuOwned {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl MenuOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "menu"
+    }
 }
 /// The <strong><code>&lt;ol&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents an ordered list of items — typically rendered as a numbered list.
 ///
@@ -6376,11 +6808,19 @@ pub struct Ol<'life> {
     ///       <li><code>1</code> for numbers (default)</li>
     ///     </ul>
     ///     <p>The specified type is used for the entire list unless a different <a href="/en-US/docs/Web/HTML/Element/li#type"><code>type</code></a> attribute is used on an enclosed <a href="/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a> element.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Unless the type of the list number matters (like legal or technical documents where items are referenced by their number/letter), use the CSS <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
     pub type_: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Ol<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "ol"
+    }
 }
 /// The <strong><code>&lt;ol&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents an ordered list of items — typically rendered as a numbered list.
 ///
@@ -6497,11 +6937,19 @@ pub struct OlOwned {
     ///       <li><code>1</code> for numbers (default)</li>
     ///     </ul>
     ///     <p>The specified type is used for the entire list unless a different <a href="/en-US/docs/Web/HTML/Element/li#type"><code>type</code></a> attribute is used on an enclosed <a href="/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a> element.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Unless the type of the list number matters (like legal or technical documents where items are referenced by their number/letter), use the CSS <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
     pub type_: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl OlOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "ol"
+    }
 }
 /// The <strong><code>&lt;p&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a paragraph. Paragraphs are usually represented in visual media as blocks of text separated from adjacent blocks by blank lines and/or first-line indentation, but HTML paragraphs can be any structural grouping of related content, such as images or form fields.
 ///
@@ -6597,6 +7045,14 @@ pub struct P<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> P<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "p"
+    }
 }
 /// The <strong><code>&lt;p&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a paragraph. Paragraphs are usually represented in visual media as blocks of text separated from adjacent blocks by blank lines and/or first-line indentation, but HTML paragraphs can be any structural grouping of related content, such as images or form fields.
 ///
@@ -6698,7 +7154,15 @@ pub struct POwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
-/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a href="https://en.wikipedia.org/wiki/Monospaced_font" class="external" target="_blank">monospaced</a>, font. Whitespace inside this element is displayed as written.
+#[allow(deprecated)]
+impl POwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "p"
+    }
+}
+/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a target="_blank" href="https://en.wikipedia.org/wiki/Monospaced_font" class="external">monospaced</a>, font. Whitespace inside this element is displayed as written.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre>
 
@@ -6803,7 +7267,15 @@ pub struct Pre<'life> {
     ///   
     pub wrap: core::option::Option<&'life str>,
 }
-/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a href="https://en.wikipedia.org/wiki/Monospaced_font" class="external" target="_blank">monospaced</a>, font. Whitespace inside this element is displayed as written.
+#[allow(deprecated)]
+impl<'life> Pre<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "pre"
+    }
+}
+/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a target="_blank" href="https://en.wikipedia.org/wiki/Monospaced_font" class="external">monospaced</a>, font. Whitespace inside this element is displayed as written.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre>
 
@@ -6913,6 +7385,14 @@ pub struct PreOwned {
     ///   
     pub wrap: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl PreOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "pre"
+    }
+}
 /// The <strong><code>&lt;ul&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents an unordered list of items, typically rendered as a bulleted list.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul>
@@ -7021,11 +7501,19 @@ pub struct Ul<'life> {
     ///     </ul>
     ///     <p>A fourth bullet type has been defined in the WebTV interface, but not all browsers support it: <code>triangle</code>.</p>
     ///     <p>If not present and if no <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property applies to the element, the user agent selects a bullet type depending on the nesting level of the list.</p>
-    ///     <div id="sect2" class="notecard warning">
+    ///     <div class="notecard warning" id="sect2">
     ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated; use the <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
     pub type_: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Ul<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "ul"
+    }
 }
 /// The <strong><code>&lt;ul&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents an unordered list of items, typically rendered as a bulleted list.
 ///
@@ -7140,11 +7628,19 @@ pub struct UlOwned {
     ///     </ul>
     ///     <p>A fourth bullet type has been defined in the WebTV interface, but not all browsers support it: <code>triangle</code>.</p>
     ///     <p>If not present and if no <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property applies to the element, the user agent selects a bullet type depending on the nesting level of the list.</p>
-    ///     <div id="sect2" class="notecard warning">
+    ///     <div class="notecard warning" id="sect2">
     ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated; use the <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
     pub type_: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl UlOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "ul"
+    }
 }
 /// The <strong><code>&lt;a&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element (or <em>anchor</em> element), with <a href="#href">its <code>href</code> attribute</a>, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.
 ///
@@ -7213,7 +7709,7 @@ pub struct A<'life> {
     ///       </li>
     ///       <li><code>filename</code>: defining a value suggests it as the filename. <code>/</code> and <code>\</code> characters are converted to underscores (<code>_</code>). Filesystems may forbid other characters in filenames, so browsers will adjust the suggested name if necessary.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li><code>download</code> only works for <a href="/en-US/docs/Web/Security/Same-origin_policy">same-origin URLs</a>, or the <code>blob:</code> and <code>data:</code> schemes.</li>
@@ -7313,7 +7809,7 @@ pub struct A<'life> {
     ///       <li><code>_parent</code>: the parent browsing context of the current one. If no parent, behaves as <code>_self</code>.</li>
     ///       <li><code>_top</code>: the topmost browsing context (the "highest" context that's an ancestor of the current one). If no ancestors, behaves as <code>_self</code>.</li>
     ///     </ul>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> Setting <code>target="_blank"</code> on <code>&lt;a&gt;</code> elements implicitly provides the same <code>rel</code> behavior as setting <a href="/en-US/docs/Web/HTML/Attributes/rel/noopener"><code>rel="noopener"</code></a> which does not set <code>window.opener</code>.</p>
     ///     </div>
     ///   
@@ -7322,6 +7818,14 @@ pub struct A<'life> {
     ///     <p>Hints at the linked URL's format with a <a href="/en-US/docs/Glossary/MIME_type">MIME type</a>. No built-in functionality.</p>
     ///   
     pub type_: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> A<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "a"
+    }
 }
 /// The <strong><code>&lt;a&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element (or <em>anchor</em> element), with <a href="#href">its <code>href</code> attribute</a>, creates a hyperlink to web pages, files, email addresses, locations in the same page, or anything else a URL can address.
 ///
@@ -7393,7 +7897,7 @@ pub struct AOwned {
     ///       </li>
     ///       <li><code>filename</code>: defining a value suggests it as the filename. <code>/</code> and <code>\</code> characters are converted to underscores (<code>_</code>). Filesystems may forbid other characters in filenames, so browsers will adjust the suggested name if necessary.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li><code>download</code> only works for <a href="/en-US/docs/Web/Security/Same-origin_policy">same-origin URLs</a>, or the <code>blob:</code> and <code>data:</code> schemes.</li>
@@ -7495,7 +7999,7 @@ pub struct AOwned {
     ///       <li><code>_parent</code>: the parent browsing context of the current one. If no parent, behaves as <code>_self</code>.</li>
     ///       <li><code>_top</code>: the topmost browsing context (the "highest" context that's an ancestor of the current one). If no ancestors, behaves as <code>_self</code>.</li>
     ///     </ul>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> Setting <code>target="_blank"</code> on <code>&lt;a&gt;</code> elements implicitly provides the same <code>rel</code> behavior as setting <a href="/en-US/docs/Web/HTML/Attributes/rel/noopener"><code>rel="noopener"</code></a> which does not set <code>window.opener</code>.</p>
     ///     </div>
     ///   
@@ -7504,6 +8008,14 @@ pub struct AOwned {
     ///     <p>Hints at the linked URL's format with a <a href="/en-US/docs/Glossary/MIME_type">MIME type</a>. No built-in functionality.</p>
     ///   
     pub type_: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl AOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "a"
+    }
 }
 /// The <strong><code>&lt;abbr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents an abbreviation or acronym.
 ///
@@ -7601,6 +8113,14 @@ pub struct Abbr<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Abbr<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "abbr"
+    }
 }
 /// The <strong><code>&lt;abbr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents an abbreviation or acronym.
 ///
@@ -7704,6 +8224,14 @@ pub struct AbbrOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl AbbrOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "abbr"
+    }
+}
 /// The <strong><code>&lt;b&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use <code>&lt;b&gt;</code> for styling text or granting importance. If you wish to create boldface text, you should use the CSS <a href="/en-US/docs/Web/CSS/font-weight"><code>font-weight</code></a> property. If you wish to indicate an element is of special importance, you should use the <a href="/en-US/docs/Web/HTML/Element/strong"><code>&lt;strong&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b>
@@ -7796,6 +8324,14 @@ pub struct B<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> B<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "b"
+    }
 }
 /// The <strong><code>&lt;b&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to draw the reader's attention to the element's contents, which are not otherwise granted special importance. This was formerly known as the Boldface element, and most browsers still draw the text in boldface. However, you should not use <code>&lt;b&gt;</code> for styling text or granting importance. If you wish to create boldface text, you should use the CSS <a href="/en-US/docs/Web/CSS/font-weight"><code>font-weight</code></a> property. If you wish to indicate an element is of special importance, you should use the <a href="/en-US/docs/Web/HTML/Element/strong"><code>&lt;strong&gt;</code></a> element.
 ///
@@ -7895,6 +8431,14 @@ pub struct BOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl BOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "b"
+    }
+}
 /// The <strong><code>&lt;bdi&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text. It's particularly useful when a website dynamically inserts some text and doesn't know the directionality of the text being inserted.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi>
@@ -7987,6 +8531,14 @@ pub struct Bdi<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Bdi<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "bdi"
+    }
 }
 /// The <strong><code>&lt;bdi&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element tells the browser's bidirectional algorithm to treat the text it contains in isolation from its surrounding text. It's particularly useful when a website dynamically inserts some text and doesn't know the directionality of the text being inserted.
 ///
@@ -8086,6 +8638,14 @@ pub struct BdiOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl BdiOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "bdi"
+    }
+}
 /// The <strong><code>&lt;bdo&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element overrides the current directionality of text, so that the text within is rendered in a different direction.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo>
@@ -8177,6 +8737,14 @@ pub struct Bdo<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Bdo<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "bdo"
+    }
 }
 /// The <strong><code>&lt;bdo&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element overrides the current directionality of text, so that the text within is rendered in a different direction.
 ///
@@ -8275,6 +8843,14 @@ pub struct BdoOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl BdoOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "bdo"
+    }
+}
 /// The <strong><code>&lt;br&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br>
@@ -8371,6 +8947,14 @@ pub struct Br<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Br<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "br"
+    }
 }
 /// The <strong><code>&lt;br&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element produces a line break in text (carriage-return). It is useful for writing a poem or an address, where the division of lines is significant.
 ///
@@ -8474,6 +9058,14 @@ pub struct BrOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl BrOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "br"
+    }
+}
 /// The <strong><code>&lt;cite&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to mark up the title of a cited creative work. The reference may be in an abbreviated form according to context-appropriate conventions related to citation metadata.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite>
@@ -8566,6 +9158,14 @@ pub struct Cite<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Cite<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "cite"
+    }
 }
 /// The <strong><code>&lt;cite&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to mark up the title of a cited creative work. The reference may be in an abbreviated form according to context-appropriate conventions related to citation metadata.
 ///
@@ -8665,6 +9265,14 @@ pub struct CiteOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl CiteOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "cite"
+    }
+}
 /// The <strong><code>&lt;code&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element displays its contents styled in a fashion intended to indicate that the text is a short fragment of computer code. By default, the content text is displayed using the <a href="/en-US/docs/Glossary/User_agent">user agent's</a> default monospace font.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code>
@@ -8757,6 +9365,14 @@ pub struct Code<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Code<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "code"
+    }
 }
 /// The <strong><code>&lt;code&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element displays its contents styled in a fashion intended to indicate that the text is a short fragment of computer code. By default, the content text is displayed using the <a href="/en-US/docs/Glossary/User_agent">user agent's</a> default monospace font.
 ///
@@ -8856,6 +9472,14 @@ pub struct CodeOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl CodeOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "code"
+    }
+}
 /// The <strong><code>&lt;data&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element links a given piece of content with a machine-readable translation. If the content is time- or date-related, the <a href="/en-US/docs/Web/HTML/Element/time"><code>&lt;time&gt;</code></a> element must be used.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data>
@@ -8952,6 +9576,14 @@ pub struct Data<'life> {
     ///     <p>This attribute specifies the machine-readable translation of the content of the element.</p>
     ///   
     pub value: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Data<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "data"
+    }
 }
 /// The <strong><code>&lt;data&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element links a given piece of content with a machine-readable translation. If the content is time- or date-related, the <a href="/en-US/docs/Web/HTML/Element/time"><code>&lt;time&gt;</code></a> element must be used.
 ///
@@ -9055,6 +9687,14 @@ pub struct DataOwned {
     ///   
     pub value: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl DataOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "data"
+    }
+}
 /// The <strong><code>&lt;dfn&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor <a href="/en-US/docs/Web/HTML/Element/p"><code>&lt;p&gt;</code></a> element, the <a href="/en-US/docs/Web/HTML/Element/dt"><code>&lt;dt&gt;</code></a>/<a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> pairing, or the nearest <a href="/en-US/docs/Web/HTML/Element/section"><code>&lt;section&gt;</code></a> ancestor of the <code>&lt;dfn&gt;</code> element, is considered to be the definition of the term.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn>
@@ -9147,6 +9787,14 @@ pub struct Dfn<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Dfn<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "dfn"
+    }
 }
 /// The <strong><code>&lt;dfn&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor <a href="/en-US/docs/Web/HTML/Element/p"><code>&lt;p&gt;</code></a> element, the <a href="/en-US/docs/Web/HTML/Element/dt"><code>&lt;dt&gt;</code></a>/<a href="/en-US/docs/Web/HTML/Element/dd"><code>&lt;dd&gt;</code></a> pairing, or the nearest <a href="/en-US/docs/Web/HTML/Element/section"><code>&lt;section&gt;</code></a> ancestor of the <code>&lt;dfn&gt;</code> element, is considered to be the definition of the term.
 ///
@@ -9246,6 +9894,14 @@ pub struct DfnOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl DfnOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "dfn"
+    }
+}
 /// The <strong><code>&lt;em&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element marks text that has stress emphasis. The <code>&lt;em&gt;</code> element can be nested, with each level of nesting indicating a greater degree of emphasis.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em>
@@ -9338,6 +9994,14 @@ pub struct Em<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Em<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "em"
+    }
 }
 /// The <strong><code>&lt;em&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element marks text that has stress emphasis. The <code>&lt;em&gt;</code> element can be nested, with each level of nesting indicating a greater degree of emphasis.
 ///
@@ -9437,6 +10101,14 @@ pub struct EmOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl EmOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "em"
+    }
+}
 /// The <strong><code>&lt;i&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a range of text that is set off from the normal text for some reason, such as idiomatic text, technical terms, taxonomical designations, among others. Historically, these have been presented using italicized type, which is the original source of the <code>&lt;i&gt;</code> naming of this element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i>
@@ -9529,6 +10201,14 @@ pub struct I<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> I<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "i"
+    }
 }
 /// The <strong><code>&lt;i&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a range of text that is set off from the normal text for some reason, such as idiomatic text, technical terms, taxonomical designations, among others. Historically, these have been presented using italicized type, which is the original source of the <code>&lt;i&gt;</code> naming of this element.
 ///
@@ -9628,6 +10308,14 @@ pub struct IOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl IOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "i"
+    }
+}
 /// The <strong><code>&lt;kbd&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device. By convention, the <a href="/en-US/docs/Glossary/User_agent">user agent</a> defaults to rendering the contents of a <code>&lt;kbd&gt;</code> element using its default monospace font, although this is not mandated by the HTML standard.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd>
@@ -9720,6 +10408,14 @@ pub struct Kbd<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Kbd<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "kbd"
+    }
 }
 /// The <strong><code>&lt;kbd&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a span of inline text denoting textual user input from a keyboard, voice input, or any other text entry device. By convention, the <a href="/en-US/docs/Glossary/User_agent">user agent</a> defaults to rendering the contents of a <code>&lt;kbd&gt;</code> element using its default monospace font, although this is not mandated by the HTML standard.
 ///
@@ -9819,6 +10515,14 @@ pub struct KbdOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl KbdOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "kbd"
+    }
+}
 /// The <strong><code>&lt;mark&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents text which is <strong>marked</strong> or <strong>highlighted</strong> for reference or notation purposes due to the marked passage's relevance in the enclosing context.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark>
@@ -9911,6 +10615,14 @@ pub struct Mark<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Mark<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "mark"
+    }
 }
 /// The <strong><code>&lt;mark&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents text which is <strong>marked</strong> or <strong>highlighted</strong> for reference or notation purposes due to the marked passage's relevance in the enclosing context.
 ///
@@ -10010,6 +10722,14 @@ pub struct MarkOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl MarkOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "mark"
+    }
+}
 /// The <strong><code>&lt;q&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the <a href="/en-US/docs/Web/HTML/Element/blockquote"><code>&lt;blockquote&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q>
@@ -10106,6 +10826,14 @@ pub struct Q<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Q<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "q"
+    }
 }
 /// The <strong><code>&lt;q&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that the enclosed text is a short inline quotation. Most modern browsers implement this by surrounding the text in quotation marks. This element is intended for short quotations that don't require paragraph breaks; for long quotations use the <a href="/en-US/docs/Web/HTML/Element/blockquote"><code>&lt;blockquote&gt;</code></a> element.
 ///
@@ -10209,6 +10937,14 @@ pub struct QOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl QOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "q"
+    }
+}
 /// The <strong><code>&lt;rp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to provide fall-back parentheses for browsers that do not support display of ruby annotations using the <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. One <code>&lt;rp&gt;</code> element should enclose each of the opening and closing parentheses that wrap the <a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a> element that contains the annotation's text.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp>
@@ -10301,6 +11037,14 @@ pub struct Rp<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Rp<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "rp"
+    }
 }
 /// The <strong><code>&lt;rp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to provide fall-back parentheses for browsers that do not support display of ruby annotations using the <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. One <code>&lt;rp&gt;</code> element should enclose each of the opening and closing parentheses that wrap the <a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a> element that contains the annotation's text.
 ///
@@ -10400,6 +11144,14 @@ pub struct RpOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl RpOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "rp"
+    }
+}
 /// The <strong><code>&lt;rt&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The <code>&lt;rt&gt;</code> element must always be contained within a <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt>
@@ -10492,6 +11244,14 @@ pub struct Rt<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Rt<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "rt"
+    }
 }
 /// The <strong><code>&lt;rt&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies the ruby text component of a ruby annotation, which is used to provide pronunciation, translation, or transliteration information for East Asian typography. The <code>&lt;rt&gt;</code> element must always be contained within a <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element.
 ///
@@ -10591,9 +11351,17 @@ pub struct RtOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl RtOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "rt"
+    }
+}
 /// The <strong><code>&lt;ruby&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
 ///
-/// The term <em>ruby</em> originated as <a href="https://en.wikipedia.org/wiki/Agate_(typography)" target="_blank" class="external">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
+/// The term <em>ruby</em> originated as <a href="https://en.wikipedia.org/wiki/Agate_(typography)" class="external" target="_blank">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby>
 
@@ -10686,9 +11454,17 @@ pub struct Ruby<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
 }
+#[allow(deprecated)]
+impl<'life> Ruby<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "ruby"
+    }
+}
 /// The <strong><code>&lt;ruby&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
 ///
-/// The term <em>ruby</em> originated as <a href="https://en.wikipedia.org/wiki/Agate_(typography)" target="_blank" class="external">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
+/// The term <em>ruby</em> originated as <a href="https://en.wikipedia.org/wiki/Agate_(typography)" class="external" target="_blank">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby>
 
@@ -10786,6 +11562,14 @@ pub struct RubyOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl RubyOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "ruby"
+    }
+}
 /// The <strong><code>&lt;s&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element renders text with a strikethrough, or a line through it. Use the <code>&lt;s&gt;</code> element to represent things that are no longer relevant or no longer accurate. However, <code>&lt;s&gt;</code> is not appropriate when indicating document edits; for that, use the <a href="/en-US/docs/Web/HTML/Element/del"><code>&lt;del&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/ins"><code>&lt;ins&gt;</code></a> elements, as appropriate.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s>
@@ -10878,6 +11662,14 @@ pub struct S<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> S<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "s"
+    }
 }
 /// The <strong><code>&lt;s&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element renders text with a strikethrough, or a line through it. Use the <code>&lt;s&gt;</code> element to represent things that are no longer relevant or no longer accurate. However, <code>&lt;s&gt;</code> is not appropriate when indicating document edits; for that, use the <a href="/en-US/docs/Web/HTML/Element/del"><code>&lt;del&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/ins"><code>&lt;ins&gt;</code></a> elements, as appropriate.
 ///
@@ -10977,7 +11769,15 @@ pub struct SOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
-/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a href="https://en.wikipedia.org/wiki/Courier_(typeface)" target="_blank" class="external">Courier</a> or Lucida Console).
+#[allow(deprecated)]
+impl SOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "s"
+    }
+}
+/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a href="https://en.wikipedia.org/wiki/Courier_(typeface)" class="external" target="_blank">Courier</a> or Lucida Console).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp>
 
@@ -11070,7 +11870,15 @@ pub struct Samp<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
 }
-/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a href="https://en.wikipedia.org/wiki/Courier_(typeface)" target="_blank" class="external">Courier</a> or Lucida Console).
+#[allow(deprecated)]
+impl<'life> Samp<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "samp"
+    }
+}
+/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a href="https://en.wikipedia.org/wiki/Courier_(typeface)" class="external" target="_blank">Courier</a> or Lucida Console).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp>
 
@@ -11168,6 +11976,14 @@ pub struct SampOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl SampOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "samp"
+    }
+}
 /// The <strong><code>&lt;small&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents side-comments and small print, like copyright and legal text, independent of its styled presentation. By default, it renders text within it one font-size smaller, such as from <code>small</code> to <code>x-small</code>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small>
@@ -11260,6 +12076,14 @@ pub struct Small<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Small<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "small"
+    }
 }
 /// The <strong><code>&lt;small&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents side-comments and small print, like copyright and legal text, independent of its styled presentation. By default, it renders text within it one font-size smaller, such as from <code>small</code> to <code>x-small</code>.
 ///
@@ -11359,6 +12183,14 @@ pub struct SmallOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl SmallOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "small"
+    }
+}
 /// The <strong><code>&lt;span&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the <a href="/en-US/docs/Web/HTML/Global_attributes#class"><code>class</code></a> or <a href="/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a> attributes), or because they share attribute values, such as <a href="/en-US/docs/Web/HTML/Global_attributes#lang"><code>lang</code></a>. It should be used only when no other semantic element is appropriate. <code>&lt;span&gt;</code> is very much like a <a href="/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> element, but <a href="/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> is a <a href="/en-US/docs/Web/HTML/Block-level_elements">block-level element</a> whereas a <code>&lt;span&gt;</code> is an <a href="/en-US/docs/Web/HTML/Inline_elements">inline element</a>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span>
@@ -11451,6 +12283,14 @@ pub struct Span<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Span<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "span"
+    }
 }
 /// The <strong><code>&lt;span&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a generic inline container for phrasing content, which does not inherently represent anything. It can be used to group elements for styling purposes (using the <a href="/en-US/docs/Web/HTML/Global_attributes#class"><code>class</code></a> or <a href="/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a> attributes), or because they share attribute values, such as <a href="/en-US/docs/Web/HTML/Global_attributes#lang"><code>lang</code></a>. It should be used only when no other semantic element is appropriate. <code>&lt;span&gt;</code> is very much like a <a href="/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> element, but <a href="/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> is a <a href="/en-US/docs/Web/HTML/Block-level_elements">block-level element</a> whereas a <code>&lt;span&gt;</code> is an <a href="/en-US/docs/Web/HTML/Inline_elements">inline element</a>.
 ///
@@ -11550,6 +12390,14 @@ pub struct SpanOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl SpanOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "span"
+    }
+}
 /// The <strong><code>&lt;strong&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong>
@@ -11642,6 +12490,14 @@ pub struct Strong<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Strong<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "strong"
+    }
 }
 /// The <strong><code>&lt;strong&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render the contents in bold type.
 ///
@@ -11741,6 +12597,14 @@ pub struct StrongOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl StrongOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "strong"
+    }
+}
 /// The <strong><code>&lt;sub&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies inline text which should be displayed as subscript for solely typographical reasons. Subscripts are typically rendered with a lowered baseline using smaller text.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub>
@@ -11833,6 +12697,14 @@ pub struct Sub<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Sub<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "sub"
+    }
 }
 /// The <strong><code>&lt;sub&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies inline text which should be displayed as subscript for solely typographical reasons. Subscripts are typically rendered with a lowered baseline using smaller text.
 ///
@@ -11932,6 +12804,14 @@ pub struct SubOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl SubOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "sub"
+    }
+}
 /// The <strong><code>&lt;sup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies inline text which is to be displayed as superscript for solely typographical reasons. Superscripts are usually rendered with a raised baseline using smaller text.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup>
@@ -12024,6 +12904,14 @@ pub struct Sup<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Sup<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "sup"
+    }
 }
 /// The <strong><code>&lt;sup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies inline text which is to be displayed as superscript for solely typographical reasons. Superscripts are usually rendered with a raised baseline using smaller text.
 ///
@@ -12123,6 +13011,14 @@ pub struct SupOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl SupOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "sup"
+    }
+}
 /// The <strong><code>&lt;time&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a specific period in time. It may include the <code>datetime</code> attribute to translate dates into machine-readable format, allowing for better search engine results or custom features such as reminders.
 ///
 /// It may represent one of the following:
@@ -12221,6 +13117,14 @@ pub struct Time<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Time<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "time"
+    }
 }
 /// The <strong><code>&lt;time&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a specific period in time. It may include the <code>datetime</code> attribute to translate dates into machine-readable format, allowing for better search engine results or custom features such as reminders.
 ///
@@ -12326,6 +13230,14 @@ pub struct TimeOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl TimeOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "time"
+    }
+}
 /// The <strong><code>&lt;u&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a simple solid underline, but may be altered using CSS.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u>
@@ -12418,6 +13330,14 @@ pub struct U<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> U<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "u"
+    }
 }
 /// The <strong><code>&lt;u&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation. This is rendered by default as a simple solid underline, but may be altered using CSS.
 ///
@@ -12517,6 +13437,14 @@ pub struct UOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl UOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "u"
+    }
+}
 /// The <strong><code>&lt;var&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents the name of a variable in a mathematical expression or a programming context. It's typically presented using an italicized version of the current typeface, although that behavior is browser-dependent.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var>
@@ -12609,6 +13537,14 @@ pub struct Var<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Var<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "var"
+    }
 }
 /// The <strong><code>&lt;var&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents the name of a variable in a mathematical expression or a programming context. It's typically presented using an italicized version of the current typeface, although that behavior is browser-dependent.
 ///
@@ -12708,6 +13644,14 @@ pub struct VarOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl VarOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "var"
+    }
+}
 /// The <strong><code>&lt;wbr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a word break opportunity—a position within text where the browser may optionally break a line, though its line-breaking rules would not otherwise create a break at that location.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr>
@@ -12800,6 +13744,14 @@ pub struct Wbr<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Wbr<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "wbr"
+    }
 }
 /// The <strong><code>&lt;wbr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a word break opportunity—a position within text where the browser may optionally break a line, though its line-breaking rules would not otherwise create a break at that location.
 ///
@@ -12898,6 +13850,14 @@ pub struct WbrOwned {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl WbrOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "wbr"
+    }
 }
 /// The <strong><code>&lt;area&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines an area inside an image map that has predefined clickable areas. An <em>image map</em> allows geometric areas on an image to be associated with <a href="/en-US/docs/Glossary/Hyperlink">hypertext links</a>.
 ///
@@ -13025,7 +13985,7 @@ pub struct Area<'life> {
     pub href: core::option::Option<&'life str>,
     ///
     ///     <p>
-    ///       Indicates the language of the linked resource. Allowed values are defined by <a class="external" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5646">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Indicates the language of the linked resource. Allowed values are defined by <a href="https://datatracker.ietf.org/doc/html/rfc5646" class="external" target="_blank">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -13101,11 +14061,19 @@ pub struct Area<'life> {
     ///       </li>
     ///     </ul>
     ///     <p>Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> Setting <code>target="_blank"</code> on <code>&lt;area&gt;</code> elements implicitly provides the same <code>rel</code> behavior as setting <a href="/en-US/docs/Web/HTML/Attributes/rel/noopener"><code>rel="noopener"</code></a> which does not set <code>window.opener</code>. See <a href="#browser_compatibility">browser compatibility</a> for support status.</p>
     ///     </div>
     ///   
     pub target: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Area<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "area"
+    }
 }
 /// The <strong><code>&lt;area&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines an area inside an image map that has predefined clickable areas. An <em>image map</em> allows geometric areas on an image to be associated with <a href="/en-US/docs/Glossary/Hyperlink">hypertext links</a>.
 ///
@@ -13238,7 +14206,7 @@ pub struct AreaOwned {
     pub href: core::option::Option<alloc::string::String>,
     ///
     ///     <p>
-    ///       Indicates the language of the linked resource. Allowed values are defined by <a class="external" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5646">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Indicates the language of the linked resource. Allowed values are defined by <a href="https://datatracker.ietf.org/doc/html/rfc5646" class="external" target="_blank">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -13314,11 +14282,19 @@ pub struct AreaOwned {
     ///       </li>
     ///     </ul>
     ///     <p>Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> Setting <code>target="_blank"</code> on <code>&lt;area&gt;</code> elements implicitly provides the same <code>rel</code> behavior as setting <a href="/en-US/docs/Web/HTML/Attributes/rel/noopener"><code>rel="noopener"</code></a> which does not set <code>window.opener</code>. See <a href="#browser_compatibility">browser compatibility</a> for support status.</p>
     ///     </div>
     ///   
     pub target: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl AreaOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "area"
+    }
 }
 /// The <strong><code>&lt;audio&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to embed sound content in documents. It may contain one or more audio sources, represented using the <code>src</code> attribute or the <a href="/en-US/docs/Web/HTML/Element/source"><code>&lt;source&gt;</code></a> element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a <a href="/en-US/docs/Web/API/MediaStream"><code>MediaStream</code></a>.
 ///
@@ -13345,7 +14321,7 @@ pub struct Audio<'life> {
     pub autofocus: core::option::Option<bool>,
     ///
     ///     <p>A Boolean attribute: if specified, the audio will automatically begin playback as soon as it can do so, without waiting for the entire audio file to finish downloading.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Sites that automatically play audio (or videos with an audio track) can be an unpleasant experience for users, so should be avoided when possible. If you must offer autoplay functionality, you should make it opt-in (requiring a user to specifically enable it). However, this can be useful when creating media elements whose source will be set at a later time, under user control. See our <a href="/en-US/docs/Web/Media/Autoplay_guide">autoplay guide</a> for additional information about how to properly use autoplay.</p>
     ///     </div>
     ///   
@@ -13405,9 +14381,9 @@ pub struct Audio<'life> {
     ///   
     pub dir: core::option::Option<&'life str>,
     ///
-    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute" target="_blank" class="external">this proposed specification</a> for more information.</p>
-    ///     <div class="notecard note" id="sect2">
-    ///       <p><strong>Note:</strong> In Safari, you can use <a target="_blank" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" class="external"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a class="external" target="_blank" href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute">this proposed specification</a> for more information.</p>
+    ///     <div id="sect2" class="notecard note">
+    ///       <p><strong>Note:</strong> In Safari, you can use <a class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///     </div>
     ///   
     pub disableremoteplayback: core::option::Option<&'life str>,
@@ -13467,7 +14443,7 @@ pub struct Audio<'life> {
     ///       <li><em>empty string</em>: A synonym of the <code>auto</code> value.</li>
     ///     </ul>
     ///     <p>The default value is different for each browser. The spec advises it to be set to <code>metadata</code>.</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>The <code>autoplay</code> attribute has precedence over <code>preload</code>. If <code>autoplay</code> is specified, the browser would obviously need to start downloading the audio for playback.</li>
@@ -13480,6 +14456,14 @@ pub struct Audio<'life> {
     ///     <p>The URL of the audio to embed. This is subject to <a href="/en-US/docs/Web/HTTP/CORS">HTTP access controls</a>. This is optional; you may instead use the <a href="/en-US/docs/Web/HTML/Element/source"><code>&lt;source&gt;</code></a> element within the audio block to specify the audio to embed.</p>
     ///   
     pub src: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Audio<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "audio"
+    }
 }
 /// The <strong><code>&lt;audio&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to embed sound content in documents. It may contain one or more audio sources, represented using the <code>src</code> attribute or the <a href="/en-US/docs/Web/HTML/Element/source"><code>&lt;source&gt;</code></a> element: the browser will choose the most suitable one. It can also be the destination for streamed media, using a <a href="/en-US/docs/Web/API/MediaStream"><code>MediaStream</code></a>.
 ///
@@ -13507,7 +14491,7 @@ pub struct AudioOwned {
     pub autofocus: core::option::Option<bool>,
     ///
     ///     <p>A Boolean attribute: if specified, the audio will automatically begin playback as soon as it can do so, without waiting for the entire audio file to finish downloading.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Sites that automatically play audio (or videos with an audio track) can be an unpleasant experience for users, so should be avoided when possible. If you must offer autoplay functionality, you should make it opt-in (requiring a user to specifically enable it). However, this can be useful when creating media elements whose source will be set at a later time, under user control. See our <a href="/en-US/docs/Web/Media/Autoplay_guide">autoplay guide</a> for additional information about how to properly use autoplay.</p>
     ///     </div>
     ///   
@@ -13569,9 +14553,9 @@ pub struct AudioOwned {
     ///   
     pub dir: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute" target="_blank" class="external">this proposed specification</a> for more information.</p>
-    ///     <div class="notecard note" id="sect2">
-    ///       <p><strong>Note:</strong> In Safari, you can use <a target="_blank" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" class="external"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a class="external" target="_blank" href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute">this proposed specification</a> for more information.</p>
+    ///     <div id="sect2" class="notecard note">
+    ///       <p><strong>Note:</strong> In Safari, you can use <a class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///     </div>
     ///   
     pub disableremoteplayback: core::option::Option<alloc::string::String>,
@@ -13633,7 +14617,7 @@ pub struct AudioOwned {
     ///       <li><em>empty string</em>: A synonym of the <code>auto</code> value.</li>
     ///     </ul>
     ///     <p>The default value is different for each browser. The spec advises it to be set to <code>metadata</code>.</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>The <code>autoplay</code> attribute has precedence over <code>preload</code>. If <code>autoplay</code> is specified, the browser would obviously need to start downloading the audio for playback.</li>
@@ -13646,6 +14630,14 @@ pub struct AudioOwned {
     ///     <p>The URL of the audio to embed. This is subject to <a href="/en-US/docs/Web/HTTP/CORS">HTTP access controls</a>. This is optional; you may instead use the <a href="/en-US/docs/Web/HTML/Element/source"><code>&lt;source&gt;</code></a> element within the audio block to specify the audio to embed.</p>
     ///   
     pub src: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl AudioOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "audio"
+    }
 }
 /// The <strong><code>&lt;img&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embeds an image into the document.
 ///
@@ -13709,7 +14701,7 @@ pub struct Img<'life> {
     ///     <dl>
     ///       <dt id="anonymous"><code>anonymous</code></dt>
     ///       <dd>
-    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a target="_blank" class="external" href="https://datatracker.ietf.org/doc/html/rfc5280">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
+    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a class="external" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5280">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
     ///       </dd>
     ///       <dt id="use-credentials"><code>use-credentials</code></dt>
     ///       <dd>
@@ -13820,7 +14812,7 @@ pub struct Img<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
     ///
-    ///     <p>This Boolean attribute indicates that the image is part of a <a target="_blank" class="external" href="https://en.wikipedia.org/wiki/Image_map#Server-side">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
+    ///     <p>This Boolean attribute indicates that the image is part of a <a target="_blank" href="https://en.wikipedia.org/wiki/Image_map#Server-side" class="external">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
     ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is allowed only if the <code>&lt;img&gt;</code> element is a descendant of an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> element with a valid <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute. This gives users without pointing devices a fallback destination.</p>
     ///     </div>
@@ -13890,7 +14882,7 @@ pub struct Img<'life> {
     pub srcset: core::option::Option<&'life str>,
     ///
     ///     <p>The partial <a href="/en-US/docs/Glossary/URL">URL</a> (starting with <code>#</code>) of an <a href="/en-US/docs/Web/HTML/Element/map">image map</a> associated with the element.</p>
-    ///     <div id="sect6" class="notecard note">
+    ///     <div class="notecard note" id="sect6">
     ///       <p><strong>Note:</strong> You cannot use this attribute if the <code>&lt;img&gt;</code> element is inside an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> element.</p>
     ///     </div>
     ///   
@@ -13899,6 +14891,14 @@ pub struct Img<'life> {
     ///     <p>The intrinsic width of the image in pixels. Must be an integer without a unit.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Img<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "img"
+    }
 }
 /// The <strong><code>&lt;img&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embeds an image into the document.
 ///
@@ -13963,7 +14963,7 @@ pub struct ImgOwned {
     ///     <dl>
     ///       <dt id="anonymous"><code>anonymous</code></dt>
     ///       <dd>
-    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a target="_blank" class="external" href="https://datatracker.ietf.org/doc/html/rfc5280">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
+    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a class="external" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5280">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
     ///       </dd>
     ///       <dt id="use-credentials"><code>use-credentials</code></dt>
     ///       <dd>
@@ -14078,7 +15078,7 @@ pub struct ImgOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>This Boolean attribute indicates that the image is part of a <a target="_blank" class="external" href="https://en.wikipedia.org/wiki/Image_map#Server-side">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
+    ///     <p>This Boolean attribute indicates that the image is part of a <a target="_blank" href="https://en.wikipedia.org/wiki/Image_map#Server-side" class="external">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
     ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is allowed only if the <code>&lt;img&gt;</code> element is a descendant of an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> element with a valid <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute. This gives users without pointing devices a fallback destination.</p>
     ///     </div>
@@ -14148,7 +15148,7 @@ pub struct ImgOwned {
     pub srcset: core::option::Option<alloc::string::String>,
     ///
     ///     <p>The partial <a href="/en-US/docs/Glossary/URL">URL</a> (starting with <code>#</code>) of an <a href="/en-US/docs/Web/HTML/Element/map">image map</a> associated with the element.</p>
-    ///     <div id="sect6" class="notecard note">
+    ///     <div class="notecard note" id="sect6">
     ///       <p><strong>Note:</strong> You cannot use this attribute if the <code>&lt;img&gt;</code> element is inside an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> element.</p>
     ///     </div>
     ///   
@@ -14157,6 +15157,14 @@ pub struct ImgOwned {
     ///     <p>The intrinsic width of the image in pixels. Must be an integer without a unit.</p>
     ///   
     pub width: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl ImgOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "img"
+    }
 }
 /// The <strong><code>&lt;map&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used with <a href="/en-US/docs/Web/HTML/Element/area"><code>&lt;area&gt;</code></a> elements to define an image map (a clickable link area).
 ///
@@ -14254,6 +15262,14 @@ pub struct Map<'life> {
     ///     <p>The <code>name</code> attribute gives the map a name so that it can be referenced. The attribute must be present and must have a non-empty value with no space characters. The value of the <code>name</code> attribute must not be equal to the value of the <code>name</code> attribute of another <code>&lt;map&gt;</code> element in the same document. If the <a href="/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a> attribute is also specified, both attributes must have the same value.</p>
     ///   
     pub name: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Map<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "map"
+    }
 }
 /// The <strong><code>&lt;map&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used with <a href="/en-US/docs/Web/HTML/Element/area"><code>&lt;area&gt;</code></a> elements to define an image map (a clickable link area).
 ///
@@ -14356,6 +15372,14 @@ pub struct MapOwned {
     ///     <p>The <code>name</code> attribute gives the map a name so that it can be referenced. The attribute must be present and must have a non-empty value with no space characters. The value of the <code>name</code> attribute must not be equal to the value of the <code>name</code> attribute of another <code>&lt;map&gt;</code> element in the same document. If the <a href="/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a> attribute is also specified, both attributes must have the same value.</p>
     ///   
     pub name: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl MapOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "map"
+    }
 }
 /// The <strong><code>&lt;track&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used as a child of the media elements, <a href="/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a>. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in <a href="/en-US/docs/Web/API/WebVTT_API">WebVTT format</a> (<code>.vtt</code> files) — Web Video Text Tracks.
 ///
@@ -14497,9 +15521,17 @@ pub struct Track<'life> {
     ///   
     pub src: core::option::Option<&'life str>,
     ///
-    ///     <p>Language of the track text data. It must be a valid <a class="external" href="https://r12a.github.io/app-subtags/" target="_blank">BCP 47</a> language tag. If the <code>kind</code> attribute is set to <code>subtitles</code>, then <code>srclang</code> must be defined.</p>
+    ///     <p>Language of the track text data. It must be a valid <a target="_blank" class="external" href="https://r12a.github.io/app-subtags/">BCP 47</a> language tag. If the <code>kind</code> attribute is set to <code>subtitles</code>, then <code>srclang</code> must be defined.</p>
     ///   
     pub srclang: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Track<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "track"
+    }
 }
 /// The <strong><code>&lt;track&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used as a child of the media elements, <a href="/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a>. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in <a href="/en-US/docs/Web/API/WebVTT_API">WebVTT format</a> (<code>.vtt</code> files) — Web Video Text Tracks.
 ///
@@ -14646,9 +15678,17 @@ pub struct TrackOwned {
     ///   
     pub src: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>Language of the track text data. It must be a valid <a class="external" href="https://r12a.github.io/app-subtags/" target="_blank">BCP 47</a> language tag. If the <code>kind</code> attribute is set to <code>subtitles</code>, then <code>srclang</code> must be defined.</p>
+    ///     <p>Language of the track text data. It must be a valid <a target="_blank" class="external" href="https://r12a.github.io/app-subtags/">BCP 47</a> language tag. If the <code>kind</code> attribute is set to <code>subtitles</code>, then <code>srclang</code> must be defined.</p>
     ///   
     pub srclang: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl TrackOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "track"
+    }
 }
 /// The <strong><code>&lt;video&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embeds a media player which supports video playback into the document. You can use <code>&lt;video&gt;</code> for audio content as well, but the <a href="/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> element may provide a more appropriate user experience.
 ///
@@ -14707,7 +15747,7 @@ pub struct Video<'life> {
     ///   
     pub controls: core::option::Option<&'life str>,
     ///
-    ///     <p>The <a target="_blank" class="external" href="https://wicg.github.io/controls-list/explainer.html"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>video</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
+    ///     <p>The <a href="https://wicg.github.io/controls-list/explainer.html" class="external" target="_blank"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>video</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
     ///     <p>The allowed values are <code>nodownload</code>, <code>nofullscreen</code> and <code>noremoteplayback</code>.</p>
     ///     <p>Use the <a href="#disablepictureinpicture"><code>disablepictureinpicture</code></a> attribute if you want to disable the Picture-In-Picture mode (and the control).</p>
     ///   
@@ -14747,7 +15787,7 @@ pub struct Video<'life> {
     pub disablepictureinpicture: core::option::Option<&'life str>,
     ///
     ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.).</p>
-    ///     <p>In Safari, you can use <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank" class="external"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <p>In Safari, you can use <a class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///   
     pub disableremoteplayback: core::option::Option<&'life str>,
     ///
@@ -14770,7 +15810,7 @@ pub struct Video<'life> {
     #[cfg(feature = "alloc")]
     pub extra: core::option::Option<alloc::collections::BTreeMap<&'life str, &'life str>>,
     ///
-    ///     <p>The height of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" target="_blank" class="external">CSS pixels</a> (absolute values only; <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">no percentages</a>).</p>
+    ///     <p>The height of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
     ///   
     pub height: core::option::Option<&'life str>,
     ///
@@ -14832,9 +15872,17 @@ pub struct Video<'life> {
     ///   
     pub src: core::option::Option<&'life str>,
     ///
-    ///     <p>The width of the video's display area, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a> (absolute values only; <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">no percentages</a>).</p>
+    ///     <p>The width of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
     ///   
     pub width: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Video<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "video"
+    }
 }
 /// The <strong><code>&lt;video&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embeds a media player which supports video playback into the document. You can use <code>&lt;video&gt;</code> for audio content as well, but the <a href="/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> element may provide a more appropriate user experience.
 ///
@@ -14894,7 +15942,7 @@ pub struct VideoOwned {
     ///   
     pub controls: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The <a target="_blank" class="external" href="https://wicg.github.io/controls-list/explainer.html"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>video</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
+    ///     <p>The <a href="https://wicg.github.io/controls-list/explainer.html" class="external" target="_blank"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>video</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
     ///     <p>The allowed values are <code>nodownload</code>, <code>nofullscreen</code> and <code>noremoteplayback</code>.</p>
     ///     <p>Use the <a href="#disablepictureinpicture"><code>disablepictureinpicture</code></a> attribute if you want to disable the Picture-In-Picture mode (and the control).</p>
     ///   
@@ -14936,7 +15984,7 @@ pub struct VideoOwned {
     pub disablepictureinpicture: core::option::Option<alloc::string::String>,
     ///
     ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.).</p>
-    ///     <p>In Safari, you can use <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank" class="external"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <p>In Safari, you can use <a class="external" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///   
     pub disableremoteplayback: core::option::Option<alloc::string::String>,
     ///
@@ -14961,7 +16009,7 @@ pub struct VideoOwned {
         alloc::collections::BTreeMap<alloc::string::String, alloc::string::String>,
     >,
     ///
-    ///     <p>The height of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" target="_blank" class="external">CSS pixels</a> (absolute values only; <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">no percentages</a>).</p>
+    ///     <p>The height of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
     ///   
     pub height: core::option::Option<alloc::string::String>,
     ///
@@ -15023,9 +16071,17 @@ pub struct VideoOwned {
     ///   
     pub src: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The width of the video's display area, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a> (absolute values only; <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">no percentages</a>).</p>
+    ///     <p>The width of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
     ///   
     pub width: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl VideoOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "video"
+    }
 }
 /// The <strong><code>&lt;embed&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
 ///
@@ -15100,7 +16156,7 @@ pub struct Embed<'life> {
     #[cfg(feature = "alloc")]
     pub extra: core::option::Option<alloc::collections::BTreeMap<&'life str, &'life str>>,
     ///
-    ///     <p>The displayed height of the resource, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed height of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub height: core::option::Option<&'life str>,
     ///
@@ -15132,9 +16188,17 @@ pub struct Embed<'life> {
     ///   
     pub type_: core::option::Option<&'life str>,
     ///
-    ///     <p>The displayed width of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed width of the resource, in <a href="https://drafts.csswg.org/css-values/#px" target="_blank" class="external">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Embed<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "embed"
+    }
 }
 /// The <strong><code>&lt;embed&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embeds external content at the specified point in the document. This content is provided by an external application or other source of interactive content such as a browser plug-in.
 ///
@@ -15214,7 +16278,7 @@ pub struct EmbedOwned {
         alloc::collections::BTreeMap<alloc::string::String, alloc::string::String>,
     >,
     ///
-    ///     <p>The displayed height of the resource, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed height of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub height: core::option::Option<alloc::string::String>,
     ///
@@ -15246,9 +16310,17 @@ pub struct EmbedOwned {
     ///   
     pub type_: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The displayed width of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed width of the resource, in <a href="https://drafts.csswg.org/css-values/#px" target="_blank" class="external">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub width: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl EmbedOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "embed"
+    }
 }
 /// The <strong><code>&lt;iframe&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a nested <a href="/en-US/docs/Glossary/Browsing_context">browsing context</a>, embedding another HTML page into the current one.
 ///
@@ -15261,21 +16333,21 @@ pub struct Iframe<'life> {
     pub accesskey: core::option::Option<&'life str>,
     ///
     ///     <p>Specifies a <a href="/en-US/docs/Web/HTTP/Permissions_Policy">Permissions Policy</a> for the <code>&lt;iframe&gt;</code>. The policy defines what features are available to the <code>&lt;iframe&gt;</code> (for example, access to the microphone, camera, battery, web-share, etc.) based on the origin of the request.</p>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong> A Permissions Policy specified by the <code>allow</code> attribute implements a further restriction on top of the policy specified in the <a href="/en-US/docs/Web/HTTP/Headers/Permissions-Policy"><code>Permissions-Policy</code></a> header. It doesn't replace it.</p>
     ///     </div>
     ///   
     pub allow: core::option::Option<&'life str>,
     ///
     ///     <p>Set to <code>true</code> if the <code>&lt;iframe&gt;</code> can activate fullscreen mode by calling the <a href="/en-US/docs/Web/API/Element/requestFullscreen" title="requestFullscreen()"><code>requestFullscreen()</code></a> method.</p>
-    ///     <div class="notecard note" id="sect3">
+    ///     <div id="sect3" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute is considered a legacy attribute and redefined as <code>allow="fullscreen"</code>.</p>
     ///     </div>
     ///   
     pub allowfullscreen: core::option::Option<&'life str>,
     ///
     ///     <p>Set to <code>true</code> if a cross-origin <code>&lt;iframe&gt;</code> should be allowed to invoke the <a href="/en-US/docs/Web/API/Payment_Request_API">Payment Request API</a>.</p>
-    ///     <div id="sect4" class="notecard note">
+    ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is considered a legacy attribute and redefined as <code>allow="payment"</code>.</p>
     ///     </div>
     ///   
@@ -15384,7 +16456,7 @@ pub struct Iframe<'life> {
     ///   
     pub loading: core::option::Option<&'life str>,
     ///
-    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a href="/en-US/docs/Web/API/Window/open" title="window.open()"><code>window.open()</code></a> method.</p>
+    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a title="window.open()" href="/en-US/docs/Web/API/Window/open"><code>window.open()</code></a> method.</p>
     ///   
     pub name: core::option::Option<&'life str>,
     ///
@@ -15405,7 +16477,7 @@ pub struct Iframe<'life> {
     ///     <p>Applies extra restrictions to the content in the frame. The value of the attribute can either be empty to apply all restrictions, or space-separated tokens to lift particular restrictions:</p>
     ///     <ul>
     ///       <li><code>allow-downloads</code>: Allows downloading files through an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/area"><code>&lt;area&gt;</code></a> element with the <a href="/en-US/docs/Web/HTML/Element/a#download">download</a> attribute, as well as through the navigation that leads to a download of a file. This works regardless of whether the user clicked on the link, or JS code initiated it without user interaction.</li>
-    ///       <li><code>allow-downloads-without-user-activation</code> <abbr title="Experimental. Expect behavior to change in the future." class="icon icon-experimental">
+    ///       <li><code>allow-downloads-without-user-activation</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
     ///     <span class="visually-hidden">Experimental</span>
     /// </abbr>: Allows for downloads to occur without a gesture from the user.</li>
     ///       <li><code>allow-forms</code>: Allows the page to submit forms. If this keyword is not used, form will be displayed as normal, but submitting it will not trigger input validation, sending data to a web server or closing a dialog.</li>
@@ -15417,14 +16489,14 @@ pub struct Iframe<'life> {
     ///       <li><code>allow-presentation</code>: Allows embedders to have control over whether an iframe can start a <a href="/en-US/docs/Web/API/PresentationRequest">presentation session</a>.</li>
     ///       <li><code>allow-same-origin</code>: If this token is not used, the resource is treated as being from a special origin that always fails the <a href="/en-US/docs/Glossary/Same-origin_policy">same-origin policy</a> (potentially preventing access to <a href="/en-US/docs/Web/Security/Same-origin_policy#cross-origin_data_storage_access">data storage/cookies</a> and some JavaScript APIs).</li>
     ///       <li><code>allow-scripts</code>: Allows the page to run scripts (but not create pop-up windows). If this keyword is not used, this operation is not allowed.</li>
-    ///       <li><code>allow-storage-access-by-user-activation</code> <abbr title="Experimental. Expect behavior to change in the future." class="icon icon-experimental">
+    ///       <li><code>allow-storage-access-by-user-activation</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
     ///     <span class="visually-hidden">Experimental</span>
     /// </abbr>: Lets the resource request access to the parent's storage capabilities with the <a href="/en-US/docs/Web/API/Storage_Access_API">Storage Access API</a>.</li>
     ///       <li><code>allow-top-navigation</code>: Lets the resource navigate the top-level browsing context (the one named <code>_top</code>).</li>
     ///       <li><code>allow-top-navigation-by-user-activation</code>: Lets the resource navigate the top-level browsing context, but only if initiated by a user gesture.</li>
     ///       <li><code>allow-top-navigation-to-custom-protocols</code>: Allows navigations to non-<code>http</code> protocols built into browser or <a href="/en-US/docs/Web/API/Navigator/registerProtocolHandler/Web-based_protocol_handlers">registered by a website</a>. This feature is also activated by <code>allow-popups</code> or <code>allow-top-navigation</code> keyword.</li>
     ///     </ul>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>When the embedded document has the same origin as the embedding page, it is <strong>strongly discouraged</strong> to use both <code>allow-scripts</code> and <code>allow-same-origin</code>, as that lets the embedded document remove the <code>sandbox</code> attribute — making it no more secure than not using the <code>sandbox</code> attribute at all.</li>
@@ -15446,6 +16518,14 @@ pub struct Iframe<'life> {
     ///   
     pub width: core::option::Option<&'life str>,
 }
+#[allow(deprecated)]
+impl<'life> Iframe<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "iframe"
+    }
+}
 /// The <strong><code>&lt;iframe&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a nested <a href="/en-US/docs/Glossary/Browsing_context">browsing context</a>, embedding another HTML page into the current one.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe>
@@ -15458,21 +16538,21 @@ pub struct IframeOwned {
     pub accesskey: core::option::Option<alloc::string::String>,
     ///
     ///     <p>Specifies a <a href="/en-US/docs/Web/HTTP/Permissions_Policy">Permissions Policy</a> for the <code>&lt;iframe&gt;</code>. The policy defines what features are available to the <code>&lt;iframe&gt;</code> (for example, access to the microphone, camera, battery, web-share, etc.) based on the origin of the request.</p>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong> A Permissions Policy specified by the <code>allow</code> attribute implements a further restriction on top of the policy specified in the <a href="/en-US/docs/Web/HTTP/Headers/Permissions-Policy"><code>Permissions-Policy</code></a> header. It doesn't replace it.</p>
     ///     </div>
     ///   
     pub allow: core::option::Option<alloc::string::String>,
     ///
     ///     <p>Set to <code>true</code> if the <code>&lt;iframe&gt;</code> can activate fullscreen mode by calling the <a href="/en-US/docs/Web/API/Element/requestFullscreen" title="requestFullscreen()"><code>requestFullscreen()</code></a> method.</p>
-    ///     <div class="notecard note" id="sect3">
+    ///     <div id="sect3" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute is considered a legacy attribute and redefined as <code>allow="fullscreen"</code>.</p>
     ///     </div>
     ///   
     pub allowfullscreen: core::option::Option<alloc::string::String>,
     ///
     ///     <p>Set to <code>true</code> if a cross-origin <code>&lt;iframe&gt;</code> should be allowed to invoke the <a href="/en-US/docs/Web/API/Payment_Request_API">Payment Request API</a>.</p>
-    ///     <div id="sect4" class="notecard note">
+    ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is considered a legacy attribute and redefined as <code>allow="payment"</code>.</p>
     ///     </div>
     ///   
@@ -15585,7 +16665,7 @@ pub struct IframeOwned {
     ///   
     pub loading: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a href="/en-US/docs/Web/API/Window/open" title="window.open()"><code>window.open()</code></a> method.</p>
+    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a title="window.open()" href="/en-US/docs/Web/API/Window/open"><code>window.open()</code></a> method.</p>
     ///   
     pub name: core::option::Option<alloc::string::String>,
     ///
@@ -15606,7 +16686,7 @@ pub struct IframeOwned {
     ///     <p>Applies extra restrictions to the content in the frame. The value of the attribute can either be empty to apply all restrictions, or space-separated tokens to lift particular restrictions:</p>
     ///     <ul>
     ///       <li><code>allow-downloads</code>: Allows downloading files through an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/area"><code>&lt;area&gt;</code></a> element with the <a href="/en-US/docs/Web/HTML/Element/a#download">download</a> attribute, as well as through the navigation that leads to a download of a file. This works regardless of whether the user clicked on the link, or JS code initiated it without user interaction.</li>
-    ///       <li><code>allow-downloads-without-user-activation</code> <abbr title="Experimental. Expect behavior to change in the future." class="icon icon-experimental">
+    ///       <li><code>allow-downloads-without-user-activation</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
     ///     <span class="visually-hidden">Experimental</span>
     /// </abbr>: Allows for downloads to occur without a gesture from the user.</li>
     ///       <li><code>allow-forms</code>: Allows the page to submit forms. If this keyword is not used, form will be displayed as normal, but submitting it will not trigger input validation, sending data to a web server or closing a dialog.</li>
@@ -15618,14 +16698,14 @@ pub struct IframeOwned {
     ///       <li><code>allow-presentation</code>: Allows embedders to have control over whether an iframe can start a <a href="/en-US/docs/Web/API/PresentationRequest">presentation session</a>.</li>
     ///       <li><code>allow-same-origin</code>: If this token is not used, the resource is treated as being from a special origin that always fails the <a href="/en-US/docs/Glossary/Same-origin_policy">same-origin policy</a> (potentially preventing access to <a href="/en-US/docs/Web/Security/Same-origin_policy#cross-origin_data_storage_access">data storage/cookies</a> and some JavaScript APIs).</li>
     ///       <li><code>allow-scripts</code>: Allows the page to run scripts (but not create pop-up windows). If this keyword is not used, this operation is not allowed.</li>
-    ///       <li><code>allow-storage-access-by-user-activation</code> <abbr title="Experimental. Expect behavior to change in the future." class="icon icon-experimental">
+    ///       <li><code>allow-storage-access-by-user-activation</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
     ///     <span class="visually-hidden">Experimental</span>
     /// </abbr>: Lets the resource request access to the parent's storage capabilities with the <a href="/en-US/docs/Web/API/Storage_Access_API">Storage Access API</a>.</li>
     ///       <li><code>allow-top-navigation</code>: Lets the resource navigate the top-level browsing context (the one named <code>_top</code>).</li>
     ///       <li><code>allow-top-navigation-by-user-activation</code>: Lets the resource navigate the top-level browsing context, but only if initiated by a user gesture.</li>
     ///       <li><code>allow-top-navigation-to-custom-protocols</code>: Allows navigations to non-<code>http</code> protocols built into browser or <a href="/en-US/docs/Web/API/Navigator/registerProtocolHandler/Web-based_protocol_handlers">registered by a website</a>. This feature is also activated by <code>allow-popups</code> or <code>allow-top-navigation</code> keyword.</li>
     ///     </ul>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>When the embedded document has the same origin as the embedding page, it is <strong>strongly discouraged</strong> to use both <code>allow-scripts</code> and <code>allow-same-origin</code>, as that lets the embedded document remove the <code>sandbox</code> attribute — making it no more secure than not using the <code>sandbox</code> attribute at all.</li>
@@ -15646,6 +16726,14 @@ pub struct IframeOwned {
     ///     <p>The width of the frame in CSS pixels. Default is <code>300</code>.</p>
     ///   
     pub width: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl IframeOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "iframe"
+    }
 }
 /// The <strong><code>&lt;object&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.
 ///
@@ -15748,7 +16836,7 @@ pub struct Object<'life> {
     ///   
     pub form: core::option::Option<&'life str>,
     ///
-    ///     <p>The height of the displayed resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. — (Absolute values only. <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">NO percentages</a>)</p>
+    ///     <p>The height of the displayed resource, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">NO percentages</a>)</p>
     ///   
     pub height: core::option::Option<&'life str>,
     ///
@@ -15788,9 +16876,17 @@ pub struct Object<'life> {
     ///   
     pub usemap: core::option::Option<&'life str>,
     ///
-    ///     <p>The width of the display resource, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">NO percentages</a>)</p>
+    ///     <p>The width of the display resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. — (Absolute values only. <a class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" target="_blank">NO percentages</a>)</p>
     ///   
     pub width: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Object<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "object"
+    }
 }
 /// The <strong><code>&lt;object&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.
 ///
@@ -15898,7 +16994,7 @@ pub struct ObjectOwned {
     ///   
     pub form: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The height of the displayed resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. — (Absolute values only. <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">NO percentages</a>)</p>
+    ///     <p>The height of the displayed resource, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">NO percentages</a>)</p>
     ///   
     pub height: core::option::Option<alloc::string::String>,
     ///
@@ -15938,9 +17034,17 @@ pub struct ObjectOwned {
     ///   
     pub usemap: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>The width of the display resource, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">NO percentages</a>)</p>
+    ///     <p>The width of the display resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. — (Absolute values only. <a class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" target="_blank">NO percentages</a>)</p>
     ///   
     pub width: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl ObjectOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "object"
+    }
 }
 /// The <strong><code>&lt;picture&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element contains zero or more <a href="/en-US/docs/Web/HTML/Element/source"><code>&lt;source&gt;</code></a> elements and one <a href="/en-US/docs/Web/HTML/Element/img"><code>&lt;img&gt;</code></a> element to offer alternative versions of an image for different display/device scenarios.
 ///
@@ -16036,6 +17140,14 @@ pub struct Picture<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Picture<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "picture"
+    }
 }
 /// The <strong><code>&lt;picture&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element contains zero or more <a href="/en-US/docs/Web/HTML/Element/source"><code>&lt;source&gt;</code></a> elements and one <a href="/en-US/docs/Web/HTML/Element/img"><code>&lt;img&gt;</code></a> element to offer alternative versions of an image for different display/device scenarios.
 ///
@@ -16136,6 +17248,14 @@ pub struct PictureOwned {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl PictureOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "picture"
+    }
 }
 /// The <strong><code>&lt;portal&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element enables the embedding of another HTML page into the current one for the purposes of allowing smoother navigation into new pages.
 ///
@@ -16239,6 +17359,14 @@ pub struct Portal<'life> {
     ///     <p>The URL of the page to embed.</p>
     ///   
     pub src: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Portal<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "portal"
+    }
 }
 /// The <strong><code>&lt;portal&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element enables the embedding of another HTML page into the current one for the purposes of allowing smoother navigation into new pages.
 ///
@@ -16347,6 +17475,14 @@ pub struct PortalOwned {
     ///     <p>The URL of the page to embed.</p>
     ///   
     pub src: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl PortalOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "portal"
+    }
 }
 /// The <strong><code>&lt;source&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies multiple media resources for the <a href="/en-US/docs/Web/HTML/Element/picture"><code>&lt;picture&gt;</code></a>, the <a href="/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> element, or the <a href="/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a> element. It is a <a href="/en-US/docs/Glossary/Void_element">void element</a>, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for <a href="/en-US/docs/Web/Media/Formats/Image_types">image file formats</a> and <a href="/en-US/docs/Web/Media/Formats">media file formats</a>.
 ///
@@ -16480,6 +17616,14 @@ pub struct Source<'life> {
     ///     <p>The intrinsic width of the image in pixels. Must be an integer without a unit.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Source<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "source"
+    }
 }
 /// The <strong><code>&lt;source&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies multiple media resources for the <a href="/en-US/docs/Web/HTML/Element/picture"><code>&lt;picture&gt;</code></a>, the <a href="/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> element, or the <a href="/en-US/docs/Web/HTML/Element/video"><code>&lt;video&gt;</code></a> element. It is a <a href="/en-US/docs/Glossary/Void_element">void element</a>, meaning that it has no content and does not have a closing tag. It is commonly used to offer the same media content in multiple file formats in order to provide compatibility with a broad range of browsers given their differing support for <a href="/en-US/docs/Web/Media/Formats/Image_types">image file formats</a> and <a href="/en-US/docs/Web/Media/Formats">media file formats</a>.
 ///
@@ -16619,6 +17763,14 @@ pub struct SourceOwned {
     ///   
     pub width: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl SourceOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "source"
+    }
+}
 /// Use the <strong>HTML <code>&lt;canvas&gt;</code> element</strong> with either the <a href="/en-US/docs/Web/API/Canvas_API">canvas scripting API</a> or the <a href="/en-US/docs/Web/API/WebGL_API">WebGL API</a> to draw graphics and animations.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas>
@@ -16723,6 +17875,14 @@ pub struct Canvas<'life> {
     ///     <p>The width of the coordinate space in CSS pixels. Defaults to 300.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Canvas<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "canvas"
+    }
 }
 /// Use the <strong>HTML <code>&lt;canvas&gt;</code> element</strong> with either the <a href="/en-US/docs/Web/API/Canvas_API">canvas scripting API</a> or the <a href="/en-US/docs/Web/API/WebGL_API">WebGL API</a> to draw graphics and animations.
 ///
@@ -16834,6 +17994,14 @@ pub struct CanvasOwned {
     ///   
     pub width: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl CanvasOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "canvas"
+    }
+}
 /// The <strong><code>&lt;noscript&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript>
@@ -16926,6 +18094,14 @@ pub struct Noscript<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Noscript<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "noscript"
+    }
 }
 /// The <strong><code>&lt;noscript&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a section of HTML to be inserted if a script type on the page is unsupported or if scripting is currently turned off in the browser.
 ///
@@ -17025,6 +18201,14 @@ pub struct NoscriptOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl NoscriptOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "noscript"
+    }
+}
 /// The <strong><code>&lt;script&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The <code>&lt;script&gt;</code> element can also be used with other languages, such as <a href="/en-US/docs/Web/API/WebGL_API">WebGL</a>'s GLSL shader programming language and <a href="/en-US/docs/Glossary/JSON">JSON</a>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script>
@@ -17089,9 +18273,9 @@ pub struct Script<'life> {
     #[cfg(feature = "alloc")]
     pub data: core::option::Option<alloc::collections::BTreeMap<&'life str, &'life str>>,
     ///
-    ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a href="/en-US/docs/Web/API/Document/DOMContentLoaded_event" title="DOMContentLoaded"><code>DOMContentLoaded</code></a>.</p>
+    ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a title="DOMContentLoaded" href="/en-US/docs/Web/API/Document/DOMContentLoaded_event"><code>DOMContentLoaded</code></a>.</p>
     ///     <p>Scripts with the <code>defer</code> attribute will prevent the <code>DOMContentLoaded</code> event from firing until the script has loaded and finished evaluating.</p>
-    ///     <div id="sect1" class="notecard warning">
+    ///     <div class="notecard warning" id="sect1">
     ///       <p><strong>Warning:</strong> This attribute must not be used if the <code>src</code> attribute is absent (i.e. for inline scripts), in this case it would have no effect.</p>
     ///       <p>The <code>defer</code> attribute has no effect on <a href="/en-US/docs/Web/JavaScript/Guide/Modules">module scripts</a> — they defer by default.</p>
     ///     </div>
@@ -17241,6 +18425,14 @@ pub struct Script<'life> {
     ///   
     pub type_: core::option::Option<&'life str>,
 }
+#[allow(deprecated)]
+impl<'life> Script<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "script"
+    }
+}
 /// The <strong><code>&lt;script&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to embed executable code or data; this is typically used to embed or refer to JavaScript code. The <code>&lt;script&gt;</code> element can also be used with other languages, such as <a href="/en-US/docs/Web/API/WebGL_API">WebGL</a>'s GLSL shader programming language and <a href="/en-US/docs/Glossary/JSON">JSON</a>.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script>
@@ -17308,9 +18500,9 @@ pub struct ScriptOwned {
         alloc::collections::BTreeMap<alloc::string::String, alloc::string::String>,
     >,
     ///
-    ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a href="/en-US/docs/Web/API/Document/DOMContentLoaded_event" title="DOMContentLoaded"><code>DOMContentLoaded</code></a>.</p>
+    ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a title="DOMContentLoaded" href="/en-US/docs/Web/API/Document/DOMContentLoaded_event"><code>DOMContentLoaded</code></a>.</p>
     ///     <p>Scripts with the <code>defer</code> attribute will prevent the <code>DOMContentLoaded</code> event from firing until the script has loaded and finished evaluating.</p>
-    ///     <div id="sect1" class="notecard warning">
+    ///     <div class="notecard warning" id="sect1">
     ///       <p><strong>Warning:</strong> This attribute must not be used if the <code>src</code> attribute is absent (i.e. for inline scripts), in this case it would have no effect.</p>
     ///       <p>The <code>defer</code> attribute has no effect on <a href="/en-US/docs/Web/JavaScript/Guide/Modules">module scripts</a> — they defer by default.</p>
     ///     </div>
@@ -17462,6 +18654,14 @@ pub struct ScriptOwned {
     ///   
     pub type_: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl ScriptOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "script"
+    }
+}
 /// The <strong><code>&lt;del&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a range of text that has been deleted from a document. This can be used when rendering "track changes" or source code diff information, for example. The <a href="/en-US/docs/Web/HTML/Element/ins"><code>&lt;ins&gt;</code></a> element can be used for the opposite purpose: to indicate text that has been added to the document.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del>
@@ -17562,6 +18762,14 @@ pub struct Del<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Del<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "del"
+    }
 }
 /// The <strong><code>&lt;del&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a range of text that has been deleted from a document. This can be used when rendering "track changes" or source code diff information, for example. The <a href="/en-US/docs/Web/HTML/Element/ins"><code>&lt;ins&gt;</code></a> element can be used for the opposite purpose: to indicate text that has been added to the document.
 ///
@@ -17669,6 +18877,14 @@ pub struct DelOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl DelOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "del"
+    }
+}
 /// The <strong><code>&lt;ins&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a range of text that has been added to a document. You can use the <a href="/en-US/docs/Web/HTML/Element/del"><code>&lt;del&gt;</code></a> element to similarly represent a range of text that has been deleted from the document.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins>
@@ -17769,6 +18985,14 @@ pub struct Ins<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Ins<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "ins"
+    }
 }
 /// The <strong><code>&lt;ins&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a range of text that has been added to a document. You can use the <a href="/en-US/docs/Web/HTML/Element/del"><code>&lt;del&gt;</code></a> element to similarly represent a range of text that has been deleted from the document.
 ///
@@ -17875,6 +19099,14 @@ pub struct InsOwned {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl InsOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "ins"
+    }
 }
 /// The <strong><code>&lt;caption&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies the caption (or title) of a table.
 ///
@@ -17993,6 +19225,14 @@ pub struct Caption<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Caption<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "caption"
+    }
 }
 /// The <strong><code>&lt;caption&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies the caption (or title) of a table.
 ///
@@ -18117,6 +19357,14 @@ pub struct CaptionOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl CaptionOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "caption"
+    }
+}
 /// The <strong><code>&lt;col&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <a href="/en-US/docs/Web/HTML/Element/colgroup"><code>&lt;colgroup&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col>
@@ -18213,6 +19461,14 @@ pub struct Col<'life> {
     ///     <p>This attribute contains a positive integer indicating the number of consecutive columns the <code>&lt;col&gt;</code> element spans. If not present, its default value is <code>1</code>.</p>
     ///   
     pub span: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Col<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "col"
+    }
 }
 /// The <strong><code>&lt;col&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a column within a table and is used for defining common semantics on all common cells. It is generally found within a <a href="/en-US/docs/Web/HTML/Element/colgroup"><code>&lt;colgroup&gt;</code></a> element.
 ///
@@ -18316,6 +19572,14 @@ pub struct ColOwned {
     ///   
     pub span: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl ColOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "col"
+    }
+}
 /// The <strong><code>&lt;colgroup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a group of columns within a table.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup>
@@ -18413,6 +19677,14 @@ pub struct Colgroup<'life> {
     ///     <p>The <code>span</code> attribute is not permitted if there are one or more <a href="/en-US/docs/Web/HTML/Element/col"><code>&lt;col&gt;</code></a> elements within the <code>&lt;colgroup&gt;</code>.</p>
     ///   
     pub span: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Colgroup<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "colgroup"
+    }
 }
 /// The <strong><code>&lt;colgroup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a group of columns within a table.
 ///
@@ -18516,6 +19788,14 @@ pub struct ColgroupOwned {
     ///     <p>The <code>span</code> attribute is not permitted if there are one or more <a href="/en-US/docs/Web/HTML/Element/col"><code>&lt;col&gt;</code></a> elements within the <code>&lt;colgroup&gt;</code>.</p>
     ///   
     pub span: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl ColgroupOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "colgroup"
+    }
 }
 /// The <strong><code>&lt;table&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.
 ///
@@ -18664,6 +19944,14 @@ pub struct Table<'life> {
     ///     <p>This attribute defines the width of the table. Use the CSS <a href="/en-US/docs/Web/CSS/width"><code>width</code></a> property instead.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Table<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "table"
+    }
 }
 /// The <strong><code>&lt;table&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents tabular data — that is, information presented in a two-dimensional table comprised of rows and columns of cells containing data.
 ///
@@ -18818,6 +20106,14 @@ pub struct TableOwned {
     ///   
     pub width: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl TableOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "table"
+    }
+}
 /// The <strong><code>&lt;tbody&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element encapsulates a set of table rows (<a href="/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a> elements), indicating that they comprise the body of the table (<a href="/en-US/docs/Web/HTML/Element/table"><code>&lt;table&gt;</code></a>).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody>
@@ -18838,7 +20134,7 @@ pub struct Tbody<'life> {
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
     ///     <p>As this attribute is deprecated, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> The equivalent <code>text-align</code> property for the <code>align="char"</code> is not implemented in any browsers yet. See the <a href="/en-US/docs/Web/CSS/text-align#browser_compatibility"><code>text-align</code>'s browser compatibility section</a> for the <code>&lt;string&gt;</code> value.</p>
     ///     </div>
     ///   
@@ -18942,7 +20238,7 @@ pub struct Tbody<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank" class="external">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
@@ -18950,6 +20246,14 @@ pub struct Tbody<'life> {
     ///     <p>As this attribute is deprecated, use the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property instead.</p>
     ///   
     pub valign: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Tbody<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "tbody"
+    }
 }
 /// The <strong><code>&lt;tbody&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element encapsulates a set of table rows (<a href="/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a> elements), indicating that they comprise the body of the table (<a href="/en-US/docs/Web/HTML/Element/table"><code>&lt;table&gt;</code></a>).
 ///
@@ -18972,7 +20276,7 @@ pub struct TbodyOwned {
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
     ///     <p>As this attribute is deprecated, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> The equivalent <code>text-align</code> property for the <code>align="char"</code> is not implemented in any browsers yet. See the <a href="/en-US/docs/Web/CSS/text-align#browser_compatibility"><code>text-align</code>'s browser compatibility section</a> for the <code>&lt;string&gt;</code> value.</p>
     ///     </div>
     ///   
@@ -19080,7 +20384,7 @@ pub struct TbodyOwned {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank" class="external">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
@@ -19088,6 +20392,14 @@ pub struct TbodyOwned {
     ///     <p>As this attribute is deprecated, use the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property instead.</p>
     ///   
     pub valign: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl TbodyOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "tbody"
+    }
 }
 /// The <strong><code>&lt;td&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a cell of a table that contains data. It participates in the <em>table model</em>.
 ///
@@ -19193,6 +20505,14 @@ pub struct Td<'life> {
     ///     <p>This attribute contains a non-negative integer value that indicates for how many rows the cell extends. Its default value is <code>1</code>; if its value is set to <code>0</code>, it extends until the end of the table section (<a href="/en-US/docs/Web/HTML/Element/thead"><code>&lt;thead&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/tbody"><code>&lt;tbody&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/tfoot"><code>&lt;tfoot&gt;</code></a>, even if implicitly defined), that the cell belongs to. Values higher than 65534 are clipped down to 65534.</p>
     ///   
     pub rowspan: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Td<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "td"
+    }
 }
 /// The <strong><code>&lt;td&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a cell of a table that contains data. It participates in the <em>table model</em>.
 ///
@@ -19304,6 +20624,14 @@ pub struct TdOwned {
     ///   
     pub rowspan: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl TdOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "td"
+    }
+}
 /// The <strong><code>&lt;tfoot&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a set of rows summarizing the columns of the table.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot>
@@ -19323,7 +20651,7 @@ pub struct Tfoot<'life> {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>To achieve the same effect as the <code>left</code>, <code>center</code>, <code>right</code> or <code>justify</code> values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property on it.</li>
@@ -19431,16 +20759,24 @@ pub struct Tfoot<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table footer. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a target="_blank" class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property on it.</p>
     ///     </div>
     ///   
     pub valign: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Tfoot<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "tfoot"
+    }
 }
 /// The <strong><code>&lt;tfoot&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a set of rows summarizing the columns of the table.
 ///
@@ -19462,7 +20798,7 @@ pub struct TfootOwned {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>To achieve the same effect as the <code>left</code>, <code>center</code>, <code>right</code> or <code>justify</code> values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property on it.</li>
@@ -19574,16 +20910,24 @@ pub struct TfootOwned {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table footer. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a target="_blank" class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property on it.</p>
     ///     </div>
     ///   
     pub valign: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl TfootOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "tfoot"
+    }
 }
 /// The <strong><code>&lt;th&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a cell as the header of a group of table cells. The exact nature of this group is defined by the <a href="#scope"><code>scope</code></a> and <a href="#headers"><code>headers</code></a> attributes.
 ///
@@ -19704,6 +21048,14 @@ pub struct Th<'life> {
     ///     <p>If the <code>scope</code> attribute is not specified, or its value is not <code>row</code>, <code>col</code>, or <code>rowgroup</code>, or <code>colgroup</code>, then browsers automatically select the set of cells to which the header cell applies.</p>
     ///   
     pub scope: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Th<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "th"
+    }
 }
 /// The <strong><code>&lt;th&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a cell as the header of a group of table cells. The exact nature of this group is defined by the <a href="#scope"><code>scope</code></a> and <a href="#headers"><code>headers</code></a> attributes.
 ///
@@ -19830,6 +21182,14 @@ pub struct ThOwned {
     ///   
     pub scope: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl ThOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "th"
+    }
+}
 /// The <strong><code>&lt;thead&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a set of rows defining the head of the columns of the table.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead>
@@ -19849,7 +21209,7 @@ pub struct Thead<'life> {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div id="sect1" class="notecard warning">
+    ///     <div class="notecard warning" id="sect1">
     ///       <p><strong>Warning:</strong> Do not use this attribute as it is obsolete (not supported) in the latest standard.</p>
     ///       <ul>
     ///         <li>To align values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</li>
@@ -19873,7 +21233,7 @@ pub struct Thead<'life> {
     pub autofocus: core::option::Option<bool>,
     ///
     ///     <p>This attribute defines the background color of each column cell. It accepts a 6-digit hexadecimal color or a named color. Alpha transparency is not supported.</p>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong> Do not use this attribute, as it is non-standard. The <code>thead</code> element should be styled using the CSS <a href="/en-US/docs/Web/CSS/background-color"><code>background-color</code></a> property, which can be applied to any element, including the <code>thead</code>, <a href="/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/td"><code>&lt;td&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a> elements.</p>
     ///     </div>
     ///   
@@ -19887,7 +21247,7 @@ pub struct Thead<'life> {
     pub char: core::option::Option<&'life str>,
     ///
     ///     <p>This attribute is used to indicate the number of characters to offset the column data from the alignment characters specified by the <strong>char</strong> attribute.</p>
-    ///     <div class="notecard note" id="sect4">
+    ///     <div id="sect4" class="notecard note">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
@@ -19964,7 +21324,7 @@ pub struct Thead<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li><code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
@@ -19974,6 +21334,14 @@ pub struct Thead<'life> {
     ///     </div>
     ///   
     pub valign: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Thead<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "thead"
+    }
 }
 /// The <strong><code>&lt;thead&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a set of rows defining the head of the columns of the table.
 ///
@@ -19995,7 +21363,7 @@ pub struct TheadOwned {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div id="sect1" class="notecard warning">
+    ///     <div class="notecard warning" id="sect1">
     ///       <p><strong>Warning:</strong> Do not use this attribute as it is obsolete (not supported) in the latest standard.</p>
     ///       <ul>
     ///         <li>To align values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</li>
@@ -20019,7 +21387,7 @@ pub struct TheadOwned {
     pub autofocus: core::option::Option<bool>,
     ///
     ///     <p>This attribute defines the background color of each column cell. It accepts a 6-digit hexadecimal color or a named color. Alpha transparency is not supported.</p>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong> Do not use this attribute, as it is non-standard. The <code>thead</code> element should be styled using the CSS <a href="/en-US/docs/Web/CSS/background-color"><code>background-color</code></a> property, which can be applied to any element, including the <code>thead</code>, <a href="/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/td"><code>&lt;td&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a> elements.</p>
     ///     </div>
     ///   
@@ -20033,7 +21401,7 @@ pub struct TheadOwned {
     pub char: core::option::Option<alloc::string::String>,
     ///
     ///     <p>This attribute is used to indicate the number of characters to offset the column data from the alignment characters specified by the <strong>char</strong> attribute.</p>
-    ///     <div class="notecard note" id="sect4">
+    ///     <div id="sect4" class="notecard note">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
@@ -20114,7 +21482,7 @@ pub struct TheadOwned {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li><code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
@@ -20124,6 +21492,14 @@ pub struct TheadOwned {
     ///     </div>
     ///   
     pub valign: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl TheadOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "thead"
+    }
 }
 /// The <strong><code>&lt;tr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a row of cells in a table. The row's cells can then be established using a mix of <a href="/en-US/docs/Web/HTML/Element/td"><code>&lt;td&gt;</code></a> (data cell) and <a href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a> (header cell) elements.
 ///
@@ -20159,7 +21535,7 @@ pub struct Tr<'life> {
     ///       </dd>
     ///     </dl>
     ///     <p>If no value is expressly set for <code>align</code>, the parent node's value is inherited.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> Instead of using the obsolete <code>align</code> attribute, you should instead use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to establish <code>left</code>, <code>center</code>, <code>right</code>, or <code>justify</code> alignment for the row's cells. To apply character-based alignment, set the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to the alignment character (such as <code>"."</code> or <code>","</code>).</p>
     ///     </div>
     ///   
@@ -20180,8 +21556,8 @@ pub struct Tr<'life> {
     pub autofocus: core::option::Option<bool>,
     ///
     ///     <p>A string specifying a color to apply to the backgrounds of each of the row's cells. This can be either a <a href="/en-US/docs/Web/CSS/color_value/rgb">hexadecimal <code>#RRGGBB</code> or <code>#RGB</code> value</a> or a <a href="/en-US/docs/Web/CSS/named-color">color keyword</a>. Omitting the attribute or setting it to <code>null</code> in JavaScript causes the row's cells to inherit the row's parent element's background color.</p>
-    ///     <div id="sect2" class="notecard note">
-    ///       <p><strong>Note:</strong> The <a aria-current="page" href="/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a> element should be styled using <a href="/en-US/docs/Web/CSS">CSS</a>. To give a similar effect as the <code>bgcolor</code> attribute, use the CSS property <a href="/en-US/docs/Web/CSS/background-color"><code>background-color</code></a>.</p>
+    ///     <div class="notecard note" id="sect2">
+    ///       <p><strong>Note:</strong> The <a href="/en-US/docs/Web/HTML/Element/tr" aria-current="page"><code>&lt;tr&gt;</code></a> element should be styled using <a href="/en-US/docs/Web/CSS">CSS</a>. To give a similar effect as the <code>bgcolor</code> attribute, use the CSS property <a href="/en-US/docs/Web/CSS/background-color"><code>background-color</code></a>.</p>
     ///     </div>
     ///   
     pub bgcolor: core::option::Option<&'life str>,
@@ -20194,7 +21570,7 @@ pub struct Tr<'life> {
     pub char: core::option::Option<&'life str>,
     ///
     ///     <p>A string indicating the number of characters on the tail end of the column's data should be displayed after the alignment character specified by the <code>char</code> attribute. For example, when displaying money values for currencies that use hundredths of a unit (such as the dollar, which is divided into 100 cents), you would typically specify a value of 2, so that in tandem with <code>char</code> being set to <code>"."</code>, the values in a column would be cleanly aligned on the decimal points, with the number of cents properly displayed to the right of the decimal point.</p>
-    ///     <div id="sect4" class="notecard note">
+    ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is obsolete, and was never widely supported anyway.</p>
     ///     </div>
     ///   
@@ -20273,7 +21649,7 @@ pub struct Tr<'life> {
     ///     <dl>
     ///       <dt id="baseline"><code>baseline</code></dt>
     ///       <dd>
-    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a href="https://en.wikipedia.org/wiki/Baseline" class="external" target="_blank">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
+    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a target="_blank" href="https://en.wikipedia.org/wiki/Baseline" class="external">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
     ///       </dd>
     ///       <dt id="bottom"><code>bottom</code>,</dt>
     ///       <dd>
@@ -20288,11 +21664,19 @@ pub struct Tr<'life> {
     ///         <p>Each cell's text is drawn as closely as possible to the top edge of the containing cell.</p>
     ///       </dd>
     ///     </dl>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> Don't use the obsolete <code>valign</code> attribute. Instead, add the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property to the row.</p>
     ///     </div>
     ///   
     pub valign: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Tr<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "tr"
+    }
 }
 /// The <strong><code>&lt;tr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a row of cells in a table. The row's cells can then be established using a mix of <a href="/en-US/docs/Web/HTML/Element/td"><code>&lt;td&gt;</code></a> (data cell) and <a href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a> (header cell) elements.
 ///
@@ -20329,7 +21713,7 @@ pub struct TrOwned {
     ///       </dd>
     ///     </dl>
     ///     <p>If no value is expressly set for <code>align</code>, the parent node's value is inherited.</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> Instead of using the obsolete <code>align</code> attribute, you should instead use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to establish <code>left</code>, <code>center</code>, <code>right</code>, or <code>justify</code> alignment for the row's cells. To apply character-based alignment, set the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to the alignment character (such as <code>"."</code> or <code>","</code>).</p>
     ///     </div>
     ///   
@@ -20350,8 +21734,8 @@ pub struct TrOwned {
     pub autofocus: core::option::Option<bool>,
     ///
     ///     <p>A string specifying a color to apply to the backgrounds of each of the row's cells. This can be either a <a href="/en-US/docs/Web/CSS/color_value/rgb">hexadecimal <code>#RRGGBB</code> or <code>#RGB</code> value</a> or a <a href="/en-US/docs/Web/CSS/named-color">color keyword</a>. Omitting the attribute or setting it to <code>null</code> in JavaScript causes the row's cells to inherit the row's parent element's background color.</p>
-    ///     <div id="sect2" class="notecard note">
-    ///       <p><strong>Note:</strong> The <a aria-current="page" href="/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a> element should be styled using <a href="/en-US/docs/Web/CSS">CSS</a>. To give a similar effect as the <code>bgcolor</code> attribute, use the CSS property <a href="/en-US/docs/Web/CSS/background-color"><code>background-color</code></a>.</p>
+    ///     <div class="notecard note" id="sect2">
+    ///       <p><strong>Note:</strong> The <a href="/en-US/docs/Web/HTML/Element/tr" aria-current="page"><code>&lt;tr&gt;</code></a> element should be styled using <a href="/en-US/docs/Web/CSS">CSS</a>. To give a similar effect as the <code>bgcolor</code> attribute, use the CSS property <a href="/en-US/docs/Web/CSS/background-color"><code>background-color</code></a>.</p>
     ///     </div>
     ///   
     pub bgcolor: core::option::Option<alloc::string::String>,
@@ -20364,7 +21748,7 @@ pub struct TrOwned {
     pub char: core::option::Option<alloc::string::String>,
     ///
     ///     <p>A string indicating the number of characters on the tail end of the column's data should be displayed after the alignment character specified by the <code>char</code> attribute. For example, when displaying money values for currencies that use hundredths of a unit (such as the dollar, which is divided into 100 cents), you would typically specify a value of 2, so that in tandem with <code>char</code> being set to <code>"."</code>, the values in a column would be cleanly aligned on the decimal points, with the number of cents properly displayed to the right of the decimal point.</p>
-    ///     <div id="sect4" class="notecard note">
+    ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is obsolete, and was never widely supported anyway.</p>
     ///     </div>
     ///   
@@ -20447,7 +21831,7 @@ pub struct TrOwned {
     ///     <dl>
     ///       <dt id="baseline"><code>baseline</code></dt>
     ///       <dd>
-    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a href="https://en.wikipedia.org/wiki/Baseline" class="external" target="_blank">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
+    ///         <p>Aligns each cell's content text as closely as possible to the bottom of the cell, handling alignment of different fonts and font sizes by aligning the characters along the <a target="_blank" href="https://en.wikipedia.org/wiki/Baseline" class="external">baseline</a> of the font(s) used in the row. If all the characters in the row are the same size, the effect is the same as <code>bottom</code>.</p>
     ///       </dd>
     ///       <dt id="bottom"><code>bottom</code>,</dt>
     ///       <dd>
@@ -20462,11 +21846,19 @@ pub struct TrOwned {
     ///         <p>Each cell's text is drawn as closely as possible to the top edge of the containing cell.</p>
     ///       </dd>
     ///     </dl>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> Don't use the obsolete <code>valign</code> attribute. Instead, add the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property to the row.</p>
     ///     </div>
     ///   
     pub valign: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl TrOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "tr"
+    }
 }
 /// The <strong><code>&lt;button&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is an interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it then performs an action, such as submitting a <a href="/en-US/docs/Learn/Forms">form</a> or opening a dialog.
 ///
@@ -20490,7 +21882,7 @@ pub struct Button<'life> {
     ///   
     pub autocapitalize: core::option::Option<&'life str>,
     ///
-    ///     <p>This attribute on a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external" target="_blank">Firefox persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a class="external" target="_blank" href="https://bugzil.la/654072">Firefox bug 654072</a>.</p>
+    ///     <p>This attribute on a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external">Firefox persists the dynamic disabled state</a> of a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a target="_blank" class="external" href="https://bugzil.la/654072">Firefox bug 654072</a>.</p>
     ///   
     pub autocomplete: core::option::Option<&'life str>,
     ///
@@ -20529,7 +21921,7 @@ pub struct Button<'life> {
     pub dir: core::option::Option<&'life str>,
     ///
     ///     <p>This Boolean attribute prevents the user from interacting with the button: it cannot be pressed or focused.</p>
-    ///     <p>Firefox, unlike other browsers, <a target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external">persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
+    ///     <p>Firefox, unlike other browsers, <a class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank">persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
     ///   
     pub disabled: core::option::Option<bool>,
     ///
@@ -20632,6 +22024,14 @@ pub struct Button<'life> {
     ///   
     pub value: core::option::Option<&'life str>,
 }
+#[allow(deprecated)]
+impl<'life> Button<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "button"
+    }
+}
 /// The <strong><code>&lt;button&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is an interactive element activated by a user with a mouse, keyboard, finger, voice command, or other assistive technology. Once activated, it then performs an action, such as submitting a <a href="/en-US/docs/Learn/Forms">form</a> or opening a dialog.
 ///
 /// By default, HTML buttons are presented in a style resembling the platform the <a href="/en-US/docs/Glossary/User_agent">user agent</a> runs on, but you can change buttons' appearance with <a href="/en-US/docs/Web/CSS">CSS</a>.
@@ -20655,7 +22055,7 @@ pub struct ButtonOwned {
     ///   
     pub autocapitalize: core::option::Option<alloc::string::String>,
     ///
-    ///     <p>This attribute on a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external" target="_blank">Firefox persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a class="external" target="_blank" href="https://bugzil.la/654072">Firefox bug 654072</a>.</p>
+    ///     <p>This attribute on a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external">Firefox persists the dynamic disabled state</a> of a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a target="_blank" class="external" href="https://bugzil.la/654072">Firefox bug 654072</a>.</p>
     ///   
     pub autocomplete: core::option::Option<alloc::string::String>,
     ///
@@ -20696,7 +22096,7 @@ pub struct ButtonOwned {
     pub dir: core::option::Option<alloc::string::String>,
     ///
     ///     <p>This Boolean attribute prevents the user from interacting with the button: it cannot be pressed or focused.</p>
-    ///     <p>Firefox, unlike other browsers, <a target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external">persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
+    ///     <p>Firefox, unlike other browsers, <a class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank">persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
     ///   
     pub disabled: core::option::Option<bool>,
     ///
@@ -20801,6 +22201,14 @@ pub struct ButtonOwned {
     ///   
     pub value: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl ButtonOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "button"
+    }
+}
 /// The <strong><code>&lt;datalist&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element contains a set of <a href="/en-US/docs/Web/HTML/Element/option"><code>&lt;option&gt;</code></a> elements that represent the permissible or recommended options available to choose from within other controls.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist>
@@ -20893,6 +22301,14 @@ pub struct Datalist<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Datalist<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "datalist"
+    }
 }
 /// The <strong><code>&lt;datalist&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element contains a set of <a href="/en-US/docs/Web/HTML/Element/option"><code>&lt;option&gt;</code></a> elements that represent the permissible or recommended options available to choose from within other controls.
 ///
@@ -20991,6 +22407,14 @@ pub struct DatalistOwned {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl DatalistOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "datalist"
+    }
 }
 /// The <strong><code>&lt;fieldset&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to group several controls as well as labels (<a href="/en-US/docs/Web/HTML/Element/label"><code>&lt;label&gt;</code></a>) within a web form.
 ///
@@ -21099,6 +22523,14 @@ pub struct Fieldset<'life> {
     ///     </div>
     ///   
     pub name: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Fieldset<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "fieldset"
+    }
 }
 /// The <strong><code>&lt;fieldset&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to group several controls as well as labels (<a href="/en-US/docs/Web/HTML/Element/label"><code>&lt;label&gt;</code></a>) within a web form.
 ///
@@ -21213,6 +22645,14 @@ pub struct FieldsetOwned {
     ///   
     pub name: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl FieldsetOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "fieldset"
+    }
+}
 /// The <strong><code>&lt;form&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a document section containing interactive controls for submitting information.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form>
@@ -21220,7 +22660,7 @@ pub struct FieldsetOwned {
 #[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Form<'life> {
     ///     <p>Comma-separated <a href="/en-US/docs/Web/SVG/Content_type">content types</a> the server accepts.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> <strong>This attribute has been deprecated and should not be used.</strong> Instead, use the <a href="/en-US/docs/Web/HTML/Element/input#accept"><code>accept</code></a> attribute on <code>&lt;input type=file&gt;</code> elements.</p>
     ///     </div>
     ///   
@@ -21336,6 +22776,14 @@ pub struct Form<'life> {
     ///   
     pub rel: core::option::Option<&'life str>,
 }
+#[allow(deprecated)]
+impl<'life> Form<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "form"
+    }
+}
 /// The <strong><code>&lt;form&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a document section containing interactive controls for submitting information.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form>
@@ -21344,7 +22792,7 @@ pub struct Form<'life> {
 #[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 pub struct FormOwned {
     ///     <p>Comma-separated <a href="/en-US/docs/Web/SVG/Content_type">content types</a> the server accepts.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> <strong>This attribute has been deprecated and should not be used.</strong> Instead, use the <a href="/en-US/docs/Web/HTML/Element/input#accept"><code>accept</code></a> attribute on <code>&lt;input type=file&gt;</code> elements.</p>
     ///     </div>
     ///   
@@ -21464,6 +22912,14 @@ pub struct FormOwned {
     ///   
     pub rel: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl FormOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "form"
+    }
+}
 /// The <strong><code>&lt;input&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and <a href="/en-US/docs/Glossary/User_agent">user agent</a>. The <code>&lt;input&gt;</code> element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input>
@@ -21499,7 +22955,7 @@ pub struct Input<'life> {
     pub autocomplete: core::option::Option<&'life str>,
     ///
     ///     <p>A Boolean attribute which, if present, indicates that the input should automatically have focus when the page has finished loading (or when the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> containing the element has been displayed).</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> An element with the <code>autofocus</code> attribute may gain focus before the <a href="/en-US/docs/Web/API/Window/DOMContentLoaded_event" title="DOMContentLoaded"><code>DOMContentLoaded</code></a> event is fired.</p>
     ///     </div>
     ///     <p>No more than one element in the document may have the <code>autofocus</code> attribute. If put on more than one element, the first one with the attribute receives focus.</p>
@@ -21570,7 +23026,7 @@ pub struct Input<'life> {
     ///     <p>A Boolean attribute which, if present, indicates that the user should not be able to interact with the input. Disabled inputs are typically rendered with a dimmer color or using some other form of indication that the field is not available for use.</p>
     ///     <p>Specifically, disabled inputs do not receive the <a href="/en-US/docs/Web/API/Element/click_event" title="click"><code>click</code></a> event, and disabled inputs are not submitted with the form.</p>
     ///     <div class="notecard note" id="sect4">
-    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank" class="external">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
+    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
     ///     </div>
     ///   
     pub disabled: core::option::Option<bool>,
@@ -21596,7 +23052,7 @@ pub struct Input<'life> {
     ///
     ///     <p>A string specifying the <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a> element with which the input is associated (that is, its <strong>form owner</strong>). This string's value, if present, must match the <a href="#id"><code>id</code></a> of a <code>&lt;form&gt;</code> element in the same document. If this attribute isn't specified, the <code>&lt;input&gt;</code> element is associated with the nearest containing form, if any.</p>
     ///     <p>The <code>form</code> attribute lets you place an input anywhere in the document but have it included with a form elsewhere in the document.</p>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> An input can only be associated with one form.</p>
     ///     </div>
     ///   
@@ -21684,7 +23140,7 @@ pub struct Input<'life> {
     ///     <p>There are two special cases:</p>
     ///     <ol>
     ///       <li><code>_charset_</code> : If used as the name of an <code>&lt;input&gt;</code> element of type <a href="/en-US/docs/Web/HTML/Element/input/hidden">hidden</a>, the input's <code>value</code> is automatically set by the <a href="/en-US/docs/Glossary/User_agent">user agent</a> to the character encoding being used to submit the form.</li>
-    ///       <li><code>isindex</code>: For historical reasons, the name <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name"><code>isindex</code></a> is not allowed.</li>
+    ///       <li><code>isindex</code>: For historical reasons, the name <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name" target="_blank" class="external"><code>isindex</code></a> is not allowed.</li>
     ///     </ol>
     ///     <p>The <a href="#name"><code>name</code></a> attribute creates a unique behavior for radio buttons.</p>
     ///     <p>Only one radio button in a same-named group of radio buttons can be checked at a time. Selecting any radio button in that group automatically deselects any currently-selected radio button in the same group. The value of that one checked radio button is sent along with the name if the form is submitted,</p>
@@ -21697,7 +23153,7 @@ pub struct Input<'life> {
     /// <span class="token keyword">let</span> hatSize <span class="token operator">=</span> form<span class="token punctuation">.</span>elements<span class="token punctuation">[</span><span class="token string">"hat-size"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     /// </code></pre></div>
     ///     <p>When this code has run, <code>guestName</code> will be the <a href="/en-US/docs/Web/API/HTMLInputElement"><code>HTMLInputElement</code></a> for the <code>guest</code> field, and <code>hatSize</code> the object for the <code>hat-size</code> field.</p>
-    ///     <div id="sect6" class="notecard warning">
+    ///     <div class="notecard warning" id="sect6">
     ///       <p><strong>Warning:</strong> Avoid giving form elements a <code>name</code> that corresponds to a built-in property of the form, since you would then override the predefined property or method with this reference to the corresponding input.</p>
     ///     </div>
     ///   
@@ -21705,7 +23161,7 @@ pub struct Input<'life> {
     ///
     ///     <p>Valid for <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, and <code>password</code>, the <code>pattern</code> attribute defines a regular expression that the input's <a href="#value"><code>value</code></a> must match in order for the value to pass <a href="/en-US/docs/Web/HTML/Constraint_validation">constraint validation</a>. It must be a valid JavaScript regular expression, as used by the <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp"><code>RegExp</code></a> type, and as documented in our <a href="/en-US/docs/Web/JavaScript/Guide/Regular_expressions">guide on regular expressions</a>; the <code>'u'</code> flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.</p>
     ///     <p>If the <code>pattern</code> attribute is present but is not specified or is invalid, no regular expression is applied and this attribute is ignored completely. If the pattern attribute is valid and a non-empty value does not match the pattern, constraint validation will prevent form submission.</p>
-    ///     <div class="notecard note" id="sect7">
+    ///     <div id="sect7" class="notecard note">
     ///       <p><strong>Note:</strong> If using the <code>pattern</code> attribute, inform the user about the expected format by including explanatory text nearby. You can also include a <a href="#title"><code>title</code></a> attribute to explain what the requirements are to match the pattern; most browsers will display this title as a tooltip. The visible explanation is required for accessibility. The tooltip is an enhancement.</p>
     ///     </div>
     ///     <p>See <a href="#client-side_validation">Client-side validation</a> for more information.</p>
@@ -21746,7 +23202,7 @@ pub struct Input<'life> {
     ///     <p>The value must be a positive number—integer or float—or the special value <code>any</code>, which means no stepping is implied, and any value is allowed (barring other constraints, such as <a href="#min"><code>min</code></a> and <a href="#max"><code>max</code></a>).</p>
     ///     <p>If <code>any</code> is not explicitly set, valid values for the <code>number</code>, date/time input types, and <code>range</code> input types are equal to the basis for stepping — the <a href="#min"><code>min</code></a> value and increments of the step value, up to the <a href="#max"><code>max</code></a> value, if specified.</p>
     ///     <p>For example, if you have <code>&lt;input type="number" min="10" step="2"&gt;</code>, then any even integer, <code>10</code> or greater, is valid. If omitted, <code>&lt;input type="number"&gt;</code>, any integer is valid, but floats (like <code>4.2</code>) are not valid, because <code>step</code> defaults to <code>1</code>. For <code>4.2</code> to be valid, <code>step</code> would have had to be set to <code>any</code>, 0.1, 0.2, or any the <code>min</code> value would have had to be a number ending in <code>.2</code>, such as <code>&lt;input type="number" min="-5.2"&gt;</code></p>
-    ///     <div id="sect9" class="notecard note">
+    ///     <div class="notecard note" id="sect9">
     ///       <p><strong>Note:</strong> When the data entered by the user doesn't adhere to the stepping configuration, the value is considered invalid in constraint validation and will match the <code>:invalid</code> pseudoclass.</p>
     ///     </div>
     ///     <p>See <a href="#client-side_validation">Client-side validation</a> for more information.</p>
@@ -21773,6 +23229,14 @@ pub struct Input<'life> {
     ///     <p>Valid for the <code>image</code> input button only, the <code>width</code> is the width of the image file to display to represent the graphical submit button. See the <a href="/en-US/docs/Web/HTML/Element/input/image">image</a> input type.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Input<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "input"
+    }
 }
 /// The <strong><code>&lt;input&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to create interactive controls for web-based forms in order to accept data from the user; a wide variety of types of input data and control widgets are available, depending on the device and <a href="/en-US/docs/Glossary/User_agent">user agent</a>. The <code>&lt;input&gt;</code> element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
 ///
@@ -21810,7 +23274,7 @@ pub struct InputOwned {
     pub autocomplete: core::option::Option<alloc::string::String>,
     ///
     ///     <p>A Boolean attribute which, if present, indicates that the input should automatically have focus when the page has finished loading (or when the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> containing the element has been displayed).</p>
-    ///     <div id="sect1" class="notecard note">
+    ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> An element with the <code>autofocus</code> attribute may gain focus before the <a href="/en-US/docs/Web/API/Window/DOMContentLoaded_event" title="DOMContentLoaded"><code>DOMContentLoaded</code></a> event is fired.</p>
     ///     </div>
     ///     <p>No more than one element in the document may have the <code>autofocus</code> attribute. If put on more than one element, the first one with the attribute receives focus.</p>
@@ -21883,7 +23347,7 @@ pub struct InputOwned {
     ///     <p>A Boolean attribute which, if present, indicates that the user should not be able to interact with the input. Disabled inputs are typically rendered with a dimmer color or using some other form of indication that the field is not available for use.</p>
     ///     <p>Specifically, disabled inputs do not receive the <a href="/en-US/docs/Web/API/Element/click_event" title="click"><code>click</code></a> event, and disabled inputs are not submitted with the form.</p>
     ///     <div class="notecard note" id="sect4">
-    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank" class="external">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
+    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
     ///     </div>
     ///   
     pub disabled: core::option::Option<bool>,
@@ -21911,7 +23375,7 @@ pub struct InputOwned {
     ///
     ///     <p>A string specifying the <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a> element with which the input is associated (that is, its <strong>form owner</strong>). This string's value, if present, must match the <a href="#id"><code>id</code></a> of a <code>&lt;form&gt;</code> element in the same document. If this attribute isn't specified, the <code>&lt;input&gt;</code> element is associated with the nearest containing form, if any.</p>
     ///     <p>The <code>form</code> attribute lets you place an input anywhere in the document but have it included with a form elsewhere in the document.</p>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> An input can only be associated with one form.</p>
     ///     </div>
     ///   
@@ -21999,7 +23463,7 @@ pub struct InputOwned {
     ///     <p>There are two special cases:</p>
     ///     <ol>
     ///       <li><code>_charset_</code> : If used as the name of an <code>&lt;input&gt;</code> element of type <a href="/en-US/docs/Web/HTML/Element/input/hidden">hidden</a>, the input's <code>value</code> is automatically set by the <a href="/en-US/docs/Glossary/User_agent">user agent</a> to the character encoding being used to submit the form.</li>
-    ///       <li><code>isindex</code>: For historical reasons, the name <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name"><code>isindex</code></a> is not allowed.</li>
+    ///       <li><code>isindex</code>: For historical reasons, the name <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name" target="_blank" class="external"><code>isindex</code></a> is not allowed.</li>
     ///     </ol>
     ///     <p>The <a href="#name"><code>name</code></a> attribute creates a unique behavior for radio buttons.</p>
     ///     <p>Only one radio button in a same-named group of radio buttons can be checked at a time. Selecting any radio button in that group automatically deselects any currently-selected radio button in the same group. The value of that one checked radio button is sent along with the name if the form is submitted,</p>
@@ -22012,7 +23476,7 @@ pub struct InputOwned {
     /// <span class="token keyword">let</span> hatSize <span class="token operator">=</span> form<span class="token punctuation">.</span>elements<span class="token punctuation">[</span><span class="token string">"hat-size"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     /// </code></pre></div>
     ///     <p>When this code has run, <code>guestName</code> will be the <a href="/en-US/docs/Web/API/HTMLInputElement"><code>HTMLInputElement</code></a> for the <code>guest</code> field, and <code>hatSize</code> the object for the <code>hat-size</code> field.</p>
-    ///     <div id="sect6" class="notecard warning">
+    ///     <div class="notecard warning" id="sect6">
     ///       <p><strong>Warning:</strong> Avoid giving form elements a <code>name</code> that corresponds to a built-in property of the form, since you would then override the predefined property or method with this reference to the corresponding input.</p>
     ///     </div>
     ///   
@@ -22020,7 +23484,7 @@ pub struct InputOwned {
     ///
     ///     <p>Valid for <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, and <code>password</code>, the <code>pattern</code> attribute defines a regular expression that the input's <a href="#value"><code>value</code></a> must match in order for the value to pass <a href="/en-US/docs/Web/HTML/Constraint_validation">constraint validation</a>. It must be a valid JavaScript regular expression, as used by the <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp"><code>RegExp</code></a> type, and as documented in our <a href="/en-US/docs/Web/JavaScript/Guide/Regular_expressions">guide on regular expressions</a>; the <code>'u'</code> flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.</p>
     ///     <p>If the <code>pattern</code> attribute is present but is not specified or is invalid, no regular expression is applied and this attribute is ignored completely. If the pattern attribute is valid and a non-empty value does not match the pattern, constraint validation will prevent form submission.</p>
-    ///     <div class="notecard note" id="sect7">
+    ///     <div id="sect7" class="notecard note">
     ///       <p><strong>Note:</strong> If using the <code>pattern</code> attribute, inform the user about the expected format by including explanatory text nearby. You can also include a <a href="#title"><code>title</code></a> attribute to explain what the requirements are to match the pattern; most browsers will display this title as a tooltip. The visible explanation is required for accessibility. The tooltip is an enhancement.</p>
     ///     </div>
     ///     <p>See <a href="#client-side_validation">Client-side validation</a> for more information.</p>
@@ -22061,7 +23525,7 @@ pub struct InputOwned {
     ///     <p>The value must be a positive number—integer or float—or the special value <code>any</code>, which means no stepping is implied, and any value is allowed (barring other constraints, such as <a href="#min"><code>min</code></a> and <a href="#max"><code>max</code></a>).</p>
     ///     <p>If <code>any</code> is not explicitly set, valid values for the <code>number</code>, date/time input types, and <code>range</code> input types are equal to the basis for stepping — the <a href="#min"><code>min</code></a> value and increments of the step value, up to the <a href="#max"><code>max</code></a> value, if specified.</p>
     ///     <p>For example, if you have <code>&lt;input type="number" min="10" step="2"&gt;</code>, then any even integer, <code>10</code> or greater, is valid. If omitted, <code>&lt;input type="number"&gt;</code>, any integer is valid, but floats (like <code>4.2</code>) are not valid, because <code>step</code> defaults to <code>1</code>. For <code>4.2</code> to be valid, <code>step</code> would have had to be set to <code>any</code>, 0.1, 0.2, or any the <code>min</code> value would have had to be a number ending in <code>.2</code>, such as <code>&lt;input type="number" min="-5.2"&gt;</code></p>
-    ///     <div id="sect9" class="notecard note">
+    ///     <div class="notecard note" id="sect9">
     ///       <p><strong>Note:</strong> When the data entered by the user doesn't adhere to the stepping configuration, the value is considered invalid in constraint validation and will match the <code>:invalid</code> pseudoclass.</p>
     ///     </div>
     ///     <p>See <a href="#client-side_validation">Client-side validation</a> for more information.</p>
@@ -22088,6 +23552,14 @@ pub struct InputOwned {
     ///     <p>Valid for the <code>image</code> input button only, the <code>width</code> is the width of the image file to display to represent the graphical submit button. See the <a href="/en-US/docs/Web/HTML/Element/input/image">image</a> input type.</p>
     ///   
     pub width: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl InputOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "input"
+    }
 }
 /// The <strong><code>&lt;label&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a caption for an item in a user interface.
 ///
@@ -22166,7 +23638,7 @@ pub struct Label<'life> {
     ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> To programmatically set the <code>for</code> attribute, use <a href="/en-US/docs/Web/API/HTMLLabelElement/htmlFor"><code>htmlFor</code></a>.</p>
     ///     </div>
-    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a target="_blank" href="https://html.spec.whatwg.org/multipage/forms.html#category-label" class="external">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
+    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a href="https://html.spec.whatwg.org/multipage/forms.html#category-label" class="external" target="_blank">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
     ///     <p>Multiple <code>label</code> elements can be given the same value for their <code>for</code> attribute; doing so causes the associated form control (the form control that <code>for</code> value references) to have multiple labels.</p>
     ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> A <code>&lt;label&gt;</code> element can have both a <code>for</code> attribute and a contained control element, as long as the <code>for</code> attribute points to the contained control element.</p>
@@ -22193,6 +23665,14 @@ pub struct Label<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Label<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "label"
+    }
 }
 /// The <strong><code>&lt;label&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a caption for an item in a user interface.
 ///
@@ -22276,7 +23756,7 @@ pub struct LabelOwned {
     ///     <div class="notecard note" id="sect1">
     ///       <p><strong>Note:</strong> To programmatically set the <code>for</code> attribute, use <a href="/en-US/docs/Web/API/HTMLLabelElement/htmlFor"><code>htmlFor</code></a>.</p>
     ///     </div>
-    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a target="_blank" href="https://html.spec.whatwg.org/multipage/forms.html#category-label" class="external">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
+    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a href="https://html.spec.whatwg.org/multipage/forms.html#category-label" class="external" target="_blank">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
     ///     <p>Multiple <code>label</code> elements can be given the same value for their <code>for</code> attribute; doing so causes the associated form control (the form control that <code>for</code> value references) to have multiple labels.</p>
     ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong> A <code>&lt;label&gt;</code> element can have both a <code>for</code> attribute and a contained control element, as long as the <code>for</code> attribute points to the contained control element.</p>
@@ -22303,6 +23783,14 @@ pub struct LabelOwned {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl LabelOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "label"
+    }
 }
 /// The <strong><code>&lt;legend&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a caption for the content of its parent <a href="/en-US/docs/Web/HTML/Element/fieldset"><code>&lt;fieldset&gt;</code></a>.
 ///
@@ -22396,6 +23884,14 @@ pub struct Legend<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Legend<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "legend"
+    }
 }
 /// The <strong><code>&lt;legend&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a caption for the content of its parent <a href="/en-US/docs/Web/HTML/Element/fieldset"><code>&lt;fieldset&gt;</code></a>.
 ///
@@ -22494,6 +23990,14 @@ pub struct LegendOwned {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl LegendOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "legend"
+    }
 }
 /// The <strong><code>&lt;meter&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents either a scalar value within a known range or a fractional value.
 ///
@@ -22614,6 +24118,14 @@ pub struct Meter<'life> {
     ///     </div>
     ///   
     pub value: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Meter<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "meter"
+    }
 }
 /// The <strong><code>&lt;meter&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents either a scalar value within a known range or a fractional value.
 ///
@@ -22740,6 +24252,14 @@ pub struct MeterOwned {
     ///   
     pub value: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl MeterOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "meter"
+    }
+}
 /// The <strong><code>&lt;optgroup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element creates a grouping of options within a <a href="/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup>
@@ -22840,6 +24360,14 @@ pub struct Optgroup<'life> {
     ///     <p>The name of the group of options, which the browser can use when labeling the options in the user interface. This attribute is mandatory if this element is used.</p>
     ///   
     pub label: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Optgroup<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "optgroup"
+    }
 }
 /// The <strong><code>&lt;optgroup&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element creates a grouping of options within a <a href="/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a> element.
 ///
@@ -22946,6 +24474,14 @@ pub struct OptgroupOwned {
     ///     <p>The name of the group of options, which the browser can use when labeling the options in the user interface. This attribute is mandatory if this element is used.</p>
     ///   
     pub label: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl OptgroupOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "optgroup"
+    }
 }
 /// The <strong><code>&lt;option&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to define an item contained in a <a href="/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a>, an <a href="/en-US/docs/Web/HTML/Element/optgroup"><code>&lt;optgroup&gt;</code></a>, or a <a href="/en-US/docs/Web/HTML/Element/datalist"><code>&lt;datalist&gt;</code></a> element. As such, <code>&lt;option&gt;</code> can represent menu items in popups and other lists of items in an HTML document.
 ///
@@ -23055,6 +24591,14 @@ pub struct Option<'life> {
     ///     <p>The content of this attribute represents the value to be submitted with the form, should this option be selected. If this attribute is omitted, the value is taken from the text content of the option element.</p>
     ///   
     pub value: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Option<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "option"
+    }
 }
 /// The <strong><code>&lt;option&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to define an item contained in a <a href="/en-US/docs/Web/HTML/Element/select"><code>&lt;select&gt;</code></a>, an <a href="/en-US/docs/Web/HTML/Element/optgroup"><code>&lt;optgroup&gt;</code></a>, or a <a href="/en-US/docs/Web/HTML/Element/datalist"><code>&lt;datalist&gt;</code></a> element. As such, <code>&lt;option&gt;</code> can represent menu items in popups and other lists of items in an HTML document.
 ///
@@ -23170,6 +24714,14 @@ pub struct OptionOwned {
     ///   
     pub value: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl OptionOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "option"
+    }
+}
 /// The <strong><code>&lt;output&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a container element into which a site or app can inject the results of a calculation or the outcome of a user action.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output>
@@ -23275,6 +24827,14 @@ pub struct Output<'life> {
     ///     <p>The element's name. Used in the <a href="/en-US/docs/Web/API/HTMLFormElement/elements" title="form.elements"><code>form.elements</code></a> API.</p>
     ///   
     pub name: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Output<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "output"
+    }
 }
 /// The <strong><code>&lt;output&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a container element into which a site or app can inject the results of a calculation or the outcome of a user action.
 ///
@@ -23387,6 +24947,14 @@ pub struct OutputOwned {
     ///   
     pub name: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl OutputOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "output"
+    }
+}
 /// The <strong><code>&lt;progress&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress>
@@ -23487,6 +25055,14 @@ pub struct Progress<'life> {
     ///     <p>This attribute specifies how much of the task that has been completed. It must be a valid floating point number between <code>0</code> and <code>max</code>, or between <code>0</code> and <code>1</code> if <code>max</code> is omitted. If there is no <code>value</code> attribute, the progress bar is indeterminate; this indicates that an activity is ongoing with no indication of how long it is expected to take.</p>
     ///   
     pub value: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Progress<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "progress"
+    }
 }
 /// The <strong><code>&lt;progress&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
 ///
@@ -23593,6 +25169,14 @@ pub struct ProgressOwned {
     ///     <p>This attribute specifies how much of the task that has been completed. It must be a valid floating point number between <code>0</code> and <code>max</code>, or between <code>0</code> and <code>1</code> if <code>max</code> is omitted. If there is no <code>value</code> attribute, the progress bar is indeterminate; this indicates that an activity is ongoing with no indication of how long it is expected to take.</p>
     ///   
     pub value: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl ProgressOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "progress"
+    }
 }
 /// The <strong><code>&lt;select&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a control that provides a menu of options.
 ///
@@ -23713,11 +25297,19 @@ pub struct Select<'life> {
     pub required: core::option::Option<bool>,
     ///
     ///     <p>If the control is presented as a scrolling list box (e.g. when <code>multiple</code> is specified), this attribute represents the number of rows in the list that should be visible at one time. Browsers are not required to present a select element as a scrolled list box. The default value is <code>0</code>.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> According to the HTML specification, the default value for size should be <code>1</code>; however, in practice, this has been found to break some websites, and no other browser currently does that, so Mozilla has opted to continue to return <code>0</code> for the time being with Firefox.</p>
     ///     </div>
     ///   
     pub size: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Select<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "select"
+    }
 }
 /// The <strong><code>&lt;select&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a control that provides a menu of options.
 ///
@@ -23843,11 +25435,19 @@ pub struct SelectOwned {
     pub required: core::option::Option<bool>,
     ///
     ///     <p>If the control is presented as a scrolling list box (e.g. when <code>multiple</code> is specified), this attribute represents the number of rows in the list that should be visible at one time. Browsers are not required to present a select element as a scrolled list box. The default value is <code>0</code>.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> According to the HTML specification, the default value for size should be <code>1</code>; however, in practice, this has been found to break some websites, and no other browser currently does that, so Mozilla has opted to continue to return <code>0</code> for the time being with Firefox.</p>
     ///     </div>
     ///   
     pub size: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl SelectOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "select"
+    }
 }
 /// The <strong><code>&lt;textarea&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form.
 ///
@@ -24028,6 +25628,14 @@ pub struct Textarea<'life> {
     ///     <p>If this attribute is not specified, <code>soft</code> is its default value.</p>
     ///   
     pub wrap: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Textarea<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "textarea"
+    }
 }
 /// The <strong><code>&lt;textarea&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a multi-line plain-text editing control, useful when you want to allow users to enter a sizeable amount of free-form text, for example a comment on a review or feedback form.
 ///
@@ -24214,6 +25822,14 @@ pub struct TextareaOwned {
     ///   
     pub wrap: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl TextareaOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "textarea"
+    }
+}
 /// The <strong><code>&lt;details&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the <a href="/en-US/docs/Web/HTML/Element/summary"><code>&lt;summary&gt;</code></a> element.
 ///
 /// A disclosure widget is typically presented onscreen using a small triangle which rotates (or twists) to indicate open/closed status, with a label next to the triangle. The contents of the <code>&lt;summary&gt;</code> element are used as the label for the disclosure widget.
@@ -24315,6 +25931,14 @@ pub struct Details<'life> {
     ///     </div>
     ///   
     pub open: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Details<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "details"
+    }
 }
 /// The <strong><code>&lt;details&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element creates a disclosure widget in which information is visible only when the widget is toggled into an "open" state. A summary or label must be provided using the <a href="/en-US/docs/Web/HTML/Element/summary"><code>&lt;summary&gt;</code></a> element.
 ///
@@ -24423,6 +26047,14 @@ pub struct DetailsOwned {
     ///   
     pub open: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl DetailsOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "details"
+    }
+}
 /// The <strong><code>&lt;dialog&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog>
@@ -24522,6 +26154,14 @@ pub struct Dialog<'life> {
     ///     </p>
     ///   
     pub open: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Dialog<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "dialog"
+    }
 }
 /// The <strong><code>&lt;dialog&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.
 ///
@@ -24628,6 +26268,14 @@ pub struct DialogOwned {
     ///   
     pub open: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl DialogOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "dialog"
+    }
+}
 /// The <strong><code>&lt;summary&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies a summary, caption, or legend for a <a href="/en-US/docs/Web/HTML/Element/details"><code>&lt;details&gt;</code></a> element's disclosure box. Clicking the <code>&lt;summary&gt;</code> element toggles the state of the parent <code>&lt;details&gt;</code> element open and closed.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary>
@@ -24720,6 +26368,14 @@ pub struct Summary<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Summary<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "summary"
+    }
 }
 /// The <strong><code>&lt;summary&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element specifies a summary, caption, or legend for a <a href="/en-US/docs/Web/HTML/Element/details"><code>&lt;details&gt;</code></a> element's disclosure box. Clicking the <code>&lt;summary&gt;</code> element toggles the state of the parent <code>&lt;details&gt;</code> element open and closed.
 ///
@@ -24819,6 +26475,14 @@ pub struct SummaryOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl SummaryOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "summary"
+    }
+}
 /// The <strong><code>&lt;slot&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element—part of the <a href="/en-US/docs/Web/API/Web_components">Web Components</a> technology suite—is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot>
@@ -24916,6 +26580,14 @@ pub struct Slot<'life> {
     ///     <p>A <strong><em>named slot</em></strong> is a <code>&lt;slot&gt;</code> element with a <code>name</code> attribute.</p>
     ///   
     pub name: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Slot<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "slot"
+    }
 }
 /// The <strong><code>&lt;slot&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element—part of the <a href="/en-US/docs/Web/API/Web_components">Web Components</a> technology suite—is a placeholder inside a web component that you can fill with your own markup, which lets you create separate DOM trees and present them together.
 ///
@@ -25020,6 +26692,14 @@ pub struct SlotOwned {
     ///   
     pub name: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl SlotOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "slot"
+    }
+}
 /// The <strong><code>&lt;template&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a mechanism for holding <a href="/en-US/docs/Glossary/HTML">HTML</a> that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
 ///
 /// Think of a template as a content fragment that is being stored for subsequent use in the document. While the parser does process the contents of the <strong><code>&lt;template&gt;</code></strong> element while loading the page, it does so only to ensure that those contents are valid; the element's contents are not rendered, however.
@@ -25114,6 +26794,14 @@ pub struct Template<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Template<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "template"
+    }
 }
 /// The <strong><code>&lt;template&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a mechanism for holding <a href="/en-US/docs/Glossary/HTML">HTML</a> that is not to be rendered immediately when a page is loaded but may be instantiated subsequently during runtime using JavaScript.
 ///
@@ -25215,6 +26903,14 @@ pub struct TemplateOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl TemplateOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "template"
+    }
+}
 /// <p>The <strong><code>&lt;acronym&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element allows authors to clearly indicate a sequence of characters that compose an acronym or abbreviation for a word.</p>
 /// <div class="notecard warning" id="sect2">
 ///   <p><strong>Warning:</strong> Don't use this element. Use the <a href="/en-US/docs/Web/HTML/Element/abbr"><code>&lt;abbr&gt;</code></a> element instead.</p>
@@ -25310,6 +27006,14 @@ pub struct Acronym<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Acronym<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "acronym"
+    }
 }
 /// <p>The <strong><code>&lt;acronym&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element allows authors to clearly indicate a sequence of characters that compose an acronym or abbreviation for a word.</p>
 /// <div class="notecard warning" id="sect2">
@@ -25411,6 +27115,14 @@ pub struct AcronymOwned {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl AcronymOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "acronym"
+    }
 }
 /// The obsolete <strong>HTML Applet Element</strong> (<strong><code>&lt;applet&gt;</code></strong>) embeds a Java applet into the document; this element has been deprecated in favor of <a href="/en-US/docs/Web/HTML/Element/object"><code>&lt;object&gt;</code></a>.
 ///
@@ -25566,6 +27278,14 @@ pub struct Applet<'life> {
     ///     <p>This attribute specifies in pixels the width that the applet needs.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Applet<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "applet"
+    }
 }
 /// The obsolete <strong>HTML Applet Element</strong> (<strong><code>&lt;applet&gt;</code></strong>) embeds a Java applet into the document; this element has been deprecated in favor of <a href="/en-US/docs/Web/HTML/Element/object"><code>&lt;object&gt;</code></a>.
 ///
@@ -25727,6 +27447,14 @@ pub struct AppletOwned {
     ///   
     pub width: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl AppletOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "applet"
+    }
+}
 /// The <strong><code>&lt;bgsound&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is deprecated. It sets up a sound file to play in the background while the page is used; use <a href="/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> instead.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bgsound>
@@ -25835,6 +27563,14 @@ pub struct Bgsound<'life> {
     ///     <p>This attribute defines a number between -10,000 and 0 that determines the loudness of a page's background sound.</p>
     ///   
     pub volume: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Bgsound<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "bgsound"
+    }
 }
 /// The <strong><code>&lt;bgsound&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is deprecated. It sets up a sound file to play in the background while the page is used; use <a href="/en-US/docs/Web/HTML/Element/audio"><code>&lt;audio&gt;</code></a> instead.
 ///
@@ -25950,6 +27686,14 @@ pub struct BgsoundOwned {
     ///   
     pub volume: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl BgsoundOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "bgsound"
+    }
+}
 /// The <strong><code>&lt;big&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> deprecated element renders the enclosed text at a font size one level larger than the surrounding text (<code>medium</code> becomes <code>large</code>, for example). The size is capped at the browser's maximum permitted font size.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/big>
@@ -26042,6 +27786,14 @@ pub struct Big<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Big<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "big"
+    }
 }
 /// The <strong><code>&lt;big&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> deprecated element renders the enclosed text at a font size one level larger than the surrounding text (<code>medium</code> becomes <code>large</code>, for example). The size is capped at the browser's maximum permitted font size.
 ///
@@ -26141,6 +27893,14 @@ pub struct BigOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl BigOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "big"
+    }
+}
 /// The <strong><code>&lt;blink&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a non-standard element which causes the enclosed text to flash slowly.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blink>
@@ -26233,6 +27993,14 @@ pub struct Blink<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Blink<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "blink"
+    }
 }
 /// The <strong><code>&lt;blink&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a non-standard element which causes the enclosed text to flash slowly.
 ///
@@ -26332,6 +28100,14 @@ pub struct BlinkOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl BlinkOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "blink"
+    }
+}
 /// The <strong><code>&lt;center&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a <a href="/en-US/docs/Web/HTML/Block-level_elements">block-level element</a> that displays its block-level or inline contents centered horizontally within its containing element. The container is usually, but isn't required to be, <a href="/en-US/docs/Web/HTML/Element/body"><code>&lt;body&gt;</code></a>.
 ///
 /// This tag has been deprecated in HTML 4 (and XHTML 1) in favor of the <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property, which can be applied to the <a href="/en-US/docs/Web/HTML/Element/div"><code>&lt;div&gt;</code></a> element or to an individual <a href="/en-US/docs/Web/HTML/Element/p"><code>&lt;p&gt;</code></a>. For centering blocks, use other CSS properties like <a href="/en-US/docs/Web/CSS/margin-left"><code>margin-left</code></a> and <a href="/en-US/docs/Web/CSS/margin-right"><code>margin-right</code></a> and set them to <code>auto</code> (or set <a href="/en-US/docs/Web/CSS/margin"><code>margin</code></a> to <code>0 auto</code>).
@@ -26426,6 +28202,14 @@ pub struct Center<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Center<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "center"
+    }
 }
 /// The <strong><code>&lt;center&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is a <a href="/en-US/docs/Web/HTML/Block-level_elements">block-level element</a> that displays its block-level or inline contents centered horizontally within its containing element. The container is usually, but isn't required to be, <a href="/en-US/docs/Web/HTML/Element/body"><code>&lt;body&gt;</code></a>.
 ///
@@ -26527,6 +28311,14 @@ pub struct CenterOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl CenterOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "center"
+    }
+}
 /// The <strong><code>&lt;dir&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used as a container for a directory of files and/or folders, potentially with styles and icons applied by the <a href="/en-US/docs/Glossary/User_agent">user agent</a>. Do not use this obsolete element; instead, you should use the <a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a> element for lists, including lists of files.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dir>
@@ -26623,6 +28415,14 @@ pub struct Dir<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Dir<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "dir"
+    }
 }
 /// The <strong><code>&lt;dir&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used as a container for a directory of files and/or folders, potentially with styles and icons applied by the <a href="/en-US/docs/Glossary/User_agent">user agent</a>. Do not use this obsolete element; instead, you should use the <a href="/en-US/docs/Web/HTML/Element/ul"><code>&lt;ul&gt;</code></a> element for lists, including lists of files.
 ///
@@ -26725,6 +28525,14 @@ pub struct DirOwned {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl DirOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "dir"
+    }
 }
 /// The <strong><code>&lt;font&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines the font size, color and face for its content.
 ///
@@ -26830,6 +28638,14 @@ pub struct Font<'life> {
     ///     <p>This attribute specifies the font size as either a numeric or relative value. Numeric values range from <code>1</code> to <code>7</code> with <code>1</code> being the smallest and <code>3</code> the default. It can be defined using a relative value, like <code>+2</code> or <code>-3</code>, which sets it relative to <code>3</code>, the default value.</p>
     ///   
     pub size: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Font<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "font"
+    }
 }
 /// The <strong><code>&lt;font&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines the font size, color and face for its content.
 ///
@@ -26940,6 +28756,14 @@ pub struct FontOwned {
     ///     <p>This attribute specifies the font size as either a numeric or relative value. Numeric values range from <code>1</code> to <code>7</code> with <code>1</code> being the smallest and <code>3</code> the default. It can be defined using a relative value, like <code>+2</code> or <code>-3</code>, which sets it relative to <code>3</code>, the default value.</p>
     ///   
     pub size: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl FontOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "font"
+    }
 }
 /// The <strong><code>&lt;frame&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a particular area in which another HTML document can be displayed. A frame should be used within a <a href="/en-US/docs/Web/HTML/Element/frameset"><code>&lt;frameset&gt;</code></a>.
 ///
@@ -27063,6 +28887,14 @@ pub struct Frame<'life> {
     ///     <p>This attribute specifies the document that will be displayed by the frame.</p>
     ///   
     pub src: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Frame<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "frame"
+    }
 }
 /// The <strong><code>&lt;frame&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines a particular area in which another HTML document can be displayed. A frame should be used within a <a href="/en-US/docs/Web/HTML/Element/frameset"><code>&lt;frameset&gt;</code></a>.
 ///
@@ -27192,6 +29024,14 @@ pub struct FrameOwned {
     ///   
     pub src: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl FrameOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "frame"
+    }
+}
 /// The <strong><code>&lt;frameset&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to contain <a href="/en-US/docs/Web/HTML/Element/frame"><code>&lt;frame&gt;</code></a> elements.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/frameset>
@@ -27292,6 +29132,14 @@ pub struct Frameset<'life> {
     ///     <p>This attribute specifies the number and size of vertical spaces in a frameset.</p>
     ///   
     pub rows: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Frameset<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "frameset"
+    }
 }
 /// The <strong><code>&lt;frameset&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to contain <a href="/en-US/docs/Web/HTML/Element/frame"><code>&lt;frame&gt;</code></a> elements.
 ///
@@ -27399,6 +29247,14 @@ pub struct FramesetOwned {
     ///   
     pub rows: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl FramesetOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "frameset"
+    }
+}
 ///
 ///   The <strong><code>&lt;image&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is an ancient and poorly supported precursor to the <a href="/en-US/docs/Web/HTML/Element/img"><code>&lt;img&gt;</code></a> element.
 ///   <strong>It should not be used</strong>.
@@ -27496,6 +29352,14 @@ pub struct Image<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Image<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "image"
+    }
 }
 ///
 ///   The <strong><code>&lt;image&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is an ancient and poorly supported precursor to the <a href="/en-US/docs/Web/HTML/Element/img"><code>&lt;img&gt;</code></a> element.
@@ -27599,6 +29463,14 @@ pub struct ImageOwned {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl ImageOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "image"
+    }
 }
 /// The <strong><code>&lt;keygen&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element exists to facilitate generation of key material, and submission of the public key as part of an <a href="/en-US/docs/Learn/Forms">HTML form</a>. This mechanism is designed for use with Web-based certificate management systems. It is expected that the <code>&lt;keygen&gt;</code> element will be used in an HTML form along with other information needed to construct a certificate request, and that the result of the process will be a signed certificate.
 ///
@@ -27712,6 +29584,14 @@ pub struct Keygen<'life> {
     ///     <p>The name of the control, which is submitted with the form data.</p>
     ///   
     pub name: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Keygen<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "keygen"
+    }
 }
 /// The <strong><code>&lt;keygen&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element exists to facilitate generation of key material, and submission of the public key as part of an <a href="/en-US/docs/Learn/Forms">HTML form</a>. This mechanism is designed for use with Web-based certificate management systems. It is expected that the <code>&lt;keygen&gt;</code> element will be used in an HTML form along with other information needed to construct a certificate request, and that the result of the process will be a signed certificate.
 ///
@@ -27830,6 +29710,14 @@ pub struct KeygenOwned {
     ///     <p>The name of the control, which is submitted with the form data.</p>
     ///   
     pub name: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl KeygenOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "keygen"
+    }
 }
 /// The <strong><code>&lt;marquee&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to insert a scrolling area of text. You can control what happens when the text reaches the edges of its content area using its attributes.
 ///
@@ -27967,6 +29855,14 @@ pub struct Marquee<'life> {
     ///     <p>Sets the width in pixels or percentage value.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Marquee<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "marquee"
+    }
 }
 /// The <strong><code>&lt;marquee&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to insert a scrolling area of text. You can control what happens when the text reaches the edges of its content area using its attributes.
 ///
@@ -28110,6 +30006,14 @@ pub struct MarqueeOwned {
     ///   
     pub width: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl MarqueeOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "marquee"
+    }
+}
 /// The <strong><code>&lt;menuitem&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a command that a user is able to invoke through a popup menu. This includes context menus, as well as menus that might be attached to a menu button.
 ///
 /// A command can either be defined explicitly, with a textual label and optional icon to describe its appearance, or alternatively as an <em>indirect command</em> whose behavior is defined by a separate element. Commands can also optionally include a checkbox or be grouped to share radio buttons. (Menu items for indirect commands gain checkboxes or radio buttons when defined against elements <code>&lt;input type="checkbox"&gt;</code> and <code>&lt;input type="radio"&gt;</code>.)
@@ -28241,6 +30145,14 @@ pub struct Menuitem<'life> {
     ///     </ul>
     ///   
     pub type_: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Menuitem<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "menuitem"
+    }
 }
 /// The <strong><code>&lt;menuitem&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents a command that a user is able to invoke through a popup menu. This includes context menus, as well as menus that might be attached to a menu button.
 ///
@@ -28379,6 +30291,14 @@ pub struct MenuitemOwned {
     ///   
     pub type_: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl MenuitemOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "menuitem"
+    }
+}
 /// The <strong><code>&lt;nobr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element prevents the text it contains from automatically wrapping across multiple lines, potentially resulting in the user having to scroll horizontally to see the entire width of the text.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nobr>
@@ -28471,6 +30391,14 @@ pub struct Nobr<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Nobr<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "nobr"
+    }
 }
 /// The <strong><code>&lt;nobr&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element prevents the text it contains from automatically wrapping across multiple lines, potentially resulting in the user having to scroll horizontally to see the entire width of the text.
 ///
@@ -28570,6 +30498,14 @@ pub struct NobrOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl NobrOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "nobr"
+    }
+}
 /// The <strong><code>&lt;noembed&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is an obsolete, non-standard way to provide alternative, or "fallback", content for browsers that do not support the <a href="/en-US/docs/Web/HTML/Element/embed"><code>&lt;embed&gt;</code></a> element or do not support the type of <a href="/en-US/docs/Web/HTML/Content_categories#embedded_content">embedded content</a> an author wishes to use. This element was deprecated in HTML 4.01 and above in favor of placing fallback content between the opening and closing tags of an <a href="/en-US/docs/Web/HTML/Element/object"><code>&lt;object&gt;</code></a> element.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noembed>
@@ -28662,6 +30598,14 @@ pub struct Noembed<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Noembed<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "noembed"
+    }
 }
 /// The <strong><code>&lt;noembed&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is an obsolete, non-standard way to provide alternative, or "fallback", content for browsers that do not support the <a href="/en-US/docs/Web/HTML/Element/embed"><code>&lt;embed&gt;</code></a> element or do not support the type of <a href="/en-US/docs/Web/HTML/Content_categories#embedded_content">embedded content</a> an author wishes to use. This element was deprecated in HTML 4.01 and above in favor of placing fallback content between the opening and closing tags of an <a href="/en-US/docs/Web/HTML/Element/object"><code>&lt;object&gt;</code></a> element.
 ///
@@ -28761,6 +30705,14 @@ pub struct NoembedOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl NoembedOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "noembed"
+    }
+}
 /// The <strong><code>&lt;noframes&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element provides content to be presented in browsers that don't support (or have disabled support for) the <a href="/en-US/docs/Web/HTML/Element/frame"><code>&lt;frame&gt;</code></a> element. Although most commonly-used browsers support frames, there are exceptions, including certain special-use browsers including some mobile browsers, as well as text-mode browsers.
 ///
 /// A <code>&lt;noframes&gt;</code> element can contain any HTML elements that are allowed within the body of an HTML document, except for the <a href="/en-US/docs/Web/HTML/Element/frameset"><code>&lt;frameset&gt;</code></a> and <a href="/en-US/docs/Web/HTML/Element/frame"><code>&lt;frame&gt;</code></a> elements, since using frames when they aren't supported doesn't make sense.
@@ -28857,6 +30809,14 @@ pub struct Noframes<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Noframes<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "noframes"
+    }
 }
 /// The <strong><code>&lt;noframes&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element provides content to be presented in browsers that don't support (or have disabled support for) the <a href="/en-US/docs/Web/HTML/Element/frame"><code>&lt;frame&gt;</code></a> element. Although most commonly-used browsers support frames, there are exceptions, including certain special-use browsers including some mobile browsers, as well as text-mode browsers.
 ///
@@ -28959,6 +30919,14 @@ pub struct NoframesOwned {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl NoframesOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "noframes"
+    }
 }
 /// The <strong><code>&lt;param&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines parameters for an <a href="/en-US/docs/Web/HTML/Element/object"><code>&lt;object&gt;</code></a> element.
 ///
@@ -29073,6 +31041,14 @@ pub struct Param<'life> {
     ///     </ul>
     ///   
     pub valuetype: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Param<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "param"
+    }
 }
 /// The <strong><code>&lt;param&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element defines parameters for an <a href="/en-US/docs/Web/HTML/Element/object"><code>&lt;object&gt;</code></a> element.
 ///
@@ -29193,6 +31169,14 @@ pub struct ParamOwned {
     ///   
     pub valuetype: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl ParamOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "param"
+    }
+}
 /// The <strong><code>&lt;plaintext&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element renders everything following the start tag as raw text, ignoring any following HTML. There is no closing tag, since everything after it is considered raw text.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/plaintext>
@@ -29285,6 +31269,14 @@ pub struct Plaintext<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Plaintext<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "plaintext"
+    }
 }
 /// The <strong><code>&lt;plaintext&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element renders everything following the start tag as raw text, ignoring any following HTML. There is no closing tag, since everything after it is considered raw text.
 ///
@@ -29384,6 +31376,14 @@ pub struct PlaintextOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl PlaintextOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "plaintext"
+    }
+}
 /// The <strong><code>&lt;rb&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to delimit the base text component of a <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> annotation, i.e. the text that is being annotated. One <code>&lt;rb&gt;</code> element should wrap each separate atomic segment of the base text.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rb>
@@ -29476,6 +31476,14 @@ pub struct Rb<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Rb<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "rb"
+    }
 }
 /// The <strong><code>&lt;rb&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to delimit the base text component of a <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> annotation, i.e. the text that is being annotated. One <code>&lt;rb&gt;</code> element should wrap each separate atomic segment of the base text.
 ///
@@ -29575,7 +31583,15 @@ pub struct RbOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
-/// The <strong><code>&lt;rtc&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>) and semantic (<a aria-current="page" href="/en-US/docs/Web/HTML/Element/rtc"><code>&lt;rtc&gt;</code></a>) annotations.
+#[allow(deprecated)]
+impl RbOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "rb"
+    }
+}
+/// The <strong><code>&lt;rtc&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>) and semantic (<a href="/en-US/docs/Web/HTML/Element/rtc" aria-current="page"><code>&lt;rtc&gt;</code></a>) annotations.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rtc>
 #[deprecated]
@@ -29668,7 +31684,15 @@ pub struct Rtc<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
 }
-/// The <strong><code>&lt;rtc&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>) and semantic (<a aria-current="page" href="/en-US/docs/Web/HTML/Element/rtc"><code>&lt;rtc&gt;</code></a>) annotations.
+#[allow(deprecated)]
+impl<'life> Rtc<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "rtc"
+    }
+}
+/// The <strong><code>&lt;rtc&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element embraces semantic annotations of characters presented in a ruby of <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements used inside of <a href="/en-US/docs/Web/HTML/Element/ruby"><code>&lt;ruby&gt;</code></a> element. <a href="/en-US/docs/Web/HTML/Element/rb"><code>&lt;rb&gt;</code></a> elements can have both pronunciation (<a href="/en-US/docs/Web/HTML/Element/rt"><code>&lt;rt&gt;</code></a>) and semantic (<a href="/en-US/docs/Web/HTML/Element/rtc" aria-current="page"><code>&lt;rtc&gt;</code></a>) annotations.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rtc>
 #[deprecated]
@@ -29765,6 +31789,14 @@ pub struct RtcOwned {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl RtcOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "rtc"
+    }
 }
 /// The <strong><code>&lt;spacer&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is an obsolete HTML element which allowed insertion of empty spaces on pages. It was devised by Netscape to accomplish the same effect as a single-pixel layout image, which was something web designers used to use to add white spaces to web pages without actually using an image. However, <code>&lt;spacer&gt;</code> is no longer supported by any major browser and the same effects can now be achieved using simple CSS.
 ///
@@ -29880,6 +31912,14 @@ pub struct Spacer<'life> {
     ///     <p>This attribute can be used for defining width of spacer in pixels when type is <code>block</code>.</p>
     ///   
     pub width: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Spacer<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "spacer"
+    }
 }
 /// The <strong><code>&lt;spacer&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is an obsolete HTML element which allowed insertion of empty spaces on pages. It was devised by Netscape to accomplish the same effect as a single-pixel layout image, which was something web designers used to use to add white spaces to web pages without actually using an image. However, <code>&lt;spacer&gt;</code> is no longer supported by any major browser and the same effects can now be achieved using simple CSS.
 ///
@@ -30001,6 +32041,14 @@ pub struct SpacerOwned {
     ///   
     pub width: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl SpacerOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "spacer"
+    }
+}
 /// The <strong><code>&lt;strike&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element places a strikethrough (horizontal line) over text.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strike>
@@ -30093,6 +32141,14 @@ pub struct Strike<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Strike<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "strike"
+    }
 }
 /// The <strong><code>&lt;strike&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element places a strikethrough (horizontal line) over text.
 ///
@@ -30192,6 +32248,14 @@ pub struct StrikeOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl StrikeOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "strike"
+    }
+}
 /// The <strong><code>&lt;tt&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element creates inline text which is presented using the <a href="/en-US/docs/Glossary/User_agent">user agent's</a> default monospace font face. This element was created for the purpose of rendering text as it would be displayed on a fixed-width display such as a teletype, text-only screen, or line printer.
 ///
 /// The terms <strong>non-proportional</strong>, <strong>monotype</strong>, and <strong>monospace</strong> are used interchangeably and have the same general meaning: they describe a typeface whose characters are all the same number of pixels wide.
@@ -30288,6 +32352,14 @@ pub struct Tt<'life> {
     ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
     ///   
     pub is: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Tt<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "tt"
+    }
 }
 /// The <strong><code>&lt;tt&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element creates inline text which is presented using the <a href="/en-US/docs/Glossary/User_agent">user agent's</a> default monospace font face. This element was created for the purpose of rendering text as it would be displayed on a fixed-width display such as a teletype, text-only screen, or line printer.
 ///
@@ -30391,8 +32463,16 @@ pub struct TtOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl TtOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "tt"
+    }
+}
 /// <p>The <strong><code>&lt;xmp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element renders text between the start and end tags without interpreting the HTML in between and using a monospaced font. The HTML2 specification recommended that it should be rendered wide enough to allow 80 characters per line.</p>
-/// <div class="notecard note" id="sect2">
+/// <div id="sect2" class="notecard note">
 ///   <p><strong>Note:</strong> Do not use this element.</p>
 ///   <ul>
 ///     <li>It has been deprecated since HTML3.2 and was not implemented in a consistent way. It was completely removed from current HTML.</li>
@@ -30492,8 +32572,16 @@ pub struct Xmp<'life> {
     ///   
     pub is: core::option::Option<&'life str>,
 }
+#[allow(deprecated)]
+impl<'life> Xmp<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "xmp"
+    }
+}
 /// <p>The <strong><code>&lt;xmp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element renders text between the start and end tags without interpreting the HTML in between and using a monospaced font. The HTML2 specification recommended that it should be rendered wide enough to allow 80 characters per line.</p>
-/// <div class="notecard note" id="sect2">
+/// <div id="sect2" class="notecard note">
 ///   <p><strong>Note:</strong> Do not use this element.</p>
 ///   <ul>
 ///     <li>It has been deprecated since HTML3.2 and was not implemented in a consistent way. It was completely removed from current HTML.</li>
@@ -30598,6 +32686,14 @@ pub struct XmpOwned {
     ///   
     pub is: core::option::Option<alloc::string::String>,
 }
+#[allow(deprecated)]
+impl XmpOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "xmp"
+    }
+}
 /// An unknown element.
 
 #[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
@@ -30690,6 +32786,14 @@ pub struct Unknown<'life> {
     pub is: core::option::Option<&'life str>,
     /// The tag name of the element.
     pub tag_name: core::option::Option<&'life str>,
+}
+#[allow(deprecated)]
+impl<'life> Unknown<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "unknown"
+    }
 }
 /// An unknown element.
 
@@ -30788,6 +32892,14 @@ pub struct UnknownOwned {
     pub is: core::option::Option<alloc::string::String>,
     /// The tag name of the element.
     pub tag_name: core::option::Option<alloc::string::String>,
+}
+#[allow(deprecated)]
+impl UnknownOwned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "unknown"
+    }
 }
 #[allow(deprecated)]
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
@@ -31088,6 +33200,143 @@ impl<'life> Element<'life> {
             "xmp" => Some(Self::Xmp(Xmp::default())),
             "unknown" => Some(Self::Unknown(Unknown::default())),
             _ => core::option::Option::Some(Self::default()),
+        }
+    }
+    /// Gets the tag name of the element.
+    pub fn tag(&self) -> &'static str {
+        match self {
+            Self::Html(_) => Html::tag(),
+            Self::Base(_) => Base::tag(),
+            Self::Head(_) => Head::tag(),
+            Self::Link(_) => Link::tag(),
+            Self::Meta(_) => Meta::tag(),
+            Self::Style(_) => Style::tag(),
+            Self::Title(_) => Title::tag(),
+            Self::Body(_) => Body::tag(),
+            Self::Address(_) => Address::tag(),
+            Self::Article(_) => Article::tag(),
+            Self::Aside(_) => Aside::tag(),
+            Self::Footer(_) => Footer::tag(),
+            Self::Header(_) => Header::tag(),
+            Self::Hgroup(_) => Hgroup::tag(),
+            Self::Main(_) => Main::tag(),
+            Self::Nav(_) => Nav::tag(),
+            Self::Section(_) => Section::tag(),
+            Self::Blockquote(_) => Blockquote::tag(),
+            Self::Dd(_) => Dd::tag(),
+            Self::Div(_) => Div::tag(),
+            Self::Dl(_) => Dl::tag(),
+            Self::Dt(_) => Dt::tag(),
+            Self::Figcaption(_) => Figcaption::tag(),
+            Self::Figure(_) => Figure::tag(),
+            Self::Hr(_) => Hr::tag(),
+            Self::Li(_) => Li::tag(),
+            Self::Menu(_) => Menu::tag(),
+            Self::Ol(_) => Ol::tag(),
+            Self::P(_) => P::tag(),
+            Self::Pre(_) => Pre::tag(),
+            Self::Ul(_) => Ul::tag(),
+            Self::A(_) => A::tag(),
+            Self::Abbr(_) => Abbr::tag(),
+            Self::B(_) => B::tag(),
+            Self::Bdi(_) => Bdi::tag(),
+            Self::Bdo(_) => Bdo::tag(),
+            Self::Br(_) => Br::tag(),
+            Self::Cite(_) => Cite::tag(),
+            Self::Code(_) => Code::tag(),
+            Self::Data(_) => Data::tag(),
+            Self::Dfn(_) => Dfn::tag(),
+            Self::Em(_) => Em::tag(),
+            Self::I(_) => I::tag(),
+            Self::Kbd(_) => Kbd::tag(),
+            Self::Mark(_) => Mark::tag(),
+            Self::Q(_) => Q::tag(),
+            Self::Rp(_) => Rp::tag(),
+            Self::Rt(_) => Rt::tag(),
+            Self::Ruby(_) => Ruby::tag(),
+            Self::S(_) => S::tag(),
+            Self::Samp(_) => Samp::tag(),
+            Self::Small(_) => Small::tag(),
+            Self::Span(_) => Span::tag(),
+            Self::Strong(_) => Strong::tag(),
+            Self::Sub(_) => Sub::tag(),
+            Self::Sup(_) => Sup::tag(),
+            Self::Time(_) => Time::tag(),
+            Self::U(_) => U::tag(),
+            Self::Var(_) => Var::tag(),
+            Self::Wbr(_) => Wbr::tag(),
+            Self::Area(_) => Area::tag(),
+            Self::Audio(_) => Audio::tag(),
+            Self::Img(_) => Img::tag(),
+            Self::Map(_) => Map::tag(),
+            Self::Track(_) => Track::tag(),
+            Self::Video(_) => Video::tag(),
+            Self::Embed(_) => Embed::tag(),
+            Self::Iframe(_) => Iframe::tag(),
+            Self::Object(_) => Object::tag(),
+            Self::Picture(_) => Picture::tag(),
+            Self::Portal(_) => Portal::tag(),
+            Self::Source(_) => Source::tag(),
+            Self::Canvas(_) => Canvas::tag(),
+            Self::Noscript(_) => Noscript::tag(),
+            Self::Script(_) => Script::tag(),
+            Self::Del(_) => Del::tag(),
+            Self::Ins(_) => Ins::tag(),
+            Self::Caption(_) => Caption::tag(),
+            Self::Col(_) => Col::tag(),
+            Self::Colgroup(_) => Colgroup::tag(),
+            Self::Table(_) => Table::tag(),
+            Self::Tbody(_) => Tbody::tag(),
+            Self::Td(_) => Td::tag(),
+            Self::Tfoot(_) => Tfoot::tag(),
+            Self::Th(_) => Th::tag(),
+            Self::Thead(_) => Thead::tag(),
+            Self::Tr(_) => Tr::tag(),
+            Self::Button(_) => Button::tag(),
+            Self::Datalist(_) => Datalist::tag(),
+            Self::Fieldset(_) => Fieldset::tag(),
+            Self::Form(_) => Form::tag(),
+            Self::Input(_) => Input::tag(),
+            Self::Label(_) => Label::tag(),
+            Self::Legend(_) => Legend::tag(),
+            Self::Meter(_) => Meter::tag(),
+            Self::Optgroup(_) => Optgroup::tag(),
+            Self::Option(_) => Option::tag(),
+            Self::Output(_) => Output::tag(),
+            Self::Progress(_) => Progress::tag(),
+            Self::Select(_) => Select::tag(),
+            Self::Textarea(_) => Textarea::tag(),
+            Self::Details(_) => Details::tag(),
+            Self::Dialog(_) => Dialog::tag(),
+            Self::Summary(_) => Summary::tag(),
+            Self::Slot(_) => Slot::tag(),
+            Self::Template(_) => Template::tag(),
+            Self::Acronym(_) => Acronym::tag(),
+            Self::Applet(_) => Applet::tag(),
+            Self::Bgsound(_) => Bgsound::tag(),
+            Self::Big(_) => Big::tag(),
+            Self::Blink(_) => Blink::tag(),
+            Self::Center(_) => Center::tag(),
+            Self::Dir(_) => Dir::tag(),
+            Self::Font(_) => Font::tag(),
+            Self::Frame(_) => Frame::tag(),
+            Self::Frameset(_) => Frameset::tag(),
+            Self::Image(_) => Image::tag(),
+            Self::Keygen(_) => Keygen::tag(),
+            Self::Marquee(_) => Marquee::tag(),
+            Self::Menuitem(_) => Menuitem::tag(),
+            Self::Nobr(_) => Nobr::tag(),
+            Self::Noembed(_) => Noembed::tag(),
+            Self::Noframes(_) => Noframes::tag(),
+            Self::Param(_) => Param::tag(),
+            Self::Plaintext(_) => Plaintext::tag(),
+            Self::Rb(_) => Rb::tag(),
+            Self::Rtc(_) => Rtc::tag(),
+            Self::Spacer(_) => Spacer::tag(),
+            Self::Strike(_) => Strike::tag(),
+            Self::Tt(_) => Tt::tag(),
+            Self::Xmp(_) => Xmp::tag(),
+            Self::Unknown(_) => Unknown::tag(),
         }
     }
 }
@@ -36196,6 +38445,143 @@ impl ElementOwned {
             "xmp" => Some(Self::Xmp(XmpOwned::default())),
             "unknown" => Some(Self::Unknown(UnknownOwned::default())),
             _ => core::option::Option::Some(Self::default()),
+        }
+    }
+    /// Gets the tag name of the element.
+    pub fn tag(&self) -> &'static str {
+        match self {
+            Self::Html(_) => Html::tag(),
+            Self::Base(_) => Base::tag(),
+            Self::Head(_) => Head::tag(),
+            Self::Link(_) => Link::tag(),
+            Self::Meta(_) => Meta::tag(),
+            Self::Style(_) => Style::tag(),
+            Self::Title(_) => Title::tag(),
+            Self::Body(_) => Body::tag(),
+            Self::Address(_) => Address::tag(),
+            Self::Article(_) => Article::tag(),
+            Self::Aside(_) => Aside::tag(),
+            Self::Footer(_) => Footer::tag(),
+            Self::Header(_) => Header::tag(),
+            Self::Hgroup(_) => Hgroup::tag(),
+            Self::Main(_) => Main::tag(),
+            Self::Nav(_) => Nav::tag(),
+            Self::Section(_) => Section::tag(),
+            Self::Blockquote(_) => Blockquote::tag(),
+            Self::Dd(_) => Dd::tag(),
+            Self::Div(_) => Div::tag(),
+            Self::Dl(_) => Dl::tag(),
+            Self::Dt(_) => Dt::tag(),
+            Self::Figcaption(_) => Figcaption::tag(),
+            Self::Figure(_) => Figure::tag(),
+            Self::Hr(_) => Hr::tag(),
+            Self::Li(_) => Li::tag(),
+            Self::Menu(_) => Menu::tag(),
+            Self::Ol(_) => Ol::tag(),
+            Self::P(_) => P::tag(),
+            Self::Pre(_) => Pre::tag(),
+            Self::Ul(_) => Ul::tag(),
+            Self::A(_) => A::tag(),
+            Self::Abbr(_) => Abbr::tag(),
+            Self::B(_) => B::tag(),
+            Self::Bdi(_) => Bdi::tag(),
+            Self::Bdo(_) => Bdo::tag(),
+            Self::Br(_) => Br::tag(),
+            Self::Cite(_) => Cite::tag(),
+            Self::Code(_) => Code::tag(),
+            Self::Data(_) => Data::tag(),
+            Self::Dfn(_) => Dfn::tag(),
+            Self::Em(_) => Em::tag(),
+            Self::I(_) => I::tag(),
+            Self::Kbd(_) => Kbd::tag(),
+            Self::Mark(_) => Mark::tag(),
+            Self::Q(_) => Q::tag(),
+            Self::Rp(_) => Rp::tag(),
+            Self::Rt(_) => Rt::tag(),
+            Self::Ruby(_) => Ruby::tag(),
+            Self::S(_) => S::tag(),
+            Self::Samp(_) => Samp::tag(),
+            Self::Small(_) => Small::tag(),
+            Self::Span(_) => Span::tag(),
+            Self::Strong(_) => Strong::tag(),
+            Self::Sub(_) => Sub::tag(),
+            Self::Sup(_) => Sup::tag(),
+            Self::Time(_) => Time::tag(),
+            Self::U(_) => U::tag(),
+            Self::Var(_) => Var::tag(),
+            Self::Wbr(_) => Wbr::tag(),
+            Self::Area(_) => Area::tag(),
+            Self::Audio(_) => Audio::tag(),
+            Self::Img(_) => Img::tag(),
+            Self::Map(_) => Map::tag(),
+            Self::Track(_) => Track::tag(),
+            Self::Video(_) => Video::tag(),
+            Self::Embed(_) => Embed::tag(),
+            Self::Iframe(_) => Iframe::tag(),
+            Self::Object(_) => Object::tag(),
+            Self::Picture(_) => Picture::tag(),
+            Self::Portal(_) => Portal::tag(),
+            Self::Source(_) => Source::tag(),
+            Self::Canvas(_) => Canvas::tag(),
+            Self::Noscript(_) => Noscript::tag(),
+            Self::Script(_) => Script::tag(),
+            Self::Del(_) => Del::tag(),
+            Self::Ins(_) => Ins::tag(),
+            Self::Caption(_) => Caption::tag(),
+            Self::Col(_) => Col::tag(),
+            Self::Colgroup(_) => Colgroup::tag(),
+            Self::Table(_) => Table::tag(),
+            Self::Tbody(_) => Tbody::tag(),
+            Self::Td(_) => Td::tag(),
+            Self::Tfoot(_) => Tfoot::tag(),
+            Self::Th(_) => Th::tag(),
+            Self::Thead(_) => Thead::tag(),
+            Self::Tr(_) => Tr::tag(),
+            Self::Button(_) => Button::tag(),
+            Self::Datalist(_) => Datalist::tag(),
+            Self::Fieldset(_) => Fieldset::tag(),
+            Self::Form(_) => Form::tag(),
+            Self::Input(_) => Input::tag(),
+            Self::Label(_) => Label::tag(),
+            Self::Legend(_) => Legend::tag(),
+            Self::Meter(_) => Meter::tag(),
+            Self::Optgroup(_) => Optgroup::tag(),
+            Self::Option(_) => Option::tag(),
+            Self::Output(_) => Output::tag(),
+            Self::Progress(_) => Progress::tag(),
+            Self::Select(_) => Select::tag(),
+            Self::Textarea(_) => Textarea::tag(),
+            Self::Details(_) => Details::tag(),
+            Self::Dialog(_) => Dialog::tag(),
+            Self::Summary(_) => Summary::tag(),
+            Self::Slot(_) => Slot::tag(),
+            Self::Template(_) => Template::tag(),
+            Self::Acronym(_) => Acronym::tag(),
+            Self::Applet(_) => Applet::tag(),
+            Self::Bgsound(_) => Bgsound::tag(),
+            Self::Big(_) => Big::tag(),
+            Self::Blink(_) => Blink::tag(),
+            Self::Center(_) => Center::tag(),
+            Self::Dir(_) => Dir::tag(),
+            Self::Font(_) => Font::tag(),
+            Self::Frame(_) => Frame::tag(),
+            Self::Frameset(_) => Frameset::tag(),
+            Self::Image(_) => Image::tag(),
+            Self::Keygen(_) => Keygen::tag(),
+            Self::Marquee(_) => Marquee::tag(),
+            Self::Menuitem(_) => Menuitem::tag(),
+            Self::Nobr(_) => Nobr::tag(),
+            Self::Noembed(_) => Noembed::tag(),
+            Self::Noframes(_) => Noframes::tag(),
+            Self::Param(_) => Param::tag(),
+            Self::Plaintext(_) => Plaintext::tag(),
+            Self::Rb(_) => Rb::tag(),
+            Self::Rtc(_) => Rtc::tag(),
+            Self::Spacer(_) => Spacer::tag(),
+            Self::Strike(_) => Strike::tag(),
+            Self::Tt(_) => Tt::tag(),
+            Self::Xmp(_) => Xmp::tag(),
+            Self::Unknown(_) => Unknown::tag(),
         }
     }
 }

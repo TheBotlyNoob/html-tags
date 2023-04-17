@@ -87,7 +87,7 @@ fn main() {
 
         write_elem(
             get_mdn_doc(&document, &url),
-            format!("{}Owned", name),
+            name,
             &attrs,
             deprecated,
             true,
@@ -114,7 +114,7 @@ fn main() {
         );
         write_elem(
             doc,
-            "UnknownOwned".to_string(),
+            "Unknown".to_string(),
             &{
                 let mut attrs = owned_global_attrs.clone();
                 attrs.insert(
@@ -281,26 +281,35 @@ fn write_elem(
     name: String,
     attrs: &BTreeMap<String, (String, String, bool)>,
     deprecated: bool,
-    alloc: bool,
+    owned: bool,
     buf: &mut Vec<u8>,
 ) {
     writeln!(
         buf,
-        "{}
-        {}
-        {}
+        "{0}
+        {1}
+        {2}
         #[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
-        pub struct {name}{} {{
-            {}
+        pub struct {name}{4}{3} {{
+            {5}
+        }}  
+        #[allow(deprecated)]
+        impl{3} {name}{4}{3} {{
+            /// Get the tag name of the element.
+            /// This is the same as the name of the struct, in kebab-case.
+            pub fn tag() -> &'static str {{
+                \"{kebab}\"
+            }}
         }}",
         doc,
         if deprecated { "#[deprecated]" } else { "" },
-        if alloc {
+        if owned {
             "#[cfg(feature = \"alloc\")]"
         } else {
             ""
         },
-        if alloc { "" } else { "<'life>" },
+        if owned { "" } else { "<'life>" },
+        if owned { "Owned" } else { "" },
         attrs
             .iter()
             .format_with(",\n/// ", |(name, (desc, ty, alloc)), f| f(&format_args!(
@@ -313,6 +322,7 @@ fn write_elem(
                     ""
                 },
             ))),
+        kebab = AsKebabCase(name.clone()),
     )
     .unwrap();
 }
@@ -351,6 +361,12 @@ fn write_elem_enum(
                     _ => core::option::Option::Some(Self::default()),
                 }}
             }}
+            /// Gets the tag name of the element.
+            pub fn tag(&self) -> &'static str {{
+                match self {{
+                    {3},
+                }}
+            }}
         }}",
         if owned { "" } else { "<'life>" },
         if owned { "Owned" } else { "" },
@@ -358,7 +374,10 @@ fn write_elem_enum(
             "\"{}\" => Some(Self::{e}({e}{}::default()))",
             AsKebabCase(e),
             if owned { "Owned" } else { "" },
-        )))
+        ))),
+        elems.iter().format_with(",\n", |(e, _), f| f(&format_args!(
+            "Self::{e}(_) => {e}::tag()",
+        ))),
     )
     .unwrap();
     writeln!(
@@ -391,25 +410,25 @@ fn write_elem_enum(
                     if *alloc || owned { ".as_ref()" } else { "" }
                 )))
             ))),
-            global_attrs
-                .iter()
-                .format_with("\n", |(name, (desc, ty, alloc)), f| f(&format_args!(
-                    "{desc}
+        global_attrs
+            .iter()
+            .format_with("\n", |(name, (desc, ty, alloc)), f| f(&format_args!(
+                "{desc}
                     {}
                     pub fn set_{name}(&mut self, val: {ty}) {{
                         match self {{
                             {}
                         }};
                     }}",
-                    if *alloc || owned {
-                        "#[cfg(feature = \"alloc\")]"
-                    } else {
-                        ""
-                    },
-                    elems.iter().format_with(",", |(e, _), f| f(&format_args!(
-                        "Self::{e}(e) => e.{name}.replace(val)",
-                    )))
+                if *alloc || owned {
+                    "#[cfg(feature = \"alloc\")]"
+                } else {
+                    ""
+                },
+                elems.iter().format_with(",", |(e, _), f| f(&format_args!(
+                    "Self::{e}(e) => e.{name}.replace(val)",
                 )))
+            )))
     )
     .unwrap();
     writeln!(
