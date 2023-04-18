@@ -179,12 +179,15 @@ fn get_global_attrs(owned: bool) -> Vec<(String, (String, String, bool))> {
     let html = resp.into_string().unwrap();
     let document = Html::parse_document(&html);
     let selector = Selector::parse("dl").unwrap();
-    let dl = document.select(&selector).next().unwrap();
-    let mut attrs = dl_to_attrs(dl, owned);
+    let mut dls = document.select(&selector);
+    let mut attrs = dl_to_attrs(dls.next().unwrap(), owned);
+    attrs.extend(dl_to_attrs(dls.next().unwrap(), owned)); // there's a weird note seperating the two dl's
     attrs.push((
         "extra".to_string(),
         (
-            "/// Extra attributes of the element. This is a map of attribute names to their values, and the attribute names are in lowercase."
+            "/// Extra attributes of the element. 
+            
+            /// This is a map of attribute names to their values, and the attribute names are in lowercase."
                 .to_string(),
             if owned {
                 "alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>"
