@@ -91,44 +91,29 @@ fn main() {
         let name = &name[1..name.len() - 1];
         let name = name.to_upper_camel_case();
 
-        let resp = agent.get(&url).call().unwrap();
-        let html = resp.into_string().unwrap();
-        let document = Html::parse_document(&html);
-
-        let deprecated = document
-            .select(
-                &Selector::parse(".main-page-content > .section-content > .notecard.deprecated")
-                    .unwrap(),
-            )
-            .count()
-            != 0;
-
-        elems.push((name.clone(), deprecated));
-
-        let mut attrs = global_attrs.clone();
-        attrs.extend(get_attrs(&document, false));
-
-        write_elem(
-            get_mdn_doc(&document, &url),
-            name.clone(),
-            &attrs,
-            deprecated,
-            false,
-            &mut buf,
-        );
-
-        let mut attrs = owned_global_attrs.clone();
-        attrs.extend(get_attrs(&document, true));
-
-        write_elem(
-            get_mdn_doc(&document, &url),
+        get_and_write_elem(
+            &agent,
+            &url,
             name,
-            &attrs,
-            deprecated,
-            true,
+            global_attrs.clone(),
+            owned_global_attrs.clone(),
+            &mut elems,
             &mut buf,
         );
     }
+
+    for name in ["H1", "H2", "H3", "H4", "H5", "H6"] {
+        get_and_write_elem(
+            &agent,
+            "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements",
+            name.to_string(),
+            global_attrs.clone(),
+            owned_global_attrs.clone(),
+            &mut elems,
+            &mut buf,
+        );
+    }
+
     {
         let doc = "/// An unknown element.".to_string();
         let tag_name_doc = "The tag name of the element.".to_string();
@@ -341,11 +326,11 @@ fn write_elem(
             /// # Note
             /// This only works when the attribute is lowercase.
             pub fn set_attr(&mut self, name: &{6} str, value: {7}) {{
-                let name = name.as_ref();
                 match name {{
                     {8},
                     #[cfg(feature = \"alloc\")]
                     _ => {{
+                        #[allow(clippy::useless_conversion)]
                         self.extra.insert(name.into(), value.into());
                     }}
                     #[cfg(not(feature = \"alloc\"))]
@@ -565,4 +550,52 @@ fn write_elem_enum(
         if owned { "Owned" } else { "" },
     )
     .unwrap();
+}
+
+fn get_and_write_elem(
+    agent: &ureq::Agent,
+    url: &str,
+    name: String,
+    global_attrs: BTreeMap<String, (String, String, bool)>,
+    owned_global_attrs: BTreeMap<String, (String, String, bool)>,
+    elems: &mut Vec<(String, bool)>,
+    mut buf: &mut Vec<u8>,
+) {
+    let resp = agent.get(&url).call().unwrap();
+    let html = resp.into_string().unwrap();
+    let document = Html::parse_document(&html);
+
+    let deprecated = document
+        .select(
+            &Selector::parse(".main-page-content > .section-content > .notecard.deprecated")
+                .unwrap(),
+        )
+        .count()
+        != 0;
+
+    elems.push((name.clone(), deprecated));
+
+    let mut attrs = global_attrs;
+    attrs.extend(get_attrs(&document, false));
+
+    write_elem(
+        get_mdn_doc(&document, &url),
+        name.clone(),
+        &attrs,
+        deprecated,
+        false,
+        &mut buf,
+    );
+
+    let mut attrs = owned_global_attrs;
+    attrs.extend(get_attrs(&document, true));
+
+    write_elem(
+        get_mdn_doc(&document, &url),
+        name,
+        &attrs,
+        deprecated,
+        true,
+        buf,
+    );
 }

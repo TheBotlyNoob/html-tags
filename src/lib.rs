@@ -166,7 +166,6 @@ impl<'life> Html<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -188,6 +187,7 @@ impl<'life> Html<'life> {
             "xmlns" => self.xmlns = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -316,7 +316,6 @@ impl HtmlOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -338,6 +337,7 @@ impl HtmlOwned {
             "xmlns" => self.xmlns = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -473,7 +473,6 @@ impl<'life> Base<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -494,6 +493,7 @@ impl<'life> Base<'life> {
             "target" => self.target = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -626,7 +626,6 @@ impl BaseOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -647,6 +646,7 @@ impl BaseOwned {
             "target" => self.target = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -770,7 +770,6 @@ impl<'life> Head<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -790,6 +789,7 @@ impl<'life> Head<'life> {
             "profile" => self.profile = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -910,7 +910,6 @@ impl HeadOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -930,6 +929,7 @@ impl HeadOwned {
             "profile" => self.profile = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -1168,7 +1168,7 @@ pub struct Link<'life> {
     ///     <p>
     ///       This attribute indicates the language of the linked resource.
     ///       It is purely advisory.
-    ///       Allowed values are specified by <a class="external" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5646">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Allowed values are specified by <a target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5646" class="external">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -1182,7 +1182,7 @@ pub struct Link<'life> {
     ///   
     pub imagesizes: core::option::Option<AttributeValue<'life>>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute" class="external" target="_blank">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute" target="_blank" class="external">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesrcset: core::option::Option<AttributeValue<'life>>,
     ///
@@ -1260,7 +1260,7 @@ pub struct Link<'life> {
     ///       <li><code>any</code>, meaning that the icon can be scaled to any size as it is in a vector format, like <code>image/svg+xml</code>.</li>
     ///       <li>a white-space separated list of sizes, each in the format <code>&lt;width in pixels&gt;x&lt;height in pixels&gt;</code> or <code>&lt;width in pixels&gt;X&lt;height in pixels&gt;</code>. Each of these sizes must be contained in the resource.</li>
     ///     </ul>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p>
     ///         <strong>Note:</strong> Most icon formats are only able to store one single icon; therefore, most of the time, the <a href="#sizes"><code>sizes</code></a> attribute contains only one entry.
     ///         MS's ICO format does, as well as Apple's ICNS. ICO is more ubiquitous, so you should use this format if cross-browser support is a concern (especially for old IE versions).
@@ -1304,7 +1304,6 @@ impl<'life> Link<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "as_" => self.as_ = Some(value.into()),
@@ -1340,6 +1339,7 @@ impl<'life> Link<'life> {
             "type_" => self.type_ = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -1579,7 +1579,7 @@ pub struct LinkOwned {
     ///     <p>
     ///       This attribute indicates the language of the linked resource.
     ///       It is purely advisory.
-    ///       Allowed values are specified by <a class="external" target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5646">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Allowed values are specified by <a target="_blank" href="https://datatracker.ietf.org/doc/html/rfc5646" class="external">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -1593,7 +1593,7 @@ pub struct LinkOwned {
     ///   
     pub imagesizes: core::option::Option<AttributeValueOwned>,
     ///
-    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute" class="external" target="_blank">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
+    ///     <p>For <code>rel="preload"</code> and <code>as="image"</code> only, the <code>imagesrcset</code> attribute is <a href="https://html.spec.whatwg.org/multipage/images.html#srcset-attribute" target="_blank" class="external">a sourceset attribute</a> that indicates to preload the appropriate resource used by an <code>img</code> element with corresponding values for its <code>srcset</code> and <code>sizes</code> attributes.</p>
     ///   
     pub imagesrcset: core::option::Option<AttributeValueOwned>,
     ///
@@ -1671,7 +1671,7 @@ pub struct LinkOwned {
     ///       <li><code>any</code>, meaning that the icon can be scaled to any size as it is in a vector format, like <code>image/svg+xml</code>.</li>
     ///       <li>a white-space separated list of sizes, each in the format <code>&lt;width in pixels&gt;x&lt;height in pixels&gt;</code> or <code>&lt;width in pixels&gt;X&lt;height in pixels&gt;</code>. Each of these sizes must be contained in the resource.</li>
     ///     </ul>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p>
     ///         <strong>Note:</strong> Most icon formats are only able to store one single icon; therefore, most of the time, the <a href="#sizes"><code>sizes</code></a> attribute contains only one entry.
     ///         MS's ICO format does, as well as Apple's ICNS. ICO is more ubiquitous, so you should use this format if cross-browser support is a concern (especially for old IE versions).
@@ -1711,7 +1711,6 @@ impl LinkOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "as_" => self.as_ = Some(value.into()),
@@ -1747,6 +1746,7 @@ impl LinkOwned {
             "type_" => self.type_ = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -1864,15 +1864,15 @@ pub struct Meta<'life> {
     ///           <li>The number of seconds until the page should be reloaded - only if the <a href="#content"><code>content</code></a> attribute contains a non-negative integer.</li>
     ///           <li>The number of seconds until the page should redirect to another - only if the <a href="#content"><code>content</code></a> attribute contains a non-negative integer followed by the string '<code>;url=</code>', and a valid URL.</li>
     ///         </ul>
-    ///         <div class="notecard warning" id="sect2">
+    ///         <div id="sect2" class="notecard warning">
     ///           <p><strong>Warning:</strong></p>
     ///           <p>Pages set with a <code>refresh</code> value run the risk of having the time interval being too short. People navigating with the aid of assistive technology such as a screen reader may be unable to read through and understand the page's content before being automatically redirected. The abrupt, unannounced updating of the page content may also be disorienting for people experiencing low vision conditions.</p>
     ///           <ul>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.2_%E2%80%94_enough_time_provide_users_enough_time_to_read_and_use_content">MDN Understanding WCAG, Guideline 2.1 explanations</a></li>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.2_%E2%80%94_predictable_make_web_pages_appear_and_operate_in_predictable_ways">MDN Understanding WCAG, Guideline 3.1 explanations</a></li>
-    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html" class="external" target="_blank">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html" class="external">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html" class="external" target="_blank">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a target="_blank" class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a class="external" target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html" target="_blank" class="external">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
     ///           </ul>
     ///         </div>
     ///       </li>
@@ -1920,7 +1920,6 @@ impl<'life> Meta<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -1943,6 +1942,7 @@ impl<'life> Meta<'life> {
             "name" => self.name = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -2061,15 +2061,15 @@ pub struct MetaOwned {
     ///           <li>The number of seconds until the page should be reloaded - only if the <a href="#content"><code>content</code></a> attribute contains a non-negative integer.</li>
     ///           <li>The number of seconds until the page should redirect to another - only if the <a href="#content"><code>content</code></a> attribute contains a non-negative integer followed by the string '<code>;url=</code>', and a valid URL.</li>
     ///         </ul>
-    ///         <div class="notecard warning" id="sect2">
+    ///         <div id="sect2" class="notecard warning">
     ///           <p><strong>Warning:</strong></p>
     ///           <p>Pages set with a <code>refresh</code> value run the risk of having the time interval being too short. People navigating with the aid of assistive technology such as a screen reader may be unable to read through and understand the page's content before being automatically redirected. The abrupt, unannounced updating of the page content may also be disorienting for people experiencing low vision conditions.</p>
     ///           <ul>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.2_%E2%80%94_enough_time_provide_users_enough_time_to_read_and_use_content">MDN Understanding WCAG, Guideline 2.1 explanations</a></li>
     ///             <li><a href="/en-US/docs/Web/Accessibility/Understanding_WCAG/Understandable#guideline_3.2_%E2%80%94_predictable_make_web_pages_appear_and_operate_in_predictable_ways">MDN Understanding WCAG, Guideline 3.1 explanations</a></li>
-    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html" class="external" target="_blank">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html" class="external">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
-    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html" class="external" target="_blank">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a target="_blank" class="external" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html">Understanding Success Criterion 2.2.1 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a class="external" target="_blank" href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html">Understanding Success Criterion 2.2.4 | W3C Understanding WCAG 2.0</a></li>
+    ///             <li><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html" target="_blank" class="external">Understanding Success Criterion 3.2.5 | W3C Understanding WCAG 2.0</a></li>
     ///           </ul>
     ///         </div>
     ///       </li>
@@ -2113,7 +2113,6 @@ impl MetaOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -2136,6 +2135,7 @@ impl MetaOwned {
             "name" => self.name = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -2274,7 +2274,6 @@ impl<'life> Style<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -2297,6 +2296,7 @@ impl<'life> Style<'life> {
             "title" => self.title = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -2432,7 +2432,6 @@ impl StyleOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -2455,6 +2454,7 @@ impl StyleOwned {
             "title" => self.title = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -2574,7 +2574,6 @@ impl<'life> Title<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -2593,6 +2592,7 @@ impl<'life> Title<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -2709,7 +2709,6 @@ impl TitleOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -2728,6 +2727,7 @@ impl TitleOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -2989,7 +2989,6 @@ impl<'life> Body<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "alink" => self.alink = Some(value.into()),
@@ -3036,6 +3035,7 @@ impl<'life> Body<'life> {
             "vlink" => self.vlink = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -3294,7 +3294,6 @@ impl BodyOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "alink" => self.alink = Some(value.into()),
@@ -3341,6 +3340,7 @@ impl BodyOwned {
             "vlink" => self.vlink = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -3460,7 +3460,6 @@ impl<'life> Address<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -3479,6 +3478,7 @@ impl<'life> Address<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -3595,7 +3595,6 @@ impl AddressOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -3614,6 +3613,7 @@ impl AddressOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -3733,7 +3733,6 @@ impl<'life> Article<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -3752,6 +3751,7 @@ impl<'life> Article<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -3868,7 +3868,6 @@ impl ArticleOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -3887,6 +3886,7 @@ impl ArticleOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -4006,7 +4006,6 @@ impl<'life> Aside<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -4025,6 +4024,7 @@ impl<'life> Aside<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -4141,7 +4141,6 @@ impl AsideOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -4160,6 +4159,7 @@ impl AsideOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -4279,7 +4279,6 @@ impl<'life> Footer<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -4298,6 +4297,7 @@ impl<'life> Footer<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -4414,7 +4414,6 @@ impl FooterOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -4433,6 +4432,7 @@ impl FooterOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -4552,7 +4552,6 @@ impl<'life> Header<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -4571,6 +4570,7 @@ impl<'life> Header<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -4687,7 +4687,6 @@ impl HeaderOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -4706,6 +4705,7 @@ impl HeaderOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -4825,7 +4825,6 @@ impl<'life> Hgroup<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -4844,6 +4843,7 @@ impl<'life> Hgroup<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -4960,7 +4960,6 @@ impl HgroupOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -4979,6 +4978,7 @@ impl HgroupOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -5098,7 +5098,6 @@ impl<'life> Main<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -5117,6 +5116,7 @@ impl<'life> Main<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -5233,7 +5233,6 @@ impl MainOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -5252,6 +5251,7 @@ impl MainOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -5371,7 +5371,6 @@ impl<'life> Nav<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -5390,6 +5389,7 @@ impl<'life> Nav<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -5506,7 +5506,6 @@ impl NavOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -5525,6 +5524,7 @@ impl NavOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -5644,7 +5644,6 @@ impl<'life> Section<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -5663,6 +5662,7 @@ impl<'life> Section<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -5779,7 +5779,6 @@ impl SectionOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -5798,6 +5797,7 @@ impl SectionOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -5921,7 +5921,6 @@ impl<'life> Blockquote<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -5941,6 +5940,7 @@ impl<'life> Blockquote<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -6061,7 +6061,6 @@ impl BlockquoteOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -6081,6 +6080,7 @@ impl BlockquoteOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -6204,7 +6204,6 @@ impl<'life> Dd<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -6224,6 +6223,7 @@ impl<'life> Dd<'life> {
             "nowrap" => self.nowrap = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -6344,7 +6344,6 @@ impl DdOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -6364,6 +6363,7 @@ impl DdOwned {
             "nowrap" => self.nowrap = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -6483,7 +6483,6 @@ impl<'life> Div<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -6502,6 +6501,7 @@ impl<'life> Div<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -6618,7 +6618,6 @@ impl DivOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -6637,6 +6636,7 @@ impl DivOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -6756,7 +6756,6 @@ impl<'life> Dl<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -6775,6 +6774,7 @@ impl<'life> Dl<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -6891,7 +6891,6 @@ impl DlOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -6910,6 +6909,7 @@ impl DlOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -7031,7 +7031,6 @@ impl<'life> Dt<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -7050,6 +7049,7 @@ impl<'life> Dt<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -7168,7 +7168,6 @@ impl DtOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -7187,6 +7186,7 @@ impl DtOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -7306,7 +7306,6 @@ impl<'life> Figcaption<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -7325,6 +7324,7 @@ impl<'life> Figcaption<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -7441,7 +7441,6 @@ impl FigcaptionOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -7460,6 +7459,7 @@ impl FigcaptionOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -7579,7 +7579,6 @@ impl<'life> Figure<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -7598,6 +7597,7 @@ impl<'life> Figure<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -7714,7 +7714,6 @@ impl FigureOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -7733,6 +7732,7 @@ impl FigureOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -7872,7 +7872,6 @@ impl<'life> Hr<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -7896,6 +7895,7 @@ impl<'life> Hr<'life> {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -8032,7 +8032,6 @@ impl HrOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -8056,6 +8055,7 @@ impl HrOwned {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -8194,7 +8194,6 @@ impl<'life> Li<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -8215,6 +8214,7 @@ impl<'life> Li<'life> {
             "value" => self.value = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -8350,7 +8350,6 @@ impl LiOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -8371,6 +8370,7 @@ impl LiOwned {
             "value" => self.value = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -8490,7 +8490,6 @@ impl<'life> Menu<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -8509,6 +8508,7 @@ impl<'life> Menu<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -8625,7 +8625,6 @@ impl MenuOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -8644,6 +8643,7 @@ impl MenuOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -8761,7 +8761,7 @@ pub struct Ol<'life> {
     ///       <li><code>1</code> for numbers (default)</li>
     ///     </ul>
     ///     <p>The specified type is used for the entire list unless a different <a href="/en-US/docs/Web/HTML/Element/li#type"><code>type</code></a> attribute is used on an enclosed <a href="/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a> element.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Unless the type of the list number matters (like legal or technical documents where items are referenced by their number/letter), use the CSS <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
@@ -8786,7 +8786,6 @@ impl<'life> Ol<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -8808,6 +8807,7 @@ impl<'life> Ol<'life> {
             "type_" => self.type_ = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -8926,7 +8926,7 @@ pub struct OlOwned {
     ///       <li><code>1</code> for numbers (default)</li>
     ///     </ul>
     ///     <p>The specified type is used for the entire list unless a different <a href="/en-US/docs/Web/HTML/Element/li#type"><code>type</code></a> attribute is used on an enclosed <a href="/en-US/docs/Web/HTML/Element/li"><code>&lt;li&gt;</code></a> element.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Unless the type of the list number matters (like legal or technical documents where items are referenced by their number/letter), use the CSS <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
@@ -8947,7 +8947,6 @@ impl OlOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -8969,6 +8968,7 @@ impl OlOwned {
             "type_" => self.type_ = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -9090,7 +9090,6 @@ impl<'life> P<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -9109,6 +9108,7 @@ impl<'life> P<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -9227,7 +9227,6 @@ impl POwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -9246,6 +9245,7 @@ impl POwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -9253,7 +9253,7 @@ impl POwned {
         }
     }
 }
-/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a class="external" href="https://en.wikipedia.org/wiki/Monospaced_font" target="_blank">monospaced</a>, font. Whitespace inside this element is displayed as written.
+/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a href="https://en.wikipedia.org/wiki/Monospaced_font" class="external" target="_blank">monospaced</a>, font. Whitespace inside this element is displayed as written.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre>
 
@@ -9377,7 +9377,6 @@ impl<'life> Pre<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -9399,6 +9398,7 @@ impl<'life> Pre<'life> {
             "wrap" => self.wrap = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -9406,7 +9406,7 @@ impl<'life> Pre<'life> {
         }
     }
 }
-/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a class="external" href="https://en.wikipedia.org/wiki/Monospaced_font" target="_blank">monospaced</a>, font. Whitespace inside this element is displayed as written.
+/// The <strong><code>&lt;pre&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents preformatted text which is to be presented exactly as written in the HTML file. The text is typically rendered using a non-proportional, or <a href="https://en.wikipedia.org/wiki/Monospaced_font" class="external" target="_blank">monospaced</a>, font. Whitespace inside this element is displayed as written.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre>
 
@@ -9527,7 +9527,6 @@ impl PreOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -9549,6 +9548,7 @@ impl PreOwned {
             "wrap" => self.wrap = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -9664,7 +9664,7 @@ pub struct Ul<'life> {
     ///     </ul>
     ///     <p>A fourth bullet type has been defined in the WebTV interface, but not all browsers support it: <code>triangle</code>.</p>
     ///     <p>If not present and if no <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property applies to the element, the user agent selects a bullet type depending on the nesting level of the list.</p>
-    ///     <div id="sect2" class="notecard warning">
+    ///     <div class="notecard warning" id="sect2">
     ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated; use the <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
@@ -9689,7 +9689,6 @@ impl<'life> Ul<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -9710,6 +9709,7 @@ impl<'life> Ul<'life> {
             "type_" => self.type_ = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -9826,7 +9826,7 @@ pub struct UlOwned {
     ///     </ul>
     ///     <p>A fourth bullet type has been defined in the WebTV interface, but not all browsers support it: <code>triangle</code>.</p>
     ///     <p>If not present and if no <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property applies to the element, the user agent selects a bullet type depending on the nesting level of the list.</p>
-    ///     <div id="sect2" class="notecard warning">
+    ///     <div class="notecard warning" id="sect2">
     ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated; use the <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/list-style-type"><code>list-style-type</code></a> property instead.</p>
     ///     </div>
     ///   
@@ -9847,7 +9847,6 @@ impl UlOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -9868,6 +9867,7 @@ impl UlOwned {
             "type_" => self.type_ = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -10071,7 +10071,6 @@ impl<'life> A<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -10098,6 +10097,7 @@ impl<'life> A<'life> {
             "type_" => self.type_ = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -10298,7 +10298,6 @@ impl AOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -10325,6 +10324,7 @@ impl AOwned {
             "type_" => self.type_ = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -10448,7 +10448,6 @@ impl<'life> Abbr<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -10467,6 +10466,7 @@ impl<'life> Abbr<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -10587,7 +10587,6 @@ impl AbbrOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -10606,6 +10605,7 @@ impl AbbrOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -10725,7 +10725,6 @@ impl<'life> B<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -10744,6 +10743,7 @@ impl<'life> B<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -10860,7 +10860,6 @@ impl BOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -10879,6 +10878,7 @@ impl BOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -10998,7 +10998,6 @@ impl<'life> Bdi<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -11017,6 +11016,7 @@ impl<'life> Bdi<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -11133,7 +11133,6 @@ impl BdiOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -11152,6 +11151,7 @@ impl BdiOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -11270,7 +11270,6 @@ impl<'life> Bdo<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -11289,6 +11288,7 @@ impl<'life> Bdo<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -11404,7 +11404,6 @@ impl BdoOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -11423,6 +11422,7 @@ impl BdoOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -11546,7 +11546,6 @@ impl<'life> Br<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -11566,6 +11565,7 @@ impl<'life> Br<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -11686,7 +11686,6 @@ impl BrOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -11706,6 +11705,7 @@ impl BrOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -11825,7 +11825,6 @@ impl<'life> Cite<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -11844,6 +11843,7 @@ impl<'life> Cite<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -11960,7 +11960,6 @@ impl CiteOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -11979,6 +11978,7 @@ impl CiteOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -12098,7 +12098,6 @@ impl<'life> Code<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -12117,6 +12116,7 @@ impl<'life> Code<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -12233,7 +12233,6 @@ impl CodeOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -12252,6 +12251,7 @@ impl CodeOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -12375,7 +12375,6 @@ impl<'life> Data<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -12395,6 +12394,7 @@ impl<'life> Data<'life> {
             "value" => self.value = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -12515,7 +12515,6 @@ impl DataOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -12535,6 +12534,7 @@ impl DataOwned {
             "value" => self.value = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -12654,7 +12654,6 @@ impl<'life> Dfn<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -12673,6 +12672,7 @@ impl<'life> Dfn<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -12789,7 +12789,6 @@ impl DfnOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -12808,6 +12807,7 @@ impl DfnOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -12927,7 +12927,6 @@ impl<'life> Em<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -12946,6 +12945,7 @@ impl<'life> Em<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -13062,7 +13062,6 @@ impl EmOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -13081,6 +13080,7 @@ impl EmOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -13200,7 +13200,6 @@ impl<'life> I<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -13219,6 +13218,7 @@ impl<'life> I<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -13335,7 +13335,6 @@ impl IOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -13354,6 +13353,7 @@ impl IOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -13473,7 +13473,6 @@ impl<'life> Kbd<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -13492,6 +13491,7 @@ impl<'life> Kbd<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -13608,7 +13608,6 @@ impl KbdOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -13627,6 +13626,7 @@ impl KbdOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -13746,7 +13746,6 @@ impl<'life> Mark<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -13765,6 +13764,7 @@ impl<'life> Mark<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -13881,7 +13881,6 @@ impl MarkOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -13900,6 +13899,7 @@ impl MarkOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -14023,7 +14023,6 @@ impl<'life> Q<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -14043,6 +14042,7 @@ impl<'life> Q<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -14163,7 +14163,6 @@ impl QOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -14183,6 +14182,7 @@ impl QOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -14302,7 +14302,6 @@ impl<'life> Rp<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -14321,6 +14320,7 @@ impl<'life> Rp<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -14437,7 +14437,6 @@ impl RpOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -14456,6 +14455,7 @@ impl RpOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -14575,7 +14575,6 @@ impl<'life> Rt<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -14594,6 +14593,7 @@ impl<'life> Rt<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -14710,7 +14710,6 @@ impl RtOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -14729,6 +14728,7 @@ impl RtOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -14738,7 +14738,7 @@ impl RtOwned {
 }
 /// The <strong><code>&lt;ruby&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
 ///
-/// The term <em>ruby</em> originated as <a href="https://en.wikipedia.org/wiki/Agate_(typography)" class="external" target="_blank">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
+/// The term <em>ruby</em> originated as <a target="_blank" href="https://en.wikipedia.org/wiki/Agate_(typography)" class="external">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby>
 
@@ -14850,7 +14850,6 @@ impl<'life> Ruby<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -14869,6 +14868,7 @@ impl<'life> Ruby<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -14878,7 +14878,7 @@ impl<'life> Ruby<'life> {
 }
 /// The <strong><code>&lt;ruby&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element represents small annotations that are rendered above, below, or next to base text, usually used for showing the pronunciation of East Asian characters. It can also be used for annotating other kinds of text, but this usage is less common.
 ///
-/// The term <em>ruby</em> originated as <a href="https://en.wikipedia.org/wiki/Agate_(typography)" class="external" target="_blank">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
+/// The term <em>ruby</em> originated as <a target="_blank" href="https://en.wikipedia.org/wiki/Agate_(typography)" class="external">a unit of measurement used by typesetters</a>, representing the smallest size that text can be printed on newsprint while remaining legible.
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby>
 
@@ -14987,7 +14987,6 @@ impl RubyOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -15006,6 +15005,7 @@ impl RubyOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -15125,7 +15125,6 @@ impl<'life> S<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -15144,6 +15143,7 @@ impl<'life> S<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -15260,7 +15260,6 @@ impl SOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -15279,6 +15278,7 @@ impl SOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -15286,7 +15286,7 @@ impl SOwned {
         }
     }
 }
-/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a class="external" href="https://en.wikipedia.org/wiki/Courier_(typeface)" target="_blank">Courier</a> or Lucida Console).
+/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a target="_blank" href="https://en.wikipedia.org/wiki/Courier_(typeface)" class="external">Courier</a> or Lucida Console).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp>
 
@@ -15398,7 +15398,6 @@ impl<'life> Samp<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -15417,6 +15416,7 @@ impl<'life> Samp<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -15424,7 +15424,7 @@ impl<'life> Samp<'life> {
         }
     }
 }
-/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a class="external" href="https://en.wikipedia.org/wiki/Courier_(typeface)" target="_blank">Courier</a> or Lucida Console).
+/// The <strong><code>&lt;samp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element is used to enclose inline text which represents sample (or quoted) output from a computer program. Its contents are typically rendered using the browser's default monospaced font (such as <a target="_blank" href="https://en.wikipedia.org/wiki/Courier_(typeface)" class="external">Courier</a> or Lucida Console).
 ///
 /// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp>
 
@@ -15533,7 +15533,6 @@ impl SampOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -15552,6 +15551,7 @@ impl SampOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -15671,7 +15671,6 @@ impl<'life> Small<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -15690,6 +15689,7 @@ impl<'life> Small<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -15806,7 +15806,6 @@ impl SmallOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -15825,6 +15824,7 @@ impl SmallOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -15944,7 +15944,6 @@ impl<'life> Span<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -15963,6 +15962,7 @@ impl<'life> Span<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -16079,7 +16079,6 @@ impl SpanOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -16098,6 +16097,7 @@ impl SpanOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -16217,7 +16217,6 @@ impl<'life> Strong<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -16236,6 +16235,7 @@ impl<'life> Strong<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -16352,7 +16352,6 @@ impl StrongOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -16371,6 +16370,7 @@ impl StrongOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -16490,7 +16490,6 @@ impl<'life> Sub<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -16509,6 +16508,7 @@ impl<'life> Sub<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -16625,7 +16625,6 @@ impl SubOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -16644,6 +16643,7 @@ impl SubOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -16763,7 +16763,6 @@ impl<'life> Sup<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -16782,6 +16781,7 @@ impl<'life> Sup<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -16898,7 +16898,6 @@ impl SupOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -16917,6 +16916,7 @@ impl SupOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -17042,7 +17042,6 @@ impl<'life> Time<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -17062,6 +17061,7 @@ impl<'life> Time<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -17184,7 +17184,6 @@ impl TimeOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -17204,6 +17203,7 @@ impl TimeOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -17323,7 +17323,6 @@ impl<'life> U<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -17342,6 +17341,7 @@ impl<'life> U<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -17458,7 +17458,6 @@ impl UOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -17477,6 +17476,7 @@ impl UOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -17596,7 +17596,6 @@ impl<'life> Var<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -17615,6 +17614,7 @@ impl<'life> Var<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -17731,7 +17731,6 @@ impl VarOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -17750,6 +17749,7 @@ impl VarOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -17869,7 +17869,6 @@ impl<'life> Wbr<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -17888,6 +17887,7 @@ impl<'life> Wbr<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -18004,7 +18004,6 @@ impl WbrOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -18023,6 +18022,7 @@ impl WbrOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -18156,7 +18156,7 @@ pub struct Area<'life> {
     pub href: core::option::Option<AttributeValue<'life>>,
     ///
     ///     <p>
-    ///       Indicates the language of the linked resource. Allowed values are defined by <a class="external" href="https://datatracker.ietf.org/doc/html/rfc5646" target="_blank">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Indicates the language of the linked resource. Allowed values are defined by <a href="https://datatracker.ietf.org/doc/html/rfc5646" class="external" target="_blank">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -18232,7 +18232,7 @@ pub struct Area<'life> {
     ///       </li>
     ///     </ul>
     ///     <p>Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Setting <code>target="_blank"</code> on <code>&lt;area&gt;</code> elements implicitly provides the same <code>rel</code> behavior as setting <a href="/en-US/docs/Web/HTML/Attributes/rel/noopener"><code>rel="noopener"</code></a> which does not set <code>window.opener</code>. See <a href="#browser_compatibility">browser compatibility</a> for support status.</p>
     ///     </div>
     ///   
@@ -18257,7 +18257,6 @@ impl<'life> Area<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "alt" => self.alt = Some(value.into()),
@@ -18286,6 +18285,7 @@ impl<'life> Area<'life> {
             "target" => self.target = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -18420,7 +18420,7 @@ pub struct AreaOwned {
     pub href: core::option::Option<AttributeValueOwned>,
     ///
     ///     <p>
-    ///       Indicates the language of the linked resource. Allowed values are defined by <a class="external" href="https://datatracker.ietf.org/doc/html/rfc5646" target="_blank">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
+    ///       Indicates the language of the linked resource. Allowed values are defined by <a href="https://datatracker.ietf.org/doc/html/rfc5646" class="external" target="_blank">RFC 5646: Tags for Identifying Languages (also known as BCP 47)</a>.
     ///       Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.
     ///     </p>
     ///   
@@ -18496,7 +18496,7 @@ pub struct AreaOwned {
     ///       </li>
     ///     </ul>
     ///     <p>Use this attribute only if the <a href="#href"><code>href</code></a> attribute is present.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Setting <code>target="_blank"</code> on <code>&lt;area&gt;</code> elements implicitly provides the same <code>rel</code> behavior as setting <a href="/en-US/docs/Web/HTML/Attributes/rel/noopener"><code>rel="noopener"</code></a> which does not set <code>window.opener</code>. See <a href="#browser_compatibility">browser compatibility</a> for support status.</p>
     ///     </div>
     ///   
@@ -18517,7 +18517,6 @@ impl AreaOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "alt" => self.alt = Some(value.into()),
@@ -18546,6 +18545,7 @@ impl AreaOwned {
             "target" => self.target = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -18604,7 +18604,7 @@ pub struct Audio<'life> {
     ///   
     pub controls: core::option::Option<AttributeValue<'life>>,
     ///
-    ///     <p>The <a class="external" target="_blank" href="https://wicg.github.io/controls-list/explainer.html"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
+    ///     <p>The <a target="_blank" href="https://wicg.github.io/controls-list/explainer.html" class="external"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
     ///     <p>The allowed values are <code>nodownload</code>, <code>nofullscreen</code> and <code>noremoteplayback</code>.</p>
     ///   
     pub controlslist: core::option::Option<AttributeValue<'life>>,
@@ -18638,9 +18638,9 @@ pub struct Audio<'life> {
     ///   
     pub dir: core::option::Option<AttributeValue<'life>>,
     ///
-    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a target="_blank" class="external" href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute">this proposed specification</a> for more information.</p>
-    ///     <div class="notecard note" id="sect2">
-    ///       <p><strong>Note:</strong> In Safari, you can use <a target="_blank" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" class="external"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a target="_blank" href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute" class="external">this proposed specification</a> for more information.</p>
+    ///     <div id="sect2" class="notecard note">
+    ///       <p><strong>Note:</strong> In Safari, you can use <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" class="external" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///     </div>
     ///   
     pub disableremoteplayback: core::option::Option<AttributeValue<'life>>,
@@ -18733,7 +18733,6 @@ impl<'life> Audio<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -18761,6 +18760,7 @@ impl<'life> Audio<'life> {
             "src" => self.src = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -18820,7 +18820,7 @@ pub struct AudioOwned {
     ///   
     pub controls: core::option::Option<AttributeValueOwned>,
     ///
-    ///     <p>The <a class="external" target="_blank" href="https://wicg.github.io/controls-list/explainer.html"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
+    ///     <p>The <a target="_blank" href="https://wicg.github.io/controls-list/explainer.html" class="external"><code>controlslist</code></a> attribute, when specified, helps the browser select what controls to show for the <code>audio</code> element whenever the browser shows its own set of controls (that is, when the <code>controls</code> attribute is specified).</p>
     ///     <p>The allowed values are <code>nodownload</code>, <code>nofullscreen</code> and <code>noremoteplayback</code>.</p>
     ///   
     pub controlslist: core::option::Option<AttributeValueOwned>,
@@ -18854,9 +18854,9 @@ pub struct AudioOwned {
     ///   
     pub dir: core::option::Option<AttributeValueOwned>,
     ///
-    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a target="_blank" class="external" href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute">this proposed specification</a> for more information.</p>
-    ///     <div class="notecard note" id="sect2">
-    ///       <p><strong>Note:</strong> In Safari, you can use <a target="_blank" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" class="external"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.). See <a target="_blank" href="https://www.w3.org/TR/remote-playback/#the-disableremoteplayback-attribute" class="external">this proposed specification</a> for more information.</p>
+    ///     <div id="sect2" class="notecard note">
+    ///       <p><strong>Note:</strong> In Safari, you can use <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" class="external" target="_blank"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///     </div>
     ///   
     pub disableremoteplayback: core::option::Option<AttributeValueOwned>,
@@ -18945,7 +18945,6 @@ impl AudioOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -18973,6 +18972,7 @@ impl AudioOwned {
             "src" => self.src = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -19042,7 +19042,7 @@ pub struct Img<'life> {
     ///     <dl>
     ///       <dt id="anonymous"><code>anonymous</code></dt>
     ///       <dd>
-    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a target="_blank" class="external" href="https://datatracker.ietf.org/doc/html/rfc5280">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
+    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a href="https://datatracker.ietf.org/doc/html/rfc5280" class="external" target="_blank">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
     ///       </dd>
     ///       <dt id="use-credentials"><code>use-credentials</code></dt>
     ///       <dd>
@@ -19153,7 +19153,7 @@ pub struct Img<'life> {
     ///   
     pub is: core::option::Option<AttributeValue<'life>>,
     ///
-    ///     <p>This Boolean attribute indicates that the image is part of a <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Image_map#Server-side">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
+    ///     <p>This Boolean attribute indicates that the image is part of a <a class="external" href="https://en.wikipedia.org/wiki/Image_map#Server-side" target="_blank">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
     ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is allowed only if the <code>&lt;img&gt;</code> element is a descendant of an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> element with a valid <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute. This gives users without pointing devices a fallback destination.</p>
     ///     </div>
@@ -19171,7 +19171,7 @@ pub struct Img<'life> {
     ///         <p>Defers loading the image until it reaches a calculated distance from the viewport, as defined by the browser. The intent is to avoid the network and storage bandwidth needed to handle the image until it's reasonably certain that it will be needed. This generally improves the performance of the content in most typical use cases.</p>
     ///       </dd>
     ///     </dl>
-    ///     <div class="notecard note" id="sect5">
+    ///     <div id="sect5" class="notecard note">
     ///       <p><strong>Note:</strong> Loading is only deferred when JavaScript is enabled. This is an anti-tracking measure, because if a user agent supported lazy loading when scripting is disabled, it would still be possible for a site to track a user's approximate scroll position throughout a session, by strategically placing images in a page's markup such that a server can track how many images are requested and when.</p>
     ///     </div>
     ///   
@@ -19223,7 +19223,7 @@ pub struct Img<'life> {
     pub srcset: core::option::Option<AttributeValue<'life>>,
     ///
     ///     <p>The partial <a href="/en-US/docs/Glossary/URL">URL</a> (starting with <code>#</code>) of an <a href="/en-US/docs/Web/HTML/Element/map">image map</a> associated with the element.</p>
-    ///     <div id="sect6" class="notecard note">
+    ///     <div class="notecard note" id="sect6">
     ///       <p><strong>Note:</strong> You cannot use this attribute if the <code>&lt;img&gt;</code> element is inside an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> element.</p>
     ///     </div>
     ///   
@@ -19252,7 +19252,6 @@ impl<'life> Img<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "alt" => self.alt = Some(value.into()),
@@ -19285,6 +19284,7 @@ impl<'life> Img<'life> {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -19355,7 +19355,7 @@ pub struct ImgOwned {
     ///     <dl>
     ///       <dt id="anonymous"><code>anonymous</code></dt>
     ///       <dd>
-    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a target="_blank" class="external" href="https://datatracker.ietf.org/doc/html/rfc5280">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
+    ///         <p>A CORS request is sent with credentials omitted (that is, no <a href="/en-US/docs/Glossary/Cookie">cookies</a>, <a href="https://datatracker.ietf.org/doc/html/rfc5280" class="external" target="_blank">X.509 certificates</a>, or <a href="/en-US/docs/Web/HTTP/Headers/Authorization"><code>Authorization</code></a> request header).</p>
     ///       </dd>
     ///       <dt id="use-credentials"><code>use-credentials</code></dt>
     ///       <dd>
@@ -19466,7 +19466,7 @@ pub struct ImgOwned {
     ///   
     pub is: core::option::Option<AttributeValueOwned>,
     ///
-    ///     <p>This Boolean attribute indicates that the image is part of a <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Image_map#Server-side">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
+    ///     <p>This Boolean attribute indicates that the image is part of a <a class="external" href="https://en.wikipedia.org/wiki/Image_map#Server-side" target="_blank">server-side map</a>. If so, the coordinates where the user clicked on the image are sent to the server.</p>
     ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is allowed only if the <code>&lt;img&gt;</code> element is a descendant of an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> element with a valid <a href="/en-US/docs/Web/HTML/Element/a#href"><code>href</code></a> attribute. This gives users without pointing devices a fallback destination.</p>
     ///     </div>
@@ -19484,7 +19484,7 @@ pub struct ImgOwned {
     ///         <p>Defers loading the image until it reaches a calculated distance from the viewport, as defined by the browser. The intent is to avoid the network and storage bandwidth needed to handle the image until it's reasonably certain that it will be needed. This generally improves the performance of the content in most typical use cases.</p>
     ///       </dd>
     ///     </dl>
-    ///     <div class="notecard note" id="sect5">
+    ///     <div id="sect5" class="notecard note">
     ///       <p><strong>Note:</strong> Loading is only deferred when JavaScript is enabled. This is an anti-tracking measure, because if a user agent supported lazy loading when scripting is disabled, it would still be possible for a site to track a user's approximate scroll position throughout a session, by strategically placing images in a page's markup such that a server can track how many images are requested and when.</p>
     ///     </div>
     ///   
@@ -19536,7 +19536,7 @@ pub struct ImgOwned {
     pub srcset: core::option::Option<AttributeValueOwned>,
     ///
     ///     <p>The partial <a href="/en-US/docs/Glossary/URL">URL</a> (starting with <code>#</code>) of an <a href="/en-US/docs/Web/HTML/Element/map">image map</a> associated with the element.</p>
-    ///     <div id="sect6" class="notecard note">
+    ///     <div class="notecard note" id="sect6">
     ///       <p><strong>Note:</strong> You cannot use this attribute if the <code>&lt;img&gt;</code> element is inside an <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> element.</p>
     ///     </div>
     ///   
@@ -19561,7 +19561,6 @@ impl ImgOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "alt" => self.alt = Some(value.into()),
@@ -19594,6 +19593,7 @@ impl ImgOwned {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -19717,7 +19717,6 @@ impl<'life> Map<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -19737,6 +19736,7 @@ impl<'life> Map<'life> {
             "name" => self.name = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -19857,7 +19857,6 @@ impl MapOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -19877,6 +19876,7 @@ impl MapOwned {
             "name" => self.name = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -20047,7 +20047,6 @@ impl<'life> Track<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -20071,6 +20070,7 @@ impl<'life> Track<'life> {
             "srclang" => self.srclang = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -20238,7 +20238,6 @@ impl TrackOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -20262,6 +20261,7 @@ impl TrackOwned {
             "srclang" => self.srclang = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -20298,7 +20298,7 @@ pub struct Video<'life> {
     pub autopictureinpicture: core::option::Option<AttributeValue<'life>>,
     ///
     ///     <p>A Boolean attribute; if specified, the video automatically begins to play back as soon as it can do so without stopping to finish loading the data.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Sites that automatically play audio (or videos with an audio track) can be an unpleasant experience for users, so should be avoided when possible. If you must offer autoplay functionality, you should make it opt-in (requiring a user to specifically enable it). However, this can be useful when creating media elements whose source will be set at a later time, under user control. See our <a href="/en-US/docs/Web/Media/Autoplay_guide">autoplay guide</a> for additional information about how to properly use autoplay.</p>
     ///     </div>
     ///     <p>To disable video autoplay, <code>autoplay="false"</code> will not work; the video will autoplay if the attribute is there in the <code>&lt;video&gt;</code> tag at all. To remove autoplay, the attribute needs to be removed altogether.</p>
@@ -20366,7 +20366,7 @@ pub struct Video<'life> {
     pub disablepictureinpicture: core::option::Option<AttributeValue<'life>>,
     ///
     ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.).</p>
-    ///     <p>In Safari, you can use <a target="_blank" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" class="external"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <p>In Safari, you can use <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank" class="external"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///   
     pub disableremoteplayback: core::option::Option<AttributeValue<'life>>,
     ///
@@ -20389,7 +20389,7 @@ pub struct Video<'life> {
     #[cfg(feature = "alloc")]
     pub extra: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
     ///
-    ///     <p>The height of the video's display area, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a> (absolute values only; <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">no percentages</a>).</p>
+    ///     <p>The height of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a> (absolute values only; <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" target="_blank" class="external">no percentages</a>).</p>
     ///   
     pub height: core::option::Option<AttributeValue<'life>>,
     ///
@@ -20437,7 +20437,7 @@ pub struct Video<'life> {
     ///       <li><em>empty string</em>: Synonym of the <code>auto</code> value.</li>
     ///     </ul>
     ///     <p>The default value is different for each browser. The spec advises it to be set to <code>metadata</code>.</p>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>The <code>autoplay</code> attribute has precedence over <code>preload</code>. If <code>autoplay</code> is specified, the browser would obviously need to start downloading the video for playback.</li>
@@ -20451,7 +20451,7 @@ pub struct Video<'life> {
     ///   
     pub src: core::option::Option<AttributeValue<'life>>,
     ///
-    ///     <p>The width of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" target="_blank" class="external">CSS pixels</a> (absolute values only; <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" target="_blank" class="external">no percentages</a>).</p>
+    ///     <p>The width of the video's display area, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
     ///   
     pub width: core::option::Option<AttributeValue<'life>>,
 }
@@ -20474,7 +20474,6 @@ impl<'life> Video<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -20508,6 +20507,7 @@ impl<'life> Video<'life> {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -20545,7 +20545,7 @@ pub struct VideoOwned {
     pub autopictureinpicture: core::option::Option<AttributeValueOwned>,
     ///
     ///     <p>A Boolean attribute; if specified, the video automatically begins to play back as soon as it can do so without stopping to finish loading the data.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> Sites that automatically play audio (or videos with an audio track) can be an unpleasant experience for users, so should be avoided when possible. If you must offer autoplay functionality, you should make it opt-in (requiring a user to specifically enable it). However, this can be useful when creating media elements whose source will be set at a later time, under user control. See our <a href="/en-US/docs/Web/Media/Autoplay_guide">autoplay guide</a> for additional information about how to properly use autoplay.</p>
     ///     </div>
     ///     <p>To disable video autoplay, <code>autoplay="false"</code> will not work; the video will autoplay if the attribute is there in the <code>&lt;video&gt;</code> tag at all. To remove autoplay, the attribute needs to be removed altogether.</p>
@@ -20613,7 +20613,7 @@ pub struct VideoOwned {
     pub disablepictureinpicture: core::option::Option<AttributeValueOwned>,
     ///
     ///     <p>A Boolean attribute used to disable the capability of remote playback in devices that are attached using wired (HDMI, DVI, etc.) and wireless technologies (Miracast, Chromecast, DLNA, AirPlay, etc.).</p>
-    ///     <p>In Safari, you can use <a target="_blank" href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" class="external"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
+    ///     <p>In Safari, you can use <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/AirPlayGuide/OptingInorOutofAirPlay/OptingInorOutofAirPlay.html" target="_blank" class="external"><code>x-webkit-airplay="deny"</code></a> as a fallback.</p>
     ///   
     pub disableremoteplayback: core::option::Option<AttributeValueOwned>,
     ///
@@ -20636,7 +20636,7 @@ pub struct VideoOwned {
     #[cfg(feature = "alloc")]
     pub extra: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
     ///
-    ///     <p>The height of the video's display area, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a> (absolute values only; <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">no percentages</a>).</p>
+    ///     <p>The height of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a> (absolute values only; <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" target="_blank" class="external">no percentages</a>).</p>
     ///   
     pub height: core::option::Option<AttributeValueOwned>,
     ///
@@ -20684,7 +20684,7 @@ pub struct VideoOwned {
     ///       <li><em>empty string</em>: Synonym of the <code>auto</code> value.</li>
     ///     </ul>
     ///     <p>The default value is different for each browser. The spec advises it to be set to <code>metadata</code>.</p>
-    ///     <div id="sect2" class="notecard note">
+    ///     <div class="notecard note" id="sect2">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>The <code>autoplay</code> attribute has precedence over <code>preload</code>. If <code>autoplay</code> is specified, the browser would obviously need to start downloading the video for playback.</li>
@@ -20698,7 +20698,7 @@ pub struct VideoOwned {
     ///   
     pub src: core::option::Option<AttributeValueOwned>,
     ///
-    ///     <p>The width of the video's display area, in <a href="https://drafts.csswg.org/css-values/#px" target="_blank" class="external">CSS pixels</a> (absolute values only; <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" target="_blank" class="external">no percentages</a>).</p>
+    ///     <p>The width of the video's display area, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a> (absolute values only; <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">no percentages</a>).</p>
     ///   
     pub width: core::option::Option<AttributeValueOwned>,
 }
@@ -20717,7 +20717,6 @@ impl VideoOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -20751,6 +20750,7 @@ impl VideoOwned {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -20831,7 +20831,7 @@ pub struct Embed<'life> {
     #[cfg(feature = "alloc")]
     pub extra: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
     ///
-    ///     <p>The displayed height of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed height of the resource, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub height: core::option::Option<AttributeValue<'life>>,
     ///
@@ -20863,7 +20863,7 @@ pub struct Embed<'life> {
     ///   
     pub type_: core::option::Option<AttributeValue<'life>>,
     ///
-    ///     <p>The displayed width of the resource, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed width of the resource, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub width: core::option::Option<AttributeValue<'life>>,
 }
@@ -20886,7 +20886,6 @@ impl<'life> Embed<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -20909,6 +20908,7 @@ impl<'life> Embed<'life> {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -20990,7 +20990,7 @@ pub struct EmbedOwned {
     #[cfg(feature = "alloc")]
     pub extra: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
     ///
-    ///     <p>The displayed height of the resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed height of the resource, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub height: core::option::Option<AttributeValueOwned>,
     ///
@@ -21022,7 +21022,7 @@ pub struct EmbedOwned {
     ///   
     pub type_: core::option::Option<AttributeValueOwned>,
     ///
-    ///     <p>The displayed width of the resource, in <a class="external" target="_blank" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
+    ///     <p>The displayed width of the resource, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a>. This must be an absolute value; percentages are <em>not</em> allowed.</p>
     ///   
     pub width: core::option::Option<AttributeValueOwned>,
 }
@@ -21041,7 +21041,6 @@ impl EmbedOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -21064,6 +21063,7 @@ impl EmbedOwned {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -21088,8 +21088,8 @@ pub struct Iframe<'life> {
     ///   
     pub allow: core::option::Option<AttributeValue<'life>>,
     ///
-    ///     <p>Set to <code>true</code> if the <code>&lt;iframe&gt;</code> can activate fullscreen mode by calling the <a title="requestFullscreen()" href="/en-US/docs/Web/API/Element/requestFullscreen"><code>requestFullscreen()</code></a> method.</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <p>Set to <code>true</code> if the <code>&lt;iframe&gt;</code> can activate fullscreen mode by calling the <a href="/en-US/docs/Web/API/Element/requestFullscreen" title="requestFullscreen()"><code>requestFullscreen()</code></a> method.</p>
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong> This attribute is considered a legacy attribute and redefined as <code>allow="fullscreen"</code>.</p>
     ///     </div>
     ///   
@@ -21205,7 +21205,7 @@ pub struct Iframe<'life> {
     ///   
     pub loading: core::option::Option<AttributeValue<'life>>,
     ///
-    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a title="window.open()" href="/en-US/docs/Web/API/Window/open"><code>window.open()</code></a> method.</p>
+    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a href="/en-US/docs/Web/API/Window/open" title="window.open()"><code>window.open()</code></a> method.</p>
     ///   
     pub name: core::option::Option<AttributeValue<'life>>,
     ///
@@ -21238,14 +21238,14 @@ pub struct Iframe<'life> {
     ///       <li><code>allow-presentation</code>: Allows embedders to have control over whether an iframe can start a <a href="/en-US/docs/Web/API/PresentationRequest">presentation session</a>.</li>
     ///       <li><code>allow-same-origin</code>: If this token is not used, the resource is treated as being from a special origin that always fails the <a href="/en-US/docs/Glossary/Same-origin_policy">same-origin policy</a> (potentially preventing access to <a href="/en-US/docs/Web/Security/Same-origin_policy#cross-origin_data_storage_access">data storage/cookies</a> and some JavaScript APIs).</li>
     ///       <li><code>allow-scripts</code>: Allows the page to run scripts (but not create pop-up windows). If this keyword is not used, this operation is not allowed.</li>
-    ///       <li><code>allow-storage-access-by-user-activation</code> <abbr title="Experimental. Expect behavior to change in the future." class="icon icon-experimental">
+    ///       <li><code>allow-storage-access-by-user-activation</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
     ///     <span class="visually-hidden">Experimental</span>
     /// </abbr>: Lets the resource request access to the parent's storage capabilities with the <a href="/en-US/docs/Web/API/Storage_Access_API">Storage Access API</a>.</li>
     ///       <li><code>allow-top-navigation</code>: Lets the resource navigate the top-level browsing context (the one named <code>_top</code>).</li>
     ///       <li><code>allow-top-navigation-by-user-activation</code>: Lets the resource navigate the top-level browsing context, but only if initiated by a user gesture.</li>
     ///       <li><code>allow-top-navigation-to-custom-protocols</code>: Allows navigations to non-<code>http</code> protocols built into browser or <a href="/en-US/docs/Web/API/Navigator/registerProtocolHandler/Web-based_protocol_handlers">registered by a website</a>. This feature is also activated by <code>allow-popups</code> or <code>allow-top-navigation</code> keyword.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect5">
+    ///     <div id="sect5" class="notecard note">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>When the embedded document has the same origin as the embedding page, it is <strong>strongly discouraged</strong> to use both <code>allow-scripts</code> and <code>allow-same-origin</code>, as that lets the embedded document remove the <code>sandbox</code> attribute — making it no more secure than not using the <code>sandbox</code> attribute at all.</li>
@@ -21286,7 +21286,6 @@ impl<'life> Iframe<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "allow" => self.allow = Some(value.into()),
@@ -21318,6 +21317,7 @@ impl<'life> Iframe<'life> {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -21343,8 +21343,8 @@ pub struct IframeOwned {
     ///   
     pub allow: core::option::Option<AttributeValueOwned>,
     ///
-    ///     <p>Set to <code>true</code> if the <code>&lt;iframe&gt;</code> can activate fullscreen mode by calling the <a title="requestFullscreen()" href="/en-US/docs/Web/API/Element/requestFullscreen"><code>requestFullscreen()</code></a> method.</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <p>Set to <code>true</code> if the <code>&lt;iframe&gt;</code> can activate fullscreen mode by calling the <a href="/en-US/docs/Web/API/Element/requestFullscreen" title="requestFullscreen()"><code>requestFullscreen()</code></a> method.</p>
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong> This attribute is considered a legacy attribute and redefined as <code>allow="fullscreen"</code>.</p>
     ///     </div>
     ///   
@@ -21460,7 +21460,7 @@ pub struct IframeOwned {
     ///   
     pub loading: core::option::Option<AttributeValueOwned>,
     ///
-    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a title="window.open()" href="/en-US/docs/Web/API/Window/open"><code>window.open()</code></a> method.</p>
+    ///     <p>A targetable name for the embedded browsing context. This can be used in the <code>target</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/a"><code>&lt;a&gt;</code></a>, <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a>, or <a href="/en-US/docs/Web/HTML/Element/base"><code>&lt;base&gt;</code></a> elements; the <code>formtarget</code> attribute of the <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> or <a href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> elements; or the <code>windowName</code> parameter in the <a href="/en-US/docs/Web/API/Window/open" title="window.open()"><code>window.open()</code></a> method.</p>
     ///   
     pub name: core::option::Option<AttributeValueOwned>,
     ///
@@ -21493,14 +21493,14 @@ pub struct IframeOwned {
     ///       <li><code>allow-presentation</code>: Allows embedders to have control over whether an iframe can start a <a href="/en-US/docs/Web/API/PresentationRequest">presentation session</a>.</li>
     ///       <li><code>allow-same-origin</code>: If this token is not used, the resource is treated as being from a special origin that always fails the <a href="/en-US/docs/Glossary/Same-origin_policy">same-origin policy</a> (potentially preventing access to <a href="/en-US/docs/Web/Security/Same-origin_policy#cross-origin_data_storage_access">data storage/cookies</a> and some JavaScript APIs).</li>
     ///       <li><code>allow-scripts</code>: Allows the page to run scripts (but not create pop-up windows). If this keyword is not used, this operation is not allowed.</li>
-    ///       <li><code>allow-storage-access-by-user-activation</code> <abbr title="Experimental. Expect behavior to change in the future." class="icon icon-experimental">
+    ///       <li><code>allow-storage-access-by-user-activation</code> <abbr class="icon icon-experimental" title="Experimental. Expect behavior to change in the future.">
     ///     <span class="visually-hidden">Experimental</span>
     /// </abbr>: Lets the resource request access to the parent's storage capabilities with the <a href="/en-US/docs/Web/API/Storage_Access_API">Storage Access API</a>.</li>
     ///       <li><code>allow-top-navigation</code>: Lets the resource navigate the top-level browsing context (the one named <code>_top</code>).</li>
     ///       <li><code>allow-top-navigation-by-user-activation</code>: Lets the resource navigate the top-level browsing context, but only if initiated by a user gesture.</li>
     ///       <li><code>allow-top-navigation-to-custom-protocols</code>: Allows navigations to non-<code>http</code> protocols built into browser or <a href="/en-US/docs/Web/API/Navigator/registerProtocolHandler/Web-based_protocol_handlers">registered by a website</a>. This feature is also activated by <code>allow-popups</code> or <code>allow-top-navigation</code> keyword.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect5">
+    ///     <div id="sect5" class="notecard note">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>When the embedded document has the same origin as the embedding page, it is <strong>strongly discouraged</strong> to use both <code>allow-scripts</code> and <code>allow-same-origin</code>, as that lets the embedded document remove the <code>sandbox</code> attribute — making it no more secure than not using the <code>sandbox</code> attribute at all.</li>
@@ -21537,7 +21537,6 @@ impl IframeOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "allow" => self.allow = Some(value.into()),
@@ -21569,6 +21568,7 @@ impl IframeOwned {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -21677,7 +21677,7 @@ pub struct Object<'life> {
     ///   
     pub form: core::option::Option<AttributeValue<'life>>,
     ///
-    ///     <p>The height of the displayed resource, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a>. — (Absolute values only. <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">NO percentages</a>)</p>
+    ///     <p>The height of the displayed resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. — (Absolute values only. <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">NO percentages</a>)</p>
     ///   
     pub height: core::option::Option<AttributeValue<'life>>,
     ///
@@ -21717,7 +21717,7 @@ pub struct Object<'life> {
     ///   
     pub usemap: core::option::Option<AttributeValue<'life>>,
     ///
-    ///     <p>The width of the display resource, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">NO percentages</a>)</p>
+    ///     <p>The width of the display resource, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a>. — (Absolute values only. <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">NO percentages</a>)</p>
     ///   
     pub width: core::option::Option<AttributeValue<'life>>,
 }
@@ -21740,7 +21740,6 @@ impl<'life> Object<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "archive" => self.archive = Some(value.into()),
@@ -21772,6 +21771,7 @@ impl<'life> Object<'life> {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -21881,7 +21881,7 @@ pub struct ObjectOwned {
     ///   
     pub form: core::option::Option<AttributeValueOwned>,
     ///
-    ///     <p>The height of the displayed resource, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a>. — (Absolute values only. <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">NO percentages</a>)</p>
+    ///     <p>The height of the displayed resource, in <a href="https://drafts.csswg.org/css-values/#px" class="external" target="_blank">CSS pixels</a>. — (Absolute values only. <a target="_blank" class="external" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes">NO percentages</a>)</p>
     ///   
     pub height: core::option::Option<AttributeValueOwned>,
     ///
@@ -21921,7 +21921,7 @@ pub struct ObjectOwned {
     ///   
     pub usemap: core::option::Option<AttributeValueOwned>,
     ///
-    ///     <p>The width of the display resource, in <a target="_blank" class="external" href="https://drafts.csswg.org/css-values/#px">CSS pixels</a>. — (Absolute values only. <a target="_blank" href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external">NO percentages</a>)</p>
+    ///     <p>The width of the display resource, in <a class="external" href="https://drafts.csswg.org/css-values/#px" target="_blank">CSS pixels</a>. — (Absolute values only. <a href="https://html.spec.whatwg.org/multipage/embedded-content.html#dimension-attributes" class="external" target="_blank">NO percentages</a>)</p>
     ///   
     pub width: core::option::Option<AttributeValueOwned>,
 }
@@ -21940,7 +21940,6 @@ impl ObjectOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "archive" => self.archive = Some(value.into()),
@@ -21972,6 +21971,7 @@ impl ObjectOwned {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -22093,7 +22093,6 @@ impl<'life> Picture<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -22112,6 +22111,7 @@ impl<'life> Picture<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -22230,7 +22230,6 @@ impl PictureOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -22249,6 +22248,7 @@ impl PictureOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -22378,7 +22378,6 @@ impl<'life> Portal<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -22399,6 +22398,7 @@ impl<'life> Portal<'life> {
             "src" => self.src = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -22525,7 +22525,6 @@ impl PortalOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -22546,6 +22545,7 @@ impl PortalOwned {
             "src" => self.src = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -22705,7 +22705,6 @@ impl<'life> Source<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -22731,6 +22730,7 @@ impl<'life> Source<'life> {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -22887,7 +22887,6 @@ impl SourceOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -22913,6 +22912,7 @@ impl SourceOwned {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -23017,7 +23017,7 @@ pub struct Canvas<'life> {
     ///   
     pub is: core::option::Option<AttributeValue<'life>>,
     ///
-    ///     <p>Lets the canvas know whether translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized <a href="/en-US/docs/Web/API/HTMLCanvasElement/getContext" title="canvas.getContext('2d', { alpha: false })"><code>canvas.getContext('2d', { alpha: false })</code></a> instead.</p>
+    ///     <p>Lets the canvas know whether translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized <a title="canvas.getContext('2d', { alpha: false })" href="/en-US/docs/Web/API/HTMLCanvasElement/getContext"><code>canvas.getContext('2d', { alpha: false })</code></a> instead.</p>
     ///   
     pub moz_opaque: core::option::Option<AttributeValue<'life>>,
     ///
@@ -23044,7 +23044,6 @@ impl<'life> Canvas<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -23066,6 +23065,7 @@ impl<'life> Canvas<'life> {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -23171,7 +23171,7 @@ pub struct CanvasOwned {
     ///   
     pub is: core::option::Option<AttributeValueOwned>,
     ///
-    ///     <p>Lets the canvas know whether translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized <a href="/en-US/docs/Web/API/HTMLCanvasElement/getContext" title="canvas.getContext('2d', { alpha: false })"><code>canvas.getContext('2d', { alpha: false })</code></a> instead.</p>
+    ///     <p>Lets the canvas know whether translucency will be a factor. If the canvas knows there's no translucency, painting performance can be optimized. This is only supported by Mozilla-based browsers; use the standardized <a title="canvas.getContext('2d', { alpha: false })" href="/en-US/docs/Web/API/HTMLCanvasElement/getContext"><code>canvas.getContext('2d', { alpha: false })</code></a> instead.</p>
     ///   
     pub moz_opaque: core::option::Option<AttributeValueOwned>,
     ///
@@ -23194,7 +23194,6 @@ impl CanvasOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -23216,6 +23215,7 @@ impl CanvasOwned {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -23335,7 +23335,6 @@ impl<'life> Noscript<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -23354,6 +23353,7 @@ impl<'life> Noscript<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -23470,7 +23470,6 @@ impl NoscriptOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -23489,6 +23488,7 @@ impl NoscriptOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -23562,7 +23562,7 @@ pub struct Script<'life> {
     ///
     ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a title="DOMContentLoaded" href="/en-US/docs/Web/API/Document/DOMContentLoaded_event"><code>DOMContentLoaded</code></a>.</p>
     ///     <p>Scripts with the <code>defer</code> attribute will prevent the <code>DOMContentLoaded</code> event from firing until the script has loaded and finished evaluating.</p>
-    ///     <div class="notecard warning" id="sect1">
+    ///     <div id="sect1" class="notecard warning">
     ///       <p><strong>Warning:</strong> This attribute must not be used if the <code>src</code> attribute is absent (i.e. for inline scripts), in this case it would have no effect.</p>
     ///       <p>The <code>defer</code> attribute has no effect on <a href="/en-US/docs/Web/JavaScript/Guide/Modules">module scripts</a> — they defer by default.</p>
     ///     </div>
@@ -23731,7 +23731,6 @@ impl<'life> Script<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "async_" => self.async_ = Some(value.into()),
@@ -23761,6 +23760,7 @@ impl<'life> Script<'life> {
             "type_" => self.type_ = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -23835,7 +23835,7 @@ pub struct ScriptOwned {
     ///
     ///     <p>This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing <a title="DOMContentLoaded" href="/en-US/docs/Web/API/Document/DOMContentLoaded_event"><code>DOMContentLoaded</code></a>.</p>
     ///     <p>Scripts with the <code>defer</code> attribute will prevent the <code>DOMContentLoaded</code> event from firing until the script has loaded and finished evaluating.</p>
-    ///     <div class="notecard warning" id="sect1">
+    ///     <div id="sect1" class="notecard warning">
     ///       <p><strong>Warning:</strong> This attribute must not be used if the <code>src</code> attribute is absent (i.e. for inline scripts), in this case it would have no effect.</p>
     ///       <p>The <code>defer</code> attribute has no effect on <a href="/en-US/docs/Web/JavaScript/Guide/Modules">module scripts</a> — they defer by default.</p>
     ///     </div>
@@ -24000,7 +24000,6 @@ impl ScriptOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "async_" => self.async_ = Some(value.into()),
@@ -24030,6 +24029,7 @@ impl ScriptOwned {
             "type_" => self.type_ = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -24157,7 +24157,6 @@ impl<'life> Del<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -24178,6 +24177,7 @@ impl<'life> Del<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -24302,7 +24302,6 @@ impl DelOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -24323,6 +24322,7 @@ impl DelOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -24450,7 +24450,6 @@ impl<'life> Ins<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -24471,6 +24470,7 @@ impl<'life> Ins<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -24595,7 +24595,6 @@ impl InsOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -24616,6 +24615,7 @@ impl InsOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -24652,8 +24652,8 @@ pub struct Caption<'life> {
     ///         <p>The caption is displayed below the table.</p>
     ///       </dd>
     ///     </dl>
-    ///     <div id="sect1" class="notecard warning">
-    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a aria-current="page" href="/en-US/docs/Web/HTML/Element/caption"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
+    ///     <div class="notecard warning" id="sect1">
+    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a href="/en-US/docs/Web/HTML/Element/caption" aria-current="page"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
     ///     </div>
     ///   
     pub align: core::option::Option<AttributeValue<'life>>,
@@ -24760,7 +24760,6 @@ impl<'life> Caption<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -24780,6 +24779,7 @@ impl<'life> Caption<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -24817,8 +24817,8 @@ pub struct CaptionOwned {
     ///         <p>The caption is displayed below the table.</p>
     ///       </dd>
     ///     </dl>
-    ///     <div id="sect1" class="notecard warning">
-    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a aria-current="page" href="/en-US/docs/Web/HTML/Element/caption"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
+    ///     <div class="notecard warning" id="sect1">
+    ///       <p><strong>Warning:</strong> Do not use this attribute, as it has been deprecated. The <a href="/en-US/docs/Web/HTML/Element/caption" aria-current="page"><code>&lt;caption&gt;</code></a> element should be styled using the <a href="/en-US/docs/Web/CSS">CSS</a> properties <a href="/en-US/docs/Web/CSS/caption-side"><code>caption-side</code></a> and <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a>.</p>
     ///     </div>
     ///   
     pub align: core::option::Option<AttributeValueOwned>,
@@ -24921,7 +24921,6 @@ impl CaptionOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -24941,6 +24940,7 @@ impl CaptionOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -25064,7 +25064,6 @@ impl<'life> Col<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -25084,6 +25083,7 @@ impl<'life> Col<'life> {
             "span" => self.span = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -25204,7 +25204,6 @@ impl ColOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -25224,6 +25223,7 @@ impl ColOwned {
             "span" => self.span = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -25348,7 +25348,6 @@ impl<'life> Colgroup<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -25368,6 +25367,7 @@ impl<'life> Colgroup<'life> {
             "span" => self.span = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -25489,7 +25489,6 @@ impl ColgroupOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -25509,6 +25508,7 @@ impl ColgroupOwned {
             "span" => self.span = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -25683,7 +25683,6 @@ impl<'life> Table<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -25711,6 +25710,7 @@ impl<'life> Table<'life> {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -25882,7 +25882,6 @@ impl TableOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -25910,6 +25909,7 @@ impl TableOwned {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -25937,7 +25937,7 @@ pub struct Tbody<'life> {
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
     ///     <p>As this attribute is deprecated, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> The equivalent <code>text-align</code> property for the <code>align="char"</code> is not implemented in any browsers yet. See the <a href="/en-US/docs/Web/CSS/text-align#browser_compatibility"><code>text-align</code>'s browser compatibility section</a> for the <code>&lt;string&gt;</code> value.</p>
     ///     </div>
     ///   
@@ -26069,7 +26069,6 @@ impl<'life> Tbody<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -26093,6 +26092,7 @@ impl<'life> Tbody<'life> {
             "valign" => self.valign = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -26121,7 +26121,7 @@ pub struct TbodyOwned {
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
     ///     <p>As this attribute is deprecated, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> The equivalent <code>text-align</code> property for the <code>align="char"</code> is not implemented in any browsers yet. See the <a href="/en-US/docs/Web/CSS/text-align#browser_compatibility"><code>text-align</code>'s browser compatibility section</a> for the <code>&lt;string&gt;</code> value.</p>
     ///     </div>
     ///   
@@ -26249,7 +26249,6 @@ impl TbodyOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -26273,6 +26272,7 @@ impl TbodyOwned {
             "valign" => self.valign = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -26404,7 +26404,6 @@ impl<'life> Td<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -26426,6 +26425,7 @@ impl<'life> Td<'life> {
             "rowspan" => self.rowspan = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -26554,7 +26554,6 @@ impl TdOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -26576,6 +26575,7 @@ impl TdOwned {
             "rowspan" => self.rowspan = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -26602,7 +26602,7 @@ pub struct Tfoot<'life> {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>To achieve the same effect as the <code>left</code>, <code>center</code>, <code>right</code> or <code>justify</code> values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property on it.</li>
@@ -26710,12 +26710,12 @@ pub struct Tfoot<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table footer. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property on it.</p>
     ///     </div>
     ///   
@@ -26740,7 +26740,6 @@ impl<'life> Tfoot<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -26764,6 +26763,7 @@ impl<'life> Tfoot<'life> {
             "valign" => self.valign = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -26791,7 +26791,7 @@ pub struct TfootOwned {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong></p>
     ///       <ul>
     ///         <li>To achieve the same effect as the <code>left</code>, <code>center</code>, <code>right</code> or <code>justify</code> values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property on it.</li>
@@ -26899,12 +26899,12 @@ pub struct TfootOwned {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table footer. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" class="external" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li>and <code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
     ///     </ul>
-    ///     <div class="notecard note" id="sect2">
+    ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property on it.</p>
     ///     </div>
     ///   
@@ -26925,7 +26925,6 @@ impl TfootOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -26949,6 +26948,7 @@ impl TfootOwned {
             "valign" => self.valign = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -27037,7 +27037,7 @@ pub struct Th<'life> {
     #[cfg(feature = "alloc")]
     pub extra: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
     ///
-    ///     <p>This attribute contains a list of space-separated strings, each corresponding to the <strong>id</strong> attribute of the <a aria-current="page" href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a> elements that apply to this element.</p>
+    ///     <p>This attribute contains a list of space-separated strings, each corresponding to the <strong>id</strong> attribute of the <a href="/en-US/docs/Web/HTML/Element/th" aria-current="page"><code>&lt;th&gt;</code></a> elements that apply to this element.</p>
     ///   
     pub headers: core::option::Option<AttributeValue<'life>>,
     ///
@@ -27095,7 +27095,6 @@ impl<'life> Th<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "abbr" => self.abbr = Some(value.into()),
             "accesskey" => self.accesskey = Some(value.into()),
@@ -27119,6 +27118,7 @@ impl<'life> Th<'life> {
             "scope" => self.scope = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -27208,7 +27208,7 @@ pub struct ThOwned {
     #[cfg(feature = "alloc")]
     pub extra: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
     ///
-    ///     <p>This attribute contains a list of space-separated strings, each corresponding to the <strong>id</strong> attribute of the <a aria-current="page" href="/en-US/docs/Web/HTML/Element/th"><code>&lt;th&gt;</code></a> elements that apply to this element.</p>
+    ///     <p>This attribute contains a list of space-separated strings, each corresponding to the <strong>id</strong> attribute of the <a href="/en-US/docs/Web/HTML/Element/th" aria-current="page"><code>&lt;th&gt;</code></a> elements that apply to this element.</p>
     ///   
     pub headers: core::option::Option<AttributeValueOwned>,
     ///
@@ -27262,7 +27262,6 @@ impl ThOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "abbr" => self.abbr = Some(value.into()),
             "accesskey" => self.accesskey = Some(value.into()),
@@ -27286,6 +27285,7 @@ impl ThOwned {
             "scope" => self.scope = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -27312,7 +27312,7 @@ pub struct Thead<'life> {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div id="sect1" class="notecard warning">
+    ///     <div class="notecard warning" id="sect1">
     ///       <p><strong>Warning:</strong> Do not use this attribute as it is obsolete (not supported) in the latest standard.</p>
     ///       <ul>
     ///         <li>To align values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</li>
@@ -27343,14 +27343,14 @@ pub struct Thead<'life> {
     pub bgcolor: core::option::Option<AttributeValue<'life>>,
     ///
     ///     <p>This attribute is used to set the character to align the cells in a column on. Typical values for this include a period (.) when attempting to align numbers or monetary values. If <a href="#align"><code>align</code></a> is not set to <code>char</code>, this attribute is ignored.</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
     pub char: core::option::Option<AttributeValue<'life>>,
     ///
     ///     <p>This attribute is used to indicate the number of characters to offset the column data from the alignment characters specified by the <strong>char</strong> attribute.</p>
-    ///     <div class="notecard note" id="sect4">
+    ///     <div id="sect4" class="notecard note">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
@@ -27427,12 +27427,12 @@ pub struct Thead<'life> {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li><code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
     ///     </ul>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property on it.</p>
     ///     </div>
     ///   
@@ -27457,7 +27457,6 @@ impl<'life> Thead<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -27481,6 +27480,7 @@ impl<'life> Thead<'life> {
             "valign" => self.valign = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -27508,7 +27508,7 @@ pub struct TheadOwned {
     ///       <li><code>char</code>, aligning the textual content on a special character with a minimal offset, defined by the <a href="#char"><code>char</code></a> and <a href="#charoff"><code>charoff</code></a> attributes.</li>
     ///     </ul>
     ///     <p>If this attribute is not set, the <code>left</code> value is assumed.</p>
-    ///     <div id="sect1" class="notecard warning">
+    ///     <div class="notecard warning" id="sect1">
     ///       <p><strong>Warning:</strong> Do not use this attribute as it is obsolete (not supported) in the latest standard.</p>
     ///       <ul>
     ///         <li>To align values, use the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property instead.</li>
@@ -27539,14 +27539,14 @@ pub struct TheadOwned {
     pub bgcolor: core::option::Option<AttributeValueOwned>,
     ///
     ///     <p>This attribute is used to set the character to align the cells in a column on. Typical values for this include a period (.) when attempting to align numbers or monetary values. If <a href="#align"><code>align</code></a> is not set to <code>char</code>, this attribute is ignored.</p>
-    ///     <div id="sect3" class="notecard note">
+    ///     <div class="notecard note" id="sect3">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
     pub char: core::option::Option<AttributeValueOwned>,
     ///
     ///     <p>This attribute is used to indicate the number of characters to offset the column data from the alignment characters specified by the <strong>char</strong> attribute.</p>
-    ///     <div class="notecard note" id="sect4">
+    ///     <div id="sect4" class="notecard note">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard.</p>
     ///     </div>
     ///   
@@ -27623,12 +27623,12 @@ pub struct TheadOwned {
     ///
     ///     <p>This attribute specifies the vertical alignment of the text within each row of cells of the table header. Possible values for this attribute are:</p>
     ///     <ul>
-    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" target="_blank" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
+    ///       <li><code>baseline</code>, which will put the text as close to the bottom of the cell as it is possible, but align it on the <a class="external" href="https://en.wikipedia.org/wiki/Baseline_%28typography%29" target="_blank">baseline</a> of the characters instead of the bottom of them. If characters are all of the size, this has the same effect as <code>bottom</code>.</li>
     ///       <li><code>bottom</code>, which will put the text as close to the bottom of the cell as it is possible;</li>
     ///       <li><code>middle</code>, which will center the text in the cell;</li>
     ///       <li><code>top</code>, which will put the text as close to the top of the cell as it is possible.</li>
     ///     </ul>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> Do not use this attribute as it is obsolete (and not supported) in the latest standard: instead set the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property on it.</p>
     ///     </div>
     ///   
@@ -27649,7 +27649,6 @@ impl TheadOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -27673,6 +27672,7 @@ impl TheadOwned {
             "valign" => self.valign = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -27735,21 +27735,21 @@ pub struct Tr<'life> {
     pub autofocus: core::option::Option<AttributeValue<'life>>,
     ///
     ///     <p>A string specifying a color to apply to the backgrounds of each of the row's cells. This can be either a <a href="/en-US/docs/Web/CSS/color_value/rgb">hexadecimal <code>#RRGGBB</code> or <code>#RGB</code> value</a> or a <a href="/en-US/docs/Web/CSS/named-color">color keyword</a>. Omitting the attribute or setting it to <code>null</code> in JavaScript causes the row's cells to inherit the row's parent element's background color.</p>
-    ///     <div class="notecard note" id="sect2">
-    ///       <p><strong>Note:</strong> The <a href="/en-US/docs/Web/HTML/Element/tr" aria-current="page"><code>&lt;tr&gt;</code></a> element should be styled using <a href="/en-US/docs/Web/CSS">CSS</a>. To give a similar effect as the <code>bgcolor</code> attribute, use the CSS property <a href="/en-US/docs/Web/CSS/background-color"><code>background-color</code></a>.</p>
+    ///     <div id="sect2" class="notecard note">
+    ///       <p><strong>Note:</strong> The <a aria-current="page" href="/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a> element should be styled using <a href="/en-US/docs/Web/CSS">CSS</a>. To give a similar effect as the <code>bgcolor</code> attribute, use the CSS property <a href="/en-US/docs/Web/CSS/background-color"><code>background-color</code></a>.</p>
     ///     </div>
     ///   
     pub bgcolor: core::option::Option<AttributeValue<'life>>,
     ///
     ///     <p>A string that sets the character to align the cells in each row's columns (each row's centering that uses the same character gets aligned with others using the same character. Typical values for this include a period (<code>"."</code>) or comma (<code>","</code>) when attempting to align numbers or monetary values. If <a href="#align"><code>align</code></a> is not set to <code>char</code>, this attribute is ignored.</p>
-    ///     <div class="notecard note" id="sect3">
+    ///     <div id="sect3" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute is obsolete and rarely implemented anyway. To achieve the same effect as the <a href="#char"><code>char</code></a> attribute, set the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to the same string you would specify for the <code>char</code> property, such as <code>text-align: "."</code>.</p>
     ///     </div>
     ///   
     pub char: core::option::Option<AttributeValue<'life>>,
     ///
     ///     <p>A string indicating the number of characters on the tail end of the column's data should be displayed after the alignment character specified by the <code>char</code> attribute. For example, when displaying money values for currencies that use hundredths of a unit (such as the dollar, which is divided into 100 cents), you would typically specify a value of 2, so that in tandem with <code>char</code> being set to <code>"."</code>, the values in a column would be cleanly aligned on the decimal points, with the number of cents properly displayed to the right of the decimal point.</p>
-    ///     <div id="sect4" class="notecard note">
+    ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is obsolete, and was never widely supported anyway.</p>
     ///     </div>
     ///   
@@ -27843,7 +27843,7 @@ pub struct Tr<'life> {
     ///         <p>Each cell's text is drawn as closely as possible to the top edge of the containing cell.</p>
     ///       </dd>
     ///     </dl>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> Don't use the obsolete <code>valign</code> attribute. Instead, add the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property to the row.</p>
     ///     </div>
     ///   
@@ -27868,7 +27868,6 @@ impl<'life> Tr<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -27892,6 +27891,7 @@ impl<'life> Tr<'life> {
             "valign" => self.valign = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -27955,21 +27955,21 @@ pub struct TrOwned {
     pub autofocus: core::option::Option<AttributeValueOwned>,
     ///
     ///     <p>A string specifying a color to apply to the backgrounds of each of the row's cells. This can be either a <a href="/en-US/docs/Web/CSS/color_value/rgb">hexadecimal <code>#RRGGBB</code> or <code>#RGB</code> value</a> or a <a href="/en-US/docs/Web/CSS/named-color">color keyword</a>. Omitting the attribute or setting it to <code>null</code> in JavaScript causes the row's cells to inherit the row's parent element's background color.</p>
-    ///     <div class="notecard note" id="sect2">
-    ///       <p><strong>Note:</strong> The <a href="/en-US/docs/Web/HTML/Element/tr" aria-current="page"><code>&lt;tr&gt;</code></a> element should be styled using <a href="/en-US/docs/Web/CSS">CSS</a>. To give a similar effect as the <code>bgcolor</code> attribute, use the CSS property <a href="/en-US/docs/Web/CSS/background-color"><code>background-color</code></a>.</p>
+    ///     <div id="sect2" class="notecard note">
+    ///       <p><strong>Note:</strong> The <a aria-current="page" href="/en-US/docs/Web/HTML/Element/tr"><code>&lt;tr&gt;</code></a> element should be styled using <a href="/en-US/docs/Web/CSS">CSS</a>. To give a similar effect as the <code>bgcolor</code> attribute, use the CSS property <a href="/en-US/docs/Web/CSS/background-color"><code>background-color</code></a>.</p>
     ///     </div>
     ///   
     pub bgcolor: core::option::Option<AttributeValueOwned>,
     ///
     ///     <p>A string that sets the character to align the cells in each row's columns (each row's centering that uses the same character gets aligned with others using the same character. Typical values for this include a period (<code>"."</code>) or comma (<code>","</code>) when attempting to align numbers or monetary values. If <a href="#align"><code>align</code></a> is not set to <code>char</code>, this attribute is ignored.</p>
-    ///     <div class="notecard note" id="sect3">
+    ///     <div id="sect3" class="notecard note">
     ///       <p><strong>Note:</strong> This attribute is obsolete and rarely implemented anyway. To achieve the same effect as the <a href="#char"><code>char</code></a> attribute, set the CSS <a href="/en-US/docs/Web/CSS/text-align"><code>text-align</code></a> property to the same string you would specify for the <code>char</code> property, such as <code>text-align: "."</code>.</p>
     ///     </div>
     ///   
     pub char: core::option::Option<AttributeValueOwned>,
     ///
     ///     <p>A string indicating the number of characters on the tail end of the column's data should be displayed after the alignment character specified by the <code>char</code> attribute. For example, when displaying money values for currencies that use hundredths of a unit (such as the dollar, which is divided into 100 cents), you would typically specify a value of 2, so that in tandem with <code>char</code> being set to <code>"."</code>, the values in a column would be cleanly aligned on the decimal points, with the number of cents properly displayed to the right of the decimal point.</p>
-    ///     <div id="sect4" class="notecard note">
+    ///     <div class="notecard note" id="sect4">
     ///       <p><strong>Note:</strong> This attribute is obsolete, and was never widely supported anyway.</p>
     ///     </div>
     ///   
@@ -28063,7 +28063,7 @@ pub struct TrOwned {
     ///         <p>Each cell's text is drawn as closely as possible to the top edge of the containing cell.</p>
     ///       </dd>
     ///     </dl>
-    ///     <div id="sect5" class="notecard note">
+    ///     <div class="notecard note" id="sect5">
     ///       <p><strong>Note:</strong> Don't use the obsolete <code>valign</code> attribute. Instead, add the CSS <a href="/en-US/docs/Web/CSS/vertical-align"><code>vertical-align</code></a> property to the row.</p>
     ///     </div>
     ///   
@@ -28084,7 +28084,6 @@ impl TrOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -28108,6 +28107,7 @@ impl TrOwned {
             "valign" => self.valign = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -28137,7 +28137,7 @@ pub struct Button<'life> {
     ///   
     pub autocapitalize: core::option::Option<AttributeValue<'life>>,
     ///
-    ///     <p>This attribute on a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank">Firefox persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a class="external" href="https://bugzil.la/654072" target="_blank">Firefox bug 654072</a>.</p>
+    ///     <p>This attribute on a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a class="external" target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing">Firefox persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a href="https://bugzil.la/654072" class="external" target="_blank">Firefox bug 654072</a>.</p>
     ///   
     pub autocomplete: core::option::Option<AttributeValue<'life>>,
     ///
@@ -28176,7 +28176,7 @@ pub struct Button<'life> {
     pub dir: core::option::Option<AttributeValue<'life>>,
     ///
     ///     <p>This Boolean attribute prevents the user from interacting with the button: it cannot be pressed or focused.</p>
-    ///     <p>Firefox, unlike other browsers, <a target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external">persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
+    ///     <p>Firefox, unlike other browsers, <a class="external" target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing">persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
     ///   
     pub disabled: core::option::Option<AttributeValue<'life>>,
     ///
@@ -28298,7 +28298,6 @@ impl<'life> Button<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -28328,6 +28327,7 @@ impl<'life> Button<'life> {
             "value" => self.value = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -28358,7 +28358,7 @@ pub struct ButtonOwned {
     ///   
     pub autocapitalize: core::option::Option<AttributeValueOwned>,
     ///
-    ///     <p>This attribute on a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank">Firefox persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a class="external" href="https://bugzil.la/654072" target="_blank">Firefox bug 654072</a>.</p>
+    ///     <p>This attribute on a <a aria-current="page" href="/en-US/docs/Web/HTML/Element/button"><code>&lt;button&gt;</code></a> is nonstandard and Firefox-specific. Unlike other browsers, <a class="external" target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing">Firefox persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. Setting <code>autocomplete="off"</code> on the button disables this feature; see <a href="https://bugzil.la/654072" class="external" target="_blank">Firefox bug 654072</a>.</p>
     ///   
     pub autocomplete: core::option::Option<AttributeValueOwned>,
     ///
@@ -28397,7 +28397,7 @@ pub struct ButtonOwned {
     pub dir: core::option::Option<AttributeValueOwned>,
     ///
     ///     <p>This Boolean attribute prevents the user from interacting with the button: it cannot be pressed or focused.</p>
-    ///     <p>Firefox, unlike other browsers, <a target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external">persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
+    ///     <p>Firefox, unlike other browsers, <a class="external" target="_blank" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing">persists the dynamic disabled state</a> of a <a href="/en-US/docs/Web/HTML/Element/button" aria-current="page"><code>&lt;button&gt;</code></a> across page loads. To control this feature, use the [<code>autocomplete</code>]] (#autocomplete) attribute.</p>
     ///   
     pub disabled: core::option::Option<AttributeValueOwned>,
     ///
@@ -28515,7 +28515,6 @@ impl ButtonOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -28545,6 +28544,7 @@ impl ButtonOwned {
             "value" => self.value = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -28664,7 +28664,6 @@ impl<'life> Datalist<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -28683,6 +28682,7 @@ impl<'life> Datalist<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -28799,7 +28799,6 @@ impl DatalistOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -28818,6 +28817,7 @@ impl DatalistOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -28952,7 +28952,6 @@ impl<'life> Fieldset<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -28974,6 +28973,7 @@ impl<'life> Fieldset<'life> {
             "name" => self.name = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -29105,7 +29105,6 @@ impl FieldsetOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -29127,6 +29126,7 @@ impl FieldsetOwned {
             "name" => self.name = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -29276,7 +29276,6 @@ impl<'life> Form<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accept" => self.accept = Some(value.into()),
             "accept_charset" => self.accept_charset = Some(value.into()),
@@ -29300,6 +29299,7 @@ impl<'life> Form<'life> {
             "rel" => self.rel = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -29446,7 +29446,6 @@ impl FormOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accept" => self.accept = Some(value.into()),
             "accept_charset" => self.accept_charset = Some(value.into()),
@@ -29470,6 +29469,7 @@ impl FormOwned {
             "rel" => self.rel = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -29517,7 +29517,7 @@ pub struct Input<'life> {
     ///     </div>
     ///     <p>No more than one element in the document may have the <code>autofocus</code> attribute. If put on more than one element, the first one with the attribute receives focus.</p>
     ///     <p>The <code>autofocus</code> attribute cannot be used on inputs of type <code>hidden</code>, since hidden inputs cannot be focused.</p>
-    ///     <div class="notecard warning" id="sect2">
+    ///     <div id="sect2" class="notecard warning">
     ///       <p><strong>Warning:</strong> Automatically focusing a form control can confuse visually-impaired people using screen-reading technology and people with cognitive impairments. When <code>autofocus</code> is assigned, screen-readers "teleport" their user to the form control without warning them beforehand.</p>
     ///     </div>
     ///     <p>Use careful consideration for accessibility when applying the <code>autofocus</code> attribute. Automatically focusing on a control can cause the page to scroll on load. The focus can also cause dynamic keyboards to display on some touch devices. While a screen reader will announce the label of the form control receiving focus, the screen reader will not announce anything before the label, and the sighted user on a small device will equally miss the context created by the preceding content.</p>
@@ -29583,7 +29583,7 @@ pub struct Input<'life> {
     ///     <p>A Boolean attribute which, if present, indicates that the user should not be able to interact with the input. Disabled inputs are typically rendered with a dimmer color or using some other form of indication that the field is not available for use.</p>
     ///     <p>Specifically, disabled inputs do not receive the <a href="/en-US/docs/Web/API/Element/click_event" title="click"><code>click</code></a> event, and disabled inputs are not submitted with the form.</p>
     ///     <div id="sect4" class="notecard note">
-    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
+    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external" target="_blank">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
     ///     </div>
     ///   
     pub disabled: core::option::Option<AttributeValue<'life>>,
@@ -29609,7 +29609,7 @@ pub struct Input<'life> {
     ///
     ///     <p>A string specifying the <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a> element with which the input is associated (that is, its <strong>form owner</strong>). This string's value, if present, must match the <a href="#id"><code>id</code></a> of a <code>&lt;form&gt;</code> element in the same document. If this attribute isn't specified, the <code>&lt;input&gt;</code> element is associated with the nearest containing form, if any.</p>
     ///     <p>The <code>form</code> attribute lets you place an input anywhere in the document but have it included with a form elsewhere in the document.</p>
-    ///     <div class="notecard note" id="sect5">
+    ///     <div id="sect5" class="notecard note">
     ///       <p><strong>Note:</strong> An input can only be associated with one form.</p>
     ///     </div>
     ///   
@@ -29697,7 +29697,7 @@ pub struct Input<'life> {
     ///     <p>There are two special cases:</p>
     ///     <ol>
     ///       <li><code>_charset_</code> : If used as the name of an <code>&lt;input&gt;</code> element of type <a href="/en-US/docs/Web/HTML/Element/input/hidden">hidden</a>, the input's <code>value</code> is automatically set by the <a href="/en-US/docs/Glossary/User_agent">user agent</a> to the character encoding being used to submit the form.</li>
-    ///       <li><code>isindex</code>: For historical reasons, the name <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name"><code>isindex</code></a> is not allowed.</li>
+    ///       <li><code>isindex</code>: For historical reasons, the name <a class="external" href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name" target="_blank"><code>isindex</code></a> is not allowed.</li>
     ///     </ol>
     ///     <p>The <a href="#name"><code>name</code></a> attribute creates a unique behavior for radio buttons.</p>
     ///     <p>Only one radio button in a same-named group of radio buttons can be checked at a time. Selecting any radio button in that group automatically deselects any currently-selected radio button in the same group. The value of that one checked radio button is sent along with the name if the form is submitted,</p>
@@ -29718,7 +29718,7 @@ pub struct Input<'life> {
     ///
     ///     <p>Valid for <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, and <code>password</code>, the <code>pattern</code> attribute defines a regular expression that the input's <a href="#value"><code>value</code></a> must match in order for the value to pass <a href="/en-US/docs/Web/HTML/Constraint_validation">constraint validation</a>. It must be a valid JavaScript regular expression, as used by the <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp"><code>RegExp</code></a> type, and as documented in our <a href="/en-US/docs/Web/JavaScript/Guide/Regular_expressions">guide on regular expressions</a>; the <code>'u'</code> flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.</p>
     ///     <p>If the <code>pattern</code> attribute is present but is not specified or is invalid, no regular expression is applied and this attribute is ignored completely. If the pattern attribute is valid and a non-empty value does not match the pattern, constraint validation will prevent form submission.</p>
-    ///     <div class="notecard note" id="sect7">
+    ///     <div id="sect7" class="notecard note">
     ///       <p><strong>Note:</strong> If using the <code>pattern</code> attribute, inform the user about the expected format by including explanatory text nearby. You can also include a <a href="#title"><code>title</code></a> attribute to explain what the requirements are to match the pattern; most browsers will display this title as a tooltip. The visible explanation is required for accessibility. The tooltip is an enhancement.</p>
     ///     </div>
     ///     <p>See <a href="#client-side_validation">Client-side validation</a> for more information.</p>
@@ -29726,7 +29726,7 @@ pub struct Input<'life> {
     pub pattern: core::option::Option<AttributeValue<'life>>,
     ///
     ///     <p>Valid for <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, <code>password</code>, and <code>number</code>, the <code>placeholder</code> attribute provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that provides a hint as to the expected type of data, rather than an explanation or prompt. The text <em>must not</em> include carriage returns or line feeds. So for example if a field is expected to capture a user's first name, and its label is "First Name", a suitable placeholder might be "e.g. Mustafa".</p>
-    ///     <div id="sect8" class="notecard note">
+    ///     <div class="notecard note" id="sect8">
     ///       <p><strong>Note:</strong> The <code>placeholder</code> attribute is not as semantically useful as other ways to explain your form, and can cause unexpected technical issues with your content. See <a href="#labels">Labels</a> for more information.</p>
     ///     </div>
     ///   
@@ -29759,7 +29759,7 @@ pub struct Input<'life> {
     ///     <p>The value must be a positive number—integer or float—or the special value <code>any</code>, which means no stepping is implied, and any value is allowed (barring other constraints, such as <a href="#min"><code>min</code></a> and <a href="#max"><code>max</code></a>).</p>
     ///     <p>If <code>any</code> is not explicitly set, valid values for the <code>number</code>, date/time input types, and <code>range</code> input types are equal to the basis for stepping — the <a href="#min"><code>min</code></a> value and increments of the step value, up to the <a href="#max"><code>max</code></a> value, if specified.</p>
     ///     <p>For example, if you have <code>&lt;input type="number" min="10" step="2"&gt;</code>, then any even integer, <code>10</code> or greater, is valid. If omitted, <code>&lt;input type="number"&gt;</code>, any integer is valid, but floats (like <code>4.2</code>) are not valid, because <code>step</code> defaults to <code>1</code>. For <code>4.2</code> to be valid, <code>step</code> would have had to be set to <code>any</code>, 0.1, 0.2, or any the <code>min</code> value would have had to be a number ending in <code>.2</code>, such as <code>&lt;input type="number" min="-5.2"&gt;</code></p>
-    ///     <div class="notecard note" id="sect9">
+    ///     <div id="sect9" class="notecard note">
     ///       <p><strong>Note:</strong> When the data entered by the user doesn't adhere to the stepping configuration, the value is considered invalid in constraint validation and will match the <code>:invalid</code> pseudoclass.</p>
     ///     </div>
     ///     <p>See <a href="#client-side_validation">Client-side validation</a> for more information.</p>
@@ -29806,7 +29806,6 @@ impl<'life> Input<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accept" => self.accept = Some(value.into()),
             "accesskey" => self.accesskey = Some(value.into()),
@@ -29858,6 +29857,7 @@ impl<'life> Input<'life> {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -29906,7 +29906,7 @@ pub struct InputOwned {
     ///     </div>
     ///     <p>No more than one element in the document may have the <code>autofocus</code> attribute. If put on more than one element, the first one with the attribute receives focus.</p>
     ///     <p>The <code>autofocus</code> attribute cannot be used on inputs of type <code>hidden</code>, since hidden inputs cannot be focused.</p>
-    ///     <div class="notecard warning" id="sect2">
+    ///     <div id="sect2" class="notecard warning">
     ///       <p><strong>Warning:</strong> Automatically focusing a form control can confuse visually-impaired people using screen-reading technology and people with cognitive impairments. When <code>autofocus</code> is assigned, screen-readers "teleport" their user to the form control without warning them beforehand.</p>
     ///     </div>
     ///     <p>Use careful consideration for accessibility when applying the <code>autofocus</code> attribute. Automatically focusing on a control can cause the page to scroll on load. The focus can also cause dynamic keyboards to display on some touch devices. While a screen reader will announce the label of the form control receiving focus, the screen reader will not announce anything before the label, and the sighted user on a small device will equally miss the context created by the preceding content.</p>
@@ -29972,7 +29972,7 @@ pub struct InputOwned {
     ///     <p>A Boolean attribute which, if present, indicates that the user should not be able to interact with the input. Disabled inputs are typically rendered with a dimmer color or using some other form of indication that the field is not available for use.</p>
     ///     <p>Specifically, disabled inputs do not receive the <a href="/en-US/docs/Web/API/Element/click_event" title="click"><code>click</code></a> event, and disabled inputs are not submitted with the form.</p>
     ///     <div id="sect4" class="notecard note">
-    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a class="external" href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" target="_blank">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
+    ///       <p><strong>Note:</strong> Although not required by the specification, Firefox will by default <a href="https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing" class="external" target="_blank">persist the dynamic disabled state</a> of an <code>&lt;input&gt;</code> across page loads. Use the <a href="#autocomplete"><code>autocomplete</code></a> attribute to control this feature.</p>
     ///     </div>
     ///   
     pub disabled: core::option::Option<AttributeValueOwned>,
@@ -29998,7 +29998,7 @@ pub struct InputOwned {
     ///
     ///     <p>A string specifying the <a href="/en-US/docs/Web/HTML/Element/form"><code>&lt;form&gt;</code></a> element with which the input is associated (that is, its <strong>form owner</strong>). This string's value, if present, must match the <a href="#id"><code>id</code></a> of a <code>&lt;form&gt;</code> element in the same document. If this attribute isn't specified, the <code>&lt;input&gt;</code> element is associated with the nearest containing form, if any.</p>
     ///     <p>The <code>form</code> attribute lets you place an input anywhere in the document but have it included with a form elsewhere in the document.</p>
-    ///     <div class="notecard note" id="sect5">
+    ///     <div id="sect5" class="notecard note">
     ///       <p><strong>Note:</strong> An input can only be associated with one form.</p>
     ///     </div>
     ///   
@@ -30086,7 +30086,7 @@ pub struct InputOwned {
     ///     <p>There are two special cases:</p>
     ///     <ol>
     ///       <li><code>_charset_</code> : If used as the name of an <code>&lt;input&gt;</code> element of type <a href="/en-US/docs/Web/HTML/Element/input/hidden">hidden</a>, the input's <code>value</code> is automatically set by the <a href="/en-US/docs/Glossary/User_agent">user agent</a> to the character encoding being used to submit the form.</li>
-    ///       <li><code>isindex</code>: For historical reasons, the name <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name"><code>isindex</code></a> is not allowed.</li>
+    ///       <li><code>isindex</code>: For historical reasons, the name <a class="external" href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name" target="_blank"><code>isindex</code></a> is not allowed.</li>
     ///     </ol>
     ///     <p>The <a href="#name"><code>name</code></a> attribute creates a unique behavior for radio buttons.</p>
     ///     <p>Only one radio button in a same-named group of radio buttons can be checked at a time. Selecting any radio button in that group automatically deselects any currently-selected radio button in the same group. The value of that one checked radio button is sent along with the name if the form is submitted,</p>
@@ -30107,7 +30107,7 @@ pub struct InputOwned {
     ///
     ///     <p>Valid for <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, and <code>password</code>, the <code>pattern</code> attribute defines a regular expression that the input's <a href="#value"><code>value</code></a> must match in order for the value to pass <a href="/en-US/docs/Web/HTML/Constraint_validation">constraint validation</a>. It must be a valid JavaScript regular expression, as used by the <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp"><code>RegExp</code></a> type, and as documented in our <a href="/en-US/docs/Web/JavaScript/Guide/Regular_expressions">guide on regular expressions</a>; the <code>'u'</code> flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.</p>
     ///     <p>If the <code>pattern</code> attribute is present but is not specified or is invalid, no regular expression is applied and this attribute is ignored completely. If the pattern attribute is valid and a non-empty value does not match the pattern, constraint validation will prevent form submission.</p>
-    ///     <div class="notecard note" id="sect7">
+    ///     <div id="sect7" class="notecard note">
     ///       <p><strong>Note:</strong> If using the <code>pattern</code> attribute, inform the user about the expected format by including explanatory text nearby. You can also include a <a href="#title"><code>title</code></a> attribute to explain what the requirements are to match the pattern; most browsers will display this title as a tooltip. The visible explanation is required for accessibility. The tooltip is an enhancement.</p>
     ///     </div>
     ///     <p>See <a href="#client-side_validation">Client-side validation</a> for more information.</p>
@@ -30115,7 +30115,7 @@ pub struct InputOwned {
     pub pattern: core::option::Option<AttributeValueOwned>,
     ///
     ///     <p>Valid for <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, <code>password</code>, and <code>number</code>, the <code>placeholder</code> attribute provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that provides a hint as to the expected type of data, rather than an explanation or prompt. The text <em>must not</em> include carriage returns or line feeds. So for example if a field is expected to capture a user's first name, and its label is "First Name", a suitable placeholder might be "e.g. Mustafa".</p>
-    ///     <div id="sect8" class="notecard note">
+    ///     <div class="notecard note" id="sect8">
     ///       <p><strong>Note:</strong> The <code>placeholder</code> attribute is not as semantically useful as other ways to explain your form, and can cause unexpected technical issues with your content. See <a href="#labels">Labels</a> for more information.</p>
     ///     </div>
     ///   
@@ -30148,7 +30148,7 @@ pub struct InputOwned {
     ///     <p>The value must be a positive number—integer or float—or the special value <code>any</code>, which means no stepping is implied, and any value is allowed (barring other constraints, such as <a href="#min"><code>min</code></a> and <a href="#max"><code>max</code></a>).</p>
     ///     <p>If <code>any</code> is not explicitly set, valid values for the <code>number</code>, date/time input types, and <code>range</code> input types are equal to the basis for stepping — the <a href="#min"><code>min</code></a> value and increments of the step value, up to the <a href="#max"><code>max</code></a> value, if specified.</p>
     ///     <p>For example, if you have <code>&lt;input type="number" min="10" step="2"&gt;</code>, then any even integer, <code>10</code> or greater, is valid. If omitted, <code>&lt;input type="number"&gt;</code>, any integer is valid, but floats (like <code>4.2</code>) are not valid, because <code>step</code> defaults to <code>1</code>. For <code>4.2</code> to be valid, <code>step</code> would have had to be set to <code>any</code>, 0.1, 0.2, or any the <code>min</code> value would have had to be a number ending in <code>.2</code>, such as <code>&lt;input type="number" min="-5.2"&gt;</code></p>
-    ///     <div class="notecard note" id="sect9">
+    ///     <div id="sect9" class="notecard note">
     ///       <p><strong>Note:</strong> When the data entered by the user doesn't adhere to the stepping configuration, the value is considered invalid in constraint validation and will match the <code>:invalid</code> pseudoclass.</p>
     ///     </div>
     ///     <p>See <a href="#client-side_validation">Client-side validation</a> for more information.</p>
@@ -30191,7 +30191,6 @@ impl InputOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accept" => self.accept = Some(value.into()),
             "accesskey" => self.accesskey = Some(value.into()),
@@ -30243,6 +30242,7 @@ impl InputOwned {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -30324,10 +30324,10 @@ pub struct Label<'life> {
     pub extra: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
     ///
     ///     <p>The value of the <code>for</code> attribute must be a single <a href="/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a> for a <a href="/en-US/docs/Web/HTML/Content_categories#labelable">labelable</a> form-related element in the same document as the <code>&lt;label&gt;</code> element. So, any given <code>label</code> element can be associated with only one form control.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> To programmatically set the <code>for</code> attribute, use <a href="/en-US/docs/Web/API/HTMLLabelElement/htmlFor"><code>htmlFor</code></a>.</p>
     ///     </div>
-    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a href="https://html.spec.whatwg.org/multipage/forms.html#category-label" target="_blank" class="external">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
+    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/forms.html#category-label">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
     ///     <p>Multiple <code>label</code> elements can be given the same value for their <code>for</code> attribute; doing so causes the associated form control (the form control that <code>for</code> value references) to have multiple labels.</p>
     ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong> A <code>&lt;label&gt;</code> element can have both a <code>for</code> attribute and a contained control element, as long as the <code>for</code> attribute points to the contained control element.</p>
@@ -30374,7 +30374,6 @@ impl<'life> Label<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -30394,6 +30393,7 @@ impl<'life> Label<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -30476,10 +30476,10 @@ pub struct LabelOwned {
     pub extra: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
     ///
     ///     <p>The value of the <code>for</code> attribute must be a single <a href="/en-US/docs/Web/HTML/Global_attributes#id"><code>id</code></a> for a <a href="/en-US/docs/Web/HTML/Content_categories#labelable">labelable</a> form-related element in the same document as the <code>&lt;label&gt;</code> element. So, any given <code>label</code> element can be associated with only one form control.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> To programmatically set the <code>for</code> attribute, use <a href="/en-US/docs/Web/API/HTMLLabelElement/htmlFor"><code>htmlFor</code></a>.</p>
     ///     </div>
-    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a href="https://html.spec.whatwg.org/multipage/forms.html#category-label" target="_blank" class="external">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
+    ///     <p>The first element in the document with an <code>id</code> attribute matching the value of the <code>for</code> attribute is the <em>labeled control</em> for this <code>label</code> element — if the element with that <code>id</code> is actually a <a class="external" target="_blank" href="https://html.spec.whatwg.org/multipage/forms.html#category-label">labelable element</a>. If it is <em>not</em> a labelable element, then the <code>for</code> attribute has no effect. If there are other elements that also match the <code>id</code> value, later in the document, they are not considered.</p>
     ///     <p>Multiple <code>label</code> elements can be given the same value for their <code>for</code> attribute; doing so causes the associated form control (the form control that <code>for</code> value references) to have multiple labels.</p>
     ///     <div id="sect2" class="notecard note">
     ///       <p><strong>Note:</strong> A <code>&lt;label&gt;</code> element can have both a <code>for</code> attribute and a contained control element, as long as the <code>for</code> attribute points to the contained control element.</p>
@@ -30522,7 +30522,6 @@ impl LabelOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -30542,6 +30541,7 @@ impl LabelOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -30661,7 +30661,6 @@ impl<'life> Legend<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -30680,6 +30679,7 @@ impl<'life> Legend<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -30796,7 +30796,6 @@ impl LegendOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -30815,6 +30814,7 @@ impl LegendOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -30961,7 +30961,6 @@ impl<'life> Meter<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -30986,6 +30985,7 @@ impl<'life> Meter<'life> {
             "value" => self.value = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -31129,7 +31129,6 @@ impl MeterOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -31154,6 +31153,7 @@ impl MeterOwned {
             "value" => self.value = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -31281,7 +31281,6 @@ impl<'life> Optgroup<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -31302,6 +31301,7 @@ impl<'life> Optgroup<'life> {
             "label" => self.label = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -31426,7 +31426,6 @@ impl OptgroupOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -31447,6 +31446,7 @@ impl OptgroupOwned {
             "label" => self.label = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -31582,7 +31582,6 @@ impl<'life> Option<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -31605,6 +31604,7 @@ impl<'life> Option<'life> {
             "value" => self.value = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -31737,7 +31737,6 @@ impl OptionOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -31760,6 +31759,7 @@ impl OptionOwned {
             "value" => self.value = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -31869,7 +31869,7 @@ pub struct Output<'life> {
     ///   
     pub is: core::option::Option<AttributeValue<'life>>,
     ///
-    ///     <p>The element's name. Used in the <a title="form.elements" href="/en-US/docs/Web/API/HTMLFormElement/elements"><code>form.elements</code></a> API.</p>
+    ///     <p>The element's name. Used in the <a href="/en-US/docs/Web/API/HTMLFormElement/elements" title="form.elements"><code>form.elements</code></a> API.</p>
     ///   
     pub name: core::option::Option<AttributeValue<'life>>,
 }
@@ -31892,7 +31892,6 @@ impl<'life> Output<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -31914,6 +31913,7 @@ impl<'life> Output<'life> {
             "name" => self.name = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -32024,7 +32024,7 @@ pub struct OutputOwned {
     ///   
     pub is: core::option::Option<AttributeValueOwned>,
     ///
-    ///     <p>The element's name. Used in the <a title="form.elements" href="/en-US/docs/Web/API/HTMLFormElement/elements"><code>form.elements</code></a> API.</p>
+    ///     <p>The element's name. Used in the <a href="/en-US/docs/Web/API/HTMLFormElement/elements" title="form.elements"><code>form.elements</code></a> API.</p>
     ///   
     pub name: core::option::Option<AttributeValueOwned>,
 }
@@ -32043,7 +32043,6 @@ impl OutputOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -32065,6 +32064,7 @@ impl OutputOwned {
             "name" => self.name = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -32192,7 +32192,6 @@ impl<'life> Progress<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -32213,6 +32212,7 @@ impl<'life> Progress<'life> {
             "value" => self.value = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -32337,7 +32337,6 @@ impl ProgressOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -32358,6 +32357,7 @@ impl ProgressOwned {
             "value" => self.value = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -32509,7 +32509,6 @@ impl<'life> Select<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -32535,6 +32534,7 @@ impl<'life> Select<'life> {
             "size" => self.size = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -32683,7 +32683,6 @@ impl SelectOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -32709,6 +32708,7 @@ impl SelectOwned {
             "size" => self.size = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -32888,7 +32888,7 @@ pub struct Textarea<'life> {
     ///     <ul>
     ///       <li><code>hard</code>: The browser automatically inserts line breaks (CR+LF) so that each line is no longer than the width of the control; the <a href="#cols"><code>cols</code></a> attribute must be specified for this to take effect</li>
     ///       <li><code>soft</code>: The browser ensures that all line breaks in the entered value are a <code>CR+LF</code> pair, but no additional line breaks are added to the value.</li>
-    ///       <li><code>off</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using.">
+    ///       <li><code>off</code> <abbr title="Non-standard. Check cross-browser support before using." class="icon icon-nonstandard">
     ///     <span class="visually-hidden">Non-standard</span>
     /// </abbr>: Like <code>soft</code> but changes appearance to <code>white-space: pre</code> so line segments exceeding <code>cols</code> are not wrapped and the <code>&lt;textarea&gt;</code> becomes horizontally scrollable.</li>
     ///     </ul>
@@ -32915,7 +32915,6 @@ impl<'life> Textarea<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -32948,6 +32947,7 @@ impl<'life> Textarea<'life> {
             "wrap" => self.wrap = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -33128,7 +33128,7 @@ pub struct TextareaOwned {
     ///     <ul>
     ///       <li><code>hard</code>: The browser automatically inserts line breaks (CR+LF) so that each line is no longer than the width of the control; the <a href="#cols"><code>cols</code></a> attribute must be specified for this to take effect</li>
     ///       <li><code>soft</code>: The browser ensures that all line breaks in the entered value are a <code>CR+LF</code> pair, but no additional line breaks are added to the value.</li>
-    ///       <li><code>off</code> <abbr class="icon icon-nonstandard" title="Non-standard. Check cross-browser support before using.">
+    ///       <li><code>off</code> <abbr title="Non-standard. Check cross-browser support before using." class="icon icon-nonstandard">
     ///     <span class="visually-hidden">Non-standard</span>
     /// </abbr>: Like <code>soft</code> but changes appearance to <code>white-space: pre</code> so line segments exceeding <code>cols</code> are not wrapped and the <code>&lt;textarea&gt;</code> becomes horizontally scrollable.</li>
     ///     </ul>
@@ -33151,7 +33151,6 @@ impl TextareaOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -33184,6 +33183,7 @@ impl TextareaOwned {
             "wrap" => self.wrap = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -33287,7 +33287,7 @@ pub struct Details<'life> {
     pub is: core::option::Option<AttributeValue<'life>>,
     ///
     ///     <p>This Boolean attribute indicates whether the details — that is, the contents of the <code>&lt;details&gt;</code> element — are currently visible. The details are shown when this attribute exists, or hidden when this attribute is absent. By default this attribute is absent which means the details are not visible.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> You have to remove this attribute entirely to make the details hidden. <code>open="false"</code> makes the details visible because this attribute is Boolean.</p>
     ///     </div>
     ///   
@@ -33312,7 +33312,6 @@ impl<'life> Details<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -33332,6 +33331,7 @@ impl<'life> Details<'life> {
             "open" => self.open = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -33436,7 +33436,7 @@ pub struct DetailsOwned {
     pub is: core::option::Option<AttributeValueOwned>,
     ///
     ///     <p>This Boolean attribute indicates whether the details — that is, the contents of the <code>&lt;details&gt;</code> element — are currently visible. The details are shown when this attribute exists, or hidden when this attribute is absent. By default this attribute is absent which means the details are not visible.</p>
-    ///     <div class="notecard note" id="sect1">
+    ///     <div id="sect1" class="notecard note">
     ///       <p><strong>Note:</strong> You have to remove this attribute entirely to make the details hidden. <code>open="false"</code> makes the details visible because this attribute is Boolean.</p>
     ///     </div>
     ///   
@@ -33457,7 +33457,6 @@ impl DetailsOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -33477,6 +33476,7 @@ impl DetailsOwned {
             "open" => self.open = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -33603,7 +33603,6 @@ impl<'life> Dialog<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -33623,6 +33622,7 @@ impl<'life> Dialog<'life> {
             "open" => self.open = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -33746,7 +33746,6 @@ impl DialogOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -33766,6 +33765,7 @@ impl DialogOwned {
             "open" => self.open = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -33885,7 +33885,6 @@ impl<'life> Summary<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -33904,6 +33903,7 @@ impl<'life> Summary<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -34020,7 +34020,6 @@ impl SummaryOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -34039,6 +34038,7 @@ impl SummaryOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -34163,7 +34163,6 @@ impl<'life> Slot<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -34183,6 +34182,7 @@ impl<'life> Slot<'life> {
             "name" => self.name = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -34304,7 +34304,6 @@ impl SlotOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -34324,6 +34323,7 @@ impl SlotOwned {
             "name" => self.name = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -34445,7 +34445,6 @@ impl<'life> Template<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -34464,6 +34463,7 @@ impl<'life> Template<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -34582,7 +34582,6 @@ impl TemplateOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -34601,6 +34600,7 @@ impl TemplateOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -34723,7 +34723,6 @@ impl<'life> Acronym<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -34742,6 +34741,7 @@ impl<'life> Acronym<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -34861,7 +34861,6 @@ impl AcronymOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -34880,6 +34879,7 @@ impl AcronymOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -35061,7 +35061,6 @@ impl<'life> Applet<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -35095,6 +35094,7 @@ impl<'life> Applet<'life> {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -35273,7 +35273,6 @@ impl AppletOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -35307,6 +35306,7 @@ impl AppletOwned {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -35442,7 +35442,6 @@ impl<'life> Bgsound<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -35465,6 +35464,7 @@ impl<'life> Bgsound<'life> {
             "volume" => self.volume = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -35597,7 +35597,6 @@ impl BgsoundOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -35620,6 +35619,7 @@ impl BgsoundOwned {
             "volume" => self.volume = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -35739,7 +35739,6 @@ impl<'life> Big<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -35758,6 +35757,7 @@ impl<'life> Big<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -35874,7 +35874,6 @@ impl BigOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -35893,6 +35892,7 @@ impl BigOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -36012,7 +36012,6 @@ impl<'life> Blink<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -36031,6 +36030,7 @@ impl<'life> Blink<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -36147,7 +36147,6 @@ impl BlinkOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -36166,6 +36165,7 @@ impl BlinkOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -36287,7 +36287,6 @@ impl<'life> Center<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -36306,6 +36305,7 @@ impl<'life> Center<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -36424,7 +36424,6 @@ impl CenterOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -36443,6 +36442,7 @@ impl CenterOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -36566,7 +36566,6 @@ impl<'life> Dir<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -36586,6 +36585,7 @@ impl<'life> Dir<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -36706,7 +36706,6 @@ impl DirOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -36726,6 +36725,7 @@ impl DirOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -36857,7 +36857,6 @@ impl<'life> Font<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -36879,6 +36878,7 @@ impl<'life> Font<'life> {
             "size" => self.size = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -37007,7 +37007,6 @@ impl FontOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -37029,6 +37028,7 @@ impl FontOwned {
             "size" => self.size = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -37178,7 +37178,6 @@ impl<'life> Frame<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -37204,6 +37203,7 @@ impl<'life> Frame<'life> {
             "src" => self.src = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -37350,7 +37350,6 @@ impl FrameOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -37376,6 +37375,7 @@ impl FrameOwned {
             "src" => self.src = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -37503,7 +37503,6 @@ impl<'life> Frameset<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -37524,6 +37523,7 @@ impl<'life> Frameset<'life> {
             "rows" => self.rows = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -37648,7 +37648,6 @@ impl FramesetOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -37669,6 +37668,7 @@ impl FramesetOwned {
             "rows" => self.rows = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -37793,7 +37793,6 @@ impl<'life> Image<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -37812,6 +37811,7 @@ impl<'life> Image<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -37933,7 +37933,6 @@ impl ImageOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -37952,6 +37951,7 @@ impl ImageOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -38091,7 +38091,6 @@ impl<'life> Keygen<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -38115,6 +38114,7 @@ impl<'life> Keygen<'life> {
             "name" => self.name = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -38251,7 +38251,6 @@ impl KeygenOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -38275,6 +38274,7 @@ impl KeygenOwned {
             "name" => self.name = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -38438,7 +38438,6 @@ impl<'life> Marquee<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -38468,6 +38467,7 @@ impl<'life> Marquee<'life> {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -38628,7 +38628,6 @@ impl MarqueeOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -38658,6 +38657,7 @@ impl MarqueeOwned {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -38816,7 +38816,6 @@ impl<'life> Menuitem<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -38843,6 +38842,7 @@ impl<'life> Menuitem<'life> {
             "type_" => self.type_ = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -38998,7 +38998,6 @@ impl MenuitemOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -39025,6 +39024,7 @@ impl MenuitemOwned {
             "type_" => self.type_ = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -39144,7 +39144,6 @@ impl<'life> Nobr<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -39163,6 +39162,7 @@ impl<'life> Nobr<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -39279,7 +39279,6 @@ impl NobrOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -39298,6 +39297,7 @@ impl NobrOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -39417,7 +39417,6 @@ impl<'life> Noembed<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -39436,6 +39435,7 @@ impl<'life> Noembed<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -39552,7 +39552,6 @@ impl NoembedOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -39571,6 +39570,7 @@ impl NoembedOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -39694,7 +39694,6 @@ impl<'life> Noframes<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -39713,6 +39712,7 @@ impl<'life> Noframes<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -39833,7 +39833,6 @@ impl NoframesOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -39852,6 +39851,7 @@ impl NoframesOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -39992,7 +39992,6 @@ impl<'life> Param<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -40015,6 +40014,7 @@ impl<'life> Param<'life> {
             "valuetype" => self.valuetype = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -40152,7 +40152,6 @@ impl ParamOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -40175,6 +40174,7 @@ impl ParamOwned {
             "valuetype" => self.valuetype = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -40294,7 +40294,6 @@ impl<'life> Plaintext<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -40313,6 +40312,7 @@ impl<'life> Plaintext<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -40429,7 +40429,6 @@ impl PlaintextOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -40448,6 +40447,7 @@ impl PlaintextOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -40567,7 +40567,6 @@ impl<'life> Rb<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -40586,6 +40585,7 @@ impl<'life> Rb<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -40702,7 +40702,6 @@ impl RbOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -40721,6 +40720,7 @@ impl RbOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -40840,7 +40840,6 @@ impl<'life> Rtc<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -40859,6 +40858,7 @@ impl<'life> Rtc<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -40975,7 +40975,6 @@ impl RtcOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -40994,6 +40993,7 @@ impl RtcOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -41135,7 +41135,6 @@ impl<'life> Spacer<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -41159,6 +41158,7 @@ impl<'life> Spacer<'life> {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -41297,7 +41297,6 @@ impl SpacerOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "align" => self.align = Some(value.into()),
@@ -41321,6 +41320,7 @@ impl SpacerOwned {
             "width" => self.width = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -41440,7 +41440,6 @@ impl<'life> Strike<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -41459,6 +41458,7 @@ impl<'life> Strike<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -41575,7 +41575,6 @@ impl StrikeOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -41594,6 +41593,7 @@ impl StrikeOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -41717,7 +41717,6 @@ impl<'life> Tt<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -41736,6 +41735,7 @@ impl<'life> Tt<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -41856,7 +41856,6 @@ impl TtOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -41875,6 +41874,7 @@ impl TtOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -41883,7 +41883,7 @@ impl TtOwned {
     }
 }
 /// <p>The <strong><code>&lt;xmp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element renders text between the start and end tags without interpreting the HTML in between and using a monospaced font. The HTML2 specification recommended that it should be rendered wide enough to allow 80 characters per line.</p>
-/// <div class="notecard note" id="sect2">
+/// <div id="sect2" class="notecard note">
 ///   <p><strong>Note:</strong> Do not use this element.</p>
 ///   <ul>
 ///     <li>It has been deprecated since HTML3.2 and was not implemented in a consistent way. It was completely removed from current HTML.</li>
@@ -42002,7 +42002,6 @@ impl<'life> Xmp<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -42021,6 +42020,7 @@ impl<'life> Xmp<'life> {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -42029,7 +42029,7 @@ impl<'life> Xmp<'life> {
     }
 }
 /// <p>The <strong><code>&lt;xmp&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> element renders text between the start and end tags without interpreting the HTML in between and using a monospaced font. The HTML2 specification recommended that it should be rendered wide enough to allow 80 characters per line.</p>
-/// <div class="notecard note" id="sect2">
+/// <div id="sect2" class="notecard note">
 ///   <p><strong>Note:</strong> Do not use this element.</p>
 ///   <ul>
 ///     <li>It has been deprecated since HTML3.2 and was not implemented in a consistent way. It was completely removed from current HTML.</li>
@@ -42145,7 +42145,6 @@ impl XmpOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -42164,6 +42163,1645 @@ impl XmpOwned {
             "is" => self.is = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
+                self.extra.insert(name.into(), value.into());
+            }
+            #[cfg(not(feature = "alloc"))]
+            _ => {}
+        }
+    }
+}
+/// The <strong><code>&lt;h1&gt;</code></strong> to <strong><code>&lt;h6&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level and <code>&lt;h6&gt;</code> is the lowest.
+///
+/// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements>
+
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
+pub struct H1<'life> {
+    ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
+    ///   
+    pub accesskey: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>off</code> or <code>none</code>, no autocapitalization is applied (all letters default to lowercase)</li>
+    ///       <li><code>on</code> or <code>sentences</code>, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>words</code>, the first letter of each word defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>characters</code>, all letters should default to uppercase</li>
+    ///     </ul>
+    ///   
+    pub autocapitalize: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Indicates that an element is to be focused on page load, or as soon as the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> it is part of is displayed. This attribute is a boolean, initially false.</p>
+    ///   
+    pub autofocus: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>A space-separated list of the classes of the element. Classes allow CSS and JavaScript to select and access specific elements via the <a href="/en-US/docs/Web/CSS/Class_selectors">class selectors</a> or functions like the method <a href="/en-US/docs/Web/API/Document/getElementsByClassName"><code>Document.getElementsByClassName()</code></a>.</p>
+    ///   
+    pub class: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>An <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code> or the <em>empty string</em>, which indicates that the element must be editable;</li>
+    ///       <li><code>false</code>, which indicates that the element must not be editable.</li>
+    ///     </ul>
+    ///   
+    pub contenteditable: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>The <a href="#id"><strong><code>id</code></strong></a> of a <a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a> to use as the contextual menu for this element.</p>
+    ///   
+    pub contextmenu: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Forms a class of attributes, called custom data attributes, that allow proprietary information to be exchanged between the <a href="/en-US/docs/Web/HTML">HTML</a> and its <a href="/en-US/docs/Glossary/DOM">DOM</a> representation that may be used by scripts. All such custom data are available via the <a href="/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> interface of the element the attribute is set on. The <a href="/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property gives access to them.</p>
+    ///   
+    #[cfg(feature = "alloc")]
+    pub data: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating the directionality of the element's text. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>ltr</code>, which means <em>left to right</em> and is to be used for languages that are written from the left to the right (like English);</li>
+    ///       <li><code>rtl</code>, which means <em>right to left</em> and is to be used for languages that are written from the right to the left (like Arabic);</li>
+    ///       <li><code>auto</code>, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.</li>
+    ///     </ul>
+    ///   
+    pub dir: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating whether the element can be dragged, using the <a href="/en-US/docs/Web/API/HTML_Drag_and_Drop_API">Drag and Drop API</a>. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code>, which indicates that the element may be dragged</li>
+    ///       <li><code>false</code>, which indicates that the element may not be dragged.</li>
+    ///     </ul>
+    ///   
+    pub draggable: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Hints what action label (or icon) to present for the enter key on virtual keyboards.</p>
+    ///   
+    pub enterkeyhint: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Used to transitively export shadow parts from a nested shadow tree into a containing light tree.</p>
+    ///   
+    pub exportparts: core::option::Option<AttributeValue<'life>>,
+    /// /// Extra attributes of the element. This is a map of attribute names to their values, and the attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating that the element is not yet, or is no longer, <em>relevant</em>. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.</p>
+    ///   
+    pub hidden: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS).</p>
+    ///   
+    pub id: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>A boolean value that makes the browser disregard user input events for the element. Useful when click events are present.</p>
+    ///   
+    pub inert: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Provides a hint to browsers about the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> elements, but is usable on any element while in <a href="#contenteditable"><code>contenteditable</code></a> mode.</p>
+    ///   
+    pub inputmode: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
+    ///   
+    pub is: core::option::Option<AttributeValue<'life>>,
+}
+#[allow(deprecated)]
+
+impl<'life> H1<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "h1"
+    }
+    /// Sets an attribute of the element.
+    /// This sets the attribute of the struct. If the attribute is not a known attribute, it is added to the `extra` map.
+    /// If the `alloc` feature is disabled, this function will silently fail.
+    ///
+    /// # Note
+    /// This only works when the attribute is lowercase.
+    pub fn set_attr(
+        &mut self,
+        name: &'life str,
+        value: impl core::convert::Into<AttributeValue<'life>>,
+    ) {
+        match name {
+            "accesskey" => self.accesskey = Some(value.into()),
+            "autocapitalize" => self.autocapitalize = Some(value.into()),
+            "autofocus" => self.autofocus = Some(value.into()),
+            "class" => self.class = Some(value.into()),
+            "contenteditable" => self.contenteditable = Some(value.into()),
+            "contextmenu" => self.contextmenu = Some(value.into()),
+            "dir" => self.dir = Some(value.into()),
+            "draggable" => self.draggable = Some(value.into()),
+            "enterkeyhint" => self.enterkeyhint = Some(value.into()),
+            "exportparts" => self.exportparts = Some(value.into()),
+            "hidden" => self.hidden = Some(value.into()),
+            "id" => self.id = Some(value.into()),
+            "inert" => self.inert = Some(value.into()),
+            "inputmode" => self.inputmode = Some(value.into()),
+            "is" => self.is = Some(value.into()),
+            #[cfg(feature = "alloc")]
+            _ => {
+                #[allow(clippy::useless_conversion)]
+                self.extra.insert(name.into(), value.into());
+            }
+            #[cfg(not(feature = "alloc"))]
+            _ => {}
+        }
+    }
+}
+/// The <strong><code>&lt;h1&gt;</code></strong> to <strong><code>&lt;h6&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level and <code>&lt;h6&gt;</code> is the lowest.
+///
+/// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements>
+
+#[cfg(feature = "alloc")]
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
+pub struct H1Owned {
+    ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
+    ///   
+    pub accesskey: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>off</code> or <code>none</code>, no autocapitalization is applied (all letters default to lowercase)</li>
+    ///       <li><code>on</code> or <code>sentences</code>, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>words</code>, the first letter of each word defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>characters</code>, all letters should default to uppercase</li>
+    ///     </ul>
+    ///   
+    pub autocapitalize: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Indicates that an element is to be focused on page load, or as soon as the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> it is part of is displayed. This attribute is a boolean, initially false.</p>
+    ///   
+    pub autofocus: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>A space-separated list of the classes of the element. Classes allow CSS and JavaScript to select and access specific elements via the <a href="/en-US/docs/Web/CSS/Class_selectors">class selectors</a> or functions like the method <a href="/en-US/docs/Web/API/Document/getElementsByClassName"><code>Document.getElementsByClassName()</code></a>.</p>
+    ///   
+    pub class: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>An <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code> or the <em>empty string</em>, which indicates that the element must be editable;</li>
+    ///       <li><code>false</code>, which indicates that the element must not be editable.</li>
+    ///     </ul>
+    ///   
+    pub contenteditable: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>The <a href="#id"><strong><code>id</code></strong></a> of a <a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a> to use as the contextual menu for this element.</p>
+    ///   
+    pub contextmenu: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Forms a class of attributes, called custom data attributes, that allow proprietary information to be exchanged between the <a href="/en-US/docs/Web/HTML">HTML</a> and its <a href="/en-US/docs/Glossary/DOM">DOM</a> representation that may be used by scripts. All such custom data are available via the <a href="/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> interface of the element the attribute is set on. The <a href="/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property gives access to them.</p>
+    ///   
+    #[cfg(feature = "alloc")]
+    pub data: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating the directionality of the element's text. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>ltr</code>, which means <em>left to right</em> and is to be used for languages that are written from the left to the right (like English);</li>
+    ///       <li><code>rtl</code>, which means <em>right to left</em> and is to be used for languages that are written from the right to the left (like Arabic);</li>
+    ///       <li><code>auto</code>, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.</li>
+    ///     </ul>
+    ///   
+    pub dir: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating whether the element can be dragged, using the <a href="/en-US/docs/Web/API/HTML_Drag_and_Drop_API">Drag and Drop API</a>. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code>, which indicates that the element may be dragged</li>
+    ///       <li><code>false</code>, which indicates that the element may not be dragged.</li>
+    ///     </ul>
+    ///   
+    pub draggable: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Hints what action label (or icon) to present for the enter key on virtual keyboards.</p>
+    ///   
+    pub enterkeyhint: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Used to transitively export shadow parts from a nested shadow tree into a containing light tree.</p>
+    ///   
+    pub exportparts: core::option::Option<AttributeValueOwned>,
+    /// /// Extra attributes of the element. This is a map of attribute names to their values, and the attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating that the element is not yet, or is no longer, <em>relevant</em>. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.</p>
+    ///   
+    pub hidden: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS).</p>
+    ///   
+    pub id: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>A boolean value that makes the browser disregard user input events for the element. Useful when click events are present.</p>
+    ///   
+    pub inert: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Provides a hint to browsers about the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> elements, but is usable on any element while in <a href="#contenteditable"><code>contenteditable</code></a> mode.</p>
+    ///   
+    pub inputmode: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
+    ///   
+    pub is: core::option::Option<AttributeValueOwned>,
+}
+#[allow(deprecated)]
+#[cfg(feature = "alloc")]
+impl H1Owned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "h1"
+    }
+    /// Sets an attribute of the element.
+    /// This sets the attribute of the struct. If the attribute is not a known attribute, it is added to the `extra` map.
+    /// If the `alloc` feature is disabled, this function will silently fail.
+    ///
+    /// # Note
+    /// This only works when the attribute is lowercase.
+    pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
+        match name {
+            "accesskey" => self.accesskey = Some(value.into()),
+            "autocapitalize" => self.autocapitalize = Some(value.into()),
+            "autofocus" => self.autofocus = Some(value.into()),
+            "class" => self.class = Some(value.into()),
+            "contenteditable" => self.contenteditable = Some(value.into()),
+            "contextmenu" => self.contextmenu = Some(value.into()),
+            "dir" => self.dir = Some(value.into()),
+            "draggable" => self.draggable = Some(value.into()),
+            "enterkeyhint" => self.enterkeyhint = Some(value.into()),
+            "exportparts" => self.exportparts = Some(value.into()),
+            "hidden" => self.hidden = Some(value.into()),
+            "id" => self.id = Some(value.into()),
+            "inert" => self.inert = Some(value.into()),
+            "inputmode" => self.inputmode = Some(value.into()),
+            "is" => self.is = Some(value.into()),
+            #[cfg(feature = "alloc")]
+            _ => {
+                #[allow(clippy::useless_conversion)]
+                self.extra.insert(name.into(), value.into());
+            }
+            #[cfg(not(feature = "alloc"))]
+            _ => {}
+        }
+    }
+}
+/// The <strong><code>&lt;h1&gt;</code></strong> to <strong><code>&lt;h6&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level and <code>&lt;h6&gt;</code> is the lowest.
+///
+/// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements>
+
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
+pub struct H2<'life> {
+    ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
+    ///   
+    pub accesskey: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>off</code> or <code>none</code>, no autocapitalization is applied (all letters default to lowercase)</li>
+    ///       <li><code>on</code> or <code>sentences</code>, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>words</code>, the first letter of each word defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>characters</code>, all letters should default to uppercase</li>
+    ///     </ul>
+    ///   
+    pub autocapitalize: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Indicates that an element is to be focused on page load, or as soon as the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> it is part of is displayed. This attribute is a boolean, initially false.</p>
+    ///   
+    pub autofocus: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>A space-separated list of the classes of the element. Classes allow CSS and JavaScript to select and access specific elements via the <a href="/en-US/docs/Web/CSS/Class_selectors">class selectors</a> or functions like the method <a href="/en-US/docs/Web/API/Document/getElementsByClassName"><code>Document.getElementsByClassName()</code></a>.</p>
+    ///   
+    pub class: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>An <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code> or the <em>empty string</em>, which indicates that the element must be editable;</li>
+    ///       <li><code>false</code>, which indicates that the element must not be editable.</li>
+    ///     </ul>
+    ///   
+    pub contenteditable: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>The <a href="#id"><strong><code>id</code></strong></a> of a <a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a> to use as the contextual menu for this element.</p>
+    ///   
+    pub contextmenu: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Forms a class of attributes, called custom data attributes, that allow proprietary information to be exchanged between the <a href="/en-US/docs/Web/HTML">HTML</a> and its <a href="/en-US/docs/Glossary/DOM">DOM</a> representation that may be used by scripts. All such custom data are available via the <a href="/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> interface of the element the attribute is set on. The <a href="/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property gives access to them.</p>
+    ///   
+    #[cfg(feature = "alloc")]
+    pub data: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating the directionality of the element's text. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>ltr</code>, which means <em>left to right</em> and is to be used for languages that are written from the left to the right (like English);</li>
+    ///       <li><code>rtl</code>, which means <em>right to left</em> and is to be used for languages that are written from the right to the left (like Arabic);</li>
+    ///       <li><code>auto</code>, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.</li>
+    ///     </ul>
+    ///   
+    pub dir: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating whether the element can be dragged, using the <a href="/en-US/docs/Web/API/HTML_Drag_and_Drop_API">Drag and Drop API</a>. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code>, which indicates that the element may be dragged</li>
+    ///       <li><code>false</code>, which indicates that the element may not be dragged.</li>
+    ///     </ul>
+    ///   
+    pub draggable: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Hints what action label (or icon) to present for the enter key on virtual keyboards.</p>
+    ///   
+    pub enterkeyhint: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Used to transitively export shadow parts from a nested shadow tree into a containing light tree.</p>
+    ///   
+    pub exportparts: core::option::Option<AttributeValue<'life>>,
+    /// /// Extra attributes of the element. This is a map of attribute names to their values, and the attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating that the element is not yet, or is no longer, <em>relevant</em>. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.</p>
+    ///   
+    pub hidden: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS).</p>
+    ///   
+    pub id: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>A boolean value that makes the browser disregard user input events for the element. Useful when click events are present.</p>
+    ///   
+    pub inert: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Provides a hint to browsers about the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> elements, but is usable on any element while in <a href="#contenteditable"><code>contenteditable</code></a> mode.</p>
+    ///   
+    pub inputmode: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
+    ///   
+    pub is: core::option::Option<AttributeValue<'life>>,
+}
+#[allow(deprecated)]
+
+impl<'life> H2<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "h2"
+    }
+    /// Sets an attribute of the element.
+    /// This sets the attribute of the struct. If the attribute is not a known attribute, it is added to the `extra` map.
+    /// If the `alloc` feature is disabled, this function will silently fail.
+    ///
+    /// # Note
+    /// This only works when the attribute is lowercase.
+    pub fn set_attr(
+        &mut self,
+        name: &'life str,
+        value: impl core::convert::Into<AttributeValue<'life>>,
+    ) {
+        match name {
+            "accesskey" => self.accesskey = Some(value.into()),
+            "autocapitalize" => self.autocapitalize = Some(value.into()),
+            "autofocus" => self.autofocus = Some(value.into()),
+            "class" => self.class = Some(value.into()),
+            "contenteditable" => self.contenteditable = Some(value.into()),
+            "contextmenu" => self.contextmenu = Some(value.into()),
+            "dir" => self.dir = Some(value.into()),
+            "draggable" => self.draggable = Some(value.into()),
+            "enterkeyhint" => self.enterkeyhint = Some(value.into()),
+            "exportparts" => self.exportparts = Some(value.into()),
+            "hidden" => self.hidden = Some(value.into()),
+            "id" => self.id = Some(value.into()),
+            "inert" => self.inert = Some(value.into()),
+            "inputmode" => self.inputmode = Some(value.into()),
+            "is" => self.is = Some(value.into()),
+            #[cfg(feature = "alloc")]
+            _ => {
+                #[allow(clippy::useless_conversion)]
+                self.extra.insert(name.into(), value.into());
+            }
+            #[cfg(not(feature = "alloc"))]
+            _ => {}
+        }
+    }
+}
+/// The <strong><code>&lt;h1&gt;</code></strong> to <strong><code>&lt;h6&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level and <code>&lt;h6&gt;</code> is the lowest.
+///
+/// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements>
+
+#[cfg(feature = "alloc")]
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
+pub struct H2Owned {
+    ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
+    ///   
+    pub accesskey: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>off</code> or <code>none</code>, no autocapitalization is applied (all letters default to lowercase)</li>
+    ///       <li><code>on</code> or <code>sentences</code>, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>words</code>, the first letter of each word defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>characters</code>, all letters should default to uppercase</li>
+    ///     </ul>
+    ///   
+    pub autocapitalize: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Indicates that an element is to be focused on page load, or as soon as the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> it is part of is displayed. This attribute is a boolean, initially false.</p>
+    ///   
+    pub autofocus: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>A space-separated list of the classes of the element. Classes allow CSS and JavaScript to select and access specific elements via the <a href="/en-US/docs/Web/CSS/Class_selectors">class selectors</a> or functions like the method <a href="/en-US/docs/Web/API/Document/getElementsByClassName"><code>Document.getElementsByClassName()</code></a>.</p>
+    ///   
+    pub class: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>An <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code> or the <em>empty string</em>, which indicates that the element must be editable;</li>
+    ///       <li><code>false</code>, which indicates that the element must not be editable.</li>
+    ///     </ul>
+    ///   
+    pub contenteditable: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>The <a href="#id"><strong><code>id</code></strong></a> of a <a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a> to use as the contextual menu for this element.</p>
+    ///   
+    pub contextmenu: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Forms a class of attributes, called custom data attributes, that allow proprietary information to be exchanged between the <a href="/en-US/docs/Web/HTML">HTML</a> and its <a href="/en-US/docs/Glossary/DOM">DOM</a> representation that may be used by scripts. All such custom data are available via the <a href="/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> interface of the element the attribute is set on. The <a href="/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property gives access to them.</p>
+    ///   
+    #[cfg(feature = "alloc")]
+    pub data: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating the directionality of the element's text. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>ltr</code>, which means <em>left to right</em> and is to be used for languages that are written from the left to the right (like English);</li>
+    ///       <li><code>rtl</code>, which means <em>right to left</em> and is to be used for languages that are written from the right to the left (like Arabic);</li>
+    ///       <li><code>auto</code>, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.</li>
+    ///     </ul>
+    ///   
+    pub dir: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating whether the element can be dragged, using the <a href="/en-US/docs/Web/API/HTML_Drag_and_Drop_API">Drag and Drop API</a>. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code>, which indicates that the element may be dragged</li>
+    ///       <li><code>false</code>, which indicates that the element may not be dragged.</li>
+    ///     </ul>
+    ///   
+    pub draggable: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Hints what action label (or icon) to present for the enter key on virtual keyboards.</p>
+    ///   
+    pub enterkeyhint: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Used to transitively export shadow parts from a nested shadow tree into a containing light tree.</p>
+    ///   
+    pub exportparts: core::option::Option<AttributeValueOwned>,
+    /// /// Extra attributes of the element. This is a map of attribute names to their values, and the attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating that the element is not yet, or is no longer, <em>relevant</em>. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.</p>
+    ///   
+    pub hidden: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS).</p>
+    ///   
+    pub id: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>A boolean value that makes the browser disregard user input events for the element. Useful when click events are present.</p>
+    ///   
+    pub inert: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Provides a hint to browsers about the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> elements, but is usable on any element while in <a href="#contenteditable"><code>contenteditable</code></a> mode.</p>
+    ///   
+    pub inputmode: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
+    ///   
+    pub is: core::option::Option<AttributeValueOwned>,
+}
+#[allow(deprecated)]
+#[cfg(feature = "alloc")]
+impl H2Owned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "h2"
+    }
+    /// Sets an attribute of the element.
+    /// This sets the attribute of the struct. If the attribute is not a known attribute, it is added to the `extra` map.
+    /// If the `alloc` feature is disabled, this function will silently fail.
+    ///
+    /// # Note
+    /// This only works when the attribute is lowercase.
+    pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
+        match name {
+            "accesskey" => self.accesskey = Some(value.into()),
+            "autocapitalize" => self.autocapitalize = Some(value.into()),
+            "autofocus" => self.autofocus = Some(value.into()),
+            "class" => self.class = Some(value.into()),
+            "contenteditable" => self.contenteditable = Some(value.into()),
+            "contextmenu" => self.contextmenu = Some(value.into()),
+            "dir" => self.dir = Some(value.into()),
+            "draggable" => self.draggable = Some(value.into()),
+            "enterkeyhint" => self.enterkeyhint = Some(value.into()),
+            "exportparts" => self.exportparts = Some(value.into()),
+            "hidden" => self.hidden = Some(value.into()),
+            "id" => self.id = Some(value.into()),
+            "inert" => self.inert = Some(value.into()),
+            "inputmode" => self.inputmode = Some(value.into()),
+            "is" => self.is = Some(value.into()),
+            #[cfg(feature = "alloc")]
+            _ => {
+                #[allow(clippy::useless_conversion)]
+                self.extra.insert(name.into(), value.into());
+            }
+            #[cfg(not(feature = "alloc"))]
+            _ => {}
+        }
+    }
+}
+/// The <strong><code>&lt;h1&gt;</code></strong> to <strong><code>&lt;h6&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level and <code>&lt;h6&gt;</code> is the lowest.
+///
+/// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements>
+
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
+pub struct H3<'life> {
+    ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
+    ///   
+    pub accesskey: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>off</code> or <code>none</code>, no autocapitalization is applied (all letters default to lowercase)</li>
+    ///       <li><code>on</code> or <code>sentences</code>, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>words</code>, the first letter of each word defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>characters</code>, all letters should default to uppercase</li>
+    ///     </ul>
+    ///   
+    pub autocapitalize: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Indicates that an element is to be focused on page load, or as soon as the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> it is part of is displayed. This attribute is a boolean, initially false.</p>
+    ///   
+    pub autofocus: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>A space-separated list of the classes of the element. Classes allow CSS and JavaScript to select and access specific elements via the <a href="/en-US/docs/Web/CSS/Class_selectors">class selectors</a> or functions like the method <a href="/en-US/docs/Web/API/Document/getElementsByClassName"><code>Document.getElementsByClassName()</code></a>.</p>
+    ///   
+    pub class: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>An <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code> or the <em>empty string</em>, which indicates that the element must be editable;</li>
+    ///       <li><code>false</code>, which indicates that the element must not be editable.</li>
+    ///     </ul>
+    ///   
+    pub contenteditable: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>The <a href="#id"><strong><code>id</code></strong></a> of a <a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a> to use as the contextual menu for this element.</p>
+    ///   
+    pub contextmenu: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Forms a class of attributes, called custom data attributes, that allow proprietary information to be exchanged between the <a href="/en-US/docs/Web/HTML">HTML</a> and its <a href="/en-US/docs/Glossary/DOM">DOM</a> representation that may be used by scripts. All such custom data are available via the <a href="/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> interface of the element the attribute is set on. The <a href="/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property gives access to them.</p>
+    ///   
+    #[cfg(feature = "alloc")]
+    pub data: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating the directionality of the element's text. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>ltr</code>, which means <em>left to right</em> and is to be used for languages that are written from the left to the right (like English);</li>
+    ///       <li><code>rtl</code>, which means <em>right to left</em> and is to be used for languages that are written from the right to the left (like Arabic);</li>
+    ///       <li><code>auto</code>, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.</li>
+    ///     </ul>
+    ///   
+    pub dir: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating whether the element can be dragged, using the <a href="/en-US/docs/Web/API/HTML_Drag_and_Drop_API">Drag and Drop API</a>. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code>, which indicates that the element may be dragged</li>
+    ///       <li><code>false</code>, which indicates that the element may not be dragged.</li>
+    ///     </ul>
+    ///   
+    pub draggable: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Hints what action label (or icon) to present for the enter key on virtual keyboards.</p>
+    ///   
+    pub enterkeyhint: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Used to transitively export shadow parts from a nested shadow tree into a containing light tree.</p>
+    ///   
+    pub exportparts: core::option::Option<AttributeValue<'life>>,
+    /// /// Extra attributes of the element. This is a map of attribute names to their values, and the attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating that the element is not yet, or is no longer, <em>relevant</em>. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.</p>
+    ///   
+    pub hidden: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS).</p>
+    ///   
+    pub id: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>A boolean value that makes the browser disregard user input events for the element. Useful when click events are present.</p>
+    ///   
+    pub inert: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Provides a hint to browsers about the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> elements, but is usable on any element while in <a href="#contenteditable"><code>contenteditable</code></a> mode.</p>
+    ///   
+    pub inputmode: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
+    ///   
+    pub is: core::option::Option<AttributeValue<'life>>,
+}
+#[allow(deprecated)]
+
+impl<'life> H3<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "h3"
+    }
+    /// Sets an attribute of the element.
+    /// This sets the attribute of the struct. If the attribute is not a known attribute, it is added to the `extra` map.
+    /// If the `alloc` feature is disabled, this function will silently fail.
+    ///
+    /// # Note
+    /// This only works when the attribute is lowercase.
+    pub fn set_attr(
+        &mut self,
+        name: &'life str,
+        value: impl core::convert::Into<AttributeValue<'life>>,
+    ) {
+        match name {
+            "accesskey" => self.accesskey = Some(value.into()),
+            "autocapitalize" => self.autocapitalize = Some(value.into()),
+            "autofocus" => self.autofocus = Some(value.into()),
+            "class" => self.class = Some(value.into()),
+            "contenteditable" => self.contenteditable = Some(value.into()),
+            "contextmenu" => self.contextmenu = Some(value.into()),
+            "dir" => self.dir = Some(value.into()),
+            "draggable" => self.draggable = Some(value.into()),
+            "enterkeyhint" => self.enterkeyhint = Some(value.into()),
+            "exportparts" => self.exportparts = Some(value.into()),
+            "hidden" => self.hidden = Some(value.into()),
+            "id" => self.id = Some(value.into()),
+            "inert" => self.inert = Some(value.into()),
+            "inputmode" => self.inputmode = Some(value.into()),
+            "is" => self.is = Some(value.into()),
+            #[cfg(feature = "alloc")]
+            _ => {
+                #[allow(clippy::useless_conversion)]
+                self.extra.insert(name.into(), value.into());
+            }
+            #[cfg(not(feature = "alloc"))]
+            _ => {}
+        }
+    }
+}
+/// The <strong><code>&lt;h1&gt;</code></strong> to <strong><code>&lt;h6&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level and <code>&lt;h6&gt;</code> is the lowest.
+///
+/// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements>
+
+#[cfg(feature = "alloc")]
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
+pub struct H3Owned {
+    ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
+    ///   
+    pub accesskey: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>off</code> or <code>none</code>, no autocapitalization is applied (all letters default to lowercase)</li>
+    ///       <li><code>on</code> or <code>sentences</code>, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>words</code>, the first letter of each word defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>characters</code>, all letters should default to uppercase</li>
+    ///     </ul>
+    ///   
+    pub autocapitalize: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Indicates that an element is to be focused on page load, or as soon as the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> it is part of is displayed. This attribute is a boolean, initially false.</p>
+    ///   
+    pub autofocus: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>A space-separated list of the classes of the element. Classes allow CSS and JavaScript to select and access specific elements via the <a href="/en-US/docs/Web/CSS/Class_selectors">class selectors</a> or functions like the method <a href="/en-US/docs/Web/API/Document/getElementsByClassName"><code>Document.getElementsByClassName()</code></a>.</p>
+    ///   
+    pub class: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>An <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code> or the <em>empty string</em>, which indicates that the element must be editable;</li>
+    ///       <li><code>false</code>, which indicates that the element must not be editable.</li>
+    ///     </ul>
+    ///   
+    pub contenteditable: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>The <a href="#id"><strong><code>id</code></strong></a> of a <a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a> to use as the contextual menu for this element.</p>
+    ///   
+    pub contextmenu: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Forms a class of attributes, called custom data attributes, that allow proprietary information to be exchanged between the <a href="/en-US/docs/Web/HTML">HTML</a> and its <a href="/en-US/docs/Glossary/DOM">DOM</a> representation that may be used by scripts. All such custom data are available via the <a href="/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> interface of the element the attribute is set on. The <a href="/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property gives access to them.</p>
+    ///   
+    #[cfg(feature = "alloc")]
+    pub data: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating the directionality of the element's text. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>ltr</code>, which means <em>left to right</em> and is to be used for languages that are written from the left to the right (like English);</li>
+    ///       <li><code>rtl</code>, which means <em>right to left</em> and is to be used for languages that are written from the right to the left (like Arabic);</li>
+    ///       <li><code>auto</code>, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.</li>
+    ///     </ul>
+    ///   
+    pub dir: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating whether the element can be dragged, using the <a href="/en-US/docs/Web/API/HTML_Drag_and_Drop_API">Drag and Drop API</a>. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code>, which indicates that the element may be dragged</li>
+    ///       <li><code>false</code>, which indicates that the element may not be dragged.</li>
+    ///     </ul>
+    ///   
+    pub draggable: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Hints what action label (or icon) to present for the enter key on virtual keyboards.</p>
+    ///   
+    pub enterkeyhint: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Used to transitively export shadow parts from a nested shadow tree into a containing light tree.</p>
+    ///   
+    pub exportparts: core::option::Option<AttributeValueOwned>,
+    /// /// Extra attributes of the element. This is a map of attribute names to their values, and the attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating that the element is not yet, or is no longer, <em>relevant</em>. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.</p>
+    ///   
+    pub hidden: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS).</p>
+    ///   
+    pub id: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>A boolean value that makes the browser disregard user input events for the element. Useful when click events are present.</p>
+    ///   
+    pub inert: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Provides a hint to browsers about the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> elements, but is usable on any element while in <a href="#contenteditable"><code>contenteditable</code></a> mode.</p>
+    ///   
+    pub inputmode: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
+    ///   
+    pub is: core::option::Option<AttributeValueOwned>,
+}
+#[allow(deprecated)]
+#[cfg(feature = "alloc")]
+impl H3Owned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "h3"
+    }
+    /// Sets an attribute of the element.
+    /// This sets the attribute of the struct. If the attribute is not a known attribute, it is added to the `extra` map.
+    /// If the `alloc` feature is disabled, this function will silently fail.
+    ///
+    /// # Note
+    /// This only works when the attribute is lowercase.
+    pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
+        match name {
+            "accesskey" => self.accesskey = Some(value.into()),
+            "autocapitalize" => self.autocapitalize = Some(value.into()),
+            "autofocus" => self.autofocus = Some(value.into()),
+            "class" => self.class = Some(value.into()),
+            "contenteditable" => self.contenteditable = Some(value.into()),
+            "contextmenu" => self.contextmenu = Some(value.into()),
+            "dir" => self.dir = Some(value.into()),
+            "draggable" => self.draggable = Some(value.into()),
+            "enterkeyhint" => self.enterkeyhint = Some(value.into()),
+            "exportparts" => self.exportparts = Some(value.into()),
+            "hidden" => self.hidden = Some(value.into()),
+            "id" => self.id = Some(value.into()),
+            "inert" => self.inert = Some(value.into()),
+            "inputmode" => self.inputmode = Some(value.into()),
+            "is" => self.is = Some(value.into()),
+            #[cfg(feature = "alloc")]
+            _ => {
+                #[allow(clippy::useless_conversion)]
+                self.extra.insert(name.into(), value.into());
+            }
+            #[cfg(not(feature = "alloc"))]
+            _ => {}
+        }
+    }
+}
+/// The <strong><code>&lt;h1&gt;</code></strong> to <strong><code>&lt;h6&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level and <code>&lt;h6&gt;</code> is the lowest.
+///
+/// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements>
+
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
+pub struct H4<'life> {
+    ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
+    ///   
+    pub accesskey: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>off</code> or <code>none</code>, no autocapitalization is applied (all letters default to lowercase)</li>
+    ///       <li><code>on</code> or <code>sentences</code>, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>words</code>, the first letter of each word defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>characters</code>, all letters should default to uppercase</li>
+    ///     </ul>
+    ///   
+    pub autocapitalize: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Indicates that an element is to be focused on page load, or as soon as the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> it is part of is displayed. This attribute is a boolean, initially false.</p>
+    ///   
+    pub autofocus: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>A space-separated list of the classes of the element. Classes allow CSS and JavaScript to select and access specific elements via the <a href="/en-US/docs/Web/CSS/Class_selectors">class selectors</a> or functions like the method <a href="/en-US/docs/Web/API/Document/getElementsByClassName"><code>Document.getElementsByClassName()</code></a>.</p>
+    ///   
+    pub class: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>An <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code> or the <em>empty string</em>, which indicates that the element must be editable;</li>
+    ///       <li><code>false</code>, which indicates that the element must not be editable.</li>
+    ///     </ul>
+    ///   
+    pub contenteditable: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>The <a href="#id"><strong><code>id</code></strong></a> of a <a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a> to use as the contextual menu for this element.</p>
+    ///   
+    pub contextmenu: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Forms a class of attributes, called custom data attributes, that allow proprietary information to be exchanged between the <a href="/en-US/docs/Web/HTML">HTML</a> and its <a href="/en-US/docs/Glossary/DOM">DOM</a> representation that may be used by scripts. All such custom data are available via the <a href="/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> interface of the element the attribute is set on. The <a href="/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property gives access to them.</p>
+    ///   
+    #[cfg(feature = "alloc")]
+    pub data: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating the directionality of the element's text. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>ltr</code>, which means <em>left to right</em> and is to be used for languages that are written from the left to the right (like English);</li>
+    ///       <li><code>rtl</code>, which means <em>right to left</em> and is to be used for languages that are written from the right to the left (like Arabic);</li>
+    ///       <li><code>auto</code>, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.</li>
+    ///     </ul>
+    ///   
+    pub dir: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating whether the element can be dragged, using the <a href="/en-US/docs/Web/API/HTML_Drag_and_Drop_API">Drag and Drop API</a>. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code>, which indicates that the element may be dragged</li>
+    ///       <li><code>false</code>, which indicates that the element may not be dragged.</li>
+    ///     </ul>
+    ///   
+    pub draggable: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Hints what action label (or icon) to present for the enter key on virtual keyboards.</p>
+    ///   
+    pub enterkeyhint: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Used to transitively export shadow parts from a nested shadow tree into a containing light tree.</p>
+    ///   
+    pub exportparts: core::option::Option<AttributeValue<'life>>,
+    /// /// Extra attributes of the element. This is a map of attribute names to their values, and the attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating that the element is not yet, or is no longer, <em>relevant</em>. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.</p>
+    ///   
+    pub hidden: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS).</p>
+    ///   
+    pub id: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>A boolean value that makes the browser disregard user input events for the element. Useful when click events are present.</p>
+    ///   
+    pub inert: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Provides a hint to browsers about the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> elements, but is usable on any element while in <a href="#contenteditable"><code>contenteditable</code></a> mode.</p>
+    ///   
+    pub inputmode: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
+    ///   
+    pub is: core::option::Option<AttributeValue<'life>>,
+}
+#[allow(deprecated)]
+
+impl<'life> H4<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "h4"
+    }
+    /// Sets an attribute of the element.
+    /// This sets the attribute of the struct. If the attribute is not a known attribute, it is added to the `extra` map.
+    /// If the `alloc` feature is disabled, this function will silently fail.
+    ///
+    /// # Note
+    /// This only works when the attribute is lowercase.
+    pub fn set_attr(
+        &mut self,
+        name: &'life str,
+        value: impl core::convert::Into<AttributeValue<'life>>,
+    ) {
+        match name {
+            "accesskey" => self.accesskey = Some(value.into()),
+            "autocapitalize" => self.autocapitalize = Some(value.into()),
+            "autofocus" => self.autofocus = Some(value.into()),
+            "class" => self.class = Some(value.into()),
+            "contenteditable" => self.contenteditable = Some(value.into()),
+            "contextmenu" => self.contextmenu = Some(value.into()),
+            "dir" => self.dir = Some(value.into()),
+            "draggable" => self.draggable = Some(value.into()),
+            "enterkeyhint" => self.enterkeyhint = Some(value.into()),
+            "exportparts" => self.exportparts = Some(value.into()),
+            "hidden" => self.hidden = Some(value.into()),
+            "id" => self.id = Some(value.into()),
+            "inert" => self.inert = Some(value.into()),
+            "inputmode" => self.inputmode = Some(value.into()),
+            "is" => self.is = Some(value.into()),
+            #[cfg(feature = "alloc")]
+            _ => {
+                #[allow(clippy::useless_conversion)]
+                self.extra.insert(name.into(), value.into());
+            }
+            #[cfg(not(feature = "alloc"))]
+            _ => {}
+        }
+    }
+}
+/// The <strong><code>&lt;h1&gt;</code></strong> to <strong><code>&lt;h6&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level and <code>&lt;h6&gt;</code> is the lowest.
+///
+/// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements>
+
+#[cfg(feature = "alloc")]
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
+pub struct H4Owned {
+    ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
+    ///   
+    pub accesskey: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>off</code> or <code>none</code>, no autocapitalization is applied (all letters default to lowercase)</li>
+    ///       <li><code>on</code> or <code>sentences</code>, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>words</code>, the first letter of each word defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>characters</code>, all letters should default to uppercase</li>
+    ///     </ul>
+    ///   
+    pub autocapitalize: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Indicates that an element is to be focused on page load, or as soon as the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> it is part of is displayed. This attribute is a boolean, initially false.</p>
+    ///   
+    pub autofocus: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>A space-separated list of the classes of the element. Classes allow CSS and JavaScript to select and access specific elements via the <a href="/en-US/docs/Web/CSS/Class_selectors">class selectors</a> or functions like the method <a href="/en-US/docs/Web/API/Document/getElementsByClassName"><code>Document.getElementsByClassName()</code></a>.</p>
+    ///   
+    pub class: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>An <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code> or the <em>empty string</em>, which indicates that the element must be editable;</li>
+    ///       <li><code>false</code>, which indicates that the element must not be editable.</li>
+    ///     </ul>
+    ///   
+    pub contenteditable: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>The <a href="#id"><strong><code>id</code></strong></a> of a <a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a> to use as the contextual menu for this element.</p>
+    ///   
+    pub contextmenu: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Forms a class of attributes, called custom data attributes, that allow proprietary information to be exchanged between the <a href="/en-US/docs/Web/HTML">HTML</a> and its <a href="/en-US/docs/Glossary/DOM">DOM</a> representation that may be used by scripts. All such custom data are available via the <a href="/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> interface of the element the attribute is set on. The <a href="/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property gives access to them.</p>
+    ///   
+    #[cfg(feature = "alloc")]
+    pub data: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating the directionality of the element's text. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>ltr</code>, which means <em>left to right</em> and is to be used for languages that are written from the left to the right (like English);</li>
+    ///       <li><code>rtl</code>, which means <em>right to left</em> and is to be used for languages that are written from the right to the left (like Arabic);</li>
+    ///       <li><code>auto</code>, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.</li>
+    ///     </ul>
+    ///   
+    pub dir: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating whether the element can be dragged, using the <a href="/en-US/docs/Web/API/HTML_Drag_and_Drop_API">Drag and Drop API</a>. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code>, which indicates that the element may be dragged</li>
+    ///       <li><code>false</code>, which indicates that the element may not be dragged.</li>
+    ///     </ul>
+    ///   
+    pub draggable: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Hints what action label (or icon) to present for the enter key on virtual keyboards.</p>
+    ///   
+    pub enterkeyhint: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Used to transitively export shadow parts from a nested shadow tree into a containing light tree.</p>
+    ///   
+    pub exportparts: core::option::Option<AttributeValueOwned>,
+    /// /// Extra attributes of the element. This is a map of attribute names to their values, and the attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating that the element is not yet, or is no longer, <em>relevant</em>. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.</p>
+    ///   
+    pub hidden: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS).</p>
+    ///   
+    pub id: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>A boolean value that makes the browser disregard user input events for the element. Useful when click events are present.</p>
+    ///   
+    pub inert: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Provides a hint to browsers about the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> elements, but is usable on any element while in <a href="#contenteditable"><code>contenteditable</code></a> mode.</p>
+    ///   
+    pub inputmode: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
+    ///   
+    pub is: core::option::Option<AttributeValueOwned>,
+}
+#[allow(deprecated)]
+#[cfg(feature = "alloc")]
+impl H4Owned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "h4"
+    }
+    /// Sets an attribute of the element.
+    /// This sets the attribute of the struct. If the attribute is not a known attribute, it is added to the `extra` map.
+    /// If the `alloc` feature is disabled, this function will silently fail.
+    ///
+    /// # Note
+    /// This only works when the attribute is lowercase.
+    pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
+        match name {
+            "accesskey" => self.accesskey = Some(value.into()),
+            "autocapitalize" => self.autocapitalize = Some(value.into()),
+            "autofocus" => self.autofocus = Some(value.into()),
+            "class" => self.class = Some(value.into()),
+            "contenteditable" => self.contenteditable = Some(value.into()),
+            "contextmenu" => self.contextmenu = Some(value.into()),
+            "dir" => self.dir = Some(value.into()),
+            "draggable" => self.draggable = Some(value.into()),
+            "enterkeyhint" => self.enterkeyhint = Some(value.into()),
+            "exportparts" => self.exportparts = Some(value.into()),
+            "hidden" => self.hidden = Some(value.into()),
+            "id" => self.id = Some(value.into()),
+            "inert" => self.inert = Some(value.into()),
+            "inputmode" => self.inputmode = Some(value.into()),
+            "is" => self.is = Some(value.into()),
+            #[cfg(feature = "alloc")]
+            _ => {
+                #[allow(clippy::useless_conversion)]
+                self.extra.insert(name.into(), value.into());
+            }
+            #[cfg(not(feature = "alloc"))]
+            _ => {}
+        }
+    }
+}
+/// The <strong><code>&lt;h1&gt;</code></strong> to <strong><code>&lt;h6&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level and <code>&lt;h6&gt;</code> is the lowest.
+///
+/// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements>
+
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
+pub struct H5<'life> {
+    ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
+    ///   
+    pub accesskey: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>off</code> or <code>none</code>, no autocapitalization is applied (all letters default to lowercase)</li>
+    ///       <li><code>on</code> or <code>sentences</code>, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>words</code>, the first letter of each word defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>characters</code>, all letters should default to uppercase</li>
+    ///     </ul>
+    ///   
+    pub autocapitalize: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Indicates that an element is to be focused on page load, or as soon as the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> it is part of is displayed. This attribute is a boolean, initially false.</p>
+    ///   
+    pub autofocus: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>A space-separated list of the classes of the element. Classes allow CSS and JavaScript to select and access specific elements via the <a href="/en-US/docs/Web/CSS/Class_selectors">class selectors</a> or functions like the method <a href="/en-US/docs/Web/API/Document/getElementsByClassName"><code>Document.getElementsByClassName()</code></a>.</p>
+    ///   
+    pub class: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>An <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code> or the <em>empty string</em>, which indicates that the element must be editable;</li>
+    ///       <li><code>false</code>, which indicates that the element must not be editable.</li>
+    ///     </ul>
+    ///   
+    pub contenteditable: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>The <a href="#id"><strong><code>id</code></strong></a> of a <a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a> to use as the contextual menu for this element.</p>
+    ///   
+    pub contextmenu: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Forms a class of attributes, called custom data attributes, that allow proprietary information to be exchanged between the <a href="/en-US/docs/Web/HTML">HTML</a> and its <a href="/en-US/docs/Glossary/DOM">DOM</a> representation that may be used by scripts. All such custom data are available via the <a href="/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> interface of the element the attribute is set on. The <a href="/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property gives access to them.</p>
+    ///   
+    #[cfg(feature = "alloc")]
+    pub data: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating the directionality of the element's text. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>ltr</code>, which means <em>left to right</em> and is to be used for languages that are written from the left to the right (like English);</li>
+    ///       <li><code>rtl</code>, which means <em>right to left</em> and is to be used for languages that are written from the right to the left (like Arabic);</li>
+    ///       <li><code>auto</code>, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.</li>
+    ///     </ul>
+    ///   
+    pub dir: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating whether the element can be dragged, using the <a href="/en-US/docs/Web/API/HTML_Drag_and_Drop_API">Drag and Drop API</a>. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code>, which indicates that the element may be dragged</li>
+    ///       <li><code>false</code>, which indicates that the element may not be dragged.</li>
+    ///     </ul>
+    ///   
+    pub draggable: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Hints what action label (or icon) to present for the enter key on virtual keyboards.</p>
+    ///   
+    pub enterkeyhint: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Used to transitively export shadow parts from a nested shadow tree into a containing light tree.</p>
+    ///   
+    pub exportparts: core::option::Option<AttributeValue<'life>>,
+    /// /// Extra attributes of the element. This is a map of attribute names to their values, and the attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating that the element is not yet, or is no longer, <em>relevant</em>. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.</p>
+    ///   
+    pub hidden: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS).</p>
+    ///   
+    pub id: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>A boolean value that makes the browser disregard user input events for the element. Useful when click events are present.</p>
+    ///   
+    pub inert: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Provides a hint to browsers about the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> elements, but is usable on any element while in <a href="#contenteditable"><code>contenteditable</code></a> mode.</p>
+    ///   
+    pub inputmode: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
+    ///   
+    pub is: core::option::Option<AttributeValue<'life>>,
+}
+#[allow(deprecated)]
+
+impl<'life> H5<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "h5"
+    }
+    /// Sets an attribute of the element.
+    /// This sets the attribute of the struct. If the attribute is not a known attribute, it is added to the `extra` map.
+    /// If the `alloc` feature is disabled, this function will silently fail.
+    ///
+    /// # Note
+    /// This only works when the attribute is lowercase.
+    pub fn set_attr(
+        &mut self,
+        name: &'life str,
+        value: impl core::convert::Into<AttributeValue<'life>>,
+    ) {
+        match name {
+            "accesskey" => self.accesskey = Some(value.into()),
+            "autocapitalize" => self.autocapitalize = Some(value.into()),
+            "autofocus" => self.autofocus = Some(value.into()),
+            "class" => self.class = Some(value.into()),
+            "contenteditable" => self.contenteditable = Some(value.into()),
+            "contextmenu" => self.contextmenu = Some(value.into()),
+            "dir" => self.dir = Some(value.into()),
+            "draggable" => self.draggable = Some(value.into()),
+            "enterkeyhint" => self.enterkeyhint = Some(value.into()),
+            "exportparts" => self.exportparts = Some(value.into()),
+            "hidden" => self.hidden = Some(value.into()),
+            "id" => self.id = Some(value.into()),
+            "inert" => self.inert = Some(value.into()),
+            "inputmode" => self.inputmode = Some(value.into()),
+            "is" => self.is = Some(value.into()),
+            #[cfg(feature = "alloc")]
+            _ => {
+                #[allow(clippy::useless_conversion)]
+                self.extra.insert(name.into(), value.into());
+            }
+            #[cfg(not(feature = "alloc"))]
+            _ => {}
+        }
+    }
+}
+/// The <strong><code>&lt;h1&gt;</code></strong> to <strong><code>&lt;h6&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level and <code>&lt;h6&gt;</code> is the lowest.
+///
+/// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements>
+
+#[cfg(feature = "alloc")]
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
+pub struct H5Owned {
+    ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
+    ///   
+    pub accesskey: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>off</code> or <code>none</code>, no autocapitalization is applied (all letters default to lowercase)</li>
+    ///       <li><code>on</code> or <code>sentences</code>, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>words</code>, the first letter of each word defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>characters</code>, all letters should default to uppercase</li>
+    ///     </ul>
+    ///   
+    pub autocapitalize: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Indicates that an element is to be focused on page load, or as soon as the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> it is part of is displayed. This attribute is a boolean, initially false.</p>
+    ///   
+    pub autofocus: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>A space-separated list of the classes of the element. Classes allow CSS and JavaScript to select and access specific elements via the <a href="/en-US/docs/Web/CSS/Class_selectors">class selectors</a> or functions like the method <a href="/en-US/docs/Web/API/Document/getElementsByClassName"><code>Document.getElementsByClassName()</code></a>.</p>
+    ///   
+    pub class: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>An <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code> or the <em>empty string</em>, which indicates that the element must be editable;</li>
+    ///       <li><code>false</code>, which indicates that the element must not be editable.</li>
+    ///     </ul>
+    ///   
+    pub contenteditable: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>The <a href="#id"><strong><code>id</code></strong></a> of a <a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a> to use as the contextual menu for this element.</p>
+    ///   
+    pub contextmenu: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Forms a class of attributes, called custom data attributes, that allow proprietary information to be exchanged between the <a href="/en-US/docs/Web/HTML">HTML</a> and its <a href="/en-US/docs/Glossary/DOM">DOM</a> representation that may be used by scripts. All such custom data are available via the <a href="/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> interface of the element the attribute is set on. The <a href="/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property gives access to them.</p>
+    ///   
+    #[cfg(feature = "alloc")]
+    pub data: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating the directionality of the element's text. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>ltr</code>, which means <em>left to right</em> and is to be used for languages that are written from the left to the right (like English);</li>
+    ///       <li><code>rtl</code>, which means <em>right to left</em> and is to be used for languages that are written from the right to the left (like Arabic);</li>
+    ///       <li><code>auto</code>, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.</li>
+    ///     </ul>
+    ///   
+    pub dir: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating whether the element can be dragged, using the <a href="/en-US/docs/Web/API/HTML_Drag_and_Drop_API">Drag and Drop API</a>. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code>, which indicates that the element may be dragged</li>
+    ///       <li><code>false</code>, which indicates that the element may not be dragged.</li>
+    ///     </ul>
+    ///   
+    pub draggable: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Hints what action label (or icon) to present for the enter key on virtual keyboards.</p>
+    ///   
+    pub enterkeyhint: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Used to transitively export shadow parts from a nested shadow tree into a containing light tree.</p>
+    ///   
+    pub exportparts: core::option::Option<AttributeValueOwned>,
+    /// /// Extra attributes of the element. This is a map of attribute names to their values, and the attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating that the element is not yet, or is no longer, <em>relevant</em>. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.</p>
+    ///   
+    pub hidden: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS).</p>
+    ///   
+    pub id: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>A boolean value that makes the browser disregard user input events for the element. Useful when click events are present.</p>
+    ///   
+    pub inert: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Provides a hint to browsers about the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> elements, but is usable on any element while in <a href="#contenteditable"><code>contenteditable</code></a> mode.</p>
+    ///   
+    pub inputmode: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
+    ///   
+    pub is: core::option::Option<AttributeValueOwned>,
+}
+#[allow(deprecated)]
+#[cfg(feature = "alloc")]
+impl H5Owned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "h5"
+    }
+    /// Sets an attribute of the element.
+    /// This sets the attribute of the struct. If the attribute is not a known attribute, it is added to the `extra` map.
+    /// If the `alloc` feature is disabled, this function will silently fail.
+    ///
+    /// # Note
+    /// This only works when the attribute is lowercase.
+    pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
+        match name {
+            "accesskey" => self.accesskey = Some(value.into()),
+            "autocapitalize" => self.autocapitalize = Some(value.into()),
+            "autofocus" => self.autofocus = Some(value.into()),
+            "class" => self.class = Some(value.into()),
+            "contenteditable" => self.contenteditable = Some(value.into()),
+            "contextmenu" => self.contextmenu = Some(value.into()),
+            "dir" => self.dir = Some(value.into()),
+            "draggable" => self.draggable = Some(value.into()),
+            "enterkeyhint" => self.enterkeyhint = Some(value.into()),
+            "exportparts" => self.exportparts = Some(value.into()),
+            "hidden" => self.hidden = Some(value.into()),
+            "id" => self.id = Some(value.into()),
+            "inert" => self.inert = Some(value.into()),
+            "inputmode" => self.inputmode = Some(value.into()),
+            "is" => self.is = Some(value.into()),
+            #[cfg(feature = "alloc")]
+            _ => {
+                #[allow(clippy::useless_conversion)]
+                self.extra.insert(name.into(), value.into());
+            }
+            #[cfg(not(feature = "alloc"))]
+            _ => {}
+        }
+    }
+}
+/// The <strong><code>&lt;h1&gt;</code></strong> to <strong><code>&lt;h6&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level and <code>&lt;h6&gt;</code> is the lowest.
+///
+/// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements>
+
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
+pub struct H6<'life> {
+    ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
+    ///   
+    pub accesskey: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>off</code> or <code>none</code>, no autocapitalization is applied (all letters default to lowercase)</li>
+    ///       <li><code>on</code> or <code>sentences</code>, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>words</code>, the first letter of each word defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>characters</code>, all letters should default to uppercase</li>
+    ///     </ul>
+    ///   
+    pub autocapitalize: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Indicates that an element is to be focused on page load, or as soon as the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> it is part of is displayed. This attribute is a boolean, initially false.</p>
+    ///   
+    pub autofocus: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>A space-separated list of the classes of the element. Classes allow CSS and JavaScript to select and access specific elements via the <a href="/en-US/docs/Web/CSS/Class_selectors">class selectors</a> or functions like the method <a href="/en-US/docs/Web/API/Document/getElementsByClassName"><code>Document.getElementsByClassName()</code></a>.</p>
+    ///   
+    pub class: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>An <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code> or the <em>empty string</em>, which indicates that the element must be editable;</li>
+    ///       <li><code>false</code>, which indicates that the element must not be editable.</li>
+    ///     </ul>
+    ///   
+    pub contenteditable: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>The <a href="#id"><strong><code>id</code></strong></a> of a <a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a> to use as the contextual menu for this element.</p>
+    ///   
+    pub contextmenu: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Forms a class of attributes, called custom data attributes, that allow proprietary information to be exchanged between the <a href="/en-US/docs/Web/HTML">HTML</a> and its <a href="/en-US/docs/Glossary/DOM">DOM</a> representation that may be used by scripts. All such custom data are available via the <a href="/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> interface of the element the attribute is set on. The <a href="/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property gives access to them.</p>
+    ///   
+    #[cfg(feature = "alloc")]
+    pub data: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating the directionality of the element's text. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>ltr</code>, which means <em>left to right</em> and is to be used for languages that are written from the left to the right (like English);</li>
+    ///       <li><code>rtl</code>, which means <em>right to left</em> and is to be used for languages that are written from the right to the left (like Arabic);</li>
+    ///       <li><code>auto</code>, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.</li>
+    ///     </ul>
+    ///   
+    pub dir: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating whether the element can be dragged, using the <a href="/en-US/docs/Web/API/HTML_Drag_and_Drop_API">Drag and Drop API</a>. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code>, which indicates that the element may be dragged</li>
+    ///       <li><code>false</code>, which indicates that the element may not be dragged.</li>
+    ///     </ul>
+    ///   
+    pub draggable: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Hints what action label (or icon) to present for the enter key on virtual keyboards.</p>
+    ///   
+    pub enterkeyhint: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Used to transitively export shadow parts from a nested shadow tree into a containing light tree.</p>
+    ///   
+    pub exportparts: core::option::Option<AttributeValue<'life>>,
+    /// /// Extra attributes of the element. This is a map of attribute names to their values, and the attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>,
+    ///
+    ///     <p>An enumerated attribute indicating that the element is not yet, or is no longer, <em>relevant</em>. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.</p>
+    ///   
+    pub hidden: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS).</p>
+    ///   
+    pub id: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>A boolean value that makes the browser disregard user input events for the element. Useful when click events are present.</p>
+    ///   
+    pub inert: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Provides a hint to browsers about the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> elements, but is usable on any element while in <a href="#contenteditable"><code>contenteditable</code></a> mode.</p>
+    ///   
+    pub inputmode: core::option::Option<AttributeValue<'life>>,
+    ///
+    ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
+    ///   
+    pub is: core::option::Option<AttributeValue<'life>>,
+}
+#[allow(deprecated)]
+
+impl<'life> H6<'life> {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "h6"
+    }
+    /// Sets an attribute of the element.
+    /// This sets the attribute of the struct. If the attribute is not a known attribute, it is added to the `extra` map.
+    /// If the `alloc` feature is disabled, this function will silently fail.
+    ///
+    /// # Note
+    /// This only works when the attribute is lowercase.
+    pub fn set_attr(
+        &mut self,
+        name: &'life str,
+        value: impl core::convert::Into<AttributeValue<'life>>,
+    ) {
+        match name {
+            "accesskey" => self.accesskey = Some(value.into()),
+            "autocapitalize" => self.autocapitalize = Some(value.into()),
+            "autofocus" => self.autofocus = Some(value.into()),
+            "class" => self.class = Some(value.into()),
+            "contenteditable" => self.contenteditable = Some(value.into()),
+            "contextmenu" => self.contextmenu = Some(value.into()),
+            "dir" => self.dir = Some(value.into()),
+            "draggable" => self.draggable = Some(value.into()),
+            "enterkeyhint" => self.enterkeyhint = Some(value.into()),
+            "exportparts" => self.exportparts = Some(value.into()),
+            "hidden" => self.hidden = Some(value.into()),
+            "id" => self.id = Some(value.into()),
+            "inert" => self.inert = Some(value.into()),
+            "inputmode" => self.inputmode = Some(value.into()),
+            "is" => self.is = Some(value.into()),
+            #[cfg(feature = "alloc")]
+            _ => {
+                #[allow(clippy::useless_conversion)]
+                self.extra.insert(name.into(), value.into());
+            }
+            #[cfg(not(feature = "alloc"))]
+            _ => {}
+        }
+    }
+}
+/// The <strong><code>&lt;h1&gt;</code></strong> to <strong><code>&lt;h6&gt;</code></strong> <a href="/en-US/docs/Web/HTML">HTML</a> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level and <code>&lt;h6&gt;</code> is the lowest.
+///
+/// More information: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements>
+
+#[cfg(feature = "alloc")]
+#[derive(Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
+pub struct H6Owned {
+    ///     <p>Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters. The browser should use the first one that exists on the computer keyboard layout.</p>
+    ///   
+    pub accesskey: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Controls whether and how text input is automatically capitalized as it is entered/edited by the user. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>off</code> or <code>none</code>, no autocapitalization is applied (all letters default to lowercase)</li>
+    ///       <li><code>on</code> or <code>sentences</code>, the first letter of each sentence defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>words</code>, the first letter of each word defaults to a capital letter; all other letters default to lowercase</li>
+    ///       <li><code>characters</code>, all letters should default to uppercase</li>
+    ///     </ul>
+    ///   
+    pub autocapitalize: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Indicates that an element is to be focused on page load, or as soon as the <a href="/en-US/docs/Web/HTML/Element/dialog"><code>&lt;dialog&gt;</code></a> it is part of is displayed. This attribute is a boolean, initially false.</p>
+    ///   
+    pub autofocus: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>A space-separated list of the classes of the element. Classes allow CSS and JavaScript to select and access specific elements via the <a href="/en-US/docs/Web/CSS/Class_selectors">class selectors</a> or functions like the method <a href="/en-US/docs/Web/API/Document/getElementsByClassName"><code>Document.getElementsByClassName()</code></a>.</p>
+    ///   
+    pub class: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>An <a href="/en-US/docs/Glossary/Enumerated">enumerated</a> attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code> or the <em>empty string</em>, which indicates that the element must be editable;</li>
+    ///       <li><code>false</code>, which indicates that the element must not be editable.</li>
+    ///     </ul>
+    ///   
+    pub contenteditable: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>The <a href="#id"><strong><code>id</code></strong></a> of a <a href="/en-US/docs/Web/HTML/Element/menu"><code>&lt;menu&gt;</code></a> to use as the contextual menu for this element.</p>
+    ///   
+    pub contextmenu: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Forms a class of attributes, called custom data attributes, that allow proprietary information to be exchanged between the <a href="/en-US/docs/Web/HTML">HTML</a> and its <a href="/en-US/docs/Glossary/DOM">DOM</a> representation that may be used by scripts. All such custom data are available via the <a href="/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> interface of the element the attribute is set on. The <a href="/en-US/docs/Web/API/HTMLElement/dataset"><code>HTMLElement.dataset</code></a> property gives access to them.</p>
+    ///   
+    #[cfg(feature = "alloc")]
+    pub data: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating the directionality of the element's text. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>ltr</code>, which means <em>left to right</em> and is to be used for languages that are written from the left to the right (like English);</li>
+    ///       <li><code>rtl</code>, which means <em>right to left</em> and is to be used for languages that are written from the right to the left (like Arabic);</li>
+    ///       <li><code>auto</code>, which lets the user agent decide. It uses a basic algorithm as it parses the characters inside the element until it finds a character with a strong directionality, then it applies that directionality to the whole element.</li>
+    ///     </ul>
+    ///   
+    pub dir: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating whether the element can be dragged, using the <a href="/en-US/docs/Web/API/HTML_Drag_and_Drop_API">Drag and Drop API</a>. It can have the following values:</p>
+    ///     <ul>
+    ///       <li><code>true</code>, which indicates that the element may be dragged</li>
+    ///       <li><code>false</code>, which indicates that the element may not be dragged.</li>
+    ///     </ul>
+    ///   
+    pub draggable: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Hints what action label (or icon) to present for the enter key on virtual keyboards.</p>
+    ///   
+    pub enterkeyhint: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Used to transitively export shadow parts from a nested shadow tree into a containing light tree.</p>
+    ///   
+    pub exportparts: core::option::Option<AttributeValueOwned>,
+    /// /// Extra attributes of the element. This is a map of attribute names to their values, and the attribute names are in lowercase.
+    #[cfg(feature = "alloc")]
+    pub extra: alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>,
+    ///
+    ///     <p>An enumerated attribute indicating that the element is not yet, or is no longer, <em>relevant</em>. For example, it can be used to hide elements of the page that can't be used until the login process has been completed. The browser won't render such elements. This attribute must not be used to hide content that could legitimately be shown.</p>
+    ///   
+    pub hidden: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Defines a unique identifier (ID) which must be unique in the whole document. Its purpose is to identify the element when linking (using a fragment identifier), scripting, or styling (with CSS).</p>
+    ///   
+    pub id: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>A boolean value that makes the browser disregard user input events for the element. Useful when click events are present.</p>
+    ///   
+    pub inert: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Provides a hint to browsers about the type of virtual keyboard configuration to use when editing this element or its contents. Used primarily on <a href="/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code></a> elements, but is usable on any element while in <a href="#contenteditable"><code>contenteditable</code></a> mode.</p>
+    ///   
+    pub inputmode: core::option::Option<AttributeValueOwned>,
+    ///
+    ///     <p>Allows you to specify that a standard HTML element should behave like a registered custom built-in element (see <a href="/en-US/docs/Web/API/Web_components/Using_custom_elements">Using custom elements</a> for more details).</p>
+    ///   
+    pub is: core::option::Option<AttributeValueOwned>,
+}
+#[allow(deprecated)]
+#[cfg(feature = "alloc")]
+impl H6Owned {
+    /// Get the tag name of the element.
+    /// This is the same as the name of the struct, in kebab-case.
+    pub fn tag() -> &'static str {
+        "h6"
+    }
+    /// Sets an attribute of the element.
+    /// This sets the attribute of the struct. If the attribute is not a known attribute, it is added to the `extra` map.
+    /// If the `alloc` feature is disabled, this function will silently fail.
+    ///
+    /// # Note
+    /// This only works when the attribute is lowercase.
+    pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
+        match name {
+            "accesskey" => self.accesskey = Some(value.into()),
+            "autocapitalize" => self.autocapitalize = Some(value.into()),
+            "autofocus" => self.autofocus = Some(value.into()),
+            "class" => self.class = Some(value.into()),
+            "contenteditable" => self.contenteditable = Some(value.into()),
+            "contextmenu" => self.contextmenu = Some(value.into()),
+            "dir" => self.dir = Some(value.into()),
+            "draggable" => self.draggable = Some(value.into()),
+            "enterkeyhint" => self.enterkeyhint = Some(value.into()),
+            "exportparts" => self.exportparts = Some(value.into()),
+            "hidden" => self.hidden = Some(value.into()),
+            "id" => self.id = Some(value.into()),
+            "inert" => self.inert = Some(value.into()),
+            "inputmode" => self.inputmode = Some(value.into()),
+            "is" => self.is = Some(value.into()),
+            #[cfg(feature = "alloc")]
+            _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -42283,7 +43921,6 @@ impl<'life> Unknown<'life> {
         name: &'life str,
         value: impl core::convert::Into<AttributeValue<'life>>,
     ) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -42303,6 +43940,7 @@ impl<'life> Unknown<'life> {
             "tag_name" => self.tag_name = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -42419,7 +44057,6 @@ impl UnknownOwned {
     /// # Note
     /// This only works when the attribute is lowercase.
     pub fn set_attr(&mut self, name: &str, value: impl core::convert::Into<AttributeValueOwned>) {
-        let name = name.as_ref();
         match name {
             "accesskey" => self.accesskey = Some(value.into()),
             "autocapitalize" => self.autocapitalize = Some(value.into()),
@@ -42439,6 +44076,7 @@ impl UnknownOwned {
             "tag_name" => self.tag_name = Some(value.into()),
             #[cfg(feature = "alloc")]
             _ => {
+                #[allow(clippy::useless_conversion)]
                 self.extra.insert(name.into(), value.into());
             }
             #[cfg(not(feature = "alloc"))]
@@ -42606,6 +44244,12 @@ pub enum Element<'life> {
     Tt(Tt<'life>),
     #[deprecated]
     Xmp(Xmp<'life>),
+    H1(H1<'life>),
+    H2(H2<'life>),
+    H3(H3<'life>),
+    H4(H4<'life>),
+    H5(H5<'life>),
+    H6(H6<'life>),
     Unknown(Unknown<'life>),
 }
 #[allow(deprecated)]
@@ -42745,6 +44389,12 @@ impl<'life> Element<'life> {
             "strike" => Self::Strike(Strike::default()),
             "tt" => Self::Tt(Tt::default()),
             "xmp" => Self::Xmp(Xmp::default()),
+            "h1" => Self::H1(H1::default()),
+            "h2" => Self::H2(H2::default()),
+            "h3" => Self::H3(H3::default()),
+            "h4" => Self::H4(H4::default()),
+            "h5" => Self::H5(H5::default()),
+            "h6" => Self::H6(H6::default()),
             "unknown" => Self::Unknown(Unknown::default()),
             _ => Self::default(),
         }
@@ -42883,6 +44533,12 @@ impl<'life> Element<'life> {
             Self::Strike(_) => Strike::tag(),
             Self::Tt(_) => Tt::tag(),
             Self::Xmp(_) => Xmp::tag(),
+            Self::H1(_) => H1::tag(),
+            Self::H2(_) => H2::tag(),
+            Self::H3(_) => H3::tag(),
+            Self::H4(_) => H4::tag(),
+            Self::H5(_) => H5::tag(),
+            Self::H6(_) => H6::tag(),
             Self::Unknown(_) => Unknown::tag(),
         }
     }
@@ -43029,6 +44685,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.set_attr(name, value),
             Self::Tt(e) => e.set_attr(name, value),
             Self::Xmp(e) => e.set_attr(name, value),
+            Self::H1(e) => e.set_attr(name, value),
+            Self::H2(e) => e.set_attr(name, value),
+            Self::H3(e) => e.set_attr(name, value),
+            Self::H4(e) => e.set_attr(name, value),
+            Self::H5(e) => e.set_attr(name, value),
+            Self::H6(e) => e.set_attr(name, value),
             Self::Unknown(e) => e.set_attr(name, value),
         }
     }
@@ -43172,6 +44834,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.accesskey,
             Self::Tt(e) => e.accesskey,
             Self::Xmp(e) => e.accesskey,
+            Self::H1(e) => e.accesskey,
+            Self::H2(e) => e.accesskey,
+            Self::H3(e) => e.accesskey,
+            Self::H4(e) => e.accesskey,
+            Self::H5(e) => e.accesskey,
+            Self::H6(e) => e.accesskey,
             Self::Unknown(e) => e.accesskey,
         }
     }
@@ -43318,6 +44986,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.autocapitalize,
             Self::Tt(e) => e.autocapitalize,
             Self::Xmp(e) => e.autocapitalize,
+            Self::H1(e) => e.autocapitalize,
+            Self::H2(e) => e.autocapitalize,
+            Self::H3(e) => e.autocapitalize,
+            Self::H4(e) => e.autocapitalize,
+            Self::H5(e) => e.autocapitalize,
+            Self::H6(e) => e.autocapitalize,
             Self::Unknown(e) => e.autocapitalize,
         }
     }
@@ -43458,6 +45132,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.autofocus,
             Self::Tt(e) => e.autofocus,
             Self::Xmp(e) => e.autofocus,
+            Self::H1(e) => e.autofocus,
+            Self::H2(e) => e.autofocus,
+            Self::H3(e) => e.autofocus,
+            Self::H4(e) => e.autofocus,
+            Self::H5(e) => e.autofocus,
+            Self::H6(e) => e.autofocus,
             Self::Unknown(e) => e.autofocus,
         }
     }
@@ -43598,6 +45278,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.class,
             Self::Tt(e) => e.class,
             Self::Xmp(e) => e.class,
+            Self::H1(e) => e.class,
+            Self::H2(e) => e.class,
+            Self::H3(e) => e.class,
+            Self::H4(e) => e.class,
+            Self::H5(e) => e.class,
+            Self::H6(e) => e.class,
             Self::Unknown(e) => e.class,
         }
     }
@@ -43742,6 +45428,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.contenteditable,
             Self::Tt(e) => e.contenteditable,
             Self::Xmp(e) => e.contenteditable,
+            Self::H1(e) => e.contenteditable,
+            Self::H2(e) => e.contenteditable,
+            Self::H3(e) => e.contenteditable,
+            Self::H4(e) => e.contenteditable,
+            Self::H5(e) => e.contenteditable,
+            Self::H6(e) => e.contenteditable,
             Self::Unknown(e) => e.contenteditable,
         }
     }
@@ -43882,6 +45574,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.contextmenu,
             Self::Tt(e) => e.contextmenu,
             Self::Xmp(e) => e.contextmenu,
+            Self::H1(e) => e.contextmenu,
+            Self::H2(e) => e.contextmenu,
+            Self::H3(e) => e.contextmenu,
+            Self::H4(e) => e.contextmenu,
+            Self::H5(e) => e.contextmenu,
+            Self::H6(e) => e.contextmenu,
             Self::Unknown(e) => e.contextmenu,
         }
     }
@@ -44022,6 +45720,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => &e.data,
             Self::Tt(e) => &e.data,
             Self::Xmp(e) => &e.data,
+            Self::H1(e) => &e.data,
+            Self::H2(e) => &e.data,
+            Self::H3(e) => &e.data,
+            Self::H4(e) => &e.data,
+            Self::H5(e) => &e.data,
+            Self::H6(e) => &e.data,
             Self::Unknown(e) => &e.data,
         }
     }
@@ -44167,6 +45871,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.dir,
             Self::Tt(e) => e.dir,
             Self::Xmp(e) => e.dir,
+            Self::H1(e) => e.dir,
+            Self::H2(e) => e.dir,
+            Self::H3(e) => e.dir,
+            Self::H4(e) => e.dir,
+            Self::H5(e) => e.dir,
+            Self::H6(e) => e.dir,
             Self::Unknown(e) => e.dir,
         }
     }
@@ -44311,6 +46021,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.draggable,
             Self::Tt(e) => e.draggable,
             Self::Xmp(e) => e.draggable,
+            Self::H1(e) => e.draggable,
+            Self::H2(e) => e.draggable,
+            Self::H3(e) => e.draggable,
+            Self::H4(e) => e.draggable,
+            Self::H5(e) => e.draggable,
+            Self::H6(e) => e.draggable,
             Self::Unknown(e) => e.draggable,
         }
     }
@@ -44451,6 +46167,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.enterkeyhint,
             Self::Tt(e) => e.enterkeyhint,
             Self::Xmp(e) => e.enterkeyhint,
+            Self::H1(e) => e.enterkeyhint,
+            Self::H2(e) => e.enterkeyhint,
+            Self::H3(e) => e.enterkeyhint,
+            Self::H4(e) => e.enterkeyhint,
+            Self::H5(e) => e.enterkeyhint,
+            Self::H6(e) => e.enterkeyhint,
             Self::Unknown(e) => e.enterkeyhint,
         }
     }
@@ -44591,6 +46313,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.exportparts,
             Self::Tt(e) => e.exportparts,
             Self::Xmp(e) => e.exportparts,
+            Self::H1(e) => e.exportparts,
+            Self::H2(e) => e.exportparts,
+            Self::H3(e) => e.exportparts,
+            Self::H4(e) => e.exportparts,
+            Self::H5(e) => e.exportparts,
+            Self::H6(e) => e.exportparts,
             Self::Unknown(e) => e.exportparts,
         }
     }
@@ -44729,6 +46457,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => &e.extra,
             Self::Tt(e) => &e.extra,
             Self::Xmp(e) => &e.extra,
+            Self::H1(e) => &e.extra,
+            Self::H2(e) => &e.extra,
+            Self::H3(e) => &e.extra,
+            Self::H4(e) => &e.extra,
+            Self::H5(e) => &e.extra,
+            Self::H6(e) => &e.extra,
             Self::Unknown(e) => &e.extra,
         }
     }
@@ -44869,6 +46603,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.hidden,
             Self::Tt(e) => e.hidden,
             Self::Xmp(e) => e.hidden,
+            Self::H1(e) => e.hidden,
+            Self::H2(e) => e.hidden,
+            Self::H3(e) => e.hidden,
+            Self::H4(e) => e.hidden,
+            Self::H5(e) => e.hidden,
+            Self::H6(e) => e.hidden,
             Self::Unknown(e) => e.hidden,
         }
     }
@@ -45009,6 +46749,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.id,
             Self::Tt(e) => e.id,
             Self::Xmp(e) => e.id,
+            Self::H1(e) => e.id,
+            Self::H2(e) => e.id,
+            Self::H3(e) => e.id,
+            Self::H4(e) => e.id,
+            Self::H5(e) => e.id,
+            Self::H6(e) => e.id,
             Self::Unknown(e) => e.id,
         }
     }
@@ -45149,6 +46895,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.inert,
             Self::Tt(e) => e.inert,
             Self::Xmp(e) => e.inert,
+            Self::H1(e) => e.inert,
+            Self::H2(e) => e.inert,
+            Self::H3(e) => e.inert,
+            Self::H4(e) => e.inert,
+            Self::H5(e) => e.inert,
+            Self::H6(e) => e.inert,
             Self::Unknown(e) => e.inert,
         }
     }
@@ -45289,6 +47041,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.inputmode,
             Self::Tt(e) => e.inputmode,
             Self::Xmp(e) => e.inputmode,
+            Self::H1(e) => e.inputmode,
+            Self::H2(e) => e.inputmode,
+            Self::H3(e) => e.inputmode,
+            Self::H4(e) => e.inputmode,
+            Self::H5(e) => e.inputmode,
+            Self::H6(e) => e.inputmode,
             Self::Unknown(e) => e.inputmode,
         }
     }
@@ -45429,6 +47187,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.is,
             Self::Tt(e) => e.is,
             Self::Xmp(e) => e.is,
+            Self::H1(e) => e.is,
+            Self::H2(e) => e.is,
+            Self::H3(e) => e.is,
+            Self::H4(e) => e.is,
+            Self::H5(e) => e.is,
+            Self::H6(e) => e.is,
             Self::Unknown(e) => e.is,
         }
     }
@@ -45569,6 +47333,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.accesskey.replace(val),
             Self::Tt(e) => e.accesskey.replace(val),
             Self::Xmp(e) => e.accesskey.replace(val),
+            Self::H1(e) => e.accesskey.replace(val),
+            Self::H2(e) => e.accesskey.replace(val),
+            Self::H3(e) => e.accesskey.replace(val),
+            Self::H4(e) => e.accesskey.replace(val),
+            Self::H5(e) => e.accesskey.replace(val),
+            Self::H6(e) => e.accesskey.replace(val),
             Self::Unknown(e) => e.accesskey.replace(val),
         };
     }
@@ -45715,6 +47485,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.autocapitalize.replace(val),
             Self::Tt(e) => e.autocapitalize.replace(val),
             Self::Xmp(e) => e.autocapitalize.replace(val),
+            Self::H1(e) => e.autocapitalize.replace(val),
+            Self::H2(e) => e.autocapitalize.replace(val),
+            Self::H3(e) => e.autocapitalize.replace(val),
+            Self::H4(e) => e.autocapitalize.replace(val),
+            Self::H5(e) => e.autocapitalize.replace(val),
+            Self::H6(e) => e.autocapitalize.replace(val),
             Self::Unknown(e) => e.autocapitalize.replace(val),
         };
     }
@@ -45855,6 +47631,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.autofocus.replace(val),
             Self::Tt(e) => e.autofocus.replace(val),
             Self::Xmp(e) => e.autofocus.replace(val),
+            Self::H1(e) => e.autofocus.replace(val),
+            Self::H2(e) => e.autofocus.replace(val),
+            Self::H3(e) => e.autofocus.replace(val),
+            Self::H4(e) => e.autofocus.replace(val),
+            Self::H5(e) => e.autofocus.replace(val),
+            Self::H6(e) => e.autofocus.replace(val),
             Self::Unknown(e) => e.autofocus.replace(val),
         };
     }
@@ -45995,6 +47777,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.class.replace(val),
             Self::Tt(e) => e.class.replace(val),
             Self::Xmp(e) => e.class.replace(val),
+            Self::H1(e) => e.class.replace(val),
+            Self::H2(e) => e.class.replace(val),
+            Self::H3(e) => e.class.replace(val),
+            Self::H4(e) => e.class.replace(val),
+            Self::H5(e) => e.class.replace(val),
+            Self::H6(e) => e.class.replace(val),
             Self::Unknown(e) => e.class.replace(val),
         };
     }
@@ -46139,6 +47927,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.contenteditable.replace(val),
             Self::Tt(e) => e.contenteditable.replace(val),
             Self::Xmp(e) => e.contenteditable.replace(val),
+            Self::H1(e) => e.contenteditable.replace(val),
+            Self::H2(e) => e.contenteditable.replace(val),
+            Self::H3(e) => e.contenteditable.replace(val),
+            Self::H4(e) => e.contenteditable.replace(val),
+            Self::H5(e) => e.contenteditable.replace(val),
+            Self::H6(e) => e.contenteditable.replace(val),
             Self::Unknown(e) => e.contenteditable.replace(val),
         };
     }
@@ -46279,6 +48073,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.contextmenu.replace(val),
             Self::Tt(e) => e.contextmenu.replace(val),
             Self::Xmp(e) => e.contextmenu.replace(val),
+            Self::H1(e) => e.contextmenu.replace(val),
+            Self::H2(e) => e.contextmenu.replace(val),
+            Self::H3(e) => e.contextmenu.replace(val),
+            Self::H4(e) => e.contextmenu.replace(val),
+            Self::H5(e) => e.contextmenu.replace(val),
+            Self::H6(e) => e.contextmenu.replace(val),
             Self::Unknown(e) => e.contextmenu.replace(val),
         };
     }
@@ -46424,6 +48224,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.dir.replace(val),
             Self::Tt(e) => e.dir.replace(val),
             Self::Xmp(e) => e.dir.replace(val),
+            Self::H1(e) => e.dir.replace(val),
+            Self::H2(e) => e.dir.replace(val),
+            Self::H3(e) => e.dir.replace(val),
+            Self::H4(e) => e.dir.replace(val),
+            Self::H5(e) => e.dir.replace(val),
+            Self::H6(e) => e.dir.replace(val),
             Self::Unknown(e) => e.dir.replace(val),
         };
     }
@@ -46568,6 +48374,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.draggable.replace(val),
             Self::Tt(e) => e.draggable.replace(val),
             Self::Xmp(e) => e.draggable.replace(val),
+            Self::H1(e) => e.draggable.replace(val),
+            Self::H2(e) => e.draggable.replace(val),
+            Self::H3(e) => e.draggable.replace(val),
+            Self::H4(e) => e.draggable.replace(val),
+            Self::H5(e) => e.draggable.replace(val),
+            Self::H6(e) => e.draggable.replace(val),
             Self::Unknown(e) => e.draggable.replace(val),
         };
     }
@@ -46708,6 +48520,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.enterkeyhint.replace(val),
             Self::Tt(e) => e.enterkeyhint.replace(val),
             Self::Xmp(e) => e.enterkeyhint.replace(val),
+            Self::H1(e) => e.enterkeyhint.replace(val),
+            Self::H2(e) => e.enterkeyhint.replace(val),
+            Self::H3(e) => e.enterkeyhint.replace(val),
+            Self::H4(e) => e.enterkeyhint.replace(val),
+            Self::H5(e) => e.enterkeyhint.replace(val),
+            Self::H6(e) => e.enterkeyhint.replace(val),
             Self::Unknown(e) => e.enterkeyhint.replace(val),
         };
     }
@@ -46848,6 +48666,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.exportparts.replace(val),
             Self::Tt(e) => e.exportparts.replace(val),
             Self::Xmp(e) => e.exportparts.replace(val),
+            Self::H1(e) => e.exportparts.replace(val),
+            Self::H2(e) => e.exportparts.replace(val),
+            Self::H3(e) => e.exportparts.replace(val),
+            Self::H4(e) => e.exportparts.replace(val),
+            Self::H5(e) => e.exportparts.replace(val),
+            Self::H6(e) => e.exportparts.replace(val),
             Self::Unknown(e) => e.exportparts.replace(val),
         };
     }
@@ -46988,6 +48812,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.hidden.replace(val),
             Self::Tt(e) => e.hidden.replace(val),
             Self::Xmp(e) => e.hidden.replace(val),
+            Self::H1(e) => e.hidden.replace(val),
+            Self::H2(e) => e.hidden.replace(val),
+            Self::H3(e) => e.hidden.replace(val),
+            Self::H4(e) => e.hidden.replace(val),
+            Self::H5(e) => e.hidden.replace(val),
+            Self::H6(e) => e.hidden.replace(val),
             Self::Unknown(e) => e.hidden.replace(val),
         };
     }
@@ -47128,6 +48958,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.id.replace(val),
             Self::Tt(e) => e.id.replace(val),
             Self::Xmp(e) => e.id.replace(val),
+            Self::H1(e) => e.id.replace(val),
+            Self::H2(e) => e.id.replace(val),
+            Self::H3(e) => e.id.replace(val),
+            Self::H4(e) => e.id.replace(val),
+            Self::H5(e) => e.id.replace(val),
+            Self::H6(e) => e.id.replace(val),
             Self::Unknown(e) => e.id.replace(val),
         };
     }
@@ -47268,6 +49104,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.inert.replace(val),
             Self::Tt(e) => e.inert.replace(val),
             Self::Xmp(e) => e.inert.replace(val),
+            Self::H1(e) => e.inert.replace(val),
+            Self::H2(e) => e.inert.replace(val),
+            Self::H3(e) => e.inert.replace(val),
+            Self::H4(e) => e.inert.replace(val),
+            Self::H5(e) => e.inert.replace(val),
+            Self::H6(e) => e.inert.replace(val),
             Self::Unknown(e) => e.inert.replace(val),
         };
     }
@@ -47408,6 +49250,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.inputmode.replace(val),
             Self::Tt(e) => e.inputmode.replace(val),
             Self::Xmp(e) => e.inputmode.replace(val),
+            Self::H1(e) => e.inputmode.replace(val),
+            Self::H2(e) => e.inputmode.replace(val),
+            Self::H3(e) => e.inputmode.replace(val),
+            Self::H4(e) => e.inputmode.replace(val),
+            Self::H5(e) => e.inputmode.replace(val),
+            Self::H6(e) => e.inputmode.replace(val),
             Self::Unknown(e) => e.inputmode.replace(val),
         };
     }
@@ -47548,6 +49396,12 @@ impl<'life> Element<'life> {
             Self::Strike(e) => e.is.replace(val),
             Self::Tt(e) => e.is.replace(val),
             Self::Xmp(e) => e.is.replace(val),
+            Self::H1(e) => e.is.replace(val),
+            Self::H2(e) => e.is.replace(val),
+            Self::H3(e) => e.is.replace(val),
+            Self::H4(e) => e.is.replace(val),
+            Self::H5(e) => e.is.replace(val),
+            Self::H6(e) => e.is.replace(val),
             Self::Unknown(e) => e.is.replace(val),
         };
     }
@@ -47719,6 +49573,12 @@ pub enum ElementOwned {
     Tt(TtOwned),
     #[deprecated]
     Xmp(XmpOwned),
+    H1(H1Owned),
+    H2(H2Owned),
+    H3(H3Owned),
+    H4(H4Owned),
+    H5(H5Owned),
+    H6(H6Owned),
     Unknown(UnknownOwned),
 }
 #[allow(deprecated)]
@@ -47858,6 +49718,12 @@ impl ElementOwned {
             "strike" => Self::Strike(StrikeOwned::default()),
             "tt" => Self::Tt(TtOwned::default()),
             "xmp" => Self::Xmp(XmpOwned::default()),
+            "h1" => Self::H1(H1Owned::default()),
+            "h2" => Self::H2(H2Owned::default()),
+            "h3" => Self::H3(H3Owned::default()),
+            "h4" => Self::H4(H4Owned::default()),
+            "h5" => Self::H5(H5Owned::default()),
+            "h6" => Self::H6(H6Owned::default()),
             "unknown" => Self::Unknown(UnknownOwned::default()),
             _ => Self::default(),
         }
@@ -47996,6 +49862,12 @@ impl ElementOwned {
             Self::Strike(_) => Strike::tag(),
             Self::Tt(_) => Tt::tag(),
             Self::Xmp(_) => Xmp::tag(),
+            Self::H1(_) => H1::tag(),
+            Self::H2(_) => H2::tag(),
+            Self::H3(_) => H3::tag(),
+            Self::H4(_) => H4::tag(),
+            Self::H5(_) => H5::tag(),
+            Self::H6(_) => H6::tag(),
             Self::Unknown(_) => Unknown::tag(),
         }
     }
@@ -48138,6 +50010,12 @@ impl ElementOwned {
             Self::Strike(e) => e.set_attr(name, value),
             Self::Tt(e) => e.set_attr(name, value),
             Self::Xmp(e) => e.set_attr(name, value),
+            Self::H1(e) => e.set_attr(name, value),
+            Self::H2(e) => e.set_attr(name, value),
+            Self::H3(e) => e.set_attr(name, value),
+            Self::H4(e) => e.set_attr(name, value),
+            Self::H5(e) => e.set_attr(name, value),
+            Self::H6(e) => e.set_attr(name, value),
             Self::Unknown(e) => e.set_attr(name, value),
         }
     }
@@ -48281,6 +50159,12 @@ impl ElementOwned {
             Self::Strike(e) => e.accesskey.as_ref(),
             Self::Tt(e) => e.accesskey.as_ref(),
             Self::Xmp(e) => e.accesskey.as_ref(),
+            Self::H1(e) => e.accesskey.as_ref(),
+            Self::H2(e) => e.accesskey.as_ref(),
+            Self::H3(e) => e.accesskey.as_ref(),
+            Self::H4(e) => e.accesskey.as_ref(),
+            Self::H5(e) => e.accesskey.as_ref(),
+            Self::H6(e) => e.accesskey.as_ref(),
             Self::Unknown(e) => e.accesskey.as_ref(),
         }
     }
@@ -48427,6 +50311,12 @@ impl ElementOwned {
             Self::Strike(e) => e.autocapitalize.as_ref(),
             Self::Tt(e) => e.autocapitalize.as_ref(),
             Self::Xmp(e) => e.autocapitalize.as_ref(),
+            Self::H1(e) => e.autocapitalize.as_ref(),
+            Self::H2(e) => e.autocapitalize.as_ref(),
+            Self::H3(e) => e.autocapitalize.as_ref(),
+            Self::H4(e) => e.autocapitalize.as_ref(),
+            Self::H5(e) => e.autocapitalize.as_ref(),
+            Self::H6(e) => e.autocapitalize.as_ref(),
             Self::Unknown(e) => e.autocapitalize.as_ref(),
         }
     }
@@ -48567,6 +50457,12 @@ impl ElementOwned {
             Self::Strike(e) => e.autofocus.as_ref(),
             Self::Tt(e) => e.autofocus.as_ref(),
             Self::Xmp(e) => e.autofocus.as_ref(),
+            Self::H1(e) => e.autofocus.as_ref(),
+            Self::H2(e) => e.autofocus.as_ref(),
+            Self::H3(e) => e.autofocus.as_ref(),
+            Self::H4(e) => e.autofocus.as_ref(),
+            Self::H5(e) => e.autofocus.as_ref(),
+            Self::H6(e) => e.autofocus.as_ref(),
             Self::Unknown(e) => e.autofocus.as_ref(),
         }
     }
@@ -48707,6 +50603,12 @@ impl ElementOwned {
             Self::Strike(e) => e.class.as_ref(),
             Self::Tt(e) => e.class.as_ref(),
             Self::Xmp(e) => e.class.as_ref(),
+            Self::H1(e) => e.class.as_ref(),
+            Self::H2(e) => e.class.as_ref(),
+            Self::H3(e) => e.class.as_ref(),
+            Self::H4(e) => e.class.as_ref(),
+            Self::H5(e) => e.class.as_ref(),
+            Self::H6(e) => e.class.as_ref(),
             Self::Unknown(e) => e.class.as_ref(),
         }
     }
@@ -48851,6 +50753,12 @@ impl ElementOwned {
             Self::Strike(e) => e.contenteditable.as_ref(),
             Self::Tt(e) => e.contenteditable.as_ref(),
             Self::Xmp(e) => e.contenteditable.as_ref(),
+            Self::H1(e) => e.contenteditable.as_ref(),
+            Self::H2(e) => e.contenteditable.as_ref(),
+            Self::H3(e) => e.contenteditable.as_ref(),
+            Self::H4(e) => e.contenteditable.as_ref(),
+            Self::H5(e) => e.contenteditable.as_ref(),
+            Self::H6(e) => e.contenteditable.as_ref(),
             Self::Unknown(e) => e.contenteditable.as_ref(),
         }
     }
@@ -48991,6 +50899,12 @@ impl ElementOwned {
             Self::Strike(e) => e.contextmenu.as_ref(),
             Self::Tt(e) => e.contextmenu.as_ref(),
             Self::Xmp(e) => e.contextmenu.as_ref(),
+            Self::H1(e) => e.contextmenu.as_ref(),
+            Self::H2(e) => e.contextmenu.as_ref(),
+            Self::H3(e) => e.contextmenu.as_ref(),
+            Self::H4(e) => e.contextmenu.as_ref(),
+            Self::H5(e) => e.contextmenu.as_ref(),
+            Self::H6(e) => e.contextmenu.as_ref(),
             Self::Unknown(e) => e.contextmenu.as_ref(),
         }
     }
@@ -49133,6 +51047,12 @@ impl ElementOwned {
             Self::Strike(e) => &e.data,
             Self::Tt(e) => &e.data,
             Self::Xmp(e) => &e.data,
+            Self::H1(e) => &e.data,
+            Self::H2(e) => &e.data,
+            Self::H3(e) => &e.data,
+            Self::H4(e) => &e.data,
+            Self::H5(e) => &e.data,
+            Self::H6(e) => &e.data,
             Self::Unknown(e) => &e.data,
         }
     }
@@ -49278,6 +51198,12 @@ impl ElementOwned {
             Self::Strike(e) => e.dir.as_ref(),
             Self::Tt(e) => e.dir.as_ref(),
             Self::Xmp(e) => e.dir.as_ref(),
+            Self::H1(e) => e.dir.as_ref(),
+            Self::H2(e) => e.dir.as_ref(),
+            Self::H3(e) => e.dir.as_ref(),
+            Self::H4(e) => e.dir.as_ref(),
+            Self::H5(e) => e.dir.as_ref(),
+            Self::H6(e) => e.dir.as_ref(),
             Self::Unknown(e) => e.dir.as_ref(),
         }
     }
@@ -49422,6 +51348,12 @@ impl ElementOwned {
             Self::Strike(e) => e.draggable.as_ref(),
             Self::Tt(e) => e.draggable.as_ref(),
             Self::Xmp(e) => e.draggable.as_ref(),
+            Self::H1(e) => e.draggable.as_ref(),
+            Self::H2(e) => e.draggable.as_ref(),
+            Self::H3(e) => e.draggable.as_ref(),
+            Self::H4(e) => e.draggable.as_ref(),
+            Self::H5(e) => e.draggable.as_ref(),
+            Self::H6(e) => e.draggable.as_ref(),
             Self::Unknown(e) => e.draggable.as_ref(),
         }
     }
@@ -49562,6 +51494,12 @@ impl ElementOwned {
             Self::Strike(e) => e.enterkeyhint.as_ref(),
             Self::Tt(e) => e.enterkeyhint.as_ref(),
             Self::Xmp(e) => e.enterkeyhint.as_ref(),
+            Self::H1(e) => e.enterkeyhint.as_ref(),
+            Self::H2(e) => e.enterkeyhint.as_ref(),
+            Self::H3(e) => e.enterkeyhint.as_ref(),
+            Self::H4(e) => e.enterkeyhint.as_ref(),
+            Self::H5(e) => e.enterkeyhint.as_ref(),
+            Self::H6(e) => e.enterkeyhint.as_ref(),
             Self::Unknown(e) => e.enterkeyhint.as_ref(),
         }
     }
@@ -49702,6 +51640,12 @@ impl ElementOwned {
             Self::Strike(e) => e.exportparts.as_ref(),
             Self::Tt(e) => e.exportparts.as_ref(),
             Self::Xmp(e) => e.exportparts.as_ref(),
+            Self::H1(e) => e.exportparts.as_ref(),
+            Self::H2(e) => e.exportparts.as_ref(),
+            Self::H3(e) => e.exportparts.as_ref(),
+            Self::H4(e) => e.exportparts.as_ref(),
+            Self::H5(e) => e.exportparts.as_ref(),
+            Self::H6(e) => e.exportparts.as_ref(),
             Self::Unknown(e) => e.exportparts.as_ref(),
         }
     }
@@ -49842,6 +51786,12 @@ impl ElementOwned {
             Self::Strike(e) => &e.extra,
             Self::Tt(e) => &e.extra,
             Self::Xmp(e) => &e.extra,
+            Self::H1(e) => &e.extra,
+            Self::H2(e) => &e.extra,
+            Self::H3(e) => &e.extra,
+            Self::H4(e) => &e.extra,
+            Self::H5(e) => &e.extra,
+            Self::H6(e) => &e.extra,
             Self::Unknown(e) => &e.extra,
         }
     }
@@ -49982,6 +51932,12 @@ impl ElementOwned {
             Self::Strike(e) => e.hidden.as_ref(),
             Self::Tt(e) => e.hidden.as_ref(),
             Self::Xmp(e) => e.hidden.as_ref(),
+            Self::H1(e) => e.hidden.as_ref(),
+            Self::H2(e) => e.hidden.as_ref(),
+            Self::H3(e) => e.hidden.as_ref(),
+            Self::H4(e) => e.hidden.as_ref(),
+            Self::H5(e) => e.hidden.as_ref(),
+            Self::H6(e) => e.hidden.as_ref(),
             Self::Unknown(e) => e.hidden.as_ref(),
         }
     }
@@ -50122,6 +52078,12 @@ impl ElementOwned {
             Self::Strike(e) => e.id.as_ref(),
             Self::Tt(e) => e.id.as_ref(),
             Self::Xmp(e) => e.id.as_ref(),
+            Self::H1(e) => e.id.as_ref(),
+            Self::H2(e) => e.id.as_ref(),
+            Self::H3(e) => e.id.as_ref(),
+            Self::H4(e) => e.id.as_ref(),
+            Self::H5(e) => e.id.as_ref(),
+            Self::H6(e) => e.id.as_ref(),
             Self::Unknown(e) => e.id.as_ref(),
         }
     }
@@ -50262,6 +52224,12 @@ impl ElementOwned {
             Self::Strike(e) => e.inert.as_ref(),
             Self::Tt(e) => e.inert.as_ref(),
             Self::Xmp(e) => e.inert.as_ref(),
+            Self::H1(e) => e.inert.as_ref(),
+            Self::H2(e) => e.inert.as_ref(),
+            Self::H3(e) => e.inert.as_ref(),
+            Self::H4(e) => e.inert.as_ref(),
+            Self::H5(e) => e.inert.as_ref(),
+            Self::H6(e) => e.inert.as_ref(),
             Self::Unknown(e) => e.inert.as_ref(),
         }
     }
@@ -50402,6 +52370,12 @@ impl ElementOwned {
             Self::Strike(e) => e.inputmode.as_ref(),
             Self::Tt(e) => e.inputmode.as_ref(),
             Self::Xmp(e) => e.inputmode.as_ref(),
+            Self::H1(e) => e.inputmode.as_ref(),
+            Self::H2(e) => e.inputmode.as_ref(),
+            Self::H3(e) => e.inputmode.as_ref(),
+            Self::H4(e) => e.inputmode.as_ref(),
+            Self::H5(e) => e.inputmode.as_ref(),
+            Self::H6(e) => e.inputmode.as_ref(),
             Self::Unknown(e) => e.inputmode.as_ref(),
         }
     }
@@ -50542,6 +52516,12 @@ impl ElementOwned {
             Self::Strike(e) => e.is.as_ref(),
             Self::Tt(e) => e.is.as_ref(),
             Self::Xmp(e) => e.is.as_ref(),
+            Self::H1(e) => e.is.as_ref(),
+            Self::H2(e) => e.is.as_ref(),
+            Self::H3(e) => e.is.as_ref(),
+            Self::H4(e) => e.is.as_ref(),
+            Self::H5(e) => e.is.as_ref(),
+            Self::H6(e) => e.is.as_ref(),
             Self::Unknown(e) => e.is.as_ref(),
         }
     }
@@ -50682,6 +52662,12 @@ impl ElementOwned {
             Self::Strike(e) => e.accesskey.replace(val),
             Self::Tt(e) => e.accesskey.replace(val),
             Self::Xmp(e) => e.accesskey.replace(val),
+            Self::H1(e) => e.accesskey.replace(val),
+            Self::H2(e) => e.accesskey.replace(val),
+            Self::H3(e) => e.accesskey.replace(val),
+            Self::H4(e) => e.accesskey.replace(val),
+            Self::H5(e) => e.accesskey.replace(val),
+            Self::H6(e) => e.accesskey.replace(val),
             Self::Unknown(e) => e.accesskey.replace(val),
         };
     }
@@ -50828,6 +52814,12 @@ impl ElementOwned {
             Self::Strike(e) => e.autocapitalize.replace(val),
             Self::Tt(e) => e.autocapitalize.replace(val),
             Self::Xmp(e) => e.autocapitalize.replace(val),
+            Self::H1(e) => e.autocapitalize.replace(val),
+            Self::H2(e) => e.autocapitalize.replace(val),
+            Self::H3(e) => e.autocapitalize.replace(val),
+            Self::H4(e) => e.autocapitalize.replace(val),
+            Self::H5(e) => e.autocapitalize.replace(val),
+            Self::H6(e) => e.autocapitalize.replace(val),
             Self::Unknown(e) => e.autocapitalize.replace(val),
         };
     }
@@ -50968,6 +52960,12 @@ impl ElementOwned {
             Self::Strike(e) => e.autofocus.replace(val),
             Self::Tt(e) => e.autofocus.replace(val),
             Self::Xmp(e) => e.autofocus.replace(val),
+            Self::H1(e) => e.autofocus.replace(val),
+            Self::H2(e) => e.autofocus.replace(val),
+            Self::H3(e) => e.autofocus.replace(val),
+            Self::H4(e) => e.autofocus.replace(val),
+            Self::H5(e) => e.autofocus.replace(val),
+            Self::H6(e) => e.autofocus.replace(val),
             Self::Unknown(e) => e.autofocus.replace(val),
         };
     }
@@ -51108,6 +53106,12 @@ impl ElementOwned {
             Self::Strike(e) => e.class.replace(val),
             Self::Tt(e) => e.class.replace(val),
             Self::Xmp(e) => e.class.replace(val),
+            Self::H1(e) => e.class.replace(val),
+            Self::H2(e) => e.class.replace(val),
+            Self::H3(e) => e.class.replace(val),
+            Self::H4(e) => e.class.replace(val),
+            Self::H5(e) => e.class.replace(val),
+            Self::H6(e) => e.class.replace(val),
             Self::Unknown(e) => e.class.replace(val),
         };
     }
@@ -51252,6 +53256,12 @@ impl ElementOwned {
             Self::Strike(e) => e.contenteditable.replace(val),
             Self::Tt(e) => e.contenteditable.replace(val),
             Self::Xmp(e) => e.contenteditable.replace(val),
+            Self::H1(e) => e.contenteditable.replace(val),
+            Self::H2(e) => e.contenteditable.replace(val),
+            Self::H3(e) => e.contenteditable.replace(val),
+            Self::H4(e) => e.contenteditable.replace(val),
+            Self::H5(e) => e.contenteditable.replace(val),
+            Self::H6(e) => e.contenteditable.replace(val),
             Self::Unknown(e) => e.contenteditable.replace(val),
         };
     }
@@ -51392,6 +53402,12 @@ impl ElementOwned {
             Self::Strike(e) => e.contextmenu.replace(val),
             Self::Tt(e) => e.contextmenu.replace(val),
             Self::Xmp(e) => e.contextmenu.replace(val),
+            Self::H1(e) => e.contextmenu.replace(val),
+            Self::H2(e) => e.contextmenu.replace(val),
+            Self::H3(e) => e.contextmenu.replace(val),
+            Self::H4(e) => e.contextmenu.replace(val),
+            Self::H5(e) => e.contextmenu.replace(val),
+            Self::H6(e) => e.contextmenu.replace(val),
             Self::Unknown(e) => e.contextmenu.replace(val),
         };
     }
@@ -51537,6 +53553,12 @@ impl ElementOwned {
             Self::Strike(e) => e.dir.replace(val),
             Self::Tt(e) => e.dir.replace(val),
             Self::Xmp(e) => e.dir.replace(val),
+            Self::H1(e) => e.dir.replace(val),
+            Self::H2(e) => e.dir.replace(val),
+            Self::H3(e) => e.dir.replace(val),
+            Self::H4(e) => e.dir.replace(val),
+            Self::H5(e) => e.dir.replace(val),
+            Self::H6(e) => e.dir.replace(val),
             Self::Unknown(e) => e.dir.replace(val),
         };
     }
@@ -51681,6 +53703,12 @@ impl ElementOwned {
             Self::Strike(e) => e.draggable.replace(val),
             Self::Tt(e) => e.draggable.replace(val),
             Self::Xmp(e) => e.draggable.replace(val),
+            Self::H1(e) => e.draggable.replace(val),
+            Self::H2(e) => e.draggable.replace(val),
+            Self::H3(e) => e.draggable.replace(val),
+            Self::H4(e) => e.draggable.replace(val),
+            Self::H5(e) => e.draggable.replace(val),
+            Self::H6(e) => e.draggable.replace(val),
             Self::Unknown(e) => e.draggable.replace(val),
         };
     }
@@ -51821,6 +53849,12 @@ impl ElementOwned {
             Self::Strike(e) => e.enterkeyhint.replace(val),
             Self::Tt(e) => e.enterkeyhint.replace(val),
             Self::Xmp(e) => e.enterkeyhint.replace(val),
+            Self::H1(e) => e.enterkeyhint.replace(val),
+            Self::H2(e) => e.enterkeyhint.replace(val),
+            Self::H3(e) => e.enterkeyhint.replace(val),
+            Self::H4(e) => e.enterkeyhint.replace(val),
+            Self::H5(e) => e.enterkeyhint.replace(val),
+            Self::H6(e) => e.enterkeyhint.replace(val),
             Self::Unknown(e) => e.enterkeyhint.replace(val),
         };
     }
@@ -51961,6 +53995,12 @@ impl ElementOwned {
             Self::Strike(e) => e.exportparts.replace(val),
             Self::Tt(e) => e.exportparts.replace(val),
             Self::Xmp(e) => e.exportparts.replace(val),
+            Self::H1(e) => e.exportparts.replace(val),
+            Self::H2(e) => e.exportparts.replace(val),
+            Self::H3(e) => e.exportparts.replace(val),
+            Self::H4(e) => e.exportparts.replace(val),
+            Self::H5(e) => e.exportparts.replace(val),
+            Self::H6(e) => e.exportparts.replace(val),
             Self::Unknown(e) => e.exportparts.replace(val),
         };
     }
@@ -52101,6 +54141,12 @@ impl ElementOwned {
             Self::Strike(e) => e.hidden.replace(val),
             Self::Tt(e) => e.hidden.replace(val),
             Self::Xmp(e) => e.hidden.replace(val),
+            Self::H1(e) => e.hidden.replace(val),
+            Self::H2(e) => e.hidden.replace(val),
+            Self::H3(e) => e.hidden.replace(val),
+            Self::H4(e) => e.hidden.replace(val),
+            Self::H5(e) => e.hidden.replace(val),
+            Self::H6(e) => e.hidden.replace(val),
             Self::Unknown(e) => e.hidden.replace(val),
         };
     }
@@ -52241,6 +54287,12 @@ impl ElementOwned {
             Self::Strike(e) => e.id.replace(val),
             Self::Tt(e) => e.id.replace(val),
             Self::Xmp(e) => e.id.replace(val),
+            Self::H1(e) => e.id.replace(val),
+            Self::H2(e) => e.id.replace(val),
+            Self::H3(e) => e.id.replace(val),
+            Self::H4(e) => e.id.replace(val),
+            Self::H5(e) => e.id.replace(val),
+            Self::H6(e) => e.id.replace(val),
             Self::Unknown(e) => e.id.replace(val),
         };
     }
@@ -52381,6 +54433,12 @@ impl ElementOwned {
             Self::Strike(e) => e.inert.replace(val),
             Self::Tt(e) => e.inert.replace(val),
             Self::Xmp(e) => e.inert.replace(val),
+            Self::H1(e) => e.inert.replace(val),
+            Self::H2(e) => e.inert.replace(val),
+            Self::H3(e) => e.inert.replace(val),
+            Self::H4(e) => e.inert.replace(val),
+            Self::H5(e) => e.inert.replace(val),
+            Self::H6(e) => e.inert.replace(val),
             Self::Unknown(e) => e.inert.replace(val),
         };
     }
@@ -52521,6 +54579,12 @@ impl ElementOwned {
             Self::Strike(e) => e.inputmode.replace(val),
             Self::Tt(e) => e.inputmode.replace(val),
             Self::Xmp(e) => e.inputmode.replace(val),
+            Self::H1(e) => e.inputmode.replace(val),
+            Self::H2(e) => e.inputmode.replace(val),
+            Self::H3(e) => e.inputmode.replace(val),
+            Self::H4(e) => e.inputmode.replace(val),
+            Self::H5(e) => e.inputmode.replace(val),
+            Self::H6(e) => e.inputmode.replace(val),
             Self::Unknown(e) => e.inputmode.replace(val),
         };
     }
@@ -52661,6 +54725,12 @@ impl ElementOwned {
             Self::Strike(e) => e.is.replace(val),
             Self::Tt(e) => e.is.replace(val),
             Self::Xmp(e) => e.is.replace(val),
+            Self::H1(e) => e.is.replace(val),
+            Self::H2(e) => e.is.replace(val),
+            Self::H3(e) => e.is.replace(val),
+            Self::H4(e) => e.is.replace(val),
+            Self::H5(e) => e.is.replace(val),
+            Self::H6(e) => e.is.replace(val),
             Self::Unknown(e) => e.is.replace(val),
         };
     }
