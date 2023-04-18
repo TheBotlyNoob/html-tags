@@ -64,12 +64,21 @@ fn main() {
         #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
         #[cfg(feature = \"alloc\")]
         pub enum AttributeValueOwned {
+            #[cfg(not(feature = \"tendril\"))]
             Str(alloc::string::String),
+            #[cfg(feature = \"tendril\")]
+            Str(tendril::Tendril<tendril::fmt::UTF8>),
             Bool(bool),
         }
-        #[cfg(feature = \"alloc\")]
+        #[cfg(all(feature = \"alloc\", not(feature = \"tendril\")))]
         impl core::convert::From<alloc::string::String> for AttributeValueOwned {
             fn from(s: alloc::string::String) -> Self {
+                AttributeValueOwned::Str(s)
+            }
+        }
+        #[cfg(all(feature = \"alloc\", feature = \"tendril\"))]
+        impl core::convert::From<tendril::Tendril<tendril::fmt::UTF8>> for AttributeValueOwned {
+            fn from(s: tendril::Tendril<tendril::fmt::UTF8>) -> Self {
                 AttributeValueOwned::Str(s)
             }
         }
@@ -78,7 +87,7 @@ fn main() {
             fn from(b: bool) -> Self {
                 AttributeValueOwned::Bool(b)
             }
-        }",
+        }        ",
     )
     .into_bytes();
     for e in document.select(&selector) {

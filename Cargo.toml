@@ -1,6 +1,6 @@
 [package]
 name = "html-tags"
-version = "0.0.11"
+version = "0.0.12"
 edition = "2021"
 repository = "https://github.com/fournii/html-tags"
 description = "An automated list of HTML tags with their attributes and values"
@@ -9,6 +9,10 @@ license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[dependencies]
+tendril = { version = "0.4.3", optional = true }
+
 [features]
-default = ["alloc"]
+default = ["alloc", "tendril"]
 alloc = []
+tendril = ["dep:tendril", "alloc"]
