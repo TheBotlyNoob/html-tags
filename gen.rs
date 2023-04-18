@@ -43,7 +43,42 @@ fn main() {
         
         #![no_std]
         #[cfg(feature = \"alloc\")]
-        extern crate alloc;",
+        extern crate alloc;
+        
+        #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+        pub enum AttributeValue<'life> {
+            Str(&'life str),
+            Bool(bool),
+        }
+        impl<'life> core::convert::From<&'life str> for AttributeValue<'life> {
+            fn from(s: &'life str) -> Self {
+                AttributeValue::Str(s)
+            }
+        }
+        impl<'life> core::convert::From<bool> for AttributeValue<'life> {
+            fn from(b: bool) -> Self {
+                AttributeValue::Bool(b)
+            }
+        }
+
+        #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+        #[cfg(feature = \"alloc\")]
+        pub enum AttributeValueOwned {
+            Str(alloc::string::String),
+            Bool(bool),
+        }
+        #[cfg(feature = \"alloc\")]
+        impl core::convert::From<alloc::string::String> for AttributeValueOwned {
+            fn from(s: alloc::string::String) -> Self {
+                AttributeValueOwned::Str(s)
+            }
+        }
+        #[cfg(feature = \"alloc\")]
+        impl core::convert::From<bool> for AttributeValueOwned {
+            fn from(b: bool) -> Self {
+                AttributeValueOwned::Bool(b)
+            }
+        }",
     )
     .into_bytes();
     for e in document.select(&selector) {
@@ -104,7 +139,11 @@ fn main() {
                 let mut attrs = global_attrs.clone();
                 attrs.insert(
                     "tag_name".to_string(),
-                    (tag_name_doc.clone(), "&'life str".to_string(), false),
+                    (
+                        tag_name_doc.clone(),
+                        "AttributeValue<'life>".to_string(),
+                        false,
+                    ),
                 );
                 attrs
             },
@@ -121,7 +160,7 @@ fn main() {
                     "tag_name".to_string(),
                     (
                         tag_name_doc.clone(),
-                        "alloc::string::String".to_string(),
+                        "AttributeValueOwned".to_string(),
                         false,
                     ),
                 );
@@ -163,9 +202,9 @@ fn get_global_attrs(owned: bool) -> Vec<(String, (String, String, bool))> {
             "/// Extra attributes of the element. This is a map of attribute names to their values, and the attribute names are in lowercase."
                 .to_string(),
             if owned {
-                "alloc::collections::BTreeMap<alloc::string::String, alloc::string::String>"
+                "alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>"
             } else {
-                "alloc::collections::BTreeMap<&'life str, &'life str>"
+                "alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>"
             }
             .to_string(),
             true,
@@ -238,27 +277,21 @@ fn dl_to_attrs(dl: ElementRef, owned: bool) -> Vec<(String, (String, String, boo
             .replace('\n', "\n/// ");
         let name = name.to_snake_case();
 
-        let (ty, alloc) = match name.as_str() {
+        let (ty, special) = match name.as_str() {
             "data" => (
                 if owned {
-                    "alloc::collections::BTreeMap<alloc::string::String, alloc::string::String>"
+                    "alloc::collections::BTreeMap<alloc::string::String, AttributeValueOwned>"
                 } else {
-                    "alloc::collections::BTreeMap<&'life str, &'life str>"
+                    "alloc::collections::BTreeMap<&'life str, AttributeValue<'life>>"
                 },
                 true,
             ),
 
             _ => (
-                match name.as_str() {
-                    "autofocus" | "checked" | "disabled" | "multiple" | "readonly" | "required"
-                    | "selected" | "novalidate" | "formnovalidate" | "hidden" => "bool",
-                    _ => {
-                        if owned {
-                            "alloc::string::String"
-                        } else {
-                            "&'life str"
-                        }
-                    }
+                if owned {
+                    "AttributeValueOwned"
+                } else {
+                    "AttributeValue<'life>"
                 },
                 false,
             ),
@@ -270,7 +303,7 @@ fn dl_to_attrs(dl: ElementRef, owned: bool) -> Vec<(String, (String, String, boo
             } else {
                 name
             },
-            (desc, ty.to_string(), alloc),
+            (desc, ty.to_string(), special),
         ));
     }
     attrs
@@ -301,6 +334,24 @@ fn write_elem(
             pub fn tag() -> &'static str {{
                 \"{kebab}\"
             }}
+            /// Sets an attribute of the element.
+            /// This sets the attribute of the struct. If the attribute is not a known attribute, it is added to the `extra` map.
+            /// If the `alloc` feature is disabled, this function will silently fail.
+            /// 
+            /// # Note
+            /// This only works when the attribute is lowercase.
+            pub fn set_attr(&mut self, name: &{6} str, value: {7}) {{
+                let name = name.as_ref();
+                match name {{
+                    {8},
+                    #[cfg(feature = \"alloc\")]
+                    _ => {{
+                        self.extra.insert(name.into(), value.into());
+                    }}
+                    #[cfg(not(feature = \"alloc\"))]
+                    _ => {{}}
+                }}
+            }}
         }}",
         doc,
         if deprecated { "#[deprecated]" } else { "" },
@@ -313,15 +364,32 @@ fn write_elem(
         if owned { "Owned" } else { "" },
         attrs
             .iter()
-            .format_with(",\n/// ", |(name, (desc, ty, alloc)), f| f(&format_args!(
+            .format_with(",\n/// ", |(name, (desc, ty, special)), f| f(&format_args!(
                 "{desc}
                 {}
-                pub {name}: core::option::Option<{ty}>",
-                if *alloc {
+                pub {name}: {}",
+                if *special {
                     "#[cfg(feature = \"alloc\")]"
                 } else {
                     ""
                 },
+                if *special {
+                    ty.to_string()
+                } else {
+                    format!("core::option::Option<{}>", ty)
+                },
+            ))),
+        if owned { "" } else { " 'life" },
+        if owned {
+            "impl core::convert::Into<AttributeValueOwned>"
+        } else {
+            "impl core::convert::Into<AttributeValue<'life>>"
+        },
+        attrs
+            .iter()
+            .filter(|(_, (_, _, special))| !special)
+            .format_with(",\n", |(name, _), f| f(&format_args!(
+                "\"{name}\" => self.{name} = Some(value.into())",
             ))),
         kebab = AsKebabCase(name.clone()),
     )
@@ -375,6 +443,17 @@ fn write_elem_enum(
                     {4},
                 }}
             }}
+            /// Sets an attribute of the element.
+            /// This sets the attribute of the struct. If the attribute is not a known attribute, it is added to the `extra` map.
+            /// If the `alloc` feature is disabled, this function will silently fail.
+            /// 
+            /// # Note
+            /// This only works when the attribute is lowercase.
+            pub fn set_attr(&mut self, name: &{5} str, value: {6}) {{
+                match self {{
+                    {7},
+                }}
+            }}
         }}",
         if owned {
             "#[cfg(feature = \"alloc\")]"
@@ -390,6 +469,15 @@ fn write_elem_enum(
         ))),
         elems.iter().format_with(",\n", |(e, _), f| f(&format_args!(
             "Self::{e}(_) => {e}::tag()",
+        ))),
+        if owned { "" } else { " 'life" },
+        if owned {
+            "impl core::convert::Into<AttributeValueOwned>"
+        } else {
+            "impl core::convert::Into<AttributeValue<'life>>"
+        },
+        elems.iter().format_with(",\n", |(e, _), f| f(&format_args!(
+            "Self::{e}(e) => e.set_attr(name, value)",
         ))),
     )
     .unwrap();
@@ -410,28 +498,37 @@ fn write_elem_enum(
         if owned { "Owned" } else { "" },
         global_attrs
             .iter()
-            .format_with("\n", |(name, (desc, ty, alloc)), f| f(&format_args!(
+            .format_with("\n", |(name, (desc, ty, special)), f| f(&format_args!(
                 "{desc}
                 {}
-                pub fn {name}(&self) -> core::option::Option<{}{ty}> {{
+                pub fn {name}(&self) -> {}{}{}{} {{
                     match self {{
                         {}
                     }}
                 }}",
-                if *alloc || owned {
+                if *special || owned {
                     "#[cfg(feature = \"alloc\")]"
                 } else {
                     ""
                 },
-                if *alloc || owned { "&" } else { "" },
+                if *special {
+                    ""
+                } else {
+                    "core::option::Option<"
+                },
+                if *special || owned { "&" } else { "" },
+                ty,
+                if *special { "" } else { ">" },
                 elems.iter().format_with(",", |(e, _), f| f(&format_args!(
-                    "Self::{e}(e) => e.{name}{}",
-                    if *alloc || owned { ".as_ref()" } else { "" }
+                    "Self::{e}(e) => {}e.{name}{}",
+                    if *special { "&" } else { "" },
+                    if !*special && owned { ".as_ref()" } else { "" }
                 )))
             ))),
         global_attrs
             .iter()
-            .format_with("\n", |(name, (desc, ty, alloc)), f| f(&format_args!(
+            .filter(|(_, (_, _, special))| !special)
+            .format_with("\n", |(name, (desc, ty, special)), f| f(&format_args!(
                 "{desc}
                     {}
                     pub fn set_{name}(&mut self, val: {ty}) {{
@@ -439,7 +536,7 @@ fn write_elem_enum(
                             {}
                         }};
                     }}",
-                if *alloc || owned {
+                if *special || owned {
                     "#[cfg(feature = \"alloc\")]"
                 } else {
                     ""
